@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Quotes - {{ source }}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            color: #2c5530;
+            margin-bottom: 10px;
+        }
+        
+        .header .author {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .filter-group {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .stats-bar {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.85em;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .quotes-container {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .quote-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: box-shadow 0.2s;
+        }
+        
+        .quote-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .quote-card.accepted {
+            border-left: 4px solid #4a7c59;
+        }
+        
+        .quote-card.rejected {
+            border-left: 4px solid #d32f2f;
+            opacity: 0.8;
+        }
+        
+        .quote-card.pending {
+            border-left: 4px solid #ff9800;
+        }
+        
+        .quote-card.collapsed .quote-content {
+            display: none;
+        }
+        
+        .quote-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .quote-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+        
+        .collapse-arrow {
+            font-size: 1.2em;
+            color: #666;
+            transition: transform 0.3s ease;
+            min-width: 20px;
+        }
+        
+        .quote-card.collapsed .collapse-arrow {
+            transform: rotate(-90deg);
+        }
+        
+        .quote-content {
+            transition: opacity 0.3s ease;
+        }
+        
+        
+        .quote-id {
+            font-size: 0.85em;
+            color: #999;
+            font-family: monospace;
+        }
+        
+        .quote-score {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .quote-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        
+        .quote-text textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            font-family: inherit;
+            resize: vertical;
+        }
+        
+        .quote-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .quote-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .quote-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        
+        .btn-approve {
+            background: #4a7c59;
+            color: white;
+        }
+        
+        .btn-approve:hover {
+            background: #3d6549;
+        }
+        
+        .btn-reject {
+            background: #d32f2f;
+            color: white;
+        }
+        
+        .btn-reject:hover {
+            background: #b71c1c;
+        }
+        
+        .btn-reject:disabled {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+        
+        .btn-approve:disabled {
+            background: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+        
+        .btn-edit {
+            background: #2196F3;
+            color: white;
+        }
+        
+        .btn-edit:hover {
+            background: #1976D2;
+        }
+        
+        .btn-save {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-save:hover {
+            background: #45a049;
+        }
+        
+        .btn-cancel {
+            background: #f44336;
+            color: white;
+        }
+        
+        .btn-cancel:hover {
+            background: #da190b;
+        }
+        
+        .notes-section {
+            margin-top: 15px;
+        }
+        
+        .notes-section textarea {
+            width: 100%;
+            min-height: 60px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-family: inherit;
+            resize: vertical;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2c5530;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .themes {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        
+        .theme-tag {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Groups</a>
+        
+        <div class="header">
+            <h1>{{ source }}</h1>
+            <div class="author">by {{ author }}</div>
+            <div style="font-size: 0.9em; color: #999;">Method: {{ extraction_method }}</div>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-label">Total Quotes</div>
+                <div class="stat-value" id="stat-total">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Accepted</div>
+                <div class="stat-value" id="stat-accepted" style="color: #4a7c59;">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Rejected</div>
+                <div class="stat-value" id="stat-rejected" style="color: #d32f2f;">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Pending</div>
+                <div class="stat-value" id="stat-pending" style="color: #ff9800;">-</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Showing</div>
+                <div class="stat-value" id="stat-showing">-</div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="filter-group">
+                <label>Filter by Status</label>
+                <select id="filter-status">
+                    <option value="">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="accepted">Accepted</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Filter by Type</label>
+                <select id="filter-type">
+                    <option value="">All Types</option>
+                    <option value="quote">Quote</option>
+                    <option value="statement">Statement</option>
+                    <option value="slogan">Slogan</option>
+                    <option value="fact">Fact</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Min Importance Score</label>
+                <input type="number" id="filter-score" min="0" max="1" step="0.1" value="0">
+            </div>
+            <div class="filter-group">
+                <label>Search</label>
+                <input type="text" id="filter-search" placeholder="Search quotes...">
+            </div>
+        </div>
+        
+        <div id="quotes-container" class="quotes-container">
+            <div class="loading">Loading quotes...</div>
+        </div>
+    </div>
+    
+    <script>
+        const groupName = '{{ group_name }}';
+        let quotes = [];
+        let editingQuoteId = null;
+        
+        function getQuoteStatus(quote) {
+            // Support both old format (approved boolean) and new format (status field)
+            if (quote.status) {
+                const status = quote.status.toLowerCase();
+                if (status === 'pending' || status === 'accepted' || status === 'rejected') {
+                    return status;
+                }
+            }
+            // Legacy support: convert approved boolean to status
+            if (quote.approved === true) {
+                return 'accepted';
+            }
+            // Default to pending if no status or approved field
+            return 'pending';
+        }
+        
+        function loadQuotes() {
+            const params = new URLSearchParams();
+            const filterStatusEl = document.getElementById('filter-status');
+            const filterTypeEl = document.getElementById('filter-type');
+            const filterScoreEl = document.getElementById('filter-score');
+            const filterSearchEl = document.getElementById('filter-search');
+            
+            const status = filterStatusEl ? filterStatusEl.value : '';
+            const type = filterTypeEl ? filterTypeEl.value : '';
+            const score = filterScoreEl ? filterScoreEl.value : '';
+            const search = filterSearchEl ? filterSearchEl.value : '';
+            
+            if (status) params.append('status', status);
+            if (type) params.append('type', type);
+            if (score) params.append('min_score', score);
+            if (search) params.append('search', search);
+            
+            fetch(`/api/quotes/${groupName}?${params}`)
+                .then(r => {
+                    if (!r.ok) {
+                        throw new Error(`HTTP error! status: ${r.status}`);
+                    }
+                    return r.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    quotes = data.quotes || [];
+                    document.getElementById('stat-total').textContent = data.total || 0;
+                    document.getElementById('stat-accepted').textContent = data.accepted || 0;
+                    document.getElementById('stat-rejected').textContent = data.rejected || 0;
+                    document.getElementById('stat-pending').textContent = data.pending || 0;
+                    document.getElementById('stat-showing').textContent = data.filtered || 0;
+                    renderQuotes();
+                })
+                .catch(err => {
+                    console.error('Error loading quotes:', err);
+                    document.getElementById('quotes-container').innerHTML = 
+                        `<div class="loading">Error loading quotes: ${err.message}. Please check the browser console for details.</div>`;
+                });
+        }
+        
+        function renderQuotes() {
+            const container = document.getElementById('quotes-container');
+            
+            // Get current filter status
+            const filterStatusEl = document.getElementById('filter-status');
+            const currentFilter = filterStatusEl ? filterStatusEl.value : '';
+            
+            // Filter quotes client-side as well (safety check - backend should already filter)
+            // This ensures that when filtering by 'pending', we NEVER show accepted or rejected quotes
+            let quotesToRender = quotes;
+            if (currentFilter) {
+                quotesToRender = quotes.filter(quote => {
+                    const status = getQuoteStatus(quote);
+                    // Strict filtering: only show quotes that match the current filter exactly
+                    const shouldShow = status === currentFilter;
+                    // Extra safety: if filtering by pending, explicitly exclude accepted/rejected
+                    if (currentFilter === 'pending' && (status === 'accepted' || status === 'rejected')) {
+                        return false;
+                    }
+                    return shouldShow;
+                });
+            }
+            
+            if (quotesToRender.length === 0) {
+                container.innerHTML = '<div class="loading">No quotes found matching your filters.</div>';
+                return;
+            }
+            
+            container.innerHTML = quotesToRender.map(quote => {
+                const status = getQuoteStatus(quote);
+                const isEditing = editingQuoteId === quote.id;
+                // Only collapse accepted quotes if not filtering by a specific status
+                const isCollapsed = (status === 'accepted' && !currentFilter) || false;
+                
+                const statusBadges = {
+                    'accepted': '<span style="background: #4a7c59; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;">ACCEPTED</span>',
+                    'rejected': '<span style="background: #d32f2f; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;">REJECTED</span>',
+                    'pending': '<span style="background: #ff9800; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;">PENDING</span>'
+                };
+                
+                return `
+                    <div class="quote-card ${status} ${isCollapsed ? 'collapsed' : ''}" id="card-${quote.id}">
+                        <div class="quote-header" onclick="toggleCollapse('${quote.id}')">
+                            <div class="quote-header-left">
+                                <span class="collapse-arrow">▼</span>
+                                <div class="quote-id">${quote.id}</div>
+                                ${statusBadges[status] || ''}
+                            </div>
+                            <div class="quote-score">Score: ${(quote.importance_score || 0).toFixed(2)}</div>
+                        </div>
+                        <div class="quote-content">
+                            <div class="quote-text">
+                                ${isEditing ? 
+                                    `<textarea id="edit-text-${quote.id}">${quote.text}</textarea>` :
+                                    quote.text
+                                }
+                            </div>
+                            <div class="quote-meta">
+                                <span><strong>Type:</strong> ${quote.type || 'quote'}</span>
+                                ${quote.context ? `<span><strong>Context:</strong> ${quote.context}</span>` : ''}
+                                ${quote.chunk_id ? `<span><strong>Chunk:</strong> ${quote.chunk_id}</span>` : ''}
+                            </div>
+                            ${quote.themes && quote.themes.length > 0 ? `
+                                <div class="themes">
+                                    ${quote.themes.map(t => `<span class="theme-tag">${t}</span>`).join('')}
+                                </div>
+                            ` : ''}
+                            <div class="notes-section">
+                                <label><strong>Notes:</strong></label>
+                                <textarea id="notes-${quote.id}" placeholder="Add your notes here...">${quote.notes || ''}</textarea>
+                            </div>
+                            <div class="quote-actions">
+                                ${isEditing ? `
+                                    <button class="btn btn-save" onclick="saveQuote('${quote.id}')">Save</button>
+                                    <button class="btn btn-cancel" onclick="cancelEdit('${quote.id}')">Cancel</button>
+                                ` : `
+                                    <button class="btn btn-edit" onclick="editQuote('${quote.id}')">Edit Text</button>
+                                    <button class="btn btn-approve" 
+                                            onclick="setStatus('${quote.id}', 'accepted'); event.stopPropagation();"
+                                            ${status === 'accepted' ? 'disabled' : ''}>
+                                        Accept
+                                    </button>
+                                    <button class="btn btn-reject" 
+                                            onclick="setStatus('${quote.id}', 'rejected'); event.stopPropagation();"
+                                            ${status === 'rejected' ? 'disabled' : ''}>
+                                        Reject
+                                    </button>
+                                    ${status !== 'pending' ? `
+                                        <button class="btn" style="background: #ff9800; color: white;" 
+                                                onclick="setStatus('${quote.id}', 'pending'); event.stopPropagation();">
+                                            Reset to Pending
+                                        </button>
+                                    ` : ''}
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function toggleCollapse(quoteId) {
+            const card = document.getElementById(`card-${quoteId}`);
+            if (card) {
+                card.classList.toggle('collapsed');
+            }
+        }
+        
+        function setStatus(quoteId, status) {
+            fetch(`/api/quotes/${groupName}/${quoteId}`, {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({status: status})
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    // Update the quote in our local array
+                    const quoteIndex = quotes.findIndex(q => q.id === quoteId);
+                    if (quoteIndex !== -1) {
+                        quotes[quoteIndex].status = status;
+                        // Remove old approved field if it exists
+                        if ('approved' in quotes[quoteIndex]) {
+                            delete quotes[quoteIndex]['approved'];
+                        }
+                    }
+                    // Reload quotes to get updated statistics
+                    loadQuotes();
+                }
+            })
+            .catch(err => {
+                alert('Error updating quote: ' + err);
+            });
+        }
+        
+        function editQuote(quoteId) {
+            editingQuoteId = quoteId;
+            // Expand the card when editing
+            const card = document.getElementById(`card-${quoteId}`);
+            if (card) {
+                card.classList.remove('collapsed');
+            }
+            renderQuotes();
+        }
+        
+        function cancelEdit(quoteId) {
+            editingQuoteId = null;
+            renderQuotes();
+        }
+        
+        function saveQuote(quoteId) {
+            const text = document.getElementById(`edit-text-${quoteId}`).value;
+            const notes = document.getElementById(`notes-${quoteId}`).value;
+            
+            fetch(`/api/quotes/${groupName}/${quoteId}`, {
+                method: 'PUT',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({text: text, notes: notes})
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    editingQuoteId = null;
+                    // Update local quote
+                    const quoteIndex = quotes.findIndex(q => q.id === quoteId);
+                    if (quoteIndex !== -1) {
+                        quotes[quoteIndex].text = text;
+                        quotes[quoteIndex].notes = notes;
+                    }
+                    renderQuotes();
+                }
+            })
+            .catch(err => {
+                alert('Error saving quote: ' + err);
+            });
+        }
+        
+        // Filter event listeners - wait for DOM to be ready
+        function setupEventListeners() {
+            const filterStatus = document.getElementById('filter-status');
+            const filterType = document.getElementById('filter-type');
+            const filterScore = document.getElementById('filter-score');
+            const filterSearch = document.getElementById('filter-search');
+            
+            if (filterStatus) filterStatus.addEventListener('change', loadQuotes);
+            if (filterType) filterType.addEventListener('change', loadQuotes);
+            if (filterScore) filterScore.addEventListener('change', loadQuotes);
+            if (filterSearch) filterSearch.addEventListener('input', loadQuotes);
+        }
+        
+        // Setup listeners when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                setupEventListeners();
+                loadQuotes();
+            });
+        } else {
+            // DOM is already loaded
+            setupEventListeners();
+            loadQuotes();
+        }
+    </script>
+</body>
+</html>

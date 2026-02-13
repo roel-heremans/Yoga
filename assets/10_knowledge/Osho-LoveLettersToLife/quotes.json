@@ -1,0 +1,410 @@
+{
+  "source": "Love Letters to Life",
+  "author": "Osho",
+  "extracted_at": "2026-02-06T13:56:41.903603",
+  "extraction_method": "intelligent",
+  "document_summary": {
+    "total_chunks": 1,
+    "main_themes": [
+      "spiritual",
+      "transcendence",
+      "human",
+      "consciousness",
+      "beyond",
+      "ordinary",
+      "states",
+      "importance",
+      "self-awareness",
+      "knowledge"
+    ],
+    "chapters_detected": 1,
+    "total_quotes_extracted": 10
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_001",
+      "position": 1,
+      "main_ideas": [
+        "The transcendence of human consciousness beyond ordinary states",
+        "The importance of self-awareness and knowledge over imposed religious education",
+        "The role of mindset and philosophy in societal conditions like poverty",
+        "The concept of suffering as a combined physical and spiritual experience",
+        "The critique of the guru-disciple hierarchy in spiritual learning"
+      ],
+      "quotes": [
+        {
+          "id": "chunk001_quote001",
+          "text": "Expressions such as avatar, tirthankara, and prophet only indicate man’s helplessness. This much is certain: some beings reach such a point in the upward journey of consciousness that to call them merely a human being is not meaningful.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "consciousness",
+            "transcendence"
+          ],
+          "relevance": "This quote relates to the main idea of transcendence of human consciousness beyond ordinary states. It discusses how certain individuals reach a higher level of consciousness.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote002",
+          "text": "The very effort of becoming a guru means someone will be imposed upon. Man must be saved from gurudom.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This quote criticizes the guru-disciple hierarchy in spiritual learning. It emphasizes the importance of self-awareness and knowledge over imposed religious education.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote003",
+          "text": "Only a simplicity born out of knowing has any spiritual value.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "spiritual",
+            "mindset",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This statement emphasizes the value of knowledge and self-awareness in spiritual growth and understanding.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote004",
+          "text": "The poor are poor because their thinking is wrong. Poverty is the result of our wrong thinking about life.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This quote highlights the role of mindset and philosophy in societal conditions like poverty. It suggests that a change in mindset can lead to a change in socio-economic conditions.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote005",
+          "text": "Suffering happens neither to the body nor to the soul. Suffering happens to the combination of the two, that is, to man.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This quote discusses the concept of suffering as a combined physical and spiritual experience, emphasizing the interconnectedness of the body and soul.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote006",
+          "text": "The disciple is primary, the master is secondary. But gurudom teaches the opposite of this.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This statement criticizes the guru-disciple hierarchy in spiritual learning, emphasizing the importance of the learner over the teacher.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote007",
+          "text": "Love is the freedom of the sky and marriage is a bondage of the earth.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This quote provides a philosophical perspective on love and marriage, contrasting their inherent freedoms and limitations.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote008",
+          "text": "Never escape from life. Escaping is suicide. Live life – its successes as well as its failures. Defeat and victory – both are necessary.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This statement provides practical guidance on life, encouraging acceptance and resilience in the face of victories and defeats.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote009",
+          "text": "The flowers of love can only bloom in freedom. So don’t let your marriage become a “marriage.” Let it remain love.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This quote provides practical guidance on maintaining love within marriage, emphasizing the importance of freedom.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote010",
+          "text": "Missing home is natural, and it tortures you until you have learned to turn every place into your home. This art is worth learning.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "mindset",
+            "human",
+            "transcendence",
+            "self-awareness"
+          ],
+          "relevance": "This quote provides practical guidance on dealing with homesickness and adapting to new environments. It emphasizes the importance of being open to change and finding comfort in unfamiliar places.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "1",
+          "title": "Expressions such as avatar, tirthankara, and prophet only indicate man’s helplessness. This much is certain: some beings reach such a point in the upward journey of consciousness that to call them merely a human being is not meaningful. Yet one has to call them something or the other, so these expressions are used to describe man’s transcendental states.",
+          "position": 19304,
+          "line": 256
+        }
+      ]
+    }
+  ],
+  "quotes": [
+    {
+      "id": "chunk001_quote001",
+      "text": "Expressions such as avatar, tirthankara, and prophet only indicate man’s helplessness. This much is certain: some beings reach such a point in the upward journey of consciousness that to call them merely a human being is not meaningful.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "consciousness",
+        "transcendence"
+      ],
+      "relevance": "This quote relates to the main idea of transcendence of human consciousness beyond ordinary states. It discusses how certain individuals reach a higher level of consciousness.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote005",
+      "text": "Suffering happens neither to the body nor to the soul. Suffering happens to the combination of the two, that is, to man.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This quote discusses the concept of suffering as a combined physical and spiritual experience, emphasizing the interconnectedness of the body and soul.",
+      "importance_score": 0.9400000000000001,
+      "approved": true,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote002",
+      "text": "The very effort of becoming a guru means someone will be imposed upon. Man must be saved from gurudom.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This quote criticizes the guru-disciple hierarchy in spiritual learning. It emphasizes the importance of self-awareness and knowledge over imposed religious education.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote004",
+      "text": "The poor are poor because their thinking is wrong. Poverty is the result of our wrong thinking about life.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This quote highlights the role of mindset and philosophy in societal conditions like poverty. It suggests that a change in mindset can lead to a change in socio-economic conditions.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote007",
+      "text": "Love is the freedom of the sky and marriage is a bondage of the earth.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This quote provides a philosophical perspective on love and marriage, contrasting their inherent freedoms and limitations.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote009",
+      "text": "The flowers of love can only bloom in freedom. So don’t let your marriage become a “marriage.” Let it remain love.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This quote provides practical guidance on maintaining love within marriage, emphasizing the importance of freedom.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote010",
+      "text": "Missing home is natural, and it tortures you until you have learned to turn every place into your home. This art is worth learning.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This quote provides practical guidance on dealing with homesickness and adapting to new environments. It emphasizes the importance of being open to change and finding comfort in unfamiliar places.",
+      "importance_score": 0.9,
+      "approved": true,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote003",
+      "text": "Only a simplicity born out of knowing has any spiritual value.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "spiritual",
+        "mindset",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This statement emphasizes the value of knowledge and self-awareness in spiritual growth and understanding.",
+      "importance_score": 0.87,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote006",
+      "text": "The disciple is primary, the master is secondary. But gurudom teaches the opposite of this.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This statement criticizes the guru-disciple hierarchy in spiritual learning, emphasizing the importance of the learner over the teacher.",
+      "importance_score": 0.85,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote008",
+      "text": "Never escape from life. Escaping is suicide. Live life – its successes as well as its failures. Defeat and victory – both are necessary.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "mindset",
+        "human",
+        "transcendence",
+        "self-awareness"
+      ],
+      "relevance": "This statement provides practical guidance on life, encouraging acceptance and resilience in the face of victories and defeats.",
+      "importance_score": 0.85,
+      "approved": false,
+      "notes": ""
+    }
+  ]
+}

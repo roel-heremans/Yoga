@@ -1,0 +1,89 @@
+brand:
+  name: Yoga Content Generator
+  website: ""
+  colors:
+    primary: '#2c5530'
+    secondary: '#4a7c59'
+    accent: '#8fbc8f'
+    text: '#2c2c2c'
+    background: '#ffffff'
+  fonts:
+    heading: Arial
+    body: Arial
+    weights:
+      heading: bold
+      body: normal
+literature_groups:
+- name: BhagavadGita
+  display_name: Bhagavad Gita
+  author: Eknath Easwaran
+  source_path: assets/10_knowledge/BhagavadGita
+- name: Iyengar-LightOnYoga
+  display_name: Light on Yoga
+  author: B.K.S. Iyengar
+  source_path: assets/10_knowledge/Iyengar-LightOnYoga
+- name: Iyengar-LightOnLife
+  display_name: Light on Life
+  author: B.K.S. Iyengar
+  source_path: assets/10_knowledge/Iyengar-LightOnLife
+- name: Iyengar-LightOnPranayama
+  display_name: Light on Pranayama
+  author: B.K.S. Iyengar
+  source_path: assets/10_knowledge/Iyengar-LightOnPranayama
+- name: Iyengar-LightOnYogaSutrasOfPatanjali
+  display_name: Light on the Yogasutras of Patanjali
+  author: B.K.S. Iyengar
+  source_path: assets/10_knowledge/Iyengar-LightOnYogaSutrasOfPatanjali
+- name: Upanishads
+  display_name: Upanishads
+  author: Swami Paramananda
+  source_path: assets/10_knowledge/Upanishads
+- name: Osho-LoveLettersToLife
+  display_name: Love Letters to Life
+  author: Osho
+  source_path: assets/10_knowledge/Osho-LoveLettersToLife
+quote_extraction:
+  method: intelligent  # 'simple' or 'intelligent'
+  chunk_size: 5000  # Characters per chunk
+  chunk_overlap: 500  # Overlap between chunks
+  max_quotes_per_chunk: 10
+  max_total_quotes: 100
+  min_quote_length: 20
+  max_quote_length: 500
+  enable_summarization: true
+  enable_thematic_tagging: true
+  # Key yoga concepts to prioritize during extraction
+  priority_concepts:
+    - sattva
+    - rajas
+    - tamas
+    - gunas
+    - prakriti
+    - purusha
+    - dharma
+    - karma
+    - moksha
+    - samadhi
+    - dhyana
+    - pranayama
+    - asana
+    - yama
+    - niyama
+    - chitta
+    - vrittis
+    - dharana
+    - pratyahara
+ai:
+  provider: openai
+  model: gpt-4
+  language: en
+instagram:
+  feed_dimensions:
+    width: 1080
+    height: 1080
+  reel_dimensions:
+    width: 1080
+    height: 1920
+  reel_duration:
+    min: 15
+    max: 90

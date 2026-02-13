@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Reviewer - Literature Groups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .group-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .group-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+        
+        .group-card h2 {
+            color: #2c5530;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        
+        .group-card .author {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .group-card .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 0.8em;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c5530;
+        }
+        
+        .approved-stat {
+            color: #4a7c59;
+        }
+        
+        .method-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .method-intelligent {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .method-simple {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📖 Quote Reviewer</h1>
+        <div class="groups-grid">
+            {% for group in groups %}
+            <a href="/review/{{ group.name }}" class="group-card">
+                <h2>{{ group.display_name }}</h2>
+                <div class="author">by {{ group.author }}</div>
+                <span class="method-badge method-{{ group.extraction_method }}">
+                    {{ group.extraction_method }} extraction
+                </span>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-label">Total Quotes</div>
+                        <div class="stat-value">{{ group.total_quotes }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Accepted</div>
+                        <div class="stat-value approved-stat">{{ group.accepted_quotes }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Rejected</div>
+                        <div class="stat-value" style="color: #d32f2f;">{{ group.rejected_quotes }}</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-label">Pending</div>
+                        <div class="stat-value" style="color: #ff9800;">{{ group.pending_quotes }}</div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
