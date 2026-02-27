@@ -6,10 +6,12 @@ Main entry point for generating Instagram content.
 """
 
 import click
+import random
 from pathlib import Path
 from src.content_generator import ContentGenerator
 from src.brand_extractor import BrandExtractor
 from src.pdf_preprocessor import PDFPreprocessor
+from src.quote_card_generator import QuoteCardGenerator
 from src.utils import load_config
 from colorama import init, Fore, Style
 
@@ -19,7 +21,7 @@ init(autoreset=True)
 
 @click.group()
 def cli():
-    """Instagram Content Generator for Real Health Kombucha."""
+    """Yoga Content Generator – quote cards, feed posts, and reels."""
     pass
 
 
@@ -323,6 +325,153 @@ def extract_quotes(group, all, force, intelligent, simple, chunk_size, max_quote
 
 
 @cli.command()
+@click.option('--group', '-g', help='Use quotes from a specific literature group')
+@click.option('--quote-id', help='Use a specific quote by ID')
+@click.option('--photo-dir', type=click.Path(exists=True, file_okay=False, dir_okay=True), help='Directory containing photos for overlay')
+@click.option('--video-dir', type=click.Path(exists=True, file_okay=False, dir_okay=True), help='Directory containing videos for overlay')
+@click.option('--num-photos', default=1, type=int, help='Number of photos to use (default: 1)')
+@click.option('--num-videos', default=1, type=int, help='Number of videos to use (default: 1)')
+@click.option('--white-background', is_flag=True, help='Also generate white background quote card')
+@click.option('--output-dir', type=click.Path(file_okay=False, dir_okay=True), help='Output directory for generated cards')
+@click.option('--music', '-m', type=click.Path(exists=True), help='Background music file for video overlay cards (.mp3, .wav, etc.)')
+@click.option('--image', '-i', type=click.Path(exists=True), multiple=True, help='Image(s) for video quote card; can be repeated. Total --duration is split across all images.')
+@click.option('--duration', default=15, type=int, help='Duration in seconds for image-video quote card (default: 15)')
+@click.option('--audio-fade', default=3, type=float, help='Seconds for music to fade to silence at end (default: 3)')
+@click.option('--video-fade', default=2, type=float, help='Seconds for video to fade to white at end (default: 2)')
+@click.option('--flyer-ajuda', is_flag=True, help='Add Ajuda flyer segment: white slide with Ajuda Public Garden class info (15s), then fade out')
+@click.option('--flyer-palheiro', is_flag=True, help='Add Palheiro flyer segment: white slide with Casa Velha do Palheiro class info (15s), then fade out')
+@click.option('--flyer-line1', default=None, help='Flyer first line (overrides preset when used with custom flyer)')
+@click.option('--flyer-line2', default=None, help='Flyer second line (overrides preset when used with custom flyer)')
+@click.option('--flyer-duration', default=15, type=int, help='Flyer segment duration in seconds (default: 15)')
+@click.option('--flyer-font-size', default=46, type=int, help='Flyer text font size (default: 46)')
+def generate_quote_cards(group, quote_id, photo_dir, video_dir, num_photos, num_videos, white_background, output_dir, music, image, duration, audio_fade, video_fade, flyer_ajuda, flyer_palheiro, flyer_line1, flyer_line2, flyer_duration, flyer_font_size):
+    """Generate quote cards from accepted quotes.
+    
+    Options:
+    - White background quote card
+    - Quote cards overlaid on photos
+    - Quote cards overlaid on videos
+    
+    Examples:
+    \b
+    # Generate white background card only
+    python3 main.py generate-quote-cards --white-background
+    
+    # Generate photo overlay cards
+    python3 main.py generate-quote-cards --photo-dir assets/01_images/Roel --num-photos 3
+    
+    # Generate video overlay cards
+    python3 main.py generate-quote-cards --video-dir assets/02_videos --num-videos 2
+    
+    # Generate all types
+    python3 main.py generate-quote-cards --white-background --photo-dir assets/01_images/Nina --video-dir assets/02_videos --num-photos 2 --num-videos 1
+    
+    # Image-as-video quote card (15s, quote on image, music fades to silence, video fades to white)
+    python3 main.py generate-quote-cards --image assets/01_images/Ajuda/photo-collage-01.png --duration 15 -m assets/00_music/your_track.wav
+
+    # With Ajuda flyer: quote 15s -> fade to white -> flyer 15s (white + Ajuda class info) -> fade to white, music fades out
+    python3 main.py generate-quote-cards --image assets/01_images/Ajuda/photo-collage-01.png --duration 15 -m assets/00_music/track.mp3 --flyer-ajuda
+
+    # With Palheiro flyer: same flow but Casa Velha do Palheiro class info
+    python3 main.py generate-quote-cards --image assets/01_images/Ajuda/photo-collage-01.png --duration 15 -m assets/00_music/track.mp3 --flyer-palheiro
+
+    # Multiple images: 30s total split across 3 images (10s each), same quote overlay
+    python3 main.py generate-quote-cards -i img1.png -i img2.png -i img3.png --duration 30 -m assets/00_music/track.mp3
+    """
+    try:
+        generator = QuoteCardGenerator()
+        
+        # Convert paths
+        photo_dir_path = Path(photo_dir) if photo_dir else None
+        video_dir_path = Path(video_dir) if video_dir else None
+        output_dir_path = Path(output_dir) if output_dir else None
+        music_path = Path(music) if music else None
+        image_paths = [Path(p) for p in image] if image else None
+        
+        # When generating image-video quote card without --music, pick a random track from assets/00_music
+        if image_paths and not music_path:
+            music_dir = Path(__file__).parent / 'assets' / '00_music'
+            if music_dir.exists():
+                music_files = []
+                for ext in ('*.mp3', '*.wav', '*.m4a', '*.MP3', '*.WAV', '*.M4A'):
+                    music_files.extend(music_dir.glob(ext))
+                if music_files:
+                    music_path = random.choice(music_files)
+        
+        # Check if at least one option is selected
+        if not white_background and not photo_dir and not video_dir and not image_paths:
+            click.echo(f"{Fore.YELLOW}No output type specified. Use --white-background, --photo-dir, --video-dir, or --image{Style.RESET_ALL}")
+            click.echo("Example: python3 main.py generate-quote-cards --white-background")
+            return
+        
+        click.echo(f"{Fore.CYAN}Generating quote cards...{Style.RESET_ALL}")
+        
+        # Flyer: only one preset at a time
+        if flyer_ajuda and flyer_palheiro:
+            click.echo(f"{Fore.RED}Use only one of --flyer-ajuda or --flyer-palheiro{Style.RESET_ALL}", err=True)
+            return
+        use_flyer = flyer_ajuda or flyer_palheiro
+        flyer_lines = None
+        if use_flyer:
+            if flyer_line1 is not None or flyer_line2 is not None:
+                flyer_lines = [line or '' for line in [flyer_line1, flyer_line2]]
+                flyer_lines = [l for l in flyer_lines if l]
+            elif flyer_ajuda:
+                flyer_lines = generator.DEFAULT_FLYER_LINES
+            else:
+                flyer_lines = generator.FLYER_LINES_PALHEIRO
+
+        # Generate quote cards
+        results = generator.generate_quote_cards(
+            group_name=group,
+            quote_id=quote_id,
+            photo_dir=photo_dir_path,
+            video_dir=video_dir_path,
+            num_photos=num_photos,
+            num_videos=num_videos,
+            white_background=white_background,
+            output_dir=output_dir_path,
+            music_path=music_path,
+            image_paths=image_paths,
+            image_video_duration=float(duration),
+            image_audio_fade_duration=audio_fade,
+            image_video_fade_duration=video_fade,
+            use_flyer=use_flyer,
+            flyer_lines=flyer_lines,
+            flyer_duration=float(flyer_duration),
+            flyer_font_size=flyer_font_size
+        )
+        
+        # Summary
+        click.echo(f"\n{Fore.GREEN}✓ Quote cards generated successfully!{Style.RESET_ALL}")
+        if results['white_background']:
+            click.echo(f"  White background cards: {len(results['white_background'])}")
+            for path in results['white_background']:
+                click.echo(f"    - {path}")
+        if results.get('image_videos'):
+            click.echo(f"  Image video cards: {len(results['image_videos'])}")
+            for path in results['image_videos']:
+                click.echo(f"    - {path}")
+        if results['photos']:
+            click.echo(f"  Photo overlay cards: {len(results['photos'])}")
+            for path in results['photos']:
+                click.echo(f"    - {path}")
+        if results['videos']:
+            click.echo(f"  Video overlay cards: {len(results['videos'])}")
+            for path in results['videos']:
+                click.echo(f"    - {path}")
+        
+    except ValueError as e:
+        click.echo(f"{Fore.RED}Error: {e}{Style.RESET_ALL}", err=True)
+        exit(1)
+    except Exception as e:
+        click.echo(f"{Fore.RED}Unexpected error: {e}{Style.RESET_ALL}", err=True)
+        import traceback
+        traceback.print_exc()
+        exit(1)
+
+
+@cli.command()
 def config():
     """Show current configuration."""
     config_data = load_config()
@@ -384,11 +533,12 @@ def batch_generate(feeds, reels, themes, use_quote, llm_refine, music):
         else:
             themes_to_use = available_themes
         
-        # Get available music files
+        # Get available music files (.mp3, .wav, .m4a)
         music_files = []
         music_dir = Path(__file__).parent / 'assets' / '00_music'
         if music_dir.exists():
-            music_files = list(music_dir.glob('*.mp3'))
+            for ext in ('*.mp3', '*.wav', '*.m4a', '*.MP3', '*.WAV', '*.M4A'):
+                music_files.extend(music_dir.glob(ext))
         
         click.echo(f"{Fore.CYAN}{'='*60}{Style.RESET_ALL}")
         click.echo(f"{Fore.CYAN}Batch Content Generation{Style.RESET_ALL}")

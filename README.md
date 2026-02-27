@@ -52,9 +52,10 @@ Yoga-Content-Generator/
 │       ├── Upanishads/
 │       └── Osho-LoveLettersToLife/
 ├── output/                      # Generated content
-│   ├── feed_posts/              # Generated quote cards (before posting)
-│   ├── reels/                   # Generated reels (if needed)
-│   └── posted-on-social-media/ # Quote cards that have been posted
+│   ├── feed_posts/              # Quote cards from generate_quote_card.py
+│   ├── quote_cards/             # Quote cards from main.py generate-quote-cards
+│   ├── reels/                   # Generated reels (if using theme-based generate)
+│   └── posted-on-social-media/  # Quote cards that have been posted
 │       ├── quote_[timestamp].jpg
 │       └── quote_[timestamp]_metadata.json
 ├── config/                      # Configuration files
@@ -63,6 +64,22 @@ Yoga-Content-Generator/
 ```
 
 ## Usage
+
+The main entry point is **`main.py`**, which provides all CLI commands:
+
+| Command | Description |
+|--------|-------------|
+| `config` | Show current configuration (brand, AI, literature groups) |
+| `extract-quotes` | Extract quotes from literature text files (simple or intelligent) |
+| `generate-quote-cards` | Generate quote cards (white background, photo overlay, or video overlay) |
+| `themes` | List available theme directories (for feed/reel content) |
+| `stats` | Show statistics about themes and assets |
+| `generate` | Generate a single feed post or reel (theme-based) |
+| `batch-generate` | Generate multiple feed posts and reels in one run |
+| `preprocess-pdfs` | Preprocess PDFs and save structured content to JSON |
+| `extract-brand` | Extract brand colors and fonts from a website |
+
+For the **yoga quote card workflow**, use: `extract-quotes` → review in Web UI or JSON → `generate-quote-cards` or `generate_quote_card.py`.
 
 ### 1. Prepare Literature Text Files
 
@@ -160,8 +177,8 @@ Then open your browser to: **http://localhost:5000**
 **Features:**
 - Browse all literature groups with statistics
 - View quotes with importance scores and themes
-- Filter by status (approved/pending), type, score, or search text
-- Approve/reject quotes with one click
+- Filter by status (accepted/pending/rejected), type, score, or search text
+- Approve/reject quotes with one click (saved as status: accepted/rejected/pending)
 - Edit quote text inline
 - Add notes to quotes
 - See real-time statistics
@@ -169,7 +186,7 @@ Then open your browser to: **http://localhost:5000**
 **How to use:**
 1. Click on a literature group card
 2. Review quotes (sorted by importance score)
-3. Click "Approve" or "Reject" for each quote
+3. Click "Approve" or "Reject" for each quote (status is saved as accepted/pending/rejected)
 4. Click "Edit Text" to modify quote wording
 5. Add notes in the notes field
 6. Changes are saved automatically
@@ -238,16 +255,106 @@ Edit JSON files directly:
 ```
 
 **Manual Editing:**
-- Set `"approved": true` for quotes you want to use
+- Set `"approved": true` or `"status": "accepted"` for quotes you want to use (both are supported)
 - Edit `"text"` if you want to refine the quote wording
 - Add `"notes"` for your own reference
 - Remove quotes you don't want to use
 
-**Tip**: This is a one-time effort per year. Once approved, quotes can be reused for quote card generation.
+**Tip**: This is a one-time effort per year. Once accepted, quotes can be reused for quote card generation.
 
 ### 4. Generate Quote Cards
 
-Generate quote cards from approved quotes:
+You can generate quote cards in two ways.
+
+#### Option A: Main CLI (`main.py generate-quote-cards`) — recommended
+
+Flexible generation with white background, photo overlays, or video overlays:
+
+```bash
+# White background quote card only
+python3 main.py generate-quote-cards --white-background
+
+# Quote cards overlaid on photos (from a directory)
+python3 main.py generate-quote-cards --photo-dir assets/01_images/Roel --num-photos 3
+
+# Quote cards overlaid on videos
+python3 main.py generate-quote-cards --video-dir assets/02_videos --num-videos 2
+
+# Combine options: white + photos + videos
+python3 main.py generate-quote-cards --white-background --photo-dir assets/01_images/Nina --video-dir assets/02_videos --num-photos 2 --num-videos 1
+
+# Use a specific quote by ID or literature group
+python3 main.py generate-quote-cards --white-background --group BhagavadGita
+python3 main.py generate-quote-cards --white-background --quote-id chunk001_quote001
+
+# Add background music to video overlay cards (.mp3, .wav, etc.)
+python3 main.py generate-quote-cards --video-dir assets/02_videos --music assets/00_music/your_track.wav
+
+# Image-as-video quote card: single background image, 15s, quote overlay, music fades to silence, video fades to white
+python3 main.py generate-quote-cards --image assets/01_images/Ajuda/photo-collage-01.png --duration 15 -m assets/00_music/your_track.wav
+# Optional: --audio-fade 3 (seconds for music to fade to silence), --video-fade 2 (seconds for fade to white)
+
+# Custom output directory
+python3 main.py generate-quote-cards --white-background --output-dir output/my_cards
+```
+
+**Output:** Cards are written to `output/quote_cards/` (or `--output-dir`). The system uses **accepted** quotes (status `accepted` or legacy `approved: true`). Use `--music` / `-m` to add background music to **video** quote cards (music is mixed at 30% volume with fade-out). With **`--image`**, you get a video: one static background image for the chosen duration (default 15s), quote overlay, optional music (fading to silence over the last 3s), and the image fading to white over the last 2s.
+
+#### How to use the generator: music, quotes, duration, and media
+
+**Music**
+
+| Context | Where to put music | Formats | How to choose |
+|--------|---------------------|---------|----------------|
+| Quote cards (video or image-video) | `assets/00_music/` | `.mp3`, `.wav`, `.m4a` | Pass a file with `--music` / `-m` (e.g. `-m assets/00_music/your_track.mp3`). For **image-video** only: if you omit `--music`, a random track from `assets/00_music/` is used. |
+| Theme reels (`generate` / `batch-generate`) | Same | Same | Use `-m path/to/track.mp3` for a specific track; otherwise a random file from `assets/00_music/` is used. |
+
+- Music is mixed at **30% volume** so it stays in the background.
+- **Video overlay cards**: music fades out over the last **1.5 seconds**.
+- **Image-video quote cards**: fade length is configurable with `--audio-fade` (default **3** seconds).
+
+**Quotes**
+
+- **Random (default):** One random **accepted** quote is used for all cards in that run (from any literature group).
+- **By group:** `--group BhagavadGita` (or another group name) — only accepted quotes from that group.
+- **By ID:** `--quote-id chunk001_quote001` — use that exact quote (group is optional; if given, the quote is looked up in that group).
+
+Only quotes with `status: "accepted"` or legacy `approved: true` in the group’s `quotes.json` are used.
+
+**Duration**
+
+| Output type | Duration |
+|-------------|----------|
+| **White background / photo overlay** | N/A (single image). |
+| **Video overlay** (from `--video-dir`) | Uses the **full length** of each selected source video. Music is looped if shorter than the video and faded out at the end. |
+| **Image-video** (`--image`) | Set with `--duration` in **seconds** (default **15**). Optional `--flyer-ajuda` or `--flyer-palheiro` adds a second segment; its length is `--flyer-duration` (default 15s). |
+
+**Which video and photo material to choose**
+
+- **Photos (for overlay cards):**  
+  - `--photo-dir PATH` — directory containing images (e.g. `assets/01_images/Nina`).  
+  - Supported formats: **`.jpg`, `.jpeg`, `.png`** (case-insensitive).  
+  - `--num-photos N` — how many cards to generate (default **1**). Files are chosen **randomly** from the directory.
+
+- **Videos (for video overlay cards):**  
+  - `--video-dir PATH` — directory containing videos (e.g. `assets/02_videos`).  
+  - Supported formats: **`.mp4`, `.mov`, `.avi`** (case-insensitive).  
+  - `--num-videos N` — how many cards to generate (default **1**). Files are chosen **randomly** from the directory.
+
+- **Image(s) (for image-video quote card):**  
+  - `--image PATH` (or `-i`) — one or more image files; repeat for multiple (e.g. `-i img1.png -i img2.png -i img3.png`). Creates a video of total length `--duration` with the **duration split equally across all images**, same quote overlay on the whole segment, optional music, and fade to white (and optional flyer with `--flyer-ajuda` or `--flyer-palheiro`).
+
+**Optional: yoga flyer (image-video only)**
+
+- `--flyer-ajuda` — after the quote segment, add a **white slide** with Ajuda Public Garden class info (Sundays 11h15–12h45, contact).
+- `--flyer-palheiro` — same, but with Casa Velha do Palheiro class info (Wednesdays 18h00–19h00, contact). Use only one of `--flyer-ajuda` or `--flyer-palheiro`.
+- `--flyer-line1`, `--flyer-line2` — custom text (override when using a flyer preset).
+- `--flyer-duration` — length of the flyer segment in seconds (default **15**).
+- `--flyer-font-size` — font size for flyer text (default **46**).
+
+#### Option B: Standalone script (`generate_quote_card.py`)
+
+Quick single white-background card from a random approved quote:
 
 ```bash
 # Generate a random quote card from approved, unused quotes
@@ -304,14 +411,17 @@ After posting a quote card to social media:
 
 ### 6. View Statistics
 
-Check available quotes and groups:
+Check configuration and available content:
 
 ```bash
-# View configuration
+# View configuration (brand, AI, literature groups)
 python3 main.py config
 
-# Test quote generator
-python3 -m src.quote_generator
+# List theme directories (for feed/reel content)
+python3 main.py themes
+
+# Show stats for themes and assets
+python3 main.py stats
 ```
 
 ## Workflow Summary
@@ -326,18 +436,46 @@ python3 -m src.quote_generator
    ```
 
 2. **Review & Approve** (One-time per year):
-   - Edit JSON files in `assets/10_knowledge/[group]/quotes.json`
-   - Set `approved: true` for quotes to use
+   - Use the web UI: `python3 quote_reviewer.py` → http://localhost:5000  
+   - Or edit JSON in `assets/10_knowledge/[group]/quotes.json`: set `"approved": true` or `"status": "accepted"` for quotes to use
 
 3. **Generate** (As needed):
    ```bash
+   # Full options: white background, photo overlay, video overlay
+   python3 main.py generate-quote-cards --white-background
+
+   # Or quick single card
    python3 generate_quote_card.py
    ```
 
 4. **Post & Track** (After each post):
    - Post quote card to social media
-   - Move files to `output/posted-on-social-media/`
+   - Move files to `output/posted-on-social-media/` (or keep metadata in `output/quote_cards/` for main CLI)
    - System automatically prevents duplicate usage
+
+### Theme-based feed posts and reels (optional)
+
+If you use theme directories (e.g. `04_theme_name`, `05_theme_name` in `assets/`) with images, videos, and PDFs:
+
+```bash
+# List themes
+python3 main.py themes
+
+# Generate a single feed post or reel
+python3 main.py generate -t 05_kombucha_benefits -T feed
+python3 main.py generate -t 05_kombucha_benefits -T reel --combined --use-quote
+
+# Batch generate feed posts and reels
+python3 main.py batch-generate --feeds 3 --reels 3
+
+# Preprocess PDFs in theme folders to JSON
+python3 main.py preprocess-pdfs --all
+```
+
+**Choosing media and music for theme-based generation:**
+
+- **Feed post:** use `-i path/to/image.jpg` to force a specific image; otherwise one is picked from the theme folder.
+- **Reel:** use `-v video1.mp4 -v video2.mp4` to set specific videos; use `-m path/to/track.mp3` to set background music. Without `-m`, a random track from `assets/00_music/` is used. Reel duration is constrained by `config/settings.yaml` under `instagram.reel_duration` (default min 15s, max 90s).
 
 ## Configuration
 
@@ -346,7 +484,8 @@ Edit `config/settings.yaml` to customize:
 - **Brand colors and fonts**: Update colors and fonts for quote cards
 - **Literature groups**: Add or modify literature groups
 - **AI settings**: Configure AI provider, model, and language
-- **Quote extraction settings**: Configure intelligent extraction parameters
+- **Quote extraction settings**: Configure intelligent extraction parameters (chunk size, max quotes, priority concepts)
+- **Instagram dimensions**: Feed and reel dimensions, reel duration
 
 **Example Configuration:**
 ```yaml
@@ -355,6 +494,7 @@ brand:
   colors:
     primary: '#2c5530'
     secondary: '#4a7c59'
+    accent: '#8fbc8f'
     text: '#2c2c2c'
     background: '#ffffff'
   fonts:
@@ -371,6 +511,7 @@ quote_extraction:
   max_quote_length: 500
   enable_summarization: true
   enable_thematic_tagging: true
+  priority_concepts: [sattva, rajas, tamas, asana, pranayama, ...]  # Optional yoga concepts to prioritize
 
 literature_groups:
 - name: BhagavadGita
@@ -382,6 +523,11 @@ ai:
   provider: openai
   model: gpt-4
   language: en
+
+instagram:
+  feed_dimensions: { width: 1080, height: 1080 }
+  reel_dimensions: { width: 1080, height: 1920 }
+  reel_duration: { min: 15, max: 90 }
 ```
 
 ## Quote Extraction Details

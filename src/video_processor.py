@@ -17,6 +17,7 @@ from typing import List, Optional, Dict, Tuple
 import textwrap
 import tempfile
 import os
+import numpy as np
 from PIL import Image, ImageOps
 from .utils import load_config, get_brand_colors, get_brand_fonts
 
@@ -149,6 +150,16 @@ class VideoProcessor:
         
         return duration
     
+    # Canva-style quote overlay: dark fill + soft light stroke + semi-transparent backdrop
+    QUOTE_OVERLAY_FILL = '#1a1a1a'
+    QUOTE_OVERLAY_STROKE = '#e8e8e8'
+    QUOTE_OVERLAY_STROKE_WIDTH = 4
+    QUOTE_BACKDROP_ALPHA = 200  # 0-255, semi-transparent dark bar behind text
+    # Flyer: crisp dark text with subtle stroke on white
+    FLYER_FILL = '#1a1a1a'
+    FLYER_STROKE = '#b0b0b0'
+    FLYER_STROKE_WIDTH = 2
+
     def create_text_clip(
         self,
         text: str,
@@ -156,7 +167,12 @@ class VideoProcessor:
         position: str = 'bottom',
         font_size: int = 60,
         start_time: float = 0,
-        auto_duration: bool = True
+        auto_duration: bool = True,
+        text_color_override: Optional[str] = None,
+        override_y_center: Optional[float] = None,
+        preserve_newlines: bool = False,
+        quote_overlay_style: bool = False,
+        flyer_style: bool = False
     ) -> TextClip:
         """
         Create a text overlay clip.
@@ -168,26 +184,47 @@ class VideoProcessor:
             font_size: Font size.
             start_time: Start time in seconds.
             auto_duration: If True and duration is None, automatically calculate duration based on text length.
+            override_y_center: If set, place text so its vertical center is at this y (e.g. center of letterbox band).
+            preserve_newlines: If True, split on '\\n' and wrap each line separately so blank lines are preserved.
+            quote_overlay_style: If True, use dark fill + light stroke + semi-transparent backdrop (Canva-style).
+            flyer_style: If True, use crisp dark text with subtle stroke for flyer on white.
         
         Returns:
-            TextClip object.
+            TextClip or CompositeVideoClip (quote overlay with backdrop).
         """
         # Calculate duration if not provided and auto_duration is enabled
         if duration is None and auto_duration:
             duration = self.calculate_text_duration(text, min_duration=3.0, max_duration=10.0)
         elif duration is None:
             duration = 5.0  # Default fallback
-        # Wrap text
-        max_chars_per_line = 30
-        wrapped_lines = textwrap.wrap(text, width=max_chars_per_line)
-        display_text = '\n'.join(wrapped_lines)
+        # Wrap text (wider lines for quote overlay style)
+        max_chars_per_line = 36 if quote_overlay_style else 30
+        if preserve_newlines:
+            # Split by newline, wrap each line (or keep blank lines), rejoin so structure is preserved
+            display_lines = []
+            for line in text.split('\n'):
+                if line.strip() == '':
+                    display_lines.append('')
+                else:
+                    display_lines.extend(textwrap.wrap(line, width=max_chars_per_line))
+            display_text = '\n'.join(display_lines)
+            wrapped_lines = display_lines
+        else:
+            wrapped_lines = textwrap.wrap(text, width=max_chars_per_line)
+            # Extra line spacing for quote overlay (Canva-style breathing room)
+            display_text = '\n\n'.join(wrapped_lines) if quote_overlay_style else '\n'.join(wrapped_lines)
         
         # Calculate position - ensure text fits fully on screen
-        # Estimate text height based on number of lines and font size
+        # Estimate text height (more spacing for quote overlay)
         num_lines = len(wrapped_lines)
-        estimated_text_height = num_lines * (font_size * 1.5)  # Approximate line height
+        line_height_mult = 1.65 if quote_overlay_style else 1.5
+        estimated_text_height = num_lines * (font_size * line_height_mult)
         
-        if position == 'top':
+        if override_y_center is not None:
+            # Place text so its vertical center is at override_y_center (e.g. center of letterbox area)
+            y_pos = int(override_y_center - estimated_text_height / 2)
+            y_pos = max(20, min(y_pos, self.reel_height - estimated_text_height - 20))
+        elif position == 'top':
             y_pos = 150  # More space from top to ensure text isn't cut off
         elif position == 'center':
             # Center vertically accounting for text height
@@ -200,16 +237,54 @@ class VideoProcessor:
             # Ensure it doesn't go off screen
             y_pos = max(100, y_pos)
         
-        # Get brand colors for text fill (primary -> secondary -> text fallback)
-        text_fill_color = (
-            self.brand_colors.get('primary') or 
-            self.brand_colors.get('secondary') or 
-            self.brand_colors.get('text', '#000000')
-        )
+        # Text fill and stroke: quote overlay, flyer, or brand
+        if quote_overlay_style:
+            text_fill_color = self.QUOTE_OVERLAY_FILL
+            stroke_color = self.QUOTE_OVERLAY_STROKE
+            stroke_width = self.QUOTE_OVERLAY_STROKE_WIDTH
+        elif flyer_style or text_color_override is not None:
+            text_fill_color = self.FLYER_FILL if flyer_style else text_color_override
+            stroke_color = self.FLYER_STROKE if flyer_style else '#2c2c2c'
+            stroke_width = self.FLYER_STROKE_WIDTH if flyer_style else 2
+        else:
+            text_fill_color = (
+                self.brand_colors.get('primary') or
+                self.brand_colors.get('secondary') or
+                self.brand_colors.get('text', '#000000')
+            )
+            stroke_color = '#ffffff'
+            stroke_width = 3
         
-        # Use white stroke for maximum contrast and readability on any background
-        stroke_color = '#ffffff'
-        stroke_width = 3  # Increased from 2 for better visibility
+        # Canva-style semi-transparent backdrop for quote overlay (sits behind text)
+        backdrop_clip = None
+        if quote_overlay_style and y_pos is not None:
+            bar_h = int(estimated_text_height) + 56
+            bar_y = max(0, y_pos - 28)
+            margin_x = 80
+            x1, x2 = margin_x, self.reel_width - margin_x
+            y1, y2 = bar_y, min(bar_y + bar_h, self.reel_height)
+            arr = np.zeros((self.reel_height, self.reel_width, 4), dtype=np.uint8)
+            arr[:, :, 3] = 0
+            arr[y1:y2, x1:x2, 0] = 0
+            arr[y1:y2, x1:x2, 1] = 0
+            arr[y1:y2, x1:x2, 2] = 0
+            arr[y1:y2, x1:x2, 3] = self.QUOTE_BACKDROP_ALPHA
+            try:
+                backdrop_clip = ImageClip(arr, transparent=True)
+            except TypeError:
+                backdrop_clip = ImageClip(arr)
+            if hasattr(backdrop_clip, 'with_duration'):
+                backdrop_clip = backdrop_clip.with_duration(duration)
+            else:
+                backdrop_clip = backdrop_clip.set_duration(duration)
+            if hasattr(backdrop_clip, 'with_start'):
+                backdrop_clip = backdrop_clip.with_start(start_time)
+            else:
+                backdrop_clip = backdrop_clip.set_start(start_time)
+            if hasattr(backdrop_clip, 'with_position'):
+                backdrop_clip = backdrop_clip.with_position((0, 0))
+            else:
+                backdrop_clip = backdrop_clip.set_position((0, 0))
         
         # Get font with fallback
         font_name = self.brand_fonts.get('heading', 'Arial')
@@ -295,7 +370,367 @@ class VideoProcessor:
         else:
             txt_clip = txt_clip.set_start(start_time)
         
+        if backdrop_clip is not None:
+            composite = CompositeVideoClip([backdrop_clip, txt_clip])
+            if hasattr(composite, 'with_duration'):
+                composite = composite.with_duration(duration)
+            if hasattr(composite, 'with_start'):
+                composite = composite.with_start(start_time)
+            return composite
         return txt_clip
+    
+    def create_video_with_text_overlay(
+        self,
+        video_path: Path,
+        text_overlay: str,
+        output_path: Path,
+        duration: Optional[float] = None,
+        text_position: str = 'bottom',
+        font_size: int = 60,
+        music_path: Optional[Path] = None
+    ) -> Path:
+        """
+        Create a video with text overlay.
+        
+        Args:
+            video_path: Path to source video file.
+            text_overlay: Text to overlay on video.
+            output_path: Path to save the output video.
+            duration: Duration of the video clip. If None, uses full video.
+            text_position: Position of text ('top', 'center', 'bottom').
+            font_size: Font size for text overlay.
+            music_path: Optional path to background music file (.mp3, .wav, etc.).
+        
+        Returns:
+            Path to saved video.
+        """
+        # Prepare video clip
+        video_clip = self.prepare_clip(video_path, duration=duration)
+        
+        # Create text clip
+        text_clip = self.create_text_clip(
+            text=text_overlay,
+            duration=video_clip.duration,
+            position=text_position,
+            font_size=font_size,
+            start_time=0
+        )
+        
+        # Composite video and text
+        if hasattr(CompositeVideoClip, '__call__'):
+            # moviepy 2.x style
+            final_clip = CompositeVideoClip([video_clip, text_clip])
+        else:
+            # moviepy 1.x style
+            final_clip = CompositeVideoClip([video_clip, text_clip])
+        
+        # Add background music if provided (replaces or adds to video audio)
+        if music_path and music_path.exists():
+            try:
+                audio = AudioFileClip(str(music_path))
+                if audio.duration < final_clip.duration:
+                    loops = int(final_clip.duration / audio.duration) + 1
+                    audio = concatenate_audioclips([audio] * loops)
+                    if hasattr(audio, 'subclipped'):
+                        audio = audio.subclipped(0, final_clip.duration)
+                    else:
+                        audio = audio.subclip(0, final_clip.duration)
+                else:
+                    if hasattr(audio, 'subclipped'):
+                        audio = audio.subclipped(0, final_clip.duration)
+                    else:
+                        audio = audio.subclip(0, final_clip.duration)
+                if hasattr(audio, 'with_volume_scaled'):
+                    audio = audio.with_volume_scaled(0.3)
+                elif hasattr(audio, 'volumex'):
+                    audio = audio.volumex(0.3)
+                else:
+                    try:
+                        from moviepy.audio.fx import volumex
+                        audio = audio.fx(volumex, 0.3)
+                    except Exception:
+                        pass
+                audio_fade_duration = 1.5
+                if audio.duration > audio_fade_duration:
+                    try:
+                        fade_start_time = audio.duration - audio_fade_duration
+                        def volume_func(t):
+                            if t < fade_start_time:
+                                return 1.0
+                            fade_progress = (t - fade_start_time) / audio_fade_duration
+                            return max(0.0, 1.0 - fade_progress)
+                        try:
+                            audio = audio.with_volume(volume_func)
+                        except AttributeError:
+                            try:
+                                from moviepy.audio.AudioClip import AudioArrayClip
+                                audio_array = audio.to_soundarray(fps=audio.fps)
+                                for i in range(len(audio_array)):
+                                    t = i / audio.fps
+                                    audio_array[i] = audio_array[i] * volume_func(t)
+                                audio = AudioArrayClip(audio_array, fps=audio.fps)
+                            except Exception as e:
+                                print(f"Warning: Could not apply audio fade-out: {e}")
+                    except Exception as e:
+                        print(f"Warning: Could not apply audio fade-out: {e}")
+                if hasattr(final_clip, 'with_audio'):
+                    final_clip = final_clip.with_audio(audio)
+                else:
+                    final_clip = final_clip.set_audio(audio)
+            except Exception as e:
+                print(f"Warning: Could not add music: {e}")
+        
+        # Ensure output directory exists
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        
+        # Write video file
+        final_clip.write_videofile(
+            str(output_path),
+            fps=30,
+            codec='libx264',
+            audio_codec='aac',
+            preset='medium',
+            bitrate='8000k'
+        )
+        
+        # Clean up
+        video_clip.close()
+        text_clip.close()
+        final_clip.close()
+        
+        return output_path
+    
+    def _add_white_fade_overlay(self, clip, video_fade_duration: float, fps: float = 30):
+        """Add a white overlay that fades in over the last video_fade_duration seconds.
+        Caller is responsible for closing the original clip when done."""
+        if clip.duration <= video_fade_duration:
+            return clip
+        fade_start = clip.duration - video_fade_duration
+        w, h = int(clip.w), int(clip.h)
+        try:
+            white_clip = ColorClip(size=(w, h), color=(255, 255, 255), duration=video_fade_duration)
+        except TypeError:
+            white_clip = ColorClip(size=(w, h), color=(255, 255, 255))
+            white_clip = white_clip.with_duration(video_fade_duration) if hasattr(white_clip, 'with_duration') else white_clip.set_duration(video_fade_duration)
+        if hasattr(white_clip, 'with_fps'):
+            white_clip = white_clip.with_fps(fps)
+        elif hasattr(white_clip, 'set_fps'):
+            white_clip = white_clip.set_fps(fps)
+        if hasattr(white_clip, 'with_start'):
+            white_clip = white_clip.with_start(fade_start)
+        else:
+            white_clip = white_clip.set_start(fade_start)
+        if hasattr(white_clip, 'crossfadein'):
+            white_clip = white_clip.crossfadein(video_fade_duration)
+        elif hasattr(white_clip, 'fadein'):
+            white_clip = white_clip.fadein(video_fade_duration)
+        composite = CompositeVideoClip([clip, white_clip])
+        if hasattr(composite, 'with_duration'):
+            composite = composite.with_duration(clip.duration)
+        elif hasattr(composite, 'set_duration'):
+            composite = composite.set_duration(clip.duration)
+        return composite
+
+    def create_image_quote_video(
+        self,
+        image_paths: List[Path],
+        text_overlay: str,
+        output_path: Path,
+        duration: float = 15.0,
+        music_path: Optional[Path] = None,
+        audio_fade_duration: float = 3.0,
+        video_fade_duration: float = 2.0,
+        text_position: str = 'bottom',
+        font_size: int = 60,
+        flyer_lines: Optional[List[str]] = None,
+        flyer_duration: float = 15.0,
+        flyer_font_size: int = 52
+    ) -> Path:
+        """
+        Create a video from one or more images with quote overlay, optional music,
+        optional yoga flyer segment (white + text), and fades to white.
+        When multiple images are given, duration is split equally across them.
+        
+        Args:
+            image_paths: Path(s) to background image file(s).
+            text_overlay: Quote text (and optional author) to overlay.
+            output_path: Path to save the output video.
+            duration: Total quote segment duration in seconds (default 15); split across images.
+            music_path: Optional path to background music (.mp3, .wav, etc.).
+            audio_fade_duration: Seconds over which music fades to silence at end (default 3).
+            video_fade_duration: Seconds over which video fades to white at segment ends (default 2).
+            text_position: Position of text ('top', 'center', 'bottom').
+            font_size: Font size for quote overlay.
+            flyer_lines: Optional list of lines for yoga flyer (white BG + text); adds second segment.
+            flyer_duration: Duration of flyer segment in seconds (default 15).
+            flyer_font_size: Font size for flyer text (default 52).
+        
+        Returns:
+            Path to saved video.
+        """
+        image_paths = [Path(p) for p in image_paths]
+        if not image_paths:
+            raise ValueError("At least one image path is required.")
+        for p in image_paths:
+            if not p.exists():
+                raise FileNotFoundError(f"Image not found: {p}")
+        
+        fps = 30
+        use_flyer = flyer_lines and len(flyer_lines) > 0
+        total_duration = (duration + flyer_duration) if use_flyer else duration
+        
+        # ---- Segment 1: image(s) + quote ----
+        n = len(image_paths)
+        segment_duration = duration / n
+        if n == 1:
+            image_clip = self.image_to_clip(image_paths[0], duration=duration)
+        else:
+            clips = [self.image_to_clip(p, duration=segment_duration) for p in image_paths]
+            image_clip = concatenate_videoclips(clips, method='compose')
+        # Compute top black letterbox height from first image for quote positioning
+        first_image_path = image_paths[0]
+        try:
+            with Image.open(first_image_path) as img:
+                img = ImageOps.exif_transpose(img)
+                w, h = img.size
+        except Exception:
+            w, h = self.reel_width, self.reel_height
+        scale = min(self.reel_width / w, self.reel_height / h)
+        new_h = int(h * scale)
+        top_black = (self.reel_height - new_h) // 2
+        # Fit quote font in the top black band; leave small padding
+        quote_font_size = min(font_size, max(24, (top_black - 40) // 4))
+        # Place quote 2 sentence heights lower for margin from top of letterbox
+        line_height = quote_font_size * 1.5
+        margin_2_sentences = 2 * line_height
+        quote_y_center = (top_black / 2.0) + margin_2_sentences if top_black > 0 else None
+        text_clip = self.create_text_clip(
+            text=text_overlay,
+            duration=duration,
+            position=text_position,
+            font_size=quote_font_size,
+            start_time=0,
+            override_y_center=quote_y_center,
+            quote_overlay_style=True
+        )
+        segment_1 = CompositeVideoClip([image_clip, text_clip])
+        if hasattr(segment_1, 'with_fps'):
+            segment_1 = segment_1.with_fps(fps)
+        elif hasattr(segment_1, 'set_fps'):
+            segment_1 = segment_1.set_fps(fps)
+        segment_1 = self._add_white_fade_overlay(segment_1, video_fade_duration, fps)
+        
+        if not use_flyer:
+            final_clip = segment_1
+        else:
+            # ---- Segment 2: white background + flyer text ----
+            w, h = self.reel_width, self.reel_height
+            try:
+                white_bg = ColorClip(size=(w, h), color=(255, 255, 255), duration=flyer_duration)
+            except TypeError:
+                white_bg = ColorClip(size=(w, h), color=(255, 255, 255))
+                white_bg = white_bg.with_duration(flyer_duration) if hasattr(white_bg, 'with_duration') else white_bg.set_duration(flyer_duration)
+            if hasattr(white_bg, 'with_fps'):
+                white_bg = white_bg.with_fps(fps)
+            elif hasattr(white_bg, 'set_fps'):
+                white_bg = white_bg.set_fps(fps)
+            flyer_text = '\n'.join(flyer_lines)
+            flyer_text_clip = self.create_text_clip(
+                text=flyer_text,
+                duration=flyer_duration,
+                position='center',
+                font_size=flyer_font_size,
+                start_time=0,
+                auto_duration=False,
+                flyer_style=True,
+                preserve_newlines=True
+            )
+            if hasattr(flyer_text_clip, 'with_fps'):
+                flyer_text_clip = flyer_text_clip.with_fps(fps)
+            elif hasattr(flyer_text_clip, 'set_fps'):
+                flyer_text_clip = flyer_text_clip.set_fps(fps)
+            segment_2 = CompositeVideoClip([white_bg, flyer_text_clip])
+            if hasattr(segment_2, 'with_fps'):
+                segment_2 = segment_2.with_fps(fps)
+            segment_2 = self._add_white_fade_overlay(segment_2, video_fade_duration, fps)
+            # Use method='chain' to avoid CompositeVideoClip bg=None issues with nested composites
+            final_clip = concatenate_videoclips([segment_1, segment_2], method='chain')
+            if hasattr(final_clip, 'with_duration'):
+                final_clip = final_clip.with_duration(total_duration)
+            elif hasattr(final_clip, 'set_duration'):
+                final_clip = final_clip.set_duration(total_duration)
+        
+        # ---- Audio for full duration, fade out at end ----
+        if music_path and Path(music_path).exists():
+            try:
+                audio = AudioFileClip(str(music_path))
+                if audio.duration < total_duration:
+                    loops = int(total_duration / audio.duration) + 1
+                    audio = concatenate_audioclips([audio] * loops)
+                if hasattr(audio, 'subclipped'):
+                    audio = audio.subclipped(0, total_duration)
+                else:
+                    audio = audio.subclip(0, total_duration)
+                if hasattr(audio, 'with_volume_scaled'):
+                    audio = audio.with_volume_scaled(0.3)
+                elif hasattr(audio, 'volumex'):
+                    audio = audio.volumex(0.3)
+                else:
+                    try:
+                        from moviepy.audio.fx import volumex
+                        audio = audio.fx(volumex, 0.3)
+                    except Exception:
+                        pass
+                if audio.duration > audio_fade_duration:
+                    try:
+                        fade_start_time = audio.duration - audio_fade_duration
+                        def volume_func(t):
+                            if t < fade_start_time:
+                                return 1.0
+                            return max(0.0, 1.0 - (t - fade_start_time) / audio_fade_duration)
+                        try:
+                            audio = audio.with_volume(volume_func)
+                        except AttributeError:
+                            try:
+                                from moviepy.audio.AudioClip import AudioArrayClip
+                                audio_array = audio.to_soundarray(fps=audio.fps)
+                                for i in range(len(audio_array)):
+                                    t = i / audio.fps
+                                    audio_array[i] = audio_array[i] * volume_func(t)
+                                audio = AudioArrayClip(audio_array, fps=audio.fps)
+                            except Exception as e:
+                                print(f"Warning: Could not apply audio fade-out: {e}")
+                    except Exception as e:
+                        print(f"Warning: Could not apply audio fade-out: {e}")
+                if hasattr(final_clip, 'with_audio'):
+                    final_clip = final_clip.with_audio(audio)
+                else:
+                    final_clip = final_clip.set_audio(audio)
+            except Exception as e:
+                print(f"Warning: Could not add music: {e}")
+        
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        final_clip.write_videofile(
+            str(output_path),
+            fps=fps,
+            codec='libx264',
+            audio_codec='aac',
+            preset='medium',
+            bitrate='8000k',
+            audio_bitrate='192k'
+        )
+        
+        tmp_path = getattr(image_clip, 'tmp_path', None)
+        image_clip.close()
+        text_clip.close()
+        final_clip.close()
+        if tmp_path and os.path.exists(tmp_path):
+            try:
+                os.unlink(tmp_path)
+            except Exception:
+                pass
+        return output_path
     
     def create_reel(
         self,
@@ -479,12 +914,12 @@ class VideoProcessor:
             fade_end = final_clip.duration
             video_filter = (
                 f"geq="
-                f"r='if(between(t,{fade_start:.2f},{fade_end:.2f}), "
-                f"r+(255-r)*((t-{fade_start:.2f})/{fade_duration:.2f}), r)':"
-                f"g='if(between(t,{fade_start:.2f},{fade_end:.2f}), "
-                f"g+(255-g)*((t-{fade_start:.2f})/{fade_duration:.2f}), g)':"
-                f"b='if(between(t,{fade_start:.2f},{fade_end:.2f}), "
-                f"b+(255-b)*((t-{fade_start:.2f})/{fade_duration:.2f}), b)'"
+                f"r='if(between(T,{fade_start:.2f},{fade_end:.2f}),"
+                f"r+(255-r)*((T-{fade_start:.2f})/{fade_duration:.2f}),r)':"
+                f"g='if(between(T,{fade_start:.2f},{fade_end:.2f}),"
+                f"g+(255-g)*((T-{fade_start:.2f})/{fade_duration:.2f}),g)':"
+                f"b='if(between(T,{fade_start:.2f},{fade_end:.2f}),"
+                f"b+(255-b)*((T-{fade_start:.2f})/{fade_duration:.2f}),b)'"
             )
             
             # Write with video fade effect - force re-encoding to apply filter
@@ -590,27 +1025,29 @@ class VideoProcessor:
     def image_to_clip(
         self,
         image_path: Path,
-        duration: float = 3.0
-    ) -> ImageClip:
+        duration: float = 3.0,
+        letterbox: bool = True
+    ):
         """
         Convert an image to a video clip, handling EXIF orientation.
+        When letterbox=True (default), keeps full width visible and adds black bars
+        on top/bottom (or left/right) as needed to fill reel dimensions.
         
         Args:
             image_path: Path to image file.
             duration: Duration of the clip in seconds.
+            letterbox: If True, fit full image in frame with black bars; if False, crop to fill.
         
         Returns:
-            ImageClip object.
+            ImageClip or CompositeVideoClip (with black background when letterbox=True).
         """
         # Load image with PIL to handle EXIF orientation
         img = Image.open(image_path)
         
         # Apply EXIF orientation correction
-        # This ensures images display correctly regardless of how they were taken
         try:
             img = ImageOps.exif_transpose(img)
         except Exception:
-            # If EXIF data is missing or invalid, continue with original image
             pass
         
         # Convert to RGB if necessary (required for moviepy)
@@ -625,30 +1062,58 @@ class VideoProcessor:
         # Create ImageClip from the corrected image
         clip = ImageClip(tmp_path)
         
-        # Resize to fit Reel dimensions
-        if hasattr(clip, 'resized'):
-            clip = clip.resized(height=self.reel_height)
-        elif hasattr(clip, 'resize'):
-            clip = clip.resize(height=self.reel_height)
-        
-        # Center crop if width exceeds reel width
-        if clip.w > self.reel_width:
-            x_center = clip.w / 2
-            if hasattr(clip, 'cropped'):
-                clip = clip.cropped(x_center=x_center, width=self.reel_width)
-            elif hasattr(clip, 'crop'):
-                clip = clip.crop(x_center=x_center, width=self.reel_width)
-        
-        # Set duration
-        if hasattr(clip, 'with_duration'):
-            clip = clip.with_duration(duration)
-        elif hasattr(clip, 'set_duration'):
-            clip = clip.set_duration(duration)
-        
-        # Store temp file path for cleanup (will be cleaned up when clip is closed)
-        clip.tmp_path = tmp_path
-        
-        return clip
+        if letterbox:
+            # Scale to fit full width (no cropping); add black bars top/bottom or left/right
+            # Scale so image fits inside (reel_width, reel_height)
+            scale_w = self.reel_width / clip.w
+            scale_h = self.reel_height / clip.h
+            scale = min(scale_w, scale_h)  # fit entirely, no crop
+            new_w = int(clip.w * scale)
+            new_h = int(clip.h * scale)
+            if hasattr(clip, 'resized'):
+                clip = clip.resized((new_w, new_h))
+            elif hasattr(clip, 'resize'):
+                clip = clip.resize((new_w, new_h))
+            # Center image on black background
+            try:
+                black_bg = ColorClip(size=(self.reel_width, self.reel_height), color=(0, 0, 0), duration=duration)
+            except TypeError:
+                black_bg = ColorClip(size=(self.reel_width, self.reel_height), color=(0, 0, 0))
+                black_bg = black_bg.with_duration(duration) if hasattr(black_bg, 'with_duration') else black_bg.set_duration(duration)
+            if hasattr(clip, 'with_duration'):
+                clip = clip.with_duration(duration)
+            elif hasattr(clip, 'set_duration'):
+                clip = clip.set_duration(duration)
+            # Center position
+            x_center = (self.reel_width - new_w) // 2
+            y_center = (self.reel_height - new_h) // 2
+            if hasattr(clip, 'with_position'):
+                clip = clip.with_position((x_center, y_center))
+            else:
+                clip = clip.set_position((x_center, y_center))
+            composite = CompositeVideoClip([black_bg, clip])
+            if hasattr(composite, 'with_duration'):
+                composite = composite.with_duration(duration)
+            composite.tmp_path = tmp_path
+            return composite
+        else:
+            # Legacy: resize to height then center crop width
+            if hasattr(clip, 'resized'):
+                clip = clip.resized(height=self.reel_height)
+            elif hasattr(clip, 'resize'):
+                clip = clip.resize(height=self.reel_height)
+            if clip.w > self.reel_width:
+                x_center = clip.w / 2
+                if hasattr(clip, 'cropped'):
+                    clip = clip.cropped(x_center=x_center, width=self.reel_width)
+                elif hasattr(clip, 'crop'):
+                    clip = clip.crop(x_center=x_center, width=self.reel_width)
+            if hasattr(clip, 'with_duration'):
+                clip = clip.with_duration(duration)
+            elif hasattr(clip, 'set_duration'):
+                clip = clip.set_duration(duration)
+            clip.tmp_path = tmp_path
+            return clip
     
     def create_combined_reel(
         self,
@@ -873,12 +1338,12 @@ class VideoProcessor:
             fade_end = final_clip.duration
             video_filter = (
                 f"geq="
-                f"r='if(between(t,{fade_start:.2f},{fade_end:.2f}), "
-                f"r+(255-r)*((t-{fade_start:.2f})/{fade_duration:.2f}), r)':"
-                f"g='if(between(t,{fade_start:.2f},{fade_end:.2f}), "
-                f"g+(255-g)*((t-{fade_start:.2f})/{fade_duration:.2f}), g)':"
-                f"b='if(between(t,{fade_start:.2f},{fade_end:.2f}), "
-                f"b+(255-b)*((t-{fade_start:.2f})/{fade_duration:.2f}), b)'"
+                f"r='if(between(T,{fade_start:.2f},{fade_end:.2f}),"
+                f"r+(255-r)*((T-{fade_start:.2f})/{fade_duration:.2f}),r)':"
+                f"g='if(between(T,{fade_start:.2f},{fade_end:.2f}),"
+                f"g+(255-g)*((T-{fade_start:.2f})/{fade_duration:.2f}),g)':"
+                f"b='if(between(T,{fade_start:.2f},{fade_end:.2f}),"
+                f"b+(255-b)*((T-{fade_start:.2f})/{fade_duration:.2f}),b)'"
             )
             
             # Write with video fade effect - force re-encoding to apply filter

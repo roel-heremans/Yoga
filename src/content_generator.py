@@ -469,8 +469,8 @@ class ContentGenerator:
                 output_path=output_path
             )
             image_source = "quote_card_from_collection"
-        # If no images available, create a quote card from PDF content
-        elif not images:
+        # If no images available and no specific image path, create a quote card from PDF content
+        elif not images and image_path is None:
             # Extract a good quote from PDF content
             if pdf_text:
                 # Try to get key points from JSON first
