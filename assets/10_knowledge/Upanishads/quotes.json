@@ -1,0 +1,338 @@
+{
+  "source": "Upanishads",
+  "author": "Swami Paramananda",
+  "extracted_at": "2026-03-11T11:42:50.760169",
+  "extraction_method": "intelligent",
+  "document_summary": {
+    "total_chunks": 1,
+    "main_themes": [
+      "lower",
+      "higher",
+      "knowledge",
+      "through",
+      "brahman",
+      "wisdom",
+      "distinction",
+      "between",
+      "knowledge,",
+      "where"
+    ],
+    "chapters_detected": 1,
+    "total_quotes_extracted": 8
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_001",
+      "position": 1,
+      "main_ideas": [
+        "The distinction between lower and higher knowledge, where lower knowledge is acquired through study and higher knowledge is realized through direct experience",
+        "The concept of Brahman as the imperishable source of all creation, which is beyond the reach of our physical senses, mind and intellect",
+        "The practice of meditation as a means to cultivate a state of consciousness that allows us to perceive Brahman",
+        "The idea of Tapas, or spiritual discipline, as a fire that consumes impurities and leads to wisdom",
+        "The importance and significance of sacrificial fire in rituals, symbolizing divinity and the fire of wisdom"
+      ],
+      "quotes": [
+        {
+          "id": "chunk001_quote001",
+          "text": "Higher knowledge is that by which the Imperishable is known.",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "higher",
+            "practice",
+            "concept",
+            "between"
+          ],
+          "relevance": "This statement is directly related to the distinction between lower and higher knowledge, emphasizing that higher knowledge is the realization of the imperishable, or Brahman.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote002",
+          "text": "Any knowledge which is acquired through study is classed as lower knowledge, because merely reading or hearing about…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "knowledge,",
+            "practice",
+            "concept",
+            "between"
+          ],
+          "relevance": "This quote again highlights the idea of lower knowledge and higher knowledge, emphasizing that theoretical knowledge, including the study of Sacred Scriptures, is not the same as direct experience of the Truth.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote003",
+          "text": "That which cannot be seen, which cannot be seized, which has no origin and no attributes, no eyes nor ears, no hands…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "practice",
+            "concept",
+            "between",
+            "brahman"
+          ],
+          "relevance": "This quote describes the concept of Brahman as the imperishable source of all creation, which is beyond the reach of our physical senses, mind and intellect.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote004",
+          "text": "To perceive Him we must cultivate another state of consciousness, which is done through the practice of meditation.",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "practice",
+            "concept",
+            "between",
+            "through"
+          ],
+          "relevance": "This quote emphasizes the importance of meditation in cultivating a state of consciousness that allows us to perceive Brahman.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote005",
+          "text": "Tapas is known variously as penance, austerity, etc. It means literally heat, and is employed in this case because…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "practice",
+            "concept",
+            "between",
+            "brahman"
+          ],
+          "relevance": "This quote explains the concept of Tapas, or spiritual discipline, as a fire that consumes impurities and leads to wisdom.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote006",
+          "text": "The real fire which every worshipper must light is the fire of wisdom upon which every morning, noon and night he must…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "practice",
+            "concept",
+            "between",
+            "wisdom"
+          ],
+          "relevance": "This quote emphasizes the significance of sacrificial fire in rituals, symbolizing divinity and the fire of wisdom.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote007",
+          "text": "This is the Truth: Perform them faithfully, ye Truth-seekers; this is the path that leads to the world of good deeds.",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "practice",
+            "concept",
+            "between",
+            "brahman"
+          ],
+          "relevance": "This quote offers practical guidance for seekers of Truth, encouraging faithful performance of spiritual duties as a path to goodness.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote008",
+          "text": "If a man performs his sacrifice in the proper season and pours out his oblations on the shining flames, these oblations…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "distinction",
+            "practice",
+            "concept",
+            "between",
+            "where"
+          ],
+          "relevance": "This quote provides practical guidance on the importance of performing sacrifices at the right time and in the right manner, indicating that correct practices lead to realization of the Supreme Lord.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter d",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "d",
+          "title": "eals in greater detail with the lower",
+          "position": 114597,
+          "line": 8122
+        }
+      ]
+    }
+  ],
+  "quotes": [
+    {
+      "id": "chunk001_quote004",
+      "text": "To perceive Him we must cultivate another state of consciousness, which is done through the practice of meditation.",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "practice",
+        "concept",
+        "between",
+        "through"
+      ],
+      "relevance": "This quote emphasizes the importance of meditation in cultivating a state of consciousness that allows us to perceive Brahman.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote005",
+      "text": "Tapas is known variously as penance, austerity, etc. It means literally heat, and is employed in this case because…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "practice",
+        "concept",
+        "between",
+        "brahman"
+      ],
+      "relevance": "This quote explains the concept of Tapas, or spiritual discipline, as a fire that consumes impurities and leads to wisdom.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote006",
+      "text": "The real fire which every worshipper must light is the fire of wisdom upon which every morning, noon and night he must…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "practice",
+        "concept",
+        "between",
+        "wisdom"
+      ],
+      "relevance": "This quote emphasizes the significance of sacrificial fire in rituals, symbolizing divinity and the fire of wisdom.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote007",
+      "text": "This is the Truth: Perform them faithfully, ye Truth-seekers; this is the path that leads to the world of good deeds.",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "practice",
+        "concept",
+        "between",
+        "brahman"
+      ],
+      "relevance": "This quote offers practical guidance for seekers of Truth, encouraging faithful performance of spiritual duties as a path to goodness.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote002",
+      "text": "Any knowledge which is acquired through study is classed as lower knowledge, because merely reading or hearing about…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "knowledge,",
+        "practice",
+        "concept",
+        "between"
+      ],
+      "relevance": "This quote again highlights the idea of lower knowledge and higher knowledge, emphasizing that theoretical knowledge, including the study of Sacred Scriptures, is not the same as direct experience of the Truth.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote001",
+      "text": "Higher knowledge is that by which the Imperishable is known.",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "higher",
+        "practice",
+        "concept",
+        "between"
+      ],
+      "relevance": "This statement is directly related to the distinction between lower and higher knowledge, emphasizing that higher knowledge is the realization of the imperishable, or Brahman.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote003",
+      "text": "That which cannot be seen, which cannot be seized, which has no origin and no attributes, no eyes nor ears, no hands…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "practice",
+        "concept",
+        "between",
+        "brahman"
+      ],
+      "relevance": "This quote describes the concept of Brahman as the imperishable source of all creation, which is beyond the reach of our physical senses, mind and intellect.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote008",
+      "text": "If a man performs his sacrifice in the proper season and pours out his oblations on the shining flames, these oblations…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "distinction",
+        "practice",
+        "concept",
+        "between",
+        "where"
+      ],
+      "relevance": "This quote provides practical guidance on the importance of performing sacrifices at the right time and in the right manner, indicating that correct practices lead to realization of the Supreme Lord.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    }
+  ]
+}

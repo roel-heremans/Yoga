@@ -1,0 +1,1250 @@
+{
+  "source": "Light on Yoga",
+  "author": "B.K.S. Iyengar",
+  "extracted_at": "2026-03-11T11:21:08.807968",
+  "extraction_method": "intelligent",
+  "document_summary": {
+    "total_chunks": 5,
+    "main_themes": [
+      "practice",
+      "physical",
+      "control",
+      "concept",
+      "importance",
+      "mental",
+      "state",
+      "benefits",
+      "achieving",
+      "spiritual"
+    ],
+    "chapters_detected": 5,
+    "total_quotes_extracted": 30
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_001",
+      "position": 1,
+      "main_ideas": [
+        "The importance of understanding and overcoming the five causes of mental pain or 'chitta vrtti' in the path of yoga",
+        "The significance of physical health and mental disposition in the practice of yoga",
+        "The role of faith, humility, and enthusiasm in overcoming distractions and obstacles in yoga",
+        "The concept of living in the 'eternal present' as a way to find peace and self-realization",
+        "The need for constant study and freeing oneself from desires to still the mind and reflect the beauty of the Self"
+      ],
+      "quotes": [
+        {
+          "id": "chunk001_quote001",
+          "text": "The yogi learns to forget the past and takes no thought for the morrow. He lives in the eternal present.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Underlines the concept of living in the 'eternal present' for achieving peace and self-realization",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote002",
+          "text": "The still waters of a lake reflect the beauty around it. When the mind is still, the beauty of the Self is seen…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Highlights the importance of stilling the mind to reflect the beauty of the Self, a key aspect of yoga",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote003",
+          "text": "The yogi stills his mind by constant study and by freeing himself from desires.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Explains how constant study and the liberation from desires aid in calming the mind, a fundamental yoga concept",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote004",
+          "text": "To the yogi his body is the prime instrument of attainment. If his vehicle breaks down, the traveller cannot go far.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Emphasizes the significance of physical health in the practice of yoga",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote005",
+          "text": "Physical health is important for mental development, as normally the mind functions through the nervous system.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "mental"
+          ],
+          "relevance": "Explains the connection between physical health and mental disposition in the context of yoga",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote006",
+          "text": "The seeker should have faith in himself and his master. He should have faith that God is ever by his side and that no…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Highlights the role of faith in overcoming distractions and obstacles in yoga",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote007",
+          "text": "To remove the obstacle of laziness, unflagging enthusiasm (virya) is needed.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Provides practical guidance on the need for enthusiasm in overcoming distractions and obstacles in yoga",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote008",
+          "text": "Their sad or happy memories keep them chained to the past and they cannot break their fetters.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Underlines the importance of overcoming 'chitta vrtti', one of the five causes of mental pain in the path of yoga",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote009",
+          "text": "So long as they are not studiously controlled and eradicated, there can be no peace.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Highlights the importance of understanding and overcoming the five causes of mental pain or 'chitta vrtti' in the path of yoga",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote010",
+          "text": "In a similar way the Yogi plans the conquest of the Self.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "humility,",
+            "significance",
+            "importance",
+            "understanding",
+            "faith,"
+          ],
+          "relevance": "Illustrates the yogi's approach towards achieving self-realization, a key goal in yoga",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "1",
+          "title": "Pramax:ta (a standard or ideal), by which things or values are measured",
+          "position": 10896,
+          "line": 197
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_002",
+      "position": 2,
+      "main_ideas": [
+        "The concept of Samadhi, a state of unity between the mind and the Atman",
+        "The practice of Khechari Mudra and its benefits such as absence of disease, decay, and death",
+        "The importance of control over the mind's aberrations in Yoga",
+        "The significance of Nada, the inner mystical sound, in achieving concentration and control of the mind",
+        "The idea of achieving a natural, pure, and emancipated state through yoga"
+      ],
+      "quotes": [
+        {
+          "id": "chunk002_quote001",
+          "text": "As a grain of salt thrown into water unites and becomes one with it, a like union between the Mind and the Atman is…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "khechari",
+            "importance",
+            "practice",
+            "concept",
+            "samadhi,"
+          ],
+          "relevance": "This quote describes the concept of Samadhi, a key idea in yoga where the mind achieves unity with the Atman, or the self.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote002",
+          "text": "When Prana and Manas (mind) are annihilated (absorbed), the state of harmony then arising is called Samadhi.",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "state",
+            "khechari",
+            "importance",
+            "practice",
+            "concept"
+          ],
+          "relevance": "This statement explains the process of achieving Samadhi, highlighting the importance of control over the mind's activities.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote003",
+          "text": "There is no asana like Siddha, no kumbhaka like Kevala, no mudra like Khecharl, and no laya (absorption of the mind)…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "khechari",
+            "importance",
+            "practice",
+            "concept",
+            "samadhi,"
+          ],
+          "relevance": "This quote provides practical guidance on the most beneficial practices in yoga, including the Khechari Mudra and Nada, the inner mystical sound.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote004",
+          "text": "By this practice there is neither fainting, nor hunger, nor thirst, nor laziness.",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "khechari",
+            "importance",
+            "practice",
+            "concept",
+            "samadhi,"
+          ],
+          "relevance": "This quote highlights the benefits of practicing the Khechari Mudra, emphasizing the theme of achieving a pure and emancipated state through yoga.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote005",
+          "text": "Yoga is defined as control over the aberrations of the mind. In order to control the mind it is necessary that it…",
+          "type": "quote",
+          "context": "Chapter d",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "khechari",
+            "importance",
+            "practice",
+            "concept",
+            "samadhi,"
+          ],
+          "relevance": "This piece of wisdom emphasizes the importance of mental control in yoga, tying into the theme of controlling the mind's aberrations.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter d",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "d",
+          "title": "escribes it in great detail with a variety of similes. Yoga is",
+          "position": 167783,
+          "line": 3614
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_003",
+      "position": 3,
+      "main_ideas": [
+        "The practice of Khechari can lead to freedom from physical ailments and transcendence of human limitations",
+        "Yoga is defined as control over the aberrations of the mind and is achieved through concentration and introspection",
+        "Specific asanas and their techniques are provided for maintaining physical health and facilitating meditation",
+        "The practice of pranayama and meditation is emphasized in maintaining a healthy mind-body connection",
+        "The concept of Nada or the inner mystical sound and its role in quieting the mind and achieving a meditative state"
+      ],
+      "quotes": [
+        {
+          "id": "chunk003_quote001",
+          "text": "By this practice there is neither fainting, nor hunger, nor thirst, nor laziness. There comes neither disease, nor decay, nor death. The body becomes divine.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "defined",
+            "khechari",
+            "practice",
+            "asanas",
+            "specific"
+          ],
+          "relevance": "This quote emphasizes the transformative power of the practice of Khechari, leading to freedom from physical ailments and transcendence of human limitations.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote002",
+          "text": "Yoga is defined as control over the aberrations of the mind.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "defined",
+            "khechari",
+            "practice",
+            "asanas",
+            "specific"
+          ],
+          "relevance": "This quote succinctly defines yoga in terms of mental control, which is achieved through concentration and introspection.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote003",
+          "text": "The mind is like a serpent, forgetting all its unsteadiness by hearing Nada, it does not run away anywhere.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "defined",
+            "khechari",
+            "practice",
+            "asanas",
+            "specific"
+          ],
+          "relevance": "This metaphor illuminates the role of Nada, the inner mystical sound, in quieting the mind and achieving a meditative state.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote004",
+          "text": "This posture keeps the pubic region healthy. Like Padmasana (Plate 1 04), it is one of the most relaxing of asanas.",
+          "type": "fact",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "defined",
+            "khechari",
+            "practice",
+            "asanas",
+            "specific"
+          ],
+          "relevance": "This quote offers practical guidance about the benefits of specific asanas in maintaining physical health.",
+          "importance_score": 0.9700000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote005",
+          "text": "The body being in a sitting posture is at rest, while the position of the crossed legs and erect back keeps the mind…",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "defined",
+            "khechari",
+            "practice",
+            "asanas",
+            "specific"
+          ],
+          "relevance": "This quote describes the balance between physical relaxation and mental alertness that is fundamental to yoga practice.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote006",
+          "text": "This asana is also recommended for the practice of pranayama and for meditation.",
+          "type": "fact",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "defined",
+            "khechari",
+            "practice",
+            "asanas",
+            "specific"
+          ],
+          "relevance": "This quote emphasizes the role of specific asanas in facilitating the practice of pranayama and meditation, supporting a healthy mind-body connection.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 2",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "2",
+          "title": "Bend the left leg at the knee. Hold the left foot with the hands, place",
+          "position": 168602,
+          "line": 3627
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_004",
+      "position": 4,
+      "main_ideas": [
+        "The practice of Baddhakonasana and Mulabandhasana can help control excessive sexual desire, leading to sublimation of energy and limitless joy",
+        "The practice of Vamadevasana and its variations can relieve pain, cure stiffness in the legs, keep the genital organs healthy, tone the spine, and improve digestion",
+        "The practice of yoga poses involves balancing and deep breathing, indicating a connection between physical discipline and mental control",
+        "The concept of sublimation of energy, suggesting a transformation of physical or primal energies into spiritual growth"
+      ],
+      "quotes": [
+        {
+          "id": "chunk004_quote001",
+          "text": "Baddhakonasana and Miilabandhasana are a great help to people with excessive sexual desire.",
+          "type": "statement",
+          "context": "Chapter o",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "practice",
+            "baddhakonasana",
+            "vamadevasana",
+            "poses",
+            "control"
+          ],
+          "relevance": "This quote relates to the main idea of using specific yoga poses to control excessive sexual desire, leading to sublimation of energy and limitless joy.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote002",
+          "text": "The pose cures stiffness of the legs and relieves pain. It keeps the genital organs healthy.",
+          "type": "fact",
+          "context": "Chapter o",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "practice",
+            "baddhakonasana",
+            "vamadevasana",
+            "poses"
+          ],
+          "relevance": "This quote relates to the main idea of the beneficial effects of practicing Vamadevasana and its variations, which can relieve pain, cure stiffness in the legs, keep the genital organs healthy, tone the spine, and improve digestion.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote003",
+          "text": "Balance for 30 seconds with deep breathing.",
+          "type": "statement",
+          "context": "Chapter o",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "practice",
+            "baddhakonasana",
+            "vamadevasana",
+            "poses"
+          ],
+          "relevance": "This quote relates to the main idea of the practice of yoga poses involving balancing and deep breathing, indicating a connection between physical discipline and mental control.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote004",
+          "text": "The asana relieves pain, cures stiffness in the legs and keeps the genital organs healthy.",
+          "type": "fact",
+          "context": "Chapter o",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "practice",
+            "baddhakonasana",
+            "vamadevasana",
+            "poses"
+          ],
+          "relevance": "This quote relates to the main idea of the beneficial effects of practicing Vamadevasana and its variations, which can relieve pain, cure stiffness in the legs, keep the genital organs healthy, tone the spine, and improve digestion.",
+          "importance_score": 0.9700000000000001,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter o",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "o",
+          "title": "f the Hatha Yoga Pradipikii speak of the Kanda as follows :",
+          "position": 411334,
+          "line": 9944
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_005",
+      "position": 5,
+      "main_ideas": [
+        "The importance of practicing asanas correctly and consistently for physical and spiritual benefits",
+        "The practice of yoga as a means to balance and control sexual energy",
+        "The physical and spiritual benefits of asanas, including improved digestion, relief from pain, and toning of the spine",
+        "The concept of Chakras and their role in yoga practice, specifically the Svadhisthana Chakra (the hypogastric plexus) and the Manipuraka Chakra (the solar plexus)"
+      ],
+      "quotes": [
+        {
+          "id": "chunk005_quote001",
+          "text": "The asana relieves pain, cures stiffness in the legs and keeps the genital organs healthy. It also tones the spine and improves digestion.",
+          "type": "fact",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practicing",
+            "importance",
+            "practice",
+            "means",
+            "spiritual"
+          ],
+          "relevance": "This statement highlights the physical benefits of practicing asanas, which is a key theme in the text.",
+          "importance_score": 0.9700000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote002",
+          "text": "Every muscle below the navel is exercised. The pose cures stiffness in the hip, knee and ankle joints.",
+          "type": "fact",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practicing",
+            "importance",
+            "practice",
+            "means",
+            "spiritual"
+          ],
+          "relevance": "This statement relates to the theme of balancing and controlling sexual energy through yoga practice.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote003",
+          "text": "The asana also exercises the Svadhisthana Chakra (the hypogastric plexus) and the Manipuraka Chakra (the solar plexus),…",
+          "type": "fact",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practicing",
+            "importance",
+            "practice",
+            "means",
+            "spiritual"
+          ],
+          "relevance": "This quote explains the role of two specific Chakras in yoga practice and their impact on digestion, one of the main themes.",
+          "importance_score": 0.9900000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote004",
+          "text": "Hold the right foot with the right palm and the left foot with the left palm.",
+          "type": "statement",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practicing",
+            "importance",
+            "practice",
+            "means",
+            "spiritual"
+          ],
+          "relevance": "This is a practical guidance statement, emphasizing the importance of doing asanas correctly.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote005",
+          "text": "As the pelvic and other joints of the legs are rotated it takes a long time to master the pose.",
+          "type": "statement",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practicing",
+            "importance",
+            "practice",
+            "means",
+            "spiritual"
+          ],
+          "relevance": "This statement underscores the need for consistent practice in yoga, which is a major theme in the text.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote006",
+          "text": "The Kanda is 12 inches above the anus and extends 4 inches both ways.",
+          "type": "fact",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practicing",
+            "importance",
+            "practice",
+            "means",
+            "spiritual"
+          ],
+          "relevance": "This quote provides detailed understanding about the Kanda, a key concept in yoga practice.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote007",
+          "text": "The Kandalini sleeps above the kanda. It gives Mukti (emancipation) to the yogins and bondage to the fools.",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practicing",
+            "importance",
+            "practice",
+            "means",
+            "spiritual"
+          ],
+          "relevance": "This philosophical wisdom quote is about the Kandalini and its role in achieving emancipation, a major concept in yoga.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 6",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "6",
+          "title": "Hold the feet with the hands, lower them to the floor and rest.",
+          "position": 413184,
+          "line": 9989
+        }
+      ]
+    }
+  ],
+  "quotes": [
+    {
+      "id": "chunk002_quote001",
+      "text": "As a grain of salt thrown into water unites and becomes one with it, a like union between the Mind and the Atman is…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "khechari",
+        "importance",
+        "practice",
+        "concept",
+        "samadhi,"
+      ],
+      "relevance": "This quote describes the concept of Samadhi, a key idea in yoga where the mind achieves unity with the Atman, or the self.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote002",
+      "text": "When Prana and Manas (mind) are annihilated (absorbed), the state of harmony then arising is called Samadhi.",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "state",
+        "khechari",
+        "importance",
+        "practice",
+        "concept"
+      ],
+      "relevance": "This statement explains the process of achieving Samadhi, highlighting the importance of control over the mind's activities.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote003",
+      "text": "There is no asana like Siddha, no kumbhaka like Kevala, no mudra like Khecharl, and no laya (absorption of the mind)…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "khechari",
+        "importance",
+        "practice",
+        "concept",
+        "samadhi,"
+      ],
+      "relevance": "This quote provides practical guidance on the most beneficial practices in yoga, including the Khechari Mudra and Nada, the inner mystical sound.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote006",
+      "text": "This asana is also recommended for the practice of pranayama and for meditation.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "defined",
+        "khechari",
+        "practice",
+        "asanas",
+        "specific"
+      ],
+      "relevance": "This quote emphasizes the role of specific asanas in facilitating the practice of pranayama and meditation, supporting a healthy mind-body connection.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote001",
+      "text": "Baddhakonasana and Miilabandhasana are a great help to people with excessive sexual desire.",
+      "type": "statement",
+      "context": "Chapter o",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "practice",
+        "baddhakonasana",
+        "vamadevasana",
+        "poses",
+        "control"
+      ],
+      "relevance": "This quote relates to the main idea of using specific yoga poses to control excessive sexual desire, leading to sublimation of energy and limitless joy.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote003",
+      "text": "The asana also exercises the Svadhisthana Chakra (the hypogastric plexus) and the Manipuraka Chakra (the solar plexus),…",
+      "type": "fact",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practicing",
+        "importance",
+        "practice",
+        "means",
+        "spiritual"
+      ],
+      "relevance": "This quote explains the role of two specific Chakras in yoga practice and their impact on digestion, one of the main themes.",
+      "importance_score": 0.9900000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote004",
+      "text": "This posture keeps the pubic region healthy. Like Padmasana (Plate 1 04), it is one of the most relaxing of asanas.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "defined",
+        "khechari",
+        "practice",
+        "asanas",
+        "specific"
+      ],
+      "relevance": "This quote offers practical guidance about the benefits of specific asanas in maintaining physical health.",
+      "importance_score": 0.9700000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote004",
+      "text": "The asana relieves pain, cures stiffness in the legs and keeps the genital organs healthy.",
+      "type": "fact",
+      "context": "Chapter o",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "practice",
+        "baddhakonasana",
+        "vamadevasana",
+        "poses"
+      ],
+      "relevance": "This quote relates to the main idea of the beneficial effects of practicing Vamadevasana and its variations, which can relieve pain, cure stiffness in the legs, keep the genital organs healthy, tone the spine, and improve digestion.",
+      "importance_score": 0.9700000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote002",
+      "text": "The still waters of a lake reflect the beauty around it. When the mind is still, the beauty of the Self is seen…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Highlights the importance of stilling the mind to reflect the beauty of the Self, a key aspect of yoga",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote003",
+      "text": "The yogi stills his mind by constant study and by freeing himself from desires.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Explains how constant study and the liberation from desires aid in calming the mind, a fundamental yoga concept",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote004",
+      "text": "By this practice there is neither fainting, nor hunger, nor thirst, nor laziness.",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "khechari",
+        "importance",
+        "practice",
+        "concept",
+        "samadhi,"
+      ],
+      "relevance": "This quote highlights the benefits of practicing the Khechari Mudra, emphasizing the theme of achieving a pure and emancipated state through yoga.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote005",
+      "text": "Yoga is defined as control over the aberrations of the mind. In order to control the mind it is necessary that it…",
+      "type": "quote",
+      "context": "Chapter d",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "khechari",
+        "importance",
+        "practice",
+        "concept",
+        "samadhi,"
+      ],
+      "relevance": "This piece of wisdom emphasizes the importance of mental control in yoga, tying into the theme of controlling the mind's aberrations.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote004",
+      "text": "To the yogi his body is the prime instrument of attainment. If his vehicle breaks down, the traveller cannot go far.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Emphasizes the significance of physical health in the practice of yoga",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote006",
+      "text": "The seeker should have faith in himself and his master. He should have faith that God is ever by his side and that no…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Highlights the role of faith in overcoming distractions and obstacles in yoga",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote009",
+      "text": "So long as they are not studiously controlled and eradicated, there can be no peace.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Highlights the importance of understanding and overcoming the five causes of mental pain or 'chitta vrtti' in the path of yoga",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote010",
+      "text": "In a similar way the Yogi plans the conquest of the Self.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Illustrates the yogi's approach towards achieving self-realization, a key goal in yoga",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote003",
+      "text": "The mind is like a serpent, forgetting all its unsteadiness by hearing Nada, it does not run away anywhere.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "defined",
+        "khechari",
+        "practice",
+        "asanas",
+        "specific"
+      ],
+      "relevance": "This metaphor illuminates the role of Nada, the inner mystical sound, in quieting the mind and achieving a meditative state.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote007",
+      "text": "The Kandalini sleeps above the kanda. It gives Mukti (emancipation) to the yogins and bondage to the fools.",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practicing",
+        "importance",
+        "practice",
+        "means",
+        "spiritual"
+      ],
+      "relevance": "This philosophical wisdom quote is about the Kandalini and its role in achieving emancipation, a major concept in yoga.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote001",
+      "text": "The yogi learns to forget the past and takes no thought for the morrow. He lives in the eternal present.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Underlines the concept of living in the 'eternal present' for achieving peace and self-realization",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote007",
+      "text": "To remove the obstacle of laziness, unflagging enthusiasm (virya) is needed.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Provides practical guidance on the need for enthusiasm in overcoming distractions and obstacles in yoga",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote008",
+      "text": "Their sad or happy memories keep them chained to the past and they cannot break their fetters.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "faith,"
+      ],
+      "relevance": "Underlines the importance of overcoming 'chitta vrtti', one of the five causes of mental pain in the path of yoga",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote002",
+      "text": "Yoga is defined as control over the aberrations of the mind.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "defined",
+        "khechari",
+        "practice",
+        "asanas",
+        "specific"
+      ],
+      "relevance": "This quote succinctly defines yoga in terms of mental control, which is achieved through concentration and introspection.",
+      "importance_score": 0.89,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote005",
+      "text": "The body being in a sitting posture is at rest, while the position of the crossed legs and erect back keeps the mind…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "defined",
+        "khechari",
+        "practice",
+        "asanas",
+        "specific"
+      ],
+      "relevance": "This quote describes the balance between physical relaxation and mental alertness that is fundamental to yoga practice.",
+      "importance_score": 0.89,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote003",
+      "text": "Balance for 30 seconds with deep breathing.",
+      "type": "statement",
+      "context": "Chapter o",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "practice",
+        "baddhakonasana",
+        "vamadevasana",
+        "poses"
+      ],
+      "relevance": "This quote relates to the main idea of the practice of yoga poses involving balancing and deep breathing, indicating a connection between physical discipline and mental control.",
+      "importance_score": 0.89,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote005",
+      "text": "Physical health is important for mental development, as normally the mind functions through the nervous system.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "humility,",
+        "significance",
+        "importance",
+        "understanding",
+        "mental"
+      ],
+      "relevance": "Explains the connection between physical health and mental disposition in the context of yoga",
+      "importance_score": 0.87,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote004",
+      "text": "Hold the right foot with the right palm and the left foot with the left palm.",
+      "type": "statement",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practicing",
+        "importance",
+        "practice",
+        "means",
+        "spiritual"
+      ],
+      "relevance": "This is a practical guidance statement, emphasizing the importance of doing asanas correctly.",
+      "importance_score": 0.85,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote005",
+      "text": "As the pelvic and other joints of the legs are rotated it takes a long time to master the pose.",
+      "type": "statement",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practicing",
+        "importance",
+        "practice",
+        "means",
+        "spiritual"
+      ],
+      "relevance": "This statement underscores the need for consistent practice in yoga, which is a major theme in the text.",
+      "importance_score": 0.85,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote002",
+      "text": "The pose cures stiffness of the legs and relieves pain. It keeps the genital organs healthy.",
+      "type": "fact",
+      "context": "Chapter o",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "practice",
+        "baddhakonasana",
+        "vamadevasana",
+        "poses"
+      ],
+      "relevance": "This quote relates to the main idea of the beneficial effects of practicing Vamadevasana and its variations, which can relieve pain, cure stiffness in the legs, keep the genital organs healthy, tone the spine, and improve digestion.",
+      "importance_score": 0.8,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote002",
+      "text": "Every muscle below the navel is exercised. The pose cures stiffness in the hip, knee and ankle joints.",
+      "type": "fact",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practicing",
+        "importance",
+        "practice",
+        "means",
+        "spiritual"
+      ],
+      "relevance": "This statement relates to the theme of balancing and controlling sexual energy through yoga practice.",
+      "importance_score": 0.8,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote006",
+      "text": "The Kanda is 12 inches above the anus and extends 4 inches both ways.",
+      "type": "fact",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practicing",
+        "importance",
+        "practice",
+        "means",
+        "spiritual"
+      ],
+      "relevance": "This quote provides detailed understanding about the Kanda, a key concept in yoga practice.",
+      "importance_score": 0.8,
+      "approved": false,
+      "notes": ""
+    }
+  ]
+}

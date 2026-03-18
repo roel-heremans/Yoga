@@ -1,0 +1,410 @@
+{
+  "source": "Love Letters to Life",
+  "author": "Osho",
+  "extracted_at": "2026-03-11T11:43:09.701723",
+  "extraction_method": "intelligent",
+  "document_summary": {
+    "total_chunks": 1,
+    "main_themes": [
+      "human",
+      "spiritual",
+      "transcendence",
+      "consciousness",
+      "beyond",
+      "ordinary",
+      "states,",
+      "described",
+      "terms",
+      "avatar,"
+    ],
+    "chapters_detected": 1,
+    "total_quotes_extracted": 10
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_001",
+      "position": 1,
+      "main_ideas": [
+        "The transcendence of human consciousness beyond ordinary states, described by terms such as avatar, tirthankara, and prophet",
+        "The role of suffering in the human experience, as a combination of physical impact and spiritual experience",
+        "The importance of changing one's thinking to overcome poverty and achieve affluence",
+        "The concept of love as a form of giving and freedom, contrasting it with the constraints of marriage",
+        "The critique of 'gurudom' and emphasis on the primacy of the disciple in the pursuit of spiritual knowledge"
+      ],
+      "quotes": [
+        {
+          "id": "chunk001_quote001",
+          "text": "Expressions such as avatar, tirthankara, and prophet only indicate man’s helplessness.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "consciousness",
+            "importance",
+            "changing",
+            "suffering",
+            "human"
+          ],
+          "relevance": "This quote expresses the transcendence of human consciousness beyond ordinary states.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote002",
+          "text": "Man must be saved from gurudom.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This statement criticizes the overemphasis on the role of the guru and underscores the importance of the disciple in spiritual learning.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote003",
+          "text": "Only a simplicity born out of knowing has any spiritual value.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "spiritual"
+          ],
+          "relevance": "This quote emphasizes the importance of knowledge and understanding in spiritual development.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote004",
+          "text": "The poor are poor because their thinking is wrong. Poverty is the result of our wrong thinking about life.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This statement deals with the role of mindset in overcoming poverty and achieving affluence.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote005",
+          "text": "Suffering happens neither to the body nor to the soul. Suffering happens to the combination of the two, that is, to man.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This statement delves into the nature of suffering as a part of the human experience, encompassing both physical and spiritual aspects.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote006",
+          "text": "Love is perfect in itself. It desires nothing more. Marriage is the desire for something more.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This quote provides a nuanced view on love as a form of giving and freedom, and contrasts it with the constraints of marriage.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote007",
+          "text": "Never ask for anything from existence because there is a contradiction between asking and loving. Love only gives.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This quote further explores the concept of love as selfless giving.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote008",
+          "text": "The flowers of love can only bloom in freedom. So don’t let your marriage become a 'marriage.' Let it remain love.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This quote reinforces the idea of love as a form of freedom, and cautions against the potential constraints of marriage.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote009",
+          "text": "Missing home is natural, and it tortures you until you have learned to turn every place into your home.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This quote provides practical guidance on dealing with feelings of homesickness and displacement.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote010",
+          "text": "This whole earth is our home, and all of life is our family.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "importance",
+            "changing",
+            "suffering",
+            "human",
+            "transcendence"
+          ],
+          "relevance": "This statement encourages a broader understanding of belonging and connection in the world.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "1",
+          "title": "Expressions such as avatar, tirthankara, and prophet only indicate man’s helplessness. This much is certain: some beings reach such a point in the upward journey of consciousness that to call them merely a human being is not meaningful. Yet one has to call them something or the other, so these expressions are used to describe man’s transcendental states.",
+          "position": 19304,
+          "line": 256
+        }
+      ]
+    }
+  ],
+  "quotes": [
+    {
+      "id": "chunk001_quote001",
+      "text": "Expressions such as avatar, tirthankara, and prophet only indicate man’s helplessness.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "consciousness",
+        "importance",
+        "changing",
+        "suffering",
+        "human"
+      ],
+      "relevance": "This quote expresses the transcendence of human consciousness beyond ordinary states.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote003",
+      "text": "Only a simplicity born out of knowing has any spiritual value.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "spiritual"
+      ],
+      "relevance": "This quote emphasizes the importance of knowledge and understanding in spiritual development.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote006",
+      "text": "Love is perfect in itself. It desires nothing more. Marriage is the desire for something more.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This quote provides a nuanced view on love as a form of giving and freedom, and contrasts it with the constraints of marriage.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote007",
+      "text": "Never ask for anything from existence because there is a contradiction between asking and loving. Love only gives.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This quote further explores the concept of love as selfless giving.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote008",
+      "text": "The flowers of love can only bloom in freedom. So don’t let your marriage become a 'marriage.' Let it remain love.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This quote reinforces the idea of love as a form of freedom, and cautions against the potential constraints of marriage.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote009",
+      "text": "Missing home is natural, and it tortures you until you have learned to turn every place into your home.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This quote provides practical guidance on dealing with feelings of homesickness and displacement.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote005",
+      "text": "Suffering happens neither to the body nor to the soul. Suffering happens to the combination of the two, that is, to man.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This statement delves into the nature of suffering as a part of the human experience, encompassing both physical and spiritual aspects.",
+      "importance_score": 0.89,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote002",
+      "text": "Man must be saved from gurudom.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This statement criticizes the overemphasis on the role of the guru and underscores the importance of the disciple in spiritual learning.",
+      "importance_score": 0.85,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote004",
+      "text": "The poor are poor because their thinking is wrong. Poverty is the result of our wrong thinking about life.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This statement deals with the role of mindset in overcoming poverty and achieving affluence.",
+      "importance_score": 0.85,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote010",
+      "text": "This whole earth is our home, and all of life is our family.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "importance",
+        "changing",
+        "suffering",
+        "human",
+        "transcendence"
+      ],
+      "relevance": "This statement encourages a broader understanding of belonging and connection in the world.",
+      "importance_score": 0.85,
+      "approved": false,
+      "notes": ""
+    }
+  ]
+}

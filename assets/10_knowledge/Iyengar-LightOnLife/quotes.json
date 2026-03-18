@@ -1,0 +1,3315 @@
+{
+  "source": "Light on Life",
+  "author": "B.K.S. Iyengar",
+  "extracted_at": "2026-03-11T11:25:39.045440",
+  "extraction_method": "intelligent",
+  "document_summary": {
+    "total_chunks": 10,
+    "main_themes": [
+      "concept",
+      "importance",
+      "practice",
+      "intelligence",
+      "understanding",
+      "journey",
+      "asana",
+      "self-realization",
+      "body,",
+      "wisdom"
+    ],
+    "chapters_detected": 15,
+    "total_quotes_extracted": 84
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_001",
+      "position": 1,
+      "main_ideas": [
+        "The inward journey signifies the exploration of the self and self-realization",
+        "Stability through asana practice emphasizes the physical aspect of yoga",
+        "Vitality represents the energy body, highlighting the concept of prana or life force",
+        "Clarity pertains to the mental body, underlining the importance of a clear mind in yoga",
+        "Wisdom is associated with the intellectual body, indicating the role of knowledge and understanding in yoga"
+      ],
+      "quotes": [],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "1",
+          "title": "The Inward Journey",
+          "position": 37,
+          "line": 4
+        },
+        {
+          "type": "chapter",
+          "number": "2",
+          "title": "Stability—The Physical Body (Asana)",
+          "position": 67,
+          "line": 6
+        },
+        {
+          "type": "chapter",
+          "number": "3",
+          "title": "Vitality—The Energy Body (Prana)",
+          "position": 114,
+          "line": 8
+        },
+        {
+          "type": "chapter",
+          "number": "4",
+          "title": "Clarity—The Mental Body (Manas)",
+          "position": 158,
+          "line": 10
+        },
+        {
+          "type": "chapter",
+          "number": "5",
+          "title": "Wisdom—The Intellectual Body (Vijnana)",
+          "position": 201,
+          "line": 12
+        },
+        {
+          "type": "chapter",
+          "number": "6",
+          "title": "Bliss—The Divine Body (Ananda)",
+          "position": 251,
+          "line": 14
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_002",
+      "position": 2,
+      "main_ideas": [
+        "The transformative power of persistent yoga practice",
+        "The role of yoga in achieving self-realization and understanding one's place in the universe",
+        "The importance of guidance and learning from experienced yoga teachers",
+        "The value of yoga in fostering wisdom and inner light",
+        "The concept of sadhana, or disciplined and dedicated practice, as a key to yoga mastery"
+      ],
+      "quotes": [
+        {
+          "id": "chunk002_quote001",
+          "text": "By persistent and sustained practice, anyone and everyone can make the yoga journey and reach the goal of illumination…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "journey",
+            "importance",
+            "practice",
+            "guidance",
+            "achieving"
+          ],
+          "relevance": "This quote emphasizes the transformative power of persistent yoga practice and the potential for achieving self-realization.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote002",
+          "text": "Just as they reached Self-Realization, so may we.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "guidance",
+            "achieving",
+            "power",
+            "self-realization"
+          ],
+          "relevance": "This quote highlights the concept of self-realization, a central theme in yoga and spiritual literature.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote003",
+          "text": "I literally emerged from darkness to light, from mortal sickness to health, from crude ignorance to immersion in the…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "practice",
+            "guidance",
+            "achieving",
+            "power"
+          ],
+          "relevance": "This quote underlines the transformative power of yoga, the importance of sadhana, and the potential for yoga to foster wisdom and inner light.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote004",
+          "text": "Today you also have the benefit of many gifted yoga teachers.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "guidance",
+            "achieving",
+            "power",
+            "self-realization"
+          ],
+          "relevance": "This quote speaks to the importance of guidance and learning from experienced yoga teachers, a main theme in the text.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote005",
+          "text": "I wanted to understand this mysterious and marvelous “yoga,” which could reveal to us our innermost secrets, as equally…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "guidance",
+            "achieving",
+            "power",
+            "self-realization"
+          ],
+          "relevance": "This quote expresses the role of yoga in self-understanding and comprehending one's place in the universe.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote006",
+          "text": "It took me whole decades to appreciate the depth and true value of yoga.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "guidance",
+            "achieving",
+            "power",
+            "self-realization"
+          ],
+          "relevance": "This quote emphasizes the lifelong journey of mastering yoga and the dedication required to fully appreciate its value.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote007",
+          "text": "Any contribution I have made to the world has been the fruit of my sadhana.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "guidance",
+            "achieving",
+            "power",
+            "self-realization"
+          ],
+          "relevance": "This quote underlines the concept of sadhana, or disciplined and dedicated practice, as a key to yoga mastery.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote008",
+          "text": "It is no extravagant claim to say that wisdom has come to me by the practice of yoga, and the grace of God has lit the…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "practice",
+            "guidance",
+            "achieving",
+            "power"
+          ],
+          "relevance": "This quote highlights how yoga can foster wisdom and inner light, a key theme in the text.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote009",
+          "text": "Do not aim low; you will miss the mark. Aim high; you will be on the threshold of bliss.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "guidance",
+            "achieving",
+            "power",
+            "self-realization"
+          ],
+          "relevance": "This quote is both motivational and provides practical guidance, encouraging readers to strive for their highest potential through yoga.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk002_quote010",
+          "text": "With this truth bearing light will begin a new life. Old unwanted impressions are discarded and we are protected from…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_002",
+          "themes": [
+            "importance",
+            "guidance",
+            "achieving",
+            "power",
+            "self-realization"
+          ],
+          "relevance": "Quoting Patanjali, this statement emphasizes the transformative power of yoga and its potential for personal growth and protection from life's challenges.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 7",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "7",
+          "title": "Living in Freedom",
+          "position": 293,
+          "line": 16
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_003",
+      "position": 3,
+      "main_ideas": [
+        "The concept of the 'Inward Journey' emphasizes self-realization and the discovery of one's divine core",
+        "The existence of five sheaths of being (kosas) that encompass physical, energetic, mental, intellectual, and blissful aspects of self",
+        "The importance of harmony and alignment among the kosas for achieving wholeness and avoiding disease and despair",
+        "The practice of yoga as a path to integrate the different layers of being and reveal the inner divinity",
+        "The necessity of transformation and understanding of mind and heart for progress towards ultimate freedom"
+      ],
+      "quotes": [
+        {
+          "id": "chunk003_quote001",
+          "text": "Spiritual realization is the aim that exists in each one of us to seek our divine core.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "journey",
+            "importance",
+            "concept",
+            "existence"
+          ],
+          "relevance": "This quote speaks to the central themes of self-realization and the inward journey, emphasizing the importance of internal self-discovery in yoga.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote002",
+          "text": "In order to find out how to reveal our innermost Being, the sages explored the various sheaths of existence, starting…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "journey",
+            "importance",
+            "intelligence",
+            "body,"
+          ],
+          "relevance": "This quote explains the concept of the kosas or 'sheaths of being', aligning with the main theme of achieving harmony and alignment among these layers.",
+          "importance_score": 0.98,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote003",
+          "text": "You do not need to seek freedom in some distant land, for it exists within your own body, heart, mind, and soul.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "journey",
+            "importance",
+            "body,",
+            "concept"
+          ],
+          "relevance": "This quote is a powerful statement about the transformative potential of the yogic journey, aligning with the main ideas of self-realization and internal transformation.",
+          "importance_score": 0.98,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote004",
+          "text": "Yoga identifies five of these different levels or sheaths of being (kosas), which must be completely integrated and in…",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "importance",
+            "concept",
+            "existence",
+            "harmony"
+          ],
+          "relevance": "This statement clearly explains the concept of the kosas and their importance in achieving wholeness, linking to the main themes of harmony and integration in yoga.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote005",
+          "text": "The aim of yoga is to discover our immortal Self. The practice of yoga teaches us to live fully—physically and…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "importance",
+            "practice",
+            "concept",
+            "existence"
+          ],
+          "relevance": "This quote emphasizes the purpose of yoga practice in relation to self-discovery and cultivation of the kosas, aligning with the main ideas of self-realization and harmony among the kosas.",
+          "importance_score": 0.98,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote006",
+          "text": "There is no progress toward ultimate freedom without transformation, and this is the key issue in all people’s lives,…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "importance",
+            "practice",
+            "concept",
+            "existence"
+          ],
+          "relevance": "This quote underlines the necessity of transformation for achieving ultimate freedom, aligning with the main idea of the yogic journey as a transformative process.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote007",
+          "text": "If we can understand how our mind and heart works, we have a chance to answer the question, “Why do I keep making the…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "importance",
+            "concept",
+            "existence",
+            "harmony"
+          ],
+          "relevance": "This quote provides practical guidance on the importance of self-understanding in personal growth and transformation, thus aligning with the main ideas of self-realization and the inward journey.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote008",
+          "text": "When, on the other hand, we are able to bring the various sheaths of our body into alignment and harmony with one…",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "importance",
+            "concept",
+            "existence",
+            "harmony"
+          ],
+          "relevance": "This statement explains the benefits of aligning the kosas, which ties directly into the main theme of achieving harmony and alignment among the kosas for wholeness.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote009",
+          "text": "The physical body in other words is not something separate from our mind and soul.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "importance",
+            "concept",
+            "existence",
+            "harmony"
+          ],
+          "relevance": "This statement emphasizes the interconnectedness of the kosas, highlighting the central theme of integration of different layers of being in yoga.",
+          "importance_score": 0.9099999999999999,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote010",
+          "text": "It is essential for the follower of the yoga journey to understand the need for integration and balance in the kosa.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "sheaths",
+            "journey",
+            "importance",
+            "concept",
+            "existence"
+          ],
+          "relevance": "This statement points out the importance of balance and integration in the kosas for those on the yogic path, aligning with the main ideas of harmony among the kosas and the inward journey.",
+          "importance_score": 0.9099999999999999,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "1",
+          "title": "Chapter 1",
+          "position": 26648,
+          "line": 154
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_004",
+      "position": 4,
+      "main_ideas": [
+        "The concept of yoga as a journey of internal exploration and self-mastery, rather than dominion over external nature",
+        "The role of compassion and truth in the yogic journey towards self-realization and spiritual growth",
+        "The importance of maintaining physical health and vitality through yoga, especially asana practice, for spiritual pursuits",
+        "The view of the physical body as a laboratory for life, a field for experimentation and research to understand the mind and reach the soul",
+        "The idea of health in yoga as not just physical, but also emotional, mental, intellectual, and spiritual, all of which are interconnected"
+      ],
+      "quotes": [
+        {
+          "id": "chunk004_quote001",
+          "text": "A yogi sets out to explore his own internal nature, to penetrate the atom (atma) of being.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This quote encapsulates the main idea of yoga as an internal journey of self-exploration, emphasizing the role of compassion and truth.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote002",
+          "text": "It is this inner quest for growth and evolution, or 'involution,' that is the profound and transformational yogic…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This quote illustrates the transformative nature of yoga and its role in personal and spiritual growth.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote003",
+          "text": "Only by first attending to the physical body can we hope to accomplish anything in our spiritual lives.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This statement underscores the importance of maintaining physical health and vitality through yoga for spiritual pursuits.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote004",
+          "text": "To a yogi, the body is a laboratory for life, a field of experimentation and perpetual research.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This statement captures the idea of the body as a tool for understanding the mind and reaching the soul in yoga.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote005",
+          "text": "But diseases are not just a physical phenomenon. Anything that disturbs your spiritual life and practice is a disease…",
+          "type": "fact",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "practice",
+            "compassion"
+          ],
+          "relevance": "This fact sheds light on the comprehensive view of health in yoga, encompassing the physical, emotional, mental, intellectual, and spiritual aspects.",
+          "importance_score": 0.8400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote006",
+          "text": "Health begins with firmness in body, deepens to emotional stability, then leads to intellectual clarity, wisdom, and…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This quote succinctly summarizes the holistic approach to health in yoga, linking physical health with emotional, intellectual, and spiritual well-being.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote007",
+          "text": "Yoga offers us techniques to become aware, to expand and penetrate, and to change and evolve in order to become…",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This statement highlights the practical role of yoga in fostering self-awareness and personal growth.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote008",
+          "text": "And when we are free from physical disabilities, emotional disturbances, and mental distractions, we open the gates to…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This quote provides an inspiring depiction of the ultimate goal of yoga—self-realization and spiritual growth.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote009",
+          "text": "Yoga has a threefold impact on health. It keeps healthy people healthy, it inhibits the development of diseases, and it…",
+          "type": "fact",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "compassion",
+            "concept"
+          ],
+          "relevance": "This fact emphasizes the practical benefits of yoga for maintaining and improving health.",
+          "importance_score": 0.8200000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote010",
+          "text": "To understand this, one must gain far more than technical proficiency, and one must do asana not merely as a physical…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "truth",
+            "journey",
+            "importance",
+            "intelligence",
+            "compassion"
+          ],
+          "relevance": "This quote illustrates the deep interconnectedness of the physical, mental, and spiritual aspects of yoga, highlighting the importance of asana practice in this integration.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 2",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "2",
+          "title": "Chapter 2",
+          "position": 59207,
+          "line": 285
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_005",
+      "position": 5,
+      "main_ideas": [
+        "The concept of asana is explored as a means to achieve spiritual tranquility and freedom, emphasizing the importance of feeling rather than thinking your way into the pose",
+        "The role of pranayama (breath control) is discussed as a key stage in the inward journey, with a focus on mastering human emotions and dealing with Six Emotional Disturbances",
+        "The concept of prana (life energy) is elaborated, described as a universal energy permeating all levels of existence and equated with the Soul (Atman)",
+        "The practice of pranayama is explained as the extension, expansion, and control of our vital energy, and the necessity of a solid asana practice as a foundation for pranayama is stressed",
+        "The dangers of extremes in behavior, emotion, and mentality are discussed, emphasizing the role of asana practice in building fortitude and control"
+      ],
+      "quotes": [
+        {
+          "id": "chunk005_quote001",
+          "text": "Many people try to think their way into an asana, but you must instead feel your way into it through love and devotion.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath",
+            "asana"
+          ],
+          "relevance": "This quote is a clear expression of the importance of feeling rather than thinking your way into a pose, a key theme in this section of literature.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote002",
+          "text": "The serenity in the body is the sign of spiritual tranquility.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "body,",
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath"
+          ],
+          "relevance": "This quote emphasizes the relationship between physical serenity achieved through asana practice and spiritual freedom, tying into the main themes of the text.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote003",
+          "text": "Before one can hope to quiet the mind and glimpse the soul, one must learn the breathing practices and deal with the…",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practice",
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath"
+          ],
+          "relevance": "This quote is relevant to the discussion of pranayama and its role in managing human emotions and disturbances.",
+          "importance_score": 0.98,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote004",
+          "text": "Prana is the energy permeating the universe at all levels. It is physical, mental, intellectual, sexual, spiritual, and…",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath",
+            "asana"
+          ],
+          "relevance": "This quote explains the concept of prana (life energy) as universal energy permeating all levels of existence.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote005",
+          "text": "It is yoga’s job, and especially pranayama’s, to enter into the heart of this mystery.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath",
+            "asana"
+          ],
+          "relevance": "This quote underscores the significance of pranayama in exploring the mystery of prana, a fundamental yoga concept.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote006",
+          "text": "Pranayama means the prolongation and restraint of breath. Since prana is energy and life force, pranayama means the…",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath",
+            "asana"
+          ],
+          "relevance": "This quote provides a clear definition of pranayama, relating it to the extension, expansion, and control of our vital energy.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote007",
+          "text": "That is why Patanjali clearly stated that between the practice of asana and pranayama, there is a step up.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practice",
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath"
+          ],
+          "relevance": "This quote emphasizes the importance of a solid asana practice as a foundation for pranayama, a crucial theme in this text.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote008",
+          "text": "Patanjali himself warned that if the base is not firm, sorrow, despair, unsteadiness of body, and shakiness of breath…",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "body,",
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath"
+          ],
+          "relevance": "This quote provides practical guidance on the consequences of not having a firm base in asana practice before proceeding to pranayama.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote009",
+          "text": "Asana practice will protect us from the dangers and vicissitudes of extremes.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "practice",
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath"
+          ],
+          "relevance": "This quote provides insight into the role of asana practice in building fortitude and control, helping to avoid extremes in behavior, emotion, and mentality.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote010",
+          "text": "In this context it means we have to build up sufficient fortitude in body and mind to control ourselves sensibly.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "concept",
+            "prana",
+            "pranayama",
+            "(breath",
+            "asana"
+          ],
+          "relevance": "This quote ties in with the theme of building fortitude through asana practice, highlighting the need for sensible self-control.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 3",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "3",
+          "title": "Chapter 3",
+          "position": 147849,
+          "line": 625
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_006",
+      "position": 6,
+      "main_ideas": [
+        "The essential role of breath (prana) and soul (the Seer) in life and survival",
+        "The detrimental impact of an uncontrolled mind on leading an admirable life",
+        "The significance of understanding the workings of the mind and consciousness for achieving inner peace and freedom",
+        "The distinction between the mental body (manomaya kosa) and the intellectual body (vijnanamaya kosa) in yoga",
+        "The goal of yoga as the stilling of the mind to attain clarity and wisdom"
+      ],
+      "quotes": [
+        {
+          "id": "chunk006_quote001",
+          "text": "With just breath and soul and courage, the man achieved a life to be admired.",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "understanding",
+            "detrimental"
+          ],
+          "relevance": "This quote illustrates the essential role of breath (prana) and soul (the Seer) in life and survival. It demonstrates that even in the face of adversity, one can lead an admirable life with these elements.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote002",
+          "text": "So often what prevents us from living an admirable life is the chattering of our minds, which pester us with long…",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "understanding",
+            "detrimental"
+          ],
+          "relevance": "This quote emphasizes the detrimental impact of an uncontrolled mind on leading an admirable life. It highlights the need for mind control and emotional regulation in yoga and life.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote003",
+          "text": "You cannot hope to experience inner peace or freedom without understanding the workings of your mind and of human…",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "understanding",
+            "detrimental"
+          ],
+          "relevance": "This quote stresses the significance of understanding the workings of the mind and consciousness for achieving inner peace and freedom.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote004",
+          "text": "The yogi makes a distinction between the mental body (manomaya kosa), where the incessant thoughts of human life occur,…",
+          "type": "fact",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "intelligence",
+            "understanding"
+          ],
+          "relevance": "This quote explains the distinction between the mental body and the intellectual body in yoga. It provides a clear understanding of these concepts.",
+          "importance_score": 0.9700000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote005",
+          "text": "Yoga is the process of stilling the movements and fluctuations of mind that disturb our consciousness.",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "understanding",
+            "detrimental"
+          ],
+          "relevance": "This quote defines the goal of yoga as the stilling of the mind to attain clarity and wisdom. It encapsulates the essence of yoga practice.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote006",
+          "text": "If one perseveres and refines, gaining strength and clarity, always penetrating from the initial practice, then the…",
+          "type": "statement",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "practice",
+            "understanding"
+          ],
+          "relevance": "This quote provides practical guidance on the approach to yoga practice. It encourages perseverance, strength, and clarity as keys to achieving the objectives of yoga.",
+          "importance_score": 0.9299999999999999,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote007",
+          "text": "It is through this intelligence that we initiate change and free ourselves from ingrained patterns of behavior and…",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "intelligence",
+            "understanding"
+          ],
+          "relevance": "This quote relates to the transformative power of yoga. It emphasizes the role of intelligence in initiating change and moving towards freedom.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote008",
+          "text": "Similarly a pure mind can reflect the beauty in the world around it, and when the mind is still, the beauty of the…",
+          "type": "statement",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "understanding",
+            "detrimental"
+          ],
+          "relevance": "This statement expresses philosophical wisdom about the nature of the mind and its capacity for reflection when it is still. This is central to the practice and philosophy of yoga.",
+          "importance_score": 0.9099999999999999,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote009",
+          "text": "As one has to keep the water of a lake clean, so it is yoga’s job to clean and calm the thought waves that disturb our…",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "understanding",
+            "detrimental"
+          ],
+          "relevance": "This quote provides a clear analogy for the role of yoga in maintaining mental calm and clarity. It is a memorable quote suitable for sharing.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote010",
+          "text": "An architectural plan is not the same thing as the building itself, but it is certainly an important element in…",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "impact",
+            "essential",
+            "significance",
+            "understanding",
+            "detrimental"
+          ],
+          "relevance": "This quote emphasizes the importance of having a clear understanding and plan in achieving any goal, including inner peace and freedom in yoga.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 4",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "4",
+          "title": "Chapter 4",
+          "position": 231491,
+          "line": 917
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_007",
+      "position": 7,
+      "main_ideas": [
+        "The interplay of mind, ego, and intelligence in decision making and self-control",
+        "The role of consciousness and intelligence in resisting immediate gratification for long-term benefits",
+        "The importance of disciplined mind, pliant ego, and vibrant intelligence for an integrated consciousness",
+        "The concept of sattva-suddhi - purity or cleansing of intelligence",
+        "The practical application of yogic principles in everyday situations like resisting unhealthy eating habits"
+      ],
+      "quotes": [
+        {
+          "id": "chunk007_quote001",
+          "text": "Our first job is to awaken and vitalize intelligence before we look at what can go wrong.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "mind,",
+            "consciousness",
+            "intelligence",
+            "disciplined",
+            "importance"
+          ],
+          "relevance": "This quote directly addresses the yoga concept of sattva-suddhi, highlighting the need for the awakening and vitalization of intelligence.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote002",
+          "text": "It is the intervention of intelligence that poses the more complex question, 'Do we live to eat, or eat to live?'",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "mind,",
+            "consciousness",
+            "intelligence",
+            "disciplined",
+            "importance"
+          ],
+          "relevance": "This quote demonstrates the role of intelligence in decision making and resisting immediate gratification for long-term benefits.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote003",
+          "text": "Nothing’s going to change unless we do (Challenge). Mind, please tell hand to move away from the ice cream and shut the…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "mind,",
+            "consciousness",
+            "intelligence",
+            "disciplined",
+            "importance"
+          ],
+          "relevance": "This quote illustrates the application of yogic principles in everyday situations like resisting unhealthy eating habits.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote004",
+          "text": "If we can train ourselves to compress all the steps from 1a to 12a in this little story into a second and then we use…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "mind,",
+            "consciousness",
+            "intelligence",
+            "disciplined",
+            "importance"
+          ],
+          "relevance": "This quote underlines the importance of a disciplined mind, pliant ego, and vibrant intelligence for an integrated consciousness.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote005",
+          "text": "It is like a rudder on a boat that must be able to steer both to port and starboard.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "mind,",
+            "consciousness",
+            "intelligence",
+            "disciplined",
+            "importance"
+          ],
+          "relevance": "This quote speaks to the balance necessary in the interplay of mind, ego, and intelligence in decision making and self-control.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote006",
+          "text": "And next day they all felt better for the way things had turned out.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "mind,",
+            "consciousness",
+            "intelligence",
+            "disciplined",
+            "importance"
+          ],
+          "relevance": "This quote is a practical illustration of the role of consciousness and intelligence in resisting immediate gratification for long-term benefits.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote007",
+          "text": "Nevertheless, when trying to alter embedded behavioral patterns, it is preferable to create a positive formulation.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "mind,",
+            "consciousness",
+            "intelligence",
+            "disciplined",
+            "importance"
+          ],
+          "relevance": "This quote relates to the importance of positivity in enforcing discipline and self-control, key elements in yoga philosophy.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "1",
+          "title": "Your eyes (sense organs) light on the ice cream, read the label (vanilla), and carry the information back to mind for decoding and identification. A link is established: a) external object, b) sense organ, c) mind.",
+          "position": 276156,
+          "line": 1089
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_008",
+      "position": 8,
+      "main_ideas": [
+        "The influence of memory and prejudice on perception and how yoga can assist in overcoming these obstacles",
+        "The exploration of different parts of our consciousness, their fluctuations and how they can guide our journey and transformation",
+        "The concept of the Intellectual Body (vijnanamaya kosa) and its relation to intelligence and wisdom",
+        "The importance of concentration (dharana) and meditation (dhyana) in the yogic journey",
+        "The role of individual intelligence (buddhi) and cosmic intelligence (mahat) in guiding us and their interplay in our lives"
+      ],
+      "quotes": [
+        {
+          "id": "chunk008_quote001",
+          "text": "When intelligence consults spontaneously with memory at each moment, then conscious intuition arises, and the word we…",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "intelligence",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote speaks to the relationship between memory and intelligence in forming wisdom, a key theme discussed in the text.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote002",
+          "text": "Intelligence strives to see things as they are, but mind and memory tend to interpret these in relation to the past.",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "intelligence",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote highlights the role of memory and perception in shaping our understanding of reality, a central theme in yoga philosophy.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote003",
+          "text": "Yoga identifies these different parts of our consciousness, along with their accompanying fluctuations in such a way…",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "journey",
+            "different",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote connects to the theme of understanding and navigating our consciousness for personal transformation using yoga.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote004",
+          "text": "The yogic tools that will facilitate this leg of our journey are the sixth and seventh petals of yoga, concentration…",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "journey",
+            "different",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote clearly outlines the importance of concentration and meditation in the yogic journey, key concepts in the text.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote005",
+          "text": "We have our own individual intelligence (buddhi). This is the self-reflexive awareness, capable of making meaningful…",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "intelligence",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote discusses the role of individual intelligence in guiding our lives, a main theme in the text.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote006",
+          "text": "Our individual intelligence, though an essential rudder to guide us, is merely a puny offshoot of cosmic intelligence…",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "intelligence",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote talks about the relationship between individual and cosmic intelligence, a central theme in yoga philosophy.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote007",
+          "text": "We increasingly develop judicious discrimination that, harnessed to self-control, enables us to set sail in uncharted…",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "exploration",
+            "intellectual",
+            "memory",
+            "concept"
+          ],
+          "relevance": "This quote provides practical guidance on how developing discrimination and self-control through yoga can assist in managing life's uncertainties.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote008",
+          "text": "In between these two borders of deepening self-knowledge and the culture of our higher intelligence, pure insight rests.",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "intelligence",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote connects to the theme of cultivating self-knowledge and higher intelligence to gain insight, as discussed in the text.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote009",
+          "text": "The yogic analysis of the workings of consciousness, supported by practice, enables us to live philosophically,…",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "practice",
+            "exploration",
+            "intellectual",
+            "memory"
+          ],
+          "relevance": "This quote expresses philosophical wisdom about applying yoga principles to live wisely in everyday life.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote010",
+          "text": "If you neglect the base, you are like someone sitting in a great tree, sawing off the branch he is sitting on.",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "different",
+            "exploration",
+            "intellectual",
+            "memory",
+            "concept"
+          ],
+          "relevance": "This quote provides a memorable analogy to the importance of foundational practices in yoga, like asana and pranayama, in supporting higher achievements.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 5",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "5",
+          "title": "Chapter 5",
+          "position": 311815,
+          "line": 1214
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_009",
+      "position": 9,
+      "main_ideas": [
+        "The practice of dhyana (meditation) leads to the dissolution of ego, resulting in the practitioner becoming a medium for divine expression",
+        "The state of samadhi is an experience of merging with the infinite, transcending the constraints of time and ego",
+        "The importance of self-inquiry and understanding one's true self beyond societal roles and external attributes",
+        "The practice of asanas as a form of self-inquiry, leading to the realization of the divine self",
+        "The concept of the 'I' or ego as a source of worry and uncertainty, and yoga's role in examining and understanding this 'I'"
+      ],
+      "quotes": [
+        {
+          "id": "chunk009_quote001",
+          "text": "dhyana erases the impurities of ego, if not its actual existence...",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "state",
+            "self-inquiry",
+            "dhyana",
+            "importance",
+            "practice"
+          ],
+          "relevance": "This quote describes the transformative power of dhyana (meditation), a key concept in yoga, and how it leads to the dissolution of ego.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote002",
+          "text": "The cup is empty, no self or ego, no intention, no desire. It is timeless, divine emptiness.",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "state",
+            "self-inquiry",
+            "dhyana",
+            "importance",
+            "practice"
+          ],
+          "relevance": "This quote explains the state of samadhi, a fundamental yoga concept, as an experience of merging with the infinite and transcending the constraints of time and ego.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote003",
+          "text": "The end of duality that comes from meditation is the end of separation and the end of all conflict.",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "state",
+            "self-inquiry",
+            "dhyana",
+            "importance",
+            "practice"
+          ],
+          "relevance": "This quote emphasizes the result of the practice of dhyana (meditation) - ending separation and conflict, and achieving unity.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote004",
+          "text": "\"Who am I?\" is a fundamental question that has always existed in people’s minds...",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "state",
+            "self-inquiry",
+            "dhyana",
+            "importance",
+            "practice"
+          ],
+          "relevance": "This quote reflects the importance of self-inquiry and understanding one's true self beyond societal roles and external attributes.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote005",
+          "text": "Even the asana itself is an inquiry, asking in each asana, \"Who am I?",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "state",
+            "self-inquiry",
+            "dhyana",
+            "importance",
+            "practice"
+          ],
+          "relevance": "This quote highlights the practice of asanas as a means of self-inquiry, leading to the realization of the divine self.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote006",
+          "text": "Let us therefore sift through everything, says yoga, every component of a human being that we can find and identify—our…",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "state",
+            "self-inquiry",
+            "dhyana",
+            "importance",
+            "practice"
+          ],
+          "relevance": "This quote provides practical guidance on how to approach self-inquiry through yoga.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote007",
+          "text": "The “I” is so often a source of worry...Our lack of certainty is, according to yoga, of itself and by its very nature,…",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "state",
+            "self-inquiry",
+            "dhyana",
+            "importance",
+            "practice"
+          ],
+          "relevance": "This quote discusses the concept of the 'I' or ego as a source of worry and uncertainty, and the role of yoga in examining and understanding this 'I'.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 6",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "6",
+          "title": "Chapter 6",
+          "position": 392788,
+          "line": 1504
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_010",
+      "position": 10,
+      "main_ideas": [
+        "The concept of Samadhi as a transformative state of being which brings about unity of body, mind, and soul",
+        "The idea of Kaivalya, or eternal emancipation, as the next level after Samadhi, described as Samadhi in action",
+        "The importance of spiritual freedom, requiring self-control and the ability to guide one's life towards a higher purpose",
+        "The role of the yogi in society, being in the world but not of it, free from desires and full of compassion",
+        "The challenge for the spiritually free individual to live according to five qualities: courage, vitality, right and useful memory, awareness in the present moment, and total absorption in activities"
+      ],
+      "quotes": [
+        {
+          "id": "chunk010_quote001",
+          "text": "Samadhi is only a state where you experience the absorption of the body, mind, and soul as a single unit.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "body,",
+            "concept",
+            "eternal"
+          ],
+          "relevance": "This quote clearly explains the concepts of Samadhi and Kaivalya, which are the main ideas presented in this chapter.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote002",
+          "text": "Everyone desires relief from both the restrictions of personality and its impermanence. Everyone desires samadhi.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote speaks to the universal human longing for spiritual liberation and unity, which underpins the practice of yoga.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote003",
+          "text": "The person who has that wisdom, and their interactions with the world, are based on a different understanding, one…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "understanding",
+            "concept",
+            "eternal"
+          ],
+          "relevance": "This quote expresses the role of the yogi in society, being in the world but not of it, free from desires and full of compassion.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote004",
+          "text": "Spiritual freedom actually requires greater self-control and the ability to direct our lives in the right direction.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote emphasizes the importance of spiritual freedom and the self-discipline it requires, aligning with the main themes discussed.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote005",
+          "text": "The yogi is aware that it is the Divine Breath that lives us. And he can see that Divine Breath in others.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote captures the transformed consciousness of the yogi, relating to the concepts of Samadhi and Kaivalya.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote006",
+          "text": "The realized yogi is never again unaware of the true relationship between Nature and Cosmic Soul.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote speaks to the yogi's enlightened understanding of the interconnectedness of all things, a key aspect of yoga philosophy.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote007",
+          "text": "The yogi has experienced the freedom that comes from realizing that life has nothing to do with perpetuating the…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote underscores the transformative realization brought about by the practice of yoga, aligning with the main themes presented.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote008",
+          "text": "The yogi is utterly disinterested but paradoxically full of the engagement of compassion.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote encapsulates the yogi's role in society, which is a core theme of the chapter.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote009",
+          "text": "The challenge for the spiritually free man is to live according to five qualities: courage, vitality, right and useful…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote provides practical guidance for living a spiritually free life, aligning with the main themes of the chapter.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote010",
+          "text": "Kaivalya is both freedom and aloneness, but as I said, it is the aloneness of a prime number that, indivisible by any…",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "importance",
+            "samadhi",
+            "concept",
+            "eternal",
+            "kaivalya,"
+          ],
+          "relevance": "This quote provides a profound understanding of the concept of Kaivalya, a key idea in the chapter.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 7",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "7",
+          "title": "Chapter 7",
+          "position": 472345,
+          "line": 1746
+        }
+      ]
+    }
+  ],
+  "quotes": [
+    {
+      "id": "chunk004_quote010",
+      "text": "To understand this, one must gain far more than technical proficiency, and one must do asana not merely as a physical…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "intelligence",
+        "compassion"
+      ],
+      "relevance": "This quote illustrates the deep interconnectedness of the physical, mental, and spiritual aspects of yoga, highlighting the importance of asana practice in this integration.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote001",
+      "text": "Many people try to think their way into an asana, but you must instead feel your way into it through love and devotion.",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath",
+        "asana"
+      ],
+      "relevance": "This quote is a clear expression of the importance of feeling rather than thinking your way into a pose, a key theme in this section of literature.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote005",
+      "text": "It is yoga’s job, and especially pranayama’s, to enter into the heart of this mystery.",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath",
+        "asana"
+      ],
+      "relevance": "This quote underscores the significance of pranayama in exploring the mystery of prana, a fundamental yoga concept.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote006",
+      "text": "Pranayama means the prolongation and restraint of breath. Since prana is energy and life force, pranayama means the…",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath",
+        "asana"
+      ],
+      "relevance": "This quote provides a clear definition of pranayama, relating it to the extension, expansion, and control of our vital energy.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote007",
+      "text": "That is why Patanjali clearly stated that between the practice of asana and pranayama, there is a step up.",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practice",
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath"
+      ],
+      "relevance": "This quote emphasizes the importance of a solid asana practice as a foundation for pranayama, a crucial theme in this text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote009",
+      "text": "Asana practice will protect us from the dangers and vicissitudes of extremes.",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practice",
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath"
+      ],
+      "relevance": "This quote provides insight into the role of asana practice in building fortitude and control, helping to avoid extremes in behavior, emotion, and mentality.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote001",
+      "text": "Our first job is to awaken and vitalize intelligence before we look at what can go wrong.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "mind,",
+        "consciousness",
+        "intelligence",
+        "disciplined",
+        "importance"
+      ],
+      "relevance": "This quote directly addresses the yoga concept of sattva-suddhi, highlighting the need for the awakening and vitalization of intelligence.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote004",
+      "text": "The yogic tools that will facilitate this leg of our journey are the sixth and seventh petals of yoga, concentration…",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "journey",
+        "different",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote clearly outlines the importance of concentration and meditation in the yogic journey, key concepts in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk009_quote001",
+      "text": "dhyana erases the impurities of ego, if not its actual existence...",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_009",
+      "themes": [
+        "state",
+        "self-inquiry",
+        "dhyana",
+        "importance",
+        "practice"
+      ],
+      "relevance": "This quote describes the transformative power of dhyana (meditation), a key concept in yoga, and how it leads to the dissolution of ego.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk009_quote002",
+      "text": "The cup is empty, no self or ego, no intention, no desire. It is timeless, divine emptiness.",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_009",
+      "themes": [
+        "state",
+        "self-inquiry",
+        "dhyana",
+        "importance",
+        "practice"
+      ],
+      "relevance": "This quote explains the state of samadhi, a fundamental yoga concept, as an experience of merging with the infinite and transcending the constraints of time and ego.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk009_quote005",
+      "text": "Even the asana itself is an inquiry, asking in each asana, \"Who am I?",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_009",
+      "themes": [
+        "state",
+        "self-inquiry",
+        "dhyana",
+        "importance",
+        "practice"
+      ],
+      "relevance": "This quote highlights the practice of asanas as a means of self-inquiry, leading to the realization of the divine self.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote001",
+      "text": "Samadhi is only a state where you experience the absorption of the body, mind, and soul as a single unit.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "body,",
+        "concept",
+        "eternal"
+      ],
+      "relevance": "This quote clearly explains the concepts of Samadhi and Kaivalya, which are the main ideas presented in this chapter.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote002",
+      "text": "Everyone desires relief from both the restrictions of personality and its impermanence. Everyone desires samadhi.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote speaks to the universal human longing for spiritual liberation and unity, which underpins the practice of yoga.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote002",
+      "text": "In order to find out how to reveal our innermost Being, the sages explored the various sheaths of existence, starting…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "journey",
+        "importance",
+        "intelligence",
+        "body,"
+      ],
+      "relevance": "This quote explains the concept of the kosas or 'sheaths of being', aligning with the main theme of achieving harmony and alignment among these layers.",
+      "importance_score": 0.98,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote003",
+      "text": "You do not need to seek freedom in some distant land, for it exists within your own body, heart, mind, and soul.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "journey",
+        "importance",
+        "body,",
+        "concept"
+      ],
+      "relevance": "This quote is a powerful statement about the transformative potential of the yogic journey, aligning with the main ideas of self-realization and internal transformation.",
+      "importance_score": 0.98,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote005",
+      "text": "The aim of yoga is to discover our immortal Self. The practice of yoga teaches us to live fully—physically and…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "importance",
+        "practice",
+        "concept",
+        "existence"
+      ],
+      "relevance": "This quote emphasizes the purpose of yoga practice in relation to self-discovery and cultivation of the kosas, aligning with the main ideas of self-realization and harmony among the kosas.",
+      "importance_score": 0.98,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote003",
+      "text": "Before one can hope to quiet the mind and glimpse the soul, one must learn the breathing practices and deal with the…",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "practice",
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath"
+      ],
+      "relevance": "This quote is relevant to the discussion of pranayama and its role in managing human emotions and disturbances.",
+      "importance_score": 0.98,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote004",
+      "text": "The yogi makes a distinction between the mental body (manomaya kosa), where the incessant thoughts of human life occur,…",
+      "type": "fact",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "intelligence",
+        "understanding"
+      ],
+      "relevance": "This quote explains the distinction between the mental body and the intellectual body in yoga. It provides a clear understanding of these concepts.",
+      "importance_score": 0.9700000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote001",
+      "text": "By persistent and sustained practice, anyone and everyone can make the yoga journey and reach the goal of illumination…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "journey",
+        "importance",
+        "practice",
+        "guidance",
+        "achieving"
+      ],
+      "relevance": "This quote emphasizes the transformative power of persistent yoga practice and the potential for achieving self-realization.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote003",
+      "text": "I literally emerged from darkness to light, from mortal sickness to health, from crude ignorance to immersion in the…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "practice",
+        "guidance",
+        "achieving",
+        "power"
+      ],
+      "relevance": "This quote underlines the transformative power of yoga, the importance of sadhana, and the potential for yoga to foster wisdom and inner light.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote008",
+      "text": "It is no extravagant claim to say that wisdom has come to me by the practice of yoga, and the grace of God has lit the…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "practice",
+        "guidance",
+        "achieving",
+        "power"
+      ],
+      "relevance": "This quote highlights how yoga can foster wisdom and inner light, a key theme in the text.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote001",
+      "text": "Spiritual realization is the aim that exists in each one of us to seek our divine core.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "journey",
+        "importance",
+        "concept",
+        "existence"
+      ],
+      "relevance": "This quote speaks to the central themes of self-realization and the inward journey, emphasizing the importance of internal self-discovery in yoga.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote006",
+      "text": "Health begins with firmness in body, deepens to emotional stability, then leads to intellectual clarity, wisdom, and…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This quote succinctly summarizes the holistic approach to health in yoga, linking physical health with emotional, intellectual, and spiritual well-being.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote008",
+      "text": "Patanjali himself warned that if the base is not firm, sorrow, despair, unsteadiness of body, and shakiness of breath…",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "body,",
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath"
+      ],
+      "relevance": "This quote provides practical guidance on the consequences of not having a firm base in asana practice before proceeding to pranayama.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote003",
+      "text": "You cannot hope to experience inner peace or freedom without understanding the workings of your mind and of human…",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "understanding",
+        "detrimental"
+      ],
+      "relevance": "This quote stresses the significance of understanding the workings of the mind and consciousness for achieving inner peace and freedom.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote005",
+      "text": "Yoga is the process of stilling the movements and fluctuations of mind that disturb our consciousness.",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "understanding",
+        "detrimental"
+      ],
+      "relevance": "This quote defines the goal of yoga as the stilling of the mind to attain clarity and wisdom. It encapsulates the essence of yoga practice.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote003",
+      "text": "Yoga identifies these different parts of our consciousness, along with their accompanying fluctuations in such a way…",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "journey",
+        "different",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote connects to the theme of understanding and navigating our consciousness for personal transformation using yoga.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote004",
+      "text": "Spiritual freedom actually requires greater self-control and the ability to direct our lives in the right direction.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote emphasizes the importance of spiritual freedom and the self-discipline it requires, aligning with the main themes discussed.",
+      "importance_score": 0.96,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote010",
+      "text": "With this truth bearing light will begin a new life. Old unwanted impressions are discarded and we are protected from…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "guidance",
+        "achieving",
+        "power",
+        "self-realization"
+      ],
+      "relevance": "Quoting Patanjali, this statement emphasizes the transformative power of yoga and its potential for personal growth and protection from life's challenges.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote006",
+      "text": "There is no progress toward ultimate freedom without transformation, and this is the key issue in all people’s lives,…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "importance",
+        "practice",
+        "concept",
+        "existence"
+      ],
+      "relevance": "This quote underlines the necessity of transformation for achieving ultimate freedom, aligning with the main idea of the yogic journey as a transformative process.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote002",
+      "text": "It is this inner quest for growth and evolution, or 'involution,' that is the profound and transformational yogic…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This quote illustrates the transformative nature of yoga and its role in personal and spiritual growth.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote002",
+      "text": "The serenity in the body is the sign of spiritual tranquility.",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "body,",
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath"
+      ],
+      "relevance": "This quote emphasizes the relationship between physical serenity achieved through asana practice and spiritual freedom, tying into the main themes of the text.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote010",
+      "text": "In this context it means we have to build up sufficient fortitude in body and mind to control ourselves sensibly.",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath",
+        "asana"
+      ],
+      "relevance": "This quote ties in with the theme of building fortitude through asana practice, highlighting the need for sensible self-control.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote001",
+      "text": "With just breath and soul and courage, the man achieved a life to be admired.",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "understanding",
+        "detrimental"
+      ],
+      "relevance": "This quote illustrates the essential role of breath (prana) and soul (the Seer) in life and survival. It demonstrates that even in the face of adversity, one can lead an admirable life with these elements.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote009",
+      "text": "As one has to keep the water of a lake clean, so it is yoga’s job to clean and calm the thought waves that disturb our…",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "understanding",
+        "detrimental"
+      ],
+      "relevance": "This quote provides a clear analogy for the role of yoga in maintaining mental calm and clarity. It is a memorable quote suitable for sharing.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote004",
+      "text": "If we can train ourselves to compress all the steps from 1a to 12a in this little story into a second and then we use…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "mind,",
+        "consciousness",
+        "intelligence",
+        "disciplined",
+        "importance"
+      ],
+      "relevance": "This quote underlines the importance of a disciplined mind, pliant ego, and vibrant intelligence for an integrated consciousness.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote005",
+      "text": "We have our own individual intelligence (buddhi). This is the self-reflexive awareness, capable of making meaningful…",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "intelligence",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote discusses the role of individual intelligence in guiding our lives, a main theme in the text.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote009",
+      "text": "The yogic analysis of the workings of consciousness, supported by practice, enables us to live philosophically,…",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "practice",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote expresses philosophical wisdom about applying yoga principles to live wisely in everyday life.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk009_quote006",
+      "text": "Let us therefore sift through everything, says yoga, every component of a human being that we can find and identify—our…",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_009",
+      "themes": [
+        "state",
+        "self-inquiry",
+        "dhyana",
+        "importance",
+        "practice"
+      ],
+      "relevance": "This quote provides practical guidance on how to approach self-inquiry through yoga.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk009_quote007",
+      "text": "The “I” is so often a source of worry...Our lack of certainty is, according to yoga, of itself and by its very nature,…",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_009",
+      "themes": [
+        "state",
+        "self-inquiry",
+        "dhyana",
+        "importance",
+        "practice"
+      ],
+      "relevance": "This quote discusses the concept of the 'I' or ego as a source of worry and uncertainty, and the role of yoga in examining and understanding this 'I'.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote009",
+      "text": "The challenge for the spiritually free man is to live according to five qualities: courage, vitality, right and useful…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote provides practical guidance for living a spiritually free life, aligning with the main themes of the chapter.",
+      "importance_score": 0.9400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote006",
+      "text": "If one perseveres and refines, gaining strength and clarity, always penetrating from the initial practice, then the…",
+      "type": "statement",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "practice",
+        "understanding"
+      ],
+      "relevance": "This quote provides practical guidance on the approach to yoga practice. It encourages perseverance, strength, and clarity as keys to achieving the objectives of yoga.",
+      "importance_score": 0.9299999999999999,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote002",
+      "text": "Just as they reached Self-Realization, so may we.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "guidance",
+        "achieving",
+        "power",
+        "self-realization"
+      ],
+      "relevance": "This quote highlights the concept of self-realization, a central theme in yoga and spiritual literature.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote004",
+      "text": "Today you also have the benefit of many gifted yoga teachers.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "guidance",
+        "achieving",
+        "power",
+        "self-realization"
+      ],
+      "relevance": "This quote speaks to the importance of guidance and learning from experienced yoga teachers, a main theme in the text.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote005",
+      "text": "I wanted to understand this mysterious and marvelous “yoga,” which could reveal to us our innermost secrets, as equally…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "guidance",
+        "achieving",
+        "power",
+        "self-realization"
+      ],
+      "relevance": "This quote expresses the role of yoga in self-understanding and comprehending one's place in the universe.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote006",
+      "text": "It took me whole decades to appreciate the depth and true value of yoga.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "guidance",
+        "achieving",
+        "power",
+        "self-realization"
+      ],
+      "relevance": "This quote emphasizes the lifelong journey of mastering yoga and the dedication required to fully appreciate its value.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote007",
+      "text": "If we can understand how our mind and heart works, we have a chance to answer the question, “Why do I keep making the…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "importance",
+        "concept",
+        "existence",
+        "harmony"
+      ],
+      "relevance": "This quote provides practical guidance on the importance of self-understanding in personal growth and transformation, thus aligning with the main ideas of self-realization and the inward journey.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote001",
+      "text": "A yogi sets out to explore his own internal nature, to penetrate the atom (atma) of being.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This quote encapsulates the main idea of yoga as an internal journey of self-exploration, emphasizing the role of compassion and truth.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote008",
+      "text": "And when we are free from physical disabilities, emotional disturbances, and mental distractions, we open the gates to…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This quote provides an inspiring depiction of the ultimate goal of yoga—self-realization and spiritual growth.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote004",
+      "text": "Prana is the energy permeating the universe at all levels. It is physical, mental, intellectual, sexual, spiritual, and…",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "concept",
+        "prana",
+        "pranayama",
+        "(breath",
+        "asana"
+      ],
+      "relevance": "This quote explains the concept of prana (life energy) as universal energy permeating all levels of existence.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote002",
+      "text": "So often what prevents us from living an admirable life is the chattering of our minds, which pester us with long…",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "understanding",
+        "detrimental"
+      ],
+      "relevance": "This quote emphasizes the detrimental impact of an uncontrolled mind on leading an admirable life. It highlights the need for mind control and emotional regulation in yoga and life.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote010",
+      "text": "An architectural plan is not the same thing as the building itself, but it is certainly an important element in…",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "understanding",
+        "detrimental"
+      ],
+      "relevance": "This quote emphasizes the importance of having a clear understanding and plan in achieving any goal, including inner peace and freedom in yoga.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote003",
+      "text": "Nothing’s going to change unless we do (Challenge). Mind, please tell hand to move away from the ice cream and shut the…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "mind,",
+        "consciousness",
+        "intelligence",
+        "disciplined",
+        "importance"
+      ],
+      "relevance": "This quote illustrates the application of yogic principles in everyday situations like resisting unhealthy eating habits.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote006",
+      "text": "And next day they all felt better for the way things had turned out.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "mind,",
+        "consciousness",
+        "intelligence",
+        "disciplined",
+        "importance"
+      ],
+      "relevance": "This quote is a practical illustration of the role of consciousness and intelligence in resisting immediate gratification for long-term benefits.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote001",
+      "text": "When intelligence consults spontaneously with memory at each moment, then conscious intuition arises, and the word we…",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "intelligence",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote speaks to the relationship between memory and intelligence in forming wisdom, a key theme discussed in the text.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote002",
+      "text": "Intelligence strives to see things as they are, but mind and memory tend to interpret these in relation to the past.",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "intelligence",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote highlights the role of memory and perception in shaping our understanding of reality, a central theme in yoga philosophy.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote007",
+      "text": "We increasingly develop judicious discrimination that, harnessed to self-control, enables us to set sail in uncharted…",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "exploration",
+        "intellectual",
+        "memory",
+        "concept"
+      ],
+      "relevance": "This quote provides practical guidance on how developing discrimination and self-control through yoga can assist in managing life's uncertainties.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote008",
+      "text": "In between these two borders of deepening self-knowledge and the culture of our higher intelligence, pure insight rests.",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "intelligence",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote connects to the theme of cultivating self-knowledge and higher intelligence to gain insight, as discussed in the text.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk009_quote003",
+      "text": "The end of duality that comes from meditation is the end of separation and the end of all conflict.",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_009",
+      "themes": [
+        "state",
+        "self-inquiry",
+        "dhyana",
+        "importance",
+        "practice"
+      ],
+      "relevance": "This quote emphasizes the result of the practice of dhyana (meditation) - ending separation and conflict, and achieving unity.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk009_quote004",
+      "text": "\"Who am I?\" is a fundamental question that has always existed in people’s minds...",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_009",
+      "themes": [
+        "state",
+        "self-inquiry",
+        "dhyana",
+        "importance",
+        "practice"
+      ],
+      "relevance": "This quote reflects the importance of self-inquiry and understanding one's true self beyond societal roles and external attributes.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote003",
+      "text": "The person who has that wisdom, and their interactions with the world, are based on a different understanding, one…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "understanding",
+        "concept",
+        "eternal"
+      ],
+      "relevance": "This quote expresses the role of the yogi in society, being in the world but not of it, free from desires and full of compassion.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote005",
+      "text": "The yogi is aware that it is the Divine Breath that lives us. And he can see that Divine Breath in others.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote captures the transformed consciousness of the yogi, relating to the concepts of Samadhi and Kaivalya.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote006",
+      "text": "The realized yogi is never again unaware of the true relationship between Nature and Cosmic Soul.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote speaks to the yogi's enlightened understanding of the interconnectedness of all things, a key aspect of yoga philosophy.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote010",
+      "text": "Kaivalya is both freedom and aloneness, but as I said, it is the aloneness of a prime number that, indivisible by any…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote provides a profound understanding of the concept of Kaivalya, a key idea in the chapter.",
+      "importance_score": 0.92,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote009",
+      "text": "The physical body in other words is not something separate from our mind and soul.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "importance",
+        "concept",
+        "existence",
+        "harmony"
+      ],
+      "relevance": "This statement emphasizes the interconnectedness of the kosas, highlighting the central theme of integration of different layers of being in yoga.",
+      "importance_score": 0.9099999999999999,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote010",
+      "text": "It is essential for the follower of the yoga journey to understand the need for integration and balance in the kosa.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "journey",
+        "importance",
+        "concept",
+        "existence"
+      ],
+      "relevance": "This statement points out the importance of balance and integration in the kosas for those on the yogic path, aligning with the main ideas of harmony among the kosas and the inward journey.",
+      "importance_score": 0.9099999999999999,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote008",
+      "text": "Similarly a pure mind can reflect the beauty in the world around it, and when the mind is still, the beauty of the…",
+      "type": "statement",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "understanding",
+        "detrimental"
+      ],
+      "relevance": "This statement expresses philosophical wisdom about the nature of the mind and its capacity for reflection when it is still. This is central to the practice and philosophy of yoga.",
+      "importance_score": 0.9099999999999999,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote007",
+      "text": "Any contribution I have made to the world has been the fruit of my sadhana.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "guidance",
+        "achieving",
+        "power",
+        "self-realization"
+      ],
+      "relevance": "This quote underlines the concept of sadhana, or disciplined and dedicated practice, as a key to yoga mastery.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk002_quote009",
+      "text": "Do not aim low; you will miss the mark. Aim high; you will be on the threshold of bliss.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_002",
+      "themes": [
+        "importance",
+        "guidance",
+        "achieving",
+        "power",
+        "self-realization"
+      ],
+      "relevance": "This quote is both motivational and provides practical guidance, encouraging readers to strive for their highest potential through yoga.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote007",
+      "text": "It is through this intelligence that we initiate change and free ourselves from ingrained patterns of behavior and…",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "impact",
+        "essential",
+        "significance",
+        "intelligence",
+        "understanding"
+      ],
+      "relevance": "This quote relates to the transformative power of yoga. It emphasizes the role of intelligence in initiating change and moving towards freedom.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote002",
+      "text": "It is the intervention of intelligence that poses the more complex question, 'Do we live to eat, or eat to live?'",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "mind,",
+        "consciousness",
+        "intelligence",
+        "disciplined",
+        "importance"
+      ],
+      "relevance": "This quote demonstrates the role of intelligence in decision making and resisting immediate gratification for long-term benefits.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote005",
+      "text": "It is like a rudder on a boat that must be able to steer both to port and starboard.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "mind,",
+        "consciousness",
+        "intelligence",
+        "disciplined",
+        "importance"
+      ],
+      "relevance": "This quote speaks to the balance necessary in the interplay of mind, ego, and intelligence in decision making and self-control.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote007",
+      "text": "Nevertheless, when trying to alter embedded behavioral patterns, it is preferable to create a positive formulation.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "mind,",
+        "consciousness",
+        "intelligence",
+        "disciplined",
+        "importance"
+      ],
+      "relevance": "This quote relates to the importance of positivity in enforcing discipline and self-control, key elements in yoga philosophy.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote006",
+      "text": "Our individual intelligence, though an essential rudder to guide us, is merely a puny offshoot of cosmic intelligence…",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "intelligence",
+        "exploration",
+        "intellectual",
+        "memory"
+      ],
+      "relevance": "This quote talks about the relationship between individual and cosmic intelligence, a central theme in yoga philosophy.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote010",
+      "text": "If you neglect the base, you are like someone sitting in a great tree, sawing off the branch he is sitting on.",
+      "type": "quote",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "different",
+        "exploration",
+        "intellectual",
+        "memory",
+        "concept"
+      ],
+      "relevance": "This quote provides a memorable analogy to the importance of foundational practices in yoga, like asana and pranayama, in supporting higher achievements.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote007",
+      "text": "The yogi has experienced the freedom that comes from realizing that life has nothing to do with perpetuating the…",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote underscores the transformative realization brought about by the practice of yoga, aligning with the main themes presented.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote008",
+      "text": "The yogi is utterly disinterested but paradoxically full of the engagement of compassion.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "importance",
+        "samadhi",
+        "concept",
+        "eternal",
+        "kaivalya,"
+      ],
+      "relevance": "This quote encapsulates the yogi's role in society, which is a core theme of the chapter.",
+      "importance_score": 0.9,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote004",
+      "text": "Yoga identifies five of these different levels or sheaths of being (kosas), which must be completely integrated and in…",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "importance",
+        "concept",
+        "existence",
+        "harmony"
+      ],
+      "relevance": "This statement clearly explains the concept of the kosas and their importance in achieving wholeness, linking to the main themes of harmony and integration in yoga.",
+      "importance_score": 0.89,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote008",
+      "text": "When, on the other hand, we are able to bring the various sheaths of our body into alignment and harmony with one…",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "sheaths",
+        "importance",
+        "concept",
+        "existence",
+        "harmony"
+      ],
+      "relevance": "This statement explains the benefits of aligning the kosas, which ties directly into the main theme of achieving harmony and alignment among the kosas for wholeness.",
+      "importance_score": 0.89,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote003",
+      "text": "Only by first attending to the physical body can we hope to accomplish anything in our spiritual lives.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This statement underscores the importance of maintaining physical health and vitality through yoga for spiritual pursuits.",
+      "importance_score": 0.89,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote004",
+      "text": "To a yogi, the body is a laboratory for life, a field of experimentation and perpetual research.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This statement captures the idea of the body as a tool for understanding the mind and reaching the soul in yoga.",
+      "importance_score": 0.87,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote007",
+      "text": "Yoga offers us techniques to become aware, to expand and penetrate, and to change and evolve in order to become…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This statement highlights the practical role of yoga in fostering self-awareness and personal growth.",
+      "importance_score": 0.87,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote005",
+      "text": "But diseases are not just a physical phenomenon. Anything that disturbs your spiritual life and practice is a disease…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "practice",
+        "compassion"
+      ],
+      "relevance": "This fact sheds light on the comprehensive view of health in yoga, encompassing the physical, emotional, mental, intellectual, and spiritual aspects.",
+      "importance_score": 0.8400000000000001,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote009",
+      "text": "Yoga has a threefold impact on health. It keeps healthy people healthy, it inhibits the development of diseases, and it…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "truth",
+        "journey",
+        "importance",
+        "compassion",
+        "concept"
+      ],
+      "relevance": "This fact emphasizes the practical benefits of yoga for maintaining and improving health.",
+      "importance_score": 0.8200000000000001,
+      "approved": false,
+      "notes": ""
+    }
+  ]
+}

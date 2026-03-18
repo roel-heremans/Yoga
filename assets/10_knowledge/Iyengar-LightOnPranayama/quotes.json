@@ -1,0 +1,4807 @@
+{
+  "source": "Light on Pranayama",
+  "author": "B.K.S. Iyengar",
+  "extracted_at": "2026-03-11T11:42:30.769016",
+  "extraction_method": "intelligent",
+  "document_summary": {
+    "total_chunks": 45,
+    "main_themes": [
+      "pranayama",
+      "practice",
+      "importance",
+      "physical",
+      "concept",
+      "spiritual",
+      "breath",
+      "during",
+      "mental",
+      "between"
+    ],
+    "chapters_detected": 60,
+    "total_quotes_extracted": 100
+  },
+  "chunks": [
+    {
+      "chunk_id": "chunk_001",
+      "position": 1,
+      "main_ideas": [
+        "The fundamental role of pranayama in yoga, encompassing the movement of air which is said to determine life on earth",
+        "The transformative power of yoga, which is not just about the transformation of matter into other forms of matter, but the transformation of the whole cycle of air and light into matter and back again",
+        "The concept of yoga as a science of the integral man, encompassing the total experience of human life",
+        "The importance of moral and other precepts for physical, vital and mental health, potency and purification in yoga",
+        "The role of asanas in influencing the aspirant beneficially through the neurophysiological system and the endocrine glands"
+      ],
+      "quotes": [
+        {
+          "id": "chunk001_quote001",
+          "text": "Yoga is nothing but the total experience of human life; it is a science of the integral man!",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote emphasizes the fundamental role of yoga and pranayama, treating it as a comprehensive exploration of human life and a science that integrates all aspects of human existence.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote002",
+          "text": "He teaches us in line with the ancient Indian philosophy that life is not only dust to dust, but air to air, that, as with the process of fire, matter is transformed into heat, light and radiation from which we may gather strength.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote describes the transformative power of yoga, turning matter into other forms and emphasizing the role of pranayama as the understanding of the cycle of air and light into matter and back again.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote003",
+          "text": "It is the irradiation of the human being with light and power, the very sources of energy.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote speaks to the transformative power of yoga and pranayama in human life, as the practice of yoga leads to an illumination of the human being with light and power.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote004",
+          "text": "Where there is Yoga, there is prosperity, success, freedom, and bliss.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote underscores the transformative power of yoga, associating it with prosperity, success, freedom, and bliss.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote005",
+          "text": "It proceeds to postures- asanas, which influence the aspirant beneficially through the neurophysiological system and…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote emphasizes the importance of asanas in yoga, highlighting their beneficial influence on the neurophysiological system and the endocrine glands.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote006",
+          "text": "The science and art of Yoga, as presented by Patanjali centuries before Christ, begins by moral and other precepts for physical, vital and mental health, potency and purification.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "mental",
+            "science",
+            "power",
+            "pranayama"
+          ],
+          "relevance": "This quote highlights the importance of moral and other precepts for physical, vital and mental health, potency and purification in yoga.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote007",
+          "text": "I salute Lord Hanuman, Lord of Breath, Son of the Wind God who bears five faces and dwells within us in the form of…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote highlights the fundamental role of pranayama, the movement of air, in yoga.",
+          "importance_score": 0.98,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote008",
+          "text": "It explains the vitalising of the cosmic energy as it makes itself manifest in five forms, while emphasis is laid on do's and don'ts.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote highlights the role of pranayama in yoga, emphasizing the vitalizing of the cosmic energy in five forms.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote009",
+          "text": "With this book, Mr. Iyengar, my guru in yoga, has added a new and greater dimension to the life of the people of the West, urging us to join our brothers of every colour and every creed in the celebration of life with due reverence and purpose.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote underlines the transformative power of yoga, indicating how it adds a new dimension to life and promotes unity, reverence, and purpose.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk001_quote010",
+          "text": "It is a medicine of health and not of sickness, it is an understanding of spirit, body and mind that is as healing as it is invigorating.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_001",
+          "themes": [
+            "concept",
+            "science",
+            "power",
+            "pranayama",
+            "transformative"
+          ],
+          "relevance": "This quote illustrates the transformative power of yoga, depicting it as a medicine of health and an understanding of spirit, body and mind that is both healing and invigorating.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 2",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "2",
+          "title": "Yoga, Hatha",
+          "position": 2431,
+          "line": 96
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_002",
+      "position": 2,
+      "main_ideas": [
+        "The importance and techniques of Pranayama in yoga practice",
+        "The role of Mudras and Bandhas in Pranayama",
+        "The different types and benefits of Pranayama such as Ujjayi, Viloma, Bhramari, Murchha, Plavini, Bhasrika, Kapalabhati, Sitali, Sitakari, Anuloma, Pratiloma, Surya Bhedana, Chandra Bhedana, and Nadi Shodhana",
+        "The art of inhalation, exhalation, and retention in Pranayama",
+        "Preparation of the mind for Pranayama and the spiritual insights it provides"
+      ],
+      "quotes": [],
+      "context": "Chapter I",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "I",
+          "title": "Chapter I",
+          "position": 28769,
+          "line": 883
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_003",
+      "position": 3,
+      "main_ideas": [
+        "The concept of Yoga as a union of the individual self (jivatma) with the Universal Self (Paramatma)",
+        "The importance of maintaining a healthy body and mind to follow Dharma and experience divinity within oneself",
+        "The recognition of Yoga as a practical application of the Samkhya philosophy, combining knowledge and action",
+        "The understanding of Yoga as an art that brings an incoherent and scattered mind to a reflective and coherent state",
+        "The exploration of the three gunas (sattva, rajas, tamas) as nature's heritage to man"
+      ],
+      "quotes": [
+        {
+          "id": "chunk003_quote001",
+          "text": "Yoga is the union of the individual self(jivatma) with the Universal Self (Paramatma).",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote clearly represents the main idea of Yoga as a union of the individual self with the Universal Self.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote002",
+          "text": "Man realised that he should keep his body healthy, strong and clean in order to follow Dharma and to experience the…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote emphasizes the importance of maintaining a healthy body and mind to follow Dharma and experience divinity within oneself.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote003",
+          "text": "Knowledge without action, and action without knowledge do not help man. They must be intermingled. So Samkhya and Yoga go together.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote underscores the recognition of Yoga as a practical application of the Samkhya philosophy, combining knowledge and action.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote004",
+          "text": "Yoga, therefore, is the art which brings an incoherent and scattered mind to a reflective and coherent state.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote reflects the understanding of Yoga as an art that brings an incoherent and scattered mind to a reflective and coherent state.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote005",
+          "text": "In nature's heritage to man are the three characteristics or qualities (gunas), namely, illumination (sattva), action…",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote explains the exploration of the three gunas (sattva, rajas, tamas) as nature's heritage to man, which is one of the key concepts in Yoga.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote006",
+          "text": "The system was first collated and written down by Patanjali in his Yoga Sutras or aphorisms.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote provides important historical context on the origins of Yoga literature.",
+          "importance_score": 0.8200000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote007",
+          "text": "When all the eight disciplines of Yoga are combined and practised, the yogi experiences oneness with the Creator and…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote provides insight into the ultimate goal of practicing Yoga.",
+          "importance_score": 0.98,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote008",
+          "text": "The word 'Yoga' is derived from the Sanskrit root 'yuj' which means to bind, join, attach and yoke, to direct and concentrate the attention in order to use it for meditation.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote provides an etymological explanation of the term 'Yoga'.",
+          "importance_score": 0.8400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote009",
+          "text": "The first deals with the theory of Yoga. It is aimed at those who have already attained a poised mind and lays down what they should do to maintain their poise.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote provides a practical guide on how to maintain mental stability once achieved through Yoga.",
+          "importance_score": 0.8400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk003_quote010",
+          "text": "This led man to seek the highest ideal embodied in the perfect Purusa or God.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_003",
+          "themes": [
+            "union",
+            "importance",
+            "recognition",
+            "concept",
+            "maintaining"
+          ],
+          "relevance": "This quote provides a philosophical understanding of the human search for divinity through Yoga.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "1",
+          "title": "Nobody knows the timeless, primeval absolute One, nor when the world",
+          "position": 28794,
+          "line": 886
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_004",
+      "position": 4,
+      "main_ideas": [
+        "Yoga is a journey of self-discovery, starting from understanding the physical body and mind to uncovering the inner self or 'Atma'",
+        "Yoga is a progressive practice that begins with physical health and strength, then bridges the gap between body and mind, and ultimately leads to inner peace and purity",
+        "The practice of Yoga is a systematic exploration of the self, moving from the external body, through the nerves and senses, to the controlling mind and discerning intellect",
+        "The ultimate goal of Yoga is to experience the highest state of joy (ananda) when the known merges into the unknown",
+        "Yoga teaches thorough and efficient search for the divinity within oneself"
+      ],
+      "quotes": [
+        {
+          "id": "chunk004_quote001",
+          "text": "When he knows the known in its totality, these merge into the 'unknown' like rivers merging into the sea. At that moment he experiences the highest state of joy (ananda).",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "journey",
+            "systematic",
+            "practice",
+            "self-discovery,",
+            "progressive"
+          ],
+          "relevance": "This quote emphasizes the transformative process of yoga and the joy it brings when one achieves self-realization. It represents the main idea of yoga as a journey of self-discovery, leading to inner peace and joy.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote002",
+          "text": "First, Yoga deals with health, strength and conquest of the body.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "journey",
+            "systematic",
+            "practice",
+            "self-discovery,",
+            "between"
+          ],
+          "relevance": "This quote provides a clear, progressive outline of the journey of Yoga, starting from physical health to achieving inner peace and purity. It aligns with the main idea of yoga as a progressive practice that bridges the gap between body and mind.",
+          "importance_score": 0.98,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote003",
+          "text": "Yoga systematically teaches man to search for the divinity within himself with thoroughness and efficiency.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "journey",
+            "systematic",
+            "practice",
+            "self-discovery,",
+            "progressive"
+          ],
+          "relevance": "This statement emphasizes the systematic and thorough nature of yoga practice in guiding practitioners towards self-discovery and realization of inner divinity. It resonates with the main idea of yoga as a systematic exploration of the self.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk004_quote004",
+          "text": "He unravels himself from the external body to the self within. He proceeds from the body to the nerves, and from the nerves to the senses. From the senses he enters into the mind, which controls the emotions. From the mind he penetrates into the intellect.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_004",
+          "themes": [
+            "journey",
+            "systematic",
+            "practice",
+            "self-discovery,",
+            "progressive"
+          ],
+          "relevance": "This quote provides a practical roadmap for the journey of self-discovery through yoga, moving from the physical to the intellectual. It reflects the main idea of yoga as a progressive practice towards self-realization.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 2",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "2",
+          "title": "Chapter 2",
+          "position": 36394,
+          "line": 1059
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_005",
+      "position": 5,
+      "main_ideas": [
+        "Yoga as a systematic path to self-realization",
+        "The importance of understanding and integrating all eight stages of yoga",
+        "The significance of moral commandments (yama) and self-purification rules (niyama) in yoga",
+        "The concept of moving from the known (body) to the unknown (Self) through yoga",
+        "The role of yoga in leading practitioners from ignorance to knowledge, and from darkness to light"
+      ],
+      "quotes": [
+        {
+          "id": "chunk005_quote001",
+          "text": "Yoga systematically teaches man to search for the divinity within himself with thoroughness and efficiency. He unravels himself from the external body to the self within. He proceeds from the body to the nerves, and from the nerves to the senses. From the senses he enters into the mind, which controls the emotions. From the mind he penetrates into the intellect, which guides reason. From the intellect, his path leads to the will and thence to consciousness (chitta). The last stage is from consciousness to his Self, his very being (Atma).",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "systematic",
+            "importance",
+            "significance",
+            "understanding",
+            "moral"
+          ],
+          "relevance": "This quote directly addresses the main themes of yoga as a systematic path to self-realization and the journey from the known (body) to the unknown (Self) through yoga.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote002",
+          "text": "Thus, Yoga leads the sadhaka from ignorance to knowledge, from darkness to light and from death to immortality.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "systematic",
+            "importance",
+            "significance",
+            "understanding",
+            "moral"
+          ],
+          "relevance": "This quote encapsulates the theme of yoga leading practitioners from ignorance to knowledge, and from darkness to light.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote003",
+          "text": "The stages of Yoga are eight: yama, niyama, asana, pranayama, pratyahara, dharana, dhyana and samadhi.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "systematic",
+            "importance",
+            "significance",
+            "understanding",
+            "moral"
+          ],
+          "relevance": "This quote is directly relevant to the importance of understanding and integrating all eight stages of yoga.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote004",
+          "text": "As all the parts put together become a tree, so all the eight stages put together form Yoga.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "systematic",
+            "importance",
+            "significance",
+            "understanding",
+            "moral"
+          ],
+          "relevance": "This quote provides a strong visual metaphor for the integrated nature of the eight stages of yoga, a main theme in the text.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote005",
+          "text": "Yama is a collective name for universal moral commandments. These commandments are eternal, irrespective of class, time…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "systematic",
+            "importance",
+            "significance",
+            "understanding",
+            "moral"
+          ],
+          "relevance": "This quote is directly related to the significance of moral commandments (yama) in yoga.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote006",
+          "text": "Niyamas are the rules for self-purification, namely, purity (saucha), contentment (santosha), austerity (tapas), study…",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "systematic",
+            "importance",
+            "significance",
+            "understanding",
+            "moral"
+          ],
+          "relevance": "This quote is directly related to the significance of self-purification rules (niyama) in yoga.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk005_quote007",
+          "text": "Through the eight stages of Yoga, the sadhaka develops understanding of his own self. He proceeds step by step from the known - his body - to the unknown.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_005",
+          "themes": [
+            "systematic",
+            "importance",
+            "significance",
+            "understanding",
+            "moral"
+          ],
+          "relevance": "This quote underscores the main themes of yoga as a path to self-realization and the transition from the known to the unknown.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "1",
+          "title": "The stages of Yoga are eight: yama, niyama, asana, praJ:layama,",
+          "position": 36420,
+          "line": 1062
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_006",
+      "position": 6,
+      "main_ideas": [
+        "The concept of Samadhi, a state where an individual loses consciousness of his body, mind, and ego, and merges into infinite peace",
+        "The interplay of different forms of Yoga, namely the Yoga of action (karma), knowledge (jnana), and devotion and love (bhakti)",
+        "The principle of Prana, described as the life force or energy permeating the universe at all levels",
+        "The role of Prana in various bodily functions, and its different manifestations such as prana, apana, samana, udana, and vyana",
+        "The connection between Prana and Chitta (consciousness), and their influence on mental and physical states"
+      ],
+      "quotes": [
+        {
+          "id": "chunk006_quote001",
+          "text": "When the state of dhyana is maintained for a long time without interruption it merges into samadhi, where the sadhaka…",
+          "type": "statement",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "different",
+            "prana,",
+            "principle",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote explains the concept of Samadhi as a state of infinite peace and loss of consciousness of body, mind, and ego.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote002",
+          "text": "Yama, Niyama, Asana and Pranayama are essential parts of the Yoga of action (karma).",
+          "type": "statement",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "different",
+            "prana,",
+            "principle",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote elucidates the interplay of different forms of Yoga, particularly the Yoga of action (karma), and highlights the importance of certain practices in keeping body and mind healthy.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote003",
+          "text": "It is as difficult to explain Prana as it is to explain God. Prana is the energy permeating the universe at all levels.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "different",
+            "prana,",
+            "principle",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote emphasizes the vastness and omnipresence of Prana, a key concept in yoga literature associated with life force or energy.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote004",
+          "text": "Prana is the breath of life of all beings in the universe. They are born through and live by it, and when they die their individual breath dissolves into the cosmic breath.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "different",
+            "prana,",
+            "principle",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote discusses the essential role of Prana in life and death, further underlining its importance in understanding yoga.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote005",
+          "text": "Prana and chitta are in constant association. Where there is chitta there prana is focused, and where prana is there…",
+          "type": "statement",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "different",
+            "prana,",
+            "principle",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote explains the connection between Prana and Chitta (consciousness), and their mutual influence on mental and physical states.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk006_quote006",
+          "text": "If breath (prana) prevails, then the desires are controlled, the senses are held in check and the mind is stilled.",
+          "type": "quote",
+          "context": "Chapter 3",
+          "chunk_id": "chunk_006",
+          "themes": [
+            "different",
+            "prana,",
+            "principle",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote provides practical guidance on controlling desires and stilling the mind through the control of breath (prana).",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 3",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "3",
+          "title": "Chapter 3",
+          "position": 51418,
+          "line": 1400
+        },
+        {
+          "type": "section",
+          "number": "2",
+          "title": "According to the Upanisads, pr:tt:�a is the principle of life and conscious­",
+          "position": 52025,
+          "line": 1415
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_007",
+      "position": 7,
+      "main_ideas": [
+        "Pranayama, or disciplined breathing, is a key technique in yoga that helps stimulate the system, expel toxins, and distribute energy throughout the body",
+        "Pranayama involves different movements including horizontal expansion, vertical ascension, and circumferential extension of the lungs and rib cage",
+        "The practice of Pranayama and Asanas together helps remove obstructions impeding the flow of prana (life energy) and regulates its flow throughout the body",
+        "Pranayama is not just habitual breathing, it involves abundant intake of oxygen leading to subtle chemical changes in the practitioner's body",
+        "Pranayama helps regulate thoughts, desires, and actions, providing the poise and will-power needed for self-mastery and robust health"
+      ],
+      "quotes": [
+        {
+          "id": "chunk007_quote001",
+          "text": "Pranayama is not just automatic habitual breathing to keep body and soul together.",
+          "type": "quote",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "disciplined",
+            "practice",
+            "breath",
+            "pranayama,",
+            "pranayama"
+          ],
+          "relevance": "This quote highlights the importance of Pranayama beyond just habitual breathing and its effect on the practitioners body.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote002",
+          "text": "Puraka stimulates the system; rechaka throws out vitiated air and toxins; kumbhaka distributes the energy throughout the body.",
+          "type": "fact",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "disciplined",
+            "practice",
+            "pranayama,",
+            "pranayama",
+            "involves"
+          ],
+          "relevance": "This quote explains the function of the different aspects of Pranayama, linking it to the idea of energy distribution and toxin expulsion.",
+          "importance_score": 0.8200000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote003",
+          "text": "This disciplined breathing helps the mind to concentrate and enables the practitioner to attain robust health and longevity.",
+          "type": "statement",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "disciplined",
+            "practice",
+            "breath",
+            "pranayama,",
+            "pranayama"
+          ],
+          "relevance": "This statement links the practice of Pranayama to mental focus and physical health.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote004",
+          "text": "The practice of Asanas removes the obstructions which impede the flow of prana, and the practice of Pranayama regulates…",
+          "type": "fact",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "disciplined",
+            "practice",
+            "pranayama,",
+            "pranayama",
+            "involves"
+          ],
+          "relevance": "This fact explains the complementary relationship between Asanas and Pranayama in the context of energy flow.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk007_quote005",
+          "text": "Pranayama also regulates all the practitioner's thoughts, desires and actions, gives poise and the tremendous…",
+          "type": "statement",
+          "context": "Chapter 4",
+          "chunk_id": "chunk_007",
+          "themes": [
+            "disciplined",
+            "practice",
+            "pranayama,",
+            "pranayama",
+            "involves"
+          ],
+          "relevance": "This statement emphasizes the role of Pranayama in self-regulation, self-mastery and will-power.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 4",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "4",
+          "title": "Chapter 4",
+          "position": 58450,
+          "line": 1581
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_008",
+      "position": 8,
+      "main_ideas": [
+        "Pranayama is not just automatic habitual breathing, but a disciplined technique which brings about subtle chemical changes in the body",
+        "Pranayama regulates all thoughts, desires and actions, providing poise and will-power needed for self-mastery",
+        "The practice of pranayama increases lung capacity and allows for optimum ventilation, contributing to robust health and longevity",
+        "Pranayama helps to cleanse the nadis or energy channels in the body, promoting a change in mental attitude and facilitating concentration and serenity",
+        "The stages of pranayama practice lead to intimate knowledge of self and ultimately to liberation or moksha during one's lifetime"
+      ],
+      "quotes": [
+        {
+          "id": "chunk008_quote001",
+          "text": "Pranayama is not just automatic habitual breathing to keep body and soul together. Through the abundant intake of oxygen by its disciplined techniques, subtle chemical changes take place in the sadhaka's body.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "regulates",
+            "practice",
+            "automatic",
+            "pranayama"
+          ],
+          "relevance": "This quote explains the concept of pranayama, emphasizing that it is not just habitual breathing but a disciplined technique that brings about subtle chemical changes in the body.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote002",
+          "text": "The practice of pranayama regulates all the sadhaka's thoughts, desires and actions, gives poise and the tremendous will-power needed to become a master of oneself.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "regulates",
+            "practice",
+            "automatic",
+            "pranayama"
+          ],
+          "relevance": "This quote emphasizes the power of pranayama in regulating thoughts, desires, and actions, providing the poise and will-power needed for self-mastery.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote003",
+          "text": "The practice of pranayama increases the sadhaka's lung capacity and allows the lungs to achieve optimum ventilation.",
+          "type": "fact",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "regulates",
+            "practice",
+            "automatic",
+            "pranayama"
+          ],
+          "relevance": "This quote relates to the idea that pranayama contributes to robust health and longevity by increasing lung capacity and allowing for optimum ventilation.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote004",
+          "text": "The practice of pranayama helps to cleanse the nadis, which are tubular organs of the subtle body through which energy…",
+          "type": "fact",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "regulates",
+            "practice",
+            "automatic",
+            "pranayama"
+          ],
+          "relevance": "This quote speaks to the idea that pranayama cleanses the energy channels in the body, promoting a change in mental attitude and facilitating concentration and serenity.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote005",
+          "text": "His efforts have ripened, the seeds of his karma are burnt out.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "during",
+            "regulates",
+            "practice",
+            "automatic",
+            "pranayama"
+          ],
+          "relevance": "This quote highlights the ultimate goal of pranayama practice, which is to lead to intimate knowledge of self and ultimately to liberation or moksha during one's lifetime.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk008_quote006",
+          "text": "The purpose of pranayama is to make the respiratory system function at its best.",
+          "type": "fact",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_008",
+          "themes": [
+            "regulates",
+            "practice",
+            "automatic",
+            "pranayama"
+          ],
+          "relevance": "This quote emphasizes the practical benefits of pranayama, particularly in improving the functioning of the respiratory and circulatory systems.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 2",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "2",
+          "title": "The second chapter of the 1-lacha Yoga Pradlpika deals wi th pra.J:�ayama.",
+          "position": 59107,
+          "line": 1600
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_009",
+      "position": 9,
+      "main_ideas": [
+        "The role of various muscles in breathing and their different usage from person to person",
+        "The influence of physical conditions like posture, chest shape, obesity and emotional disorders on breathing",
+        "The impact of improper breathing on one's capacity and overall health",
+        "The importance of conscious, correct breathing",
+        "The uneven use of respiratory muscles leading to breathing inefficiency"
+      ],
+      "quotes": [
+        {
+          "id": "chunk009_quote001",
+          "text": "We all breathe, but how many of us do so correctly, with attention?",
+          "type": "quote",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "impact",
+            "influence",
+            "various",
+            "improper",
+            "muscles"
+          ],
+          "relevance": "This quote emphasizes the importance of conscious, correct breathing, which is one of the main ideas in the text.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote002",
+          "text": "The use of accessory respiratory muscles varies from one individual to another. It also varies from time to time in the same person, depending on how powerfully he exerts in his breathing and how efficiently and how tensely.",
+          "type": "fact",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "impact",
+            "influence",
+            "various",
+            "improper",
+            "muscles"
+          ],
+          "relevance": "This quote explains the role of various muscles in breathing and their different usage from person to person.",
+          "importance_score": 0.8200000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk009_quote003",
+          "text": "Bad posture, an ill-shaped or caved-in chest, obesity, emotional disorders, various lung troubles, smoking and uneven use of the respiratory muscles, lead to improper breathing, below one's capacity.",
+          "type": "statement",
+          "context": "Chapter 5",
+          "chunk_id": "chunk_009",
+          "themes": [
+            "impact",
+            "influence",
+            "various",
+            "improper",
+            "muscles"
+          ],
+          "relevance": "This statement highlights the influence of physical conditions like posture, chest shape, obesity, and emotional disorders on breathing, as well as the impact of improper breathing on one's capacity and overall health.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 5",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "5",
+          "title": "Chapter 5",
+          "position": 83462,
+          "line": 2297
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_010",
+      "position": 10,
+      "main_ideas": [
+        "The role and importance of correct breathing in maintaining health and preventing diseases",
+        "The concept of nadis as channels for various energies and consciousness in our physical and spiritual bodies",
+        "The significance of the heart and navel as key centers from where nadis originate",
+        "The vital role of the susumna, ida, and pingala nadis in the body's energy system",
+        "The connection between prana, life, and Atma within the nadis"
+      ],
+      "quotes": [
+        {
+          "id": "chunk010_quote001",
+          "text": "We all breathe, but how many of us do so correctly, with attention?",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "This emphasizes the importance of conscious, correct breathing in maintaining health, a key concept in pranayama.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote002",
+          "text": "Pranayama can help to prevent these disorders and help to check or cure them, so that one can live fully and well.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "pranayama"
+          ],
+          "relevance": "This quote outlines the practical benefits of pranayama in preventing and curing health disorders.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote003",
+          "text": "Nadis are tubes, ducts or channels which carry air, water, blood, nutrients and other substances throughout the body.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "This details the concept of nadis as energy channels in both our physical and spiritual bodies.",
+          "importance_score": 0.8200000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote004",
+          "text": "All nadis originate from one of two centres, the kanda sthana - a little below the navel - and the heart.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "Highlights the significance of the heart and navel as key centers from where nadis originate.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote005",
+          "text": "The three that are most vital are the susumna, ida, and pingala.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "Explains the role of susumna, ida, and pingala nadis in the body's energy system.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote006",
+          "text": "In them is prana, the breath of life and in that life abides Atma, which is the abode of Shakti, creator of the animate and inanimate worlds.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "This speaks to the connection between prana, life, and Atma within the nadis.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote007",
+          "text": "The susumna, which runs through the centre of the spine, is split at the root and terminates at the crown of the head in the thousand-petalled lotus.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "Elaborates on the role of susumna nadi in yoga's energetic anatomy.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote008",
+          "text": "It is illumination (sattva). It gives delight to the sadhaka when prana enters it and swallows time.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "This quote connects the concept of sattva (illumination or purity) with the experience of prana flowing through susumna nadi.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote009",
+          "text": "The Atma, which is said to be the size of a thumb dwells within the heart, from which a hundred and one nadis radiate.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "This fact underscores the spiritual significance of the heart in the body's energy system.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk010_quote010",
+          "text": "Here the heart stands for both the physical and the spiritual one.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_010",
+          "themes": [
+            "correct",
+            "significance",
+            "importance",
+            "concept",
+            "heart"
+          ],
+          "relevance": "This quote emphasizes the dual nature of the heart in yoga - as a physical organ and a spiritual center.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "1",
+          "title": "The word nadT i s derived from ni\\d meaning a hollow stalk, sound,",
+          "position": 83491,
+          "line": 2300
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_011",
+      "position": 11,
+      "main_ideas": [
+        "The chakras and their roles in spiritual and physical development",
+        "The guru-sisya (teacher-student) relationship in spiritual learning and growth",
+        "The importance of pranayama (breath control) in unifying the individual with their Atma (soul)",
+        "The transformation of the individual through spiritual practice, as illustrated by the story of Ratnakara becoming the sage Valmiki",
+        "The stages of spiritual development and the role of discipline and surrender in this process"
+      ],
+      "quotes": [
+        {
+          "id": "chunk011_quote001",
+          "text": "The manas and the anahata chakras represent the psychological body (manomaya kosa).",
+          "type": "statement",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote discusses the role of chakras in spiritual and physical development, specifically mentioning the manas and anahata chakras.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote002",
+          "text": "When the ajna chakra is activated, the sadhaka gains perfect control over his body and develops a spiritual aura.",
+          "type": "statement",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote explains the transformative power of spiritual practices on the individual, particularly when the ajna chakra is activated.",
+          "importance_score": 0.9099999999999999,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote003",
+          "text": "When the kundalini energy reaches the sahasrara, the sadhaka has crossed all barriers and becomes an emancipated soul (siddha). This state is referred to in the Sat Chakra Nirupana (Verse 40) as the State of Void (Sonya Desa).",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote underlines the significance of pranayama in unifying the individual with their Atma (soul). It also speaks to the stages of spiritual development.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote004",
+          "text": "The guru (teacher) and his pupil (sisya) are together concerned with spiritual knowledge (Brahma-vidya). The guru first studies his pupil and discusses what the pupil knows, while the pupil studies the guru and the subject he is being taught.",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote perfectly encapsulates the guru-sisya (teacher-student) relationship in spiritual learning and growth.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote005",
+          "text": "The Sanskrit word guru is derived from the two roots 'gu' meaning darkness and 'ru' light. As a teacher of sacred knowledge he removes the darkness of ignorance and leads his pupil towards enlightenment and truth.",
+          "type": "fact",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote provides a clear and inspiring description of the role of the guru in spiritual teachings.",
+          "importance_score": 0.8400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote006",
+          "text": "The guru is the bridge between the individual (jivatma) and God (Paramatma).",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "between",
+            "(teacher-student)"
+          ],
+          "relevance": "This quote succinctly captures the essence of the guru's role in guiding their student towards spiritual enlightenment.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote007",
+          "text": "Initially the guru brings himself down to the level of his pupil, whom he encourages and gradually lifts up by precept and example. This is followed by teaching adjusted to the pupil's fitness and maturity until the latter becomes as fearless and independent as his guru.",
+          "type": "statement",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote describes the process of spiritual development under the guidance of a guru, highlighting the role of discipline and surrender.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote008",
+          "text": "As Hanuman brought about the reunion of Sita and Rama, pranayama brings about the reunion of the sadhaka with his Atma.",
+          "type": "quote",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote speaks to the importance of pranayama in uniting the individual with their soul, linking the concept to a well-known spiritual story.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote009",
+          "text": "In the third stage, like the fish with unwinking eyes he becomes both skillful and clean in thought, word and deed.",
+          "type": "statement",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote describes the transformative power of spiritual practices on the individual, underlining the stages of spiritual development.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk011_quote010",
+          "text": "Pupils are of three categories - dull, average and intelligent.",
+          "type": "fact",
+          "context": "Chapter 6",
+          "chunk_id": "chunk_011",
+          "themes": [
+            "chakras",
+            "importance",
+            "their",
+            "(teacher-student)",
+            "pranayama"
+          ],
+          "relevance": "This quote touches on the differing starting points for spiritual learners, reminding us that growth is possible for all.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 6",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "6",
+          "title": "Chapter 6",
+          "position": 102881,
+          "line": 2915
+        },
+        {
+          "type": "section",
+          "number": "2",
+          "title": "The Sanskrit word guru is derived from t h e two roots 'gu' m e ani ng",
+          "position": 103415,
+          "line": 2931
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_012",
+      "position": 12,
+      "main_ideas": [
+        "The role of a guru in guiding a diligent student towards self-realization and enlightenment",
+        "The importance of unwavering practice and self-control in spiritual training",
+        "The connection between physical sustenance (food) and spiritual development",
+        "The influence of the three types of food (sattvic, rajasic, tamasic) on human consciousness and spiritual progress",
+        "The interplay between diet and mental state in shaping one's spiritual journey"
+      ],
+      "quotes": [
+        {
+          "id": "chunk012_quote001",
+          "text": "He should practise constantly with attention and possess great endurance.",
+          "type": "statement",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This statement emphasizes the importance of unwavering practice and self-control in spiritual training.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote002",
+          "text": "Just as sesame seeds are crushed to yield oil and wood ignited to bring out its latent heat, so must the pupil be unswerving in his practice to bring out the knowledge latent within him and find his own identity.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "practice",
+            "between"
+          ],
+          "relevance": "This quote uses a metaphor to illustrate the importance of consistent practice in spiritual development and self-realization.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote003",
+          "text": "When he realises that he is a spark of the Divine Flame burning throughout the universe, then all his past impressions are burnt out, and he becomes enlightened.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This quote encapsulates the ultimate goal of yoga practice: self-realization and enlightenment.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote004",
+          "text": "Food should be wholesome, palatable and congenial to the body, and should not be eaten merely to gratify the senses.",
+          "type": "statement",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This statement underscores the connection between physical sustenance (food) and spiritual development.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote005",
+          "text": "Rajasic and tamasic food make the consciousness dull and impede spiritual progress.",
+          "type": "fact",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This fact highlights the influence of the three types of food (sattvic, rajasic, tamasic) on human consciousness and spiritual progress.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote006",
+          "text": "Man's temperament is influenced by his diet because what he eats affects the functioning of the mind.",
+          "type": "statement",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This statement emphasizes the interplay between diet and mental state in shaping one's spiritual journey.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote007",
+          "text": "It is the state of mind of the eater that is important. Yet a diet consisting of sattvic food only will help the practitioner to maintain a clear and unwavering mind.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This quote stresses the importance of a sattvic diet in maintaining mental clarity for spiritual progress.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote008",
+          "text": "The body is the abode of the individual self (jivatma). If it were to perish from lack of food the 'Self' would leave it just like a tenant who refuses to reside any longer in a dilapidated house.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This quote emphasizes the importance of physical sustenance in maintaining the spiritual journey.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote009",
+          "text": "A worthy pupil finds his guru by the grace of God.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This quote speaks about the role of a guru in guiding a diligent student towards self-realization and enlightenment.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk012_quote010",
+          "text": "Knowledge bestows learning, which brings composure that creates calmness; calmness establishes equanimity, which develops memory that induces recognition; recognition brings judgement, which leads to the realisation of the 'Self'.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_012",
+          "themes": [
+            "unwavering",
+            "guiding",
+            "importance",
+            "between",
+            "connection"
+          ],
+          "relevance": "This quote connects the pursuit of knowledge with the realization of self, a main theme in yoga and spiritual literature.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 7",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "7",
+          "title": "Chapter 7",
+          "position": 109379,
+          "line": 3065
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_013",
+      "position": 13,
+      "main_ideas": [
+        "The importance of diet in yoga practice and spiritual evolution, emphasizing sattvic foods for a clear and unwavering mind",
+        "The body as a vessel for the 'Self', necessitating its care and maintenance",
+        "The connection between food consumption and mental, physical, and spiritual health",
+        "The significance of disciplined life, and the obstacles that can hinder yoga practice",
+        "The concept of food as Brahman, to be respected and not abused"
+      ],
+      "quotes": [
+        {
+          "id": "chunk013_quote001",
+          "text": "A diet consisting of sattvic food only will help the practitioner to maintain a clear and unwavering mind.",
+          "type": "statement",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote emphasizes the importance of sattvic foods in maintaining clarity of mind, a key concept in yoga practice.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote002",
+          "text": "The body is the abode of the individual self. If it were to perish from lack of food the 'Self' would leave it just like a tenant who refuses to reside any longer in a dilapidated house.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote underscores the idea of body as a vessel for the 'Self', and the imperative of its care and maintenance in yoga and spiritual evolution.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote003",
+          "text": "Do not eat when saliva does not flow, for this indicates that the body does not need more food.",
+          "type": "statement",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This illustrates the connection between food consumption and physical health, and provides practical guidance for yoga practitioners.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote004",
+          "text": "Yoga texts prescribe that the sadhaka should fill half his stomach with solid food, one-fourth with fluids and keep one-fourth empty for the free flow of breath.",
+          "type": "fact",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote provides a practical guideline for the discipline required in diet for yoga practice.",
+          "importance_score": 0.8400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote005",
+          "text": "According to Taittiriya Upanishad, food is Brahman. It is to be respected, not derided or abused.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote illuminates the spiritual concept of food as Brahman, highlighting the need to respect and not abuse food.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote006",
+          "text": "The sadhaka must be aware of the obstacles which disturb his pranayama practice consciously or unconsciously.",
+          "type": "statement",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote underscores the importance of awareness and discipline in overcoming obstacles to yoga practice.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote007",
+          "text": "Patanjali gives a list of obstacles to yogic practices: sickness, lack of mental disposition, doubt about one's practice, insensibility, laziness, sensory indulgence, false knowledge, failure to attain continuity of thought or concentration, inability to continue the practice due to slackness.",
+          "type": "fact",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote provides a comprehensive list of potential obstacles to yoga practice, emphasizing the importance of discipline.",
+          "importance_score": 0.8200000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote008",
+          "text": "The Hatha Yoga Pradipika mentions the six destroyers of yoga practices: over-eating, over-exertion, useless talk, undisciplined conduct, bad company and restless inconsistency.",
+          "type": "fact",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote lists major hindrances to yoga practice as identified in a classical yoga text, reinforcing the need for discipline in life.",
+          "importance_score": 0.8400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote009",
+          "text": "To continue and maintain his training, the pupil needs faith, virility, memory, meditation and acute insight.",
+          "type": "statement",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote emphasizes the qualities necessary for sustained yoga practice and spiritual evolution.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk013_quote010",
+          "text": "To overcome these obstacles, Patanjali offered the four-fold remedy of friendliness and feeling at one with all that is good, compassion with devoted action to relieve the misery of the afflicted, delight at the good work done by others and avoidance of disdain for or feeling superior to the victims of vice.",
+          "type": "quote",
+          "context": "Chapter 7",
+          "chunk_id": "chunk_013",
+          "themes": [
+            "vessel",
+            "importance",
+            "practice",
+            "'self',",
+            "between"
+          ],
+          "relevance": "This quote presents Patanjali's remedies for overcoming obstacles in yoga practice, embodying key spiritual values of compassion, humility, and unity.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 7",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "7",
+          "title": "The Ha�ha Yoga Pradlpika ( 1 1 . 1 4) says that du r ing his p racti ce of",
+          "position": 112976,
+          "line": 3143
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_014",
+      "position": 14,
+      "main_ideas": [
+        "Pranayama, or breath control, is essential for maintaining health and wellbeing, and when practiced correctly, it can lead to enlightenment and serenity",
+        "Pranayama practice should be approached with caution, as improper execution can lead to physical discomfort and mental unrest",
+        "Pranayama practice can lead to a reduction in worldly desires and help in self-realization",
+        "The practice of pranayama is beneficial and safe for women, including during pregnancy and post-delivery, with some exceptions",
+        "Heat generation in the body due to pranayama and asanas should be monitored, and the practice should be stopped for the day if it occurs"
+      ],
+      "quotes": [
+        {
+          "id": "chunk014_quote001",
+          "text": "Do not allow mistakes to take deep root, but watch for and eradicate them by training and experience.",
+          "type": "quote",
+          "context": "Chapter r",
+          "chunk_id": "chunk_014",
+          "themes": [
+            "practice",
+            "pranayama,",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote emphasizes the importance of careful practice in pranayama, reinforcing the idea that incorrect practice can lead to discomfort.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk014_quote002",
+          "text": "Stop pranayama for the day the moment heaviness and tightness are felt in the lungs or when the sound of your breathing…",
+          "type": "fact",
+          "context": "Chapter r",
+          "chunk_id": "chunk_014",
+          "themes": [
+            "practice",
+            "pranayama,",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote provides practical guidance on when to stop pranayama practice, aligning with the theme of safety in yoga practice.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk014_quote003",
+          "text": "When pranayama is performed properly diseases disappear and a radiant state of well-being, enlightenment and serenity…",
+          "type": "quote",
+          "context": "Chapter r",
+          "chunk_id": "chunk_014",
+          "themes": [
+            "practice",
+            "pranayama,",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote illustrates the potential rewards of correct pranayama practice, including health and wellbeing, enlightenment, and serenity.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk014_quote004",
+          "text": "Correct practice reduces the craving for worldly pleasures and leads towards the realisation of the Self, freeing the sadhaka from domination by the senses.",
+          "type": "quote",
+          "context": "Chapter r",
+          "chunk_id": "chunk_014",
+          "themes": [
+            "practice",
+            "pranayama,",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote emphasizes the spiritual benefits of pranayama, including self-realization and freedom from worldly desires.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk014_quote005",
+          "text": "During pregnancy, women can do all pranayama except kapala-bhati, bha5trika, v isama.",
+          "type": "fact",
+          "context": "Chapter r",
+          "chunk_id": "chunk_014",
+          "themes": [
+            "during",
+            "practice",
+            "pranayama,",
+            "pranayama",
+            "breath"
+          ],
+          "relevance": "This quote provides practical guidance for women's pranayama practice during pregnancy, highlighting that it is generally safe with some exceptions.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk014_quote006",
+          "text": "The practice of pranayama is safe during the menstrual period. But u��ryana must be avoided.",
+          "type": "fact",
+          "context": "Chapter r",
+          "chunk_id": "chunk_014",
+          "themes": [
+            "during",
+            "practice",
+            "pranayama,",
+            "pranayama",
+            "breath"
+          ],
+          "relevance": "This quote provides practical guidance for women's pranayama practice during menstruation, reinforcing the theme of safety in yoga practice.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk014_quote007",
+          "text": "When heat is generated in the body due to practicing asanas and pranayama, stop for the day.",
+          "type": "fact",
+          "context": "Chapter r",
+          "chunk_id": "chunk_014",
+          "themes": [
+            "practice",
+            "pranayama,",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote provides practical guidance on monitoring heat generation in the body during pranayama and asanas, highlighting the importance of safety in yoga practice.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter r",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "r",
+          "title": "I",
+          "position": 137311,
+          "line": 3805
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_015",
+      "position": 15,
+      "main_ideas": [
+        "Pranayama as a bridge between the physical body and the Self (Atma)",
+        "The importance of proper alignment and posture during pranayama and meditation",
+        "The role of the body as a field (ksetra) cultivated through pranayama, observed by the Self (ksetrajna)",
+        "The necessity of physical firmness and mental stillness for effective meditation (dhyana)",
+        "The concept of inner silence and peace achieved through controlled mind and proper pranayama practice"
+      ],
+      "quotes": [
+        {
+          "id": "chunk015_quote001",
+          "text": "Pranayama is the bridge between the body and the Self.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "between",
+            "field"
+          ],
+          "relevance": "This quote underscores the importance of pranayama as a tool for connecting the physical and spiritual selves, a key theme in the text.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote002",
+          "text": "Keep the body firm as a mountain peak, and the mind still and steady as an ocean, for meditation (dhyana).",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This quote encapsulates the importance of physical firmness and mental stillness for effective meditation, two main ideas in the text.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote003",
+          "text": "The yogi, whose mind is ever under his control, always striving to unite with the Self, attains the peace of Nirvana - the Peace Supreme that rests in Me.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This quote speaks to the concept of achieving inner peace through controlled mind and proper pranayama practice, a key theme in the text.",
+          "importance_score": 0.96,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote004",
+          "text": "Without giving anatomical details, the above quotation describes the traditional method of sitting for meditation…",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This quote highlights the importance of proper alignment and posture during pranayama and meditation, a main idea in the text.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote005",
+          "text": "When the body and the brain are well balanced, pure intellectual illumination (sattvic prajna) is experienced.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This quote explains the result of proper alignment and posture, connecting it to the experience of 'sattvic prajna', a concept from Yoga philosophy.",
+          "importance_score": 0.89,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote006",
+          "text": "Just as an interior decorator arranges a room to make it spacious, so does the sadhaka create maximum space in his…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This quote offers practical advice on the physical practice of pranayama, relating to the main idea of the body as a field cultivated through pranayama.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote007",
+          "text": "The body is called the field (ksetra) or abode of the Self (Atma) and the Self is the Knower of the Field (ksetrajna),…",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This quote illuminates the concept of the body as a field observed by the Self, a key theme in the text.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote008",
+          "text": "Be firm in the areas of buttocks and pelvis, which are the foundation for correct sitting.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This statement provides practical guidance on the importance of proper alignment and posture during pranayama and meditation.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote009",
+          "text": "Be continuously alert and adjust the body to a correct alignment throughout the practice, whether it be inhalation (poraka), exhalalation (rechaka) or retention of the breath (kumbhaka).",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "practice",
+            "field"
+          ],
+          "relevance": "This quote offers practical advice on maintaining proper alignment throughout the process of pranayama, aligning with the main theme of the body as a field cultivated through pranayama.",
+          "importance_score": 0.9099999999999999,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk015_quote010",
+          "text": "In the art of sitting for meditation (dhyana) the aim is to sit straight, with the spine upright and the back ribs and…",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_015",
+          "themes": [
+            "bridge",
+            "importance",
+            "proper",
+            "field",
+            "pranayama"
+          ],
+          "relevance": "This quote emphasizes the importance of proper alignment and posture during pranayama and meditation, which is a main idea in the text.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 2",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "2",
+          "title": "Without giving ana tomi c al details, the above quotation describes the",
+          "position": 138443,
+          "line": 3833
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_016",
+      "position": 16,
+      "main_ideas": [
+        "The importance of correct body alignment and movement in pranayama practice",
+        "The concept of using the body's physical structure (like the first lumbar vertebra) as a fulcrum for effective stretching",
+        "The interplay of opposing movements in the body during yoga practice",
+        "The significance of proper expansion of the lungs for effective pranayama",
+        "The role of the skin's movement and stretch in maintaining the body's strength and posture during yoga"
+      ],
+      "quotes": [
+        {
+          "id": "chunk016_quote001",
+          "text": "The maximum tension is felt at the first lumbar vertebra where these two opposing movements meet.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_016",
+          "themes": [
+            "correct",
+            "importance",
+            "opposing",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote explains the concept of using the body's physical structure as a fulcrum for effective stretching during yoga practice.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk016_quote002",
+          "text": "The upward stretch of the skin at the centre of the breastbone helps the chin to bend down so that it rests in the notch between the collar-bones.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_016",
+          "themes": [
+            "correct",
+            "importance",
+            "opposing",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This statement highlights the role of the skin's movement and stretch in maintaining the body's strength and posture during yoga.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk016_quote003",
+          "text": "The first lumbar is used as a fulcrum for stretching the spine vertically and opening the chest sideways to maintain the strength of the four pillars of the body.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_016",
+          "themes": [
+            "correct",
+            "importance",
+            "opposing",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This quote underscores the importance of correct body alignment in pranayama practice.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk016_quote004",
+          "text": "If the dorsal or the lumbar spine sags, the lungs do not expand properly. Only the correct movement and stretch of the skin at the back, the sides and the front of the torso enables.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_016",
+          "themes": [
+            "correct",
+            "importance",
+            "opposing",
+            "concept",
+            "interplay"
+          ],
+          "relevance": "This statement emphasizes the significance of proper expansion of the lungs for effective pranayama.",
+          "importance_score": 0.85,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "1",
+          "title": "5 ) the sadhaka has to balance evenly and fully the muscles of the che st",
+          "position": 152723,
+          "line": 4171
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_017",
+      "position": 17,
+      "main_ideas": [
+        "The importance of proper posture and alignment during pranayama practice",
+        "The role of intercostal muscles in pranayama and the difference between normal deep breathing and pranayama techniques",
+        "The connection between the state of the skin of the torso and emotional stability",
+        "Understanding the right and wrong types of pain during pranayama practice",
+        "The necessity of adapting the practice for those who are unable to sit on the floor"
+      ],
+      "quotes": [
+        {
+          "id": "chunk017_quote001",
+          "text": "The upward stretch of the skin at the centre of the breastbone helps the chin to bend down so that it rests in the notch between the collar-bones. The first lumbar is used as a fulcrum for stretching the spine vertically and opening the chest sideways to maintain the strength of the four pillars of the body.",
+          "type": "quote",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote highlights the importance of proper posture and alignment during pranayama practice.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote002",
+          "text": "Normal deep breathing techniques differ from that of pranayama techniques.",
+          "type": "fact",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote explains the role of intercostal muscles in pranayama and the difference between normal deep breathing and pranayama techniques.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote003",
+          "text": "The tautness or the slackness of the skin of the trunk indicates emotional stability or the lack of it, and shows whether a person has achieved serenity and tranquillity of mind.",
+          "type": "fact",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote establishes the connection between the state of the skin of the torso and emotional stability.",
+          "importance_score": 0.8200000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote004",
+          "text": "Learn to distinguish between the right and the wrong types of pain.",
+          "type": "quote",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "practice",
+            "between",
+            "connection"
+          ],
+          "relevance": "This quote provides guidance on understanding the right and wrong types of pain during pranayama practice.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote005",
+          "text": "If through age, weakness or infirmity, sitting on the floor is impossible, a chair or stool may be used. But keep the feet flat on the floor, the thighs parallel with each other and parallel to the floor, and shins perpendicular to it.",
+          "type": "quote",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote addresses the necessity of adapting the practice for those who are unable to sit on the floor.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote006",
+          "text": "If a person's chest caves in and sags, the person is a victim of his emotions. A firm chest is a sign of stability.",
+          "type": "fact",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote underscores the connection between physical posture and emotional stability.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote007",
+          "text": "If they are activated in coordination, courage comes to inspire the mind.",
+          "type": "statement",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote suggests that proper pranayama practice can lead to emotional courage.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote008",
+          "text": "Jerky movements are a sign of fatigue, loss of attention or want of confidence.",
+          "type": "fact",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote provides practical guidance on how to interpret body movements during pranayama practice.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote009",
+          "text": "Practice for the day should be stopped when the pain or discomfort becomes severe and unbearable.",
+          "type": "statement",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "practice",
+            "between",
+            "connection"
+          ],
+          "relevance": "This quote provides practical advice on managing discomfort during pranayama practice.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk017_quote010",
+          "text": "Sitting in any posture for pranayama causes numbness in the feet, for sitting in one position restricts the flow of…",
+          "type": "fact",
+          "context": "Chapter 28",
+          "chunk_id": "chunk_017",
+          "themes": [
+            "importance",
+            "proper",
+            "between",
+            "connection",
+            "intercostal"
+          ],
+          "relevance": "This quote provides practical information about potential challenges during pranayama practice.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 28",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "28",
+          "title": "The tautness Of the slackness of the skin of the trunk indicates",
+          "position": 153077,
+          "line": 4193
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_018",
+      "position": 18,
+      "main_ideas": [
+        "The brain as the director of the body and its functions",
+        "The importance of proper posture and balance in controlling emotions and energy",
+        "The concept of humility in yoga, particularly in pranayama practice",
+        "The intersection of subtle energy channels in the brain and its significance in breath control",
+        "The distinction between the mind as a feeling entity and the brain as a thinking tool"
+      ],
+      "quotes": [
+        {
+          "id": "chunk018_quote001",
+          "text": "The brain is a computer and an instrument of thinking. The mind has feeling, but not the brain.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_018",
+          "themes": [
+            "humility",
+            "importance",
+            "proper",
+            "concept",
+            "brain"
+          ],
+          "relevance": "This quote highlights the distinction between the mind as a feeling entity and the brain as a thinking tool, one of the main ideas in the source.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk018_quote002",
+          "text": "In Pranayama, it is the inducer, not the actor but a witness. The lungs are the actors, the brain is the director.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_018",
+          "themes": [
+            "humility",
+            "importance",
+            "proper",
+            "concept",
+            "brain"
+          ],
+          "relevance": "This quote gives practical guidance on pranayama practice by emphasizing the roles of the brain and lungs, tying into the main idea of the brain directing the body and its functions.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk018_quote003",
+          "text": "If the sitting posture is correct, firm, steady and evenly balanced, the emotions are held in check.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_018",
+          "themes": [
+            "humility",
+            "importance",
+            "proper",
+            "concept",
+            "brain"
+          ],
+          "relevance": "This quote reflects the importance of proper posture and balance in controlling emotions and energy.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk018_quote004",
+          "text": "The brain feels light as if floating. Then no tension is felt there and hence no waste of energy.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_018",
+          "themes": [
+            "humility",
+            "importance",
+            "proper",
+            "concept",
+            "brain"
+          ],
+          "relevance": "This quote emphasizes the benefits of proper posture and balance, particularly in conserving energy.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk018_quote005",
+          "text": "Intellectuals tend to be arrogant. Intelligence, like money, is a good servant but a bad master.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_018",
+          "themes": [
+            "humility",
+            "importance",
+            "proper",
+            "concept",
+            "brain"
+          ],
+          "relevance": "This quote captures the concept of humility in yoga, particularly in pranayama practice.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk018_quote006",
+          "text": "Pay particular attention to the spot where the subtle energy channels from the eyes, ears and lungs criss-cross in the centre of the brain behind and between the eyes. This is the centre from which these energies are controlled.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_018",
+          "themes": [
+            "humility",
+            "importance",
+            "proper",
+            "concept",
+            "between"
+          ],
+          "relevance": "This quote provides practical guidance on the intersection of subtle energy channels in the brain and its significance in breath control, one of the main ideas in the source.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "1",
+          "title": "2",
+          "position": 164321,
+          "line": 4463
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_019",
+      "position": 19,
+      "main_ideas": [
+        "Pranayama is a practice that requires both physical and mental stability, with emphasis on the correct sitting posture and a balanced mind",
+        "The practice of pranayama is not just a mechanical exercise but requires alertness, adjustment, and complete receptivity of the mind and intellect",
+        "Pranayama practice is seen as a journey that may require years of sincere and unwavering efforts before one can appreciate its subtlety",
+        "The practice of asanas and pranayama are interconnected, with asanas strengthening the nervous system and preparing the body for pranayama",
+        "The practice of pranayama is likened to harnessing the energy of a turbulent river, providing vitality and vigor"
+      ],
+      "quotes": [
+        {
+          "id": "chunk019_quote001",
+          "text": "If the sitting posture is correct, firm, steady and evenly balanced, the emotions are held in check. The brain feels light as if floating.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "pranayama"
+          ],
+          "relevance": "This quote emphasizes the importance of a correct sitting posture in pranayama, aligning with the main idea of physical stability in the practice.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk019_quote002",
+          "text": "While both emotions and the intellect are silent and do not fluctuate, the yogi first experiences tranquility of the senses followed by that of the mind. This is followed by the rarer and maturer experience of spiritual tranquillity, which frees him from worldly thoughts and cares.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "spiritual",
+            "pranayama"
+          ],
+          "relevance": "This quote beautifully represents the journey of pranayama practice, as mentioned in the main ideas. It captures the essence of mental stability and the stages of tranquility.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk019_quote003",
+          "text": "The practice of asanas strengthens the nervous system, and the practice of savasana soothes ruffled nerves.",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "pranayama"
+          ],
+          "relevance": "This statement is relevant to the main idea of the interconnectedness of asanas and pranayama, where asanas prepare the body for pranayama.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk019_quote004",
+          "text": "Breath is like a turbulent river which, when harnessed by dams and canals, will provide abundant energy.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote is a metaphorical representation of the practice of pranayama, likening it to harnessing the energy of a turbulent river. This is directly relevant to the main idea of pranayama providing vitality and vigor.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk019_quote005",
+          "text": "The practice of pranayama should not be mechanical. The brain and the mind should be kept alert, to correct and adjust…",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This statement reflects the main idea that pranayama is not just a mechanical exercise, but requires alertness and adjustment.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk019_quote006",
+          "text": "In pranayama the relationship between chitta (mind, intellect and ego) and breath is like that between a mother and her…",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "between",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This quote uses a metaphor to explain the relationship between chitta and prana, core concepts in yoga philosophy.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk019_quote007",
+          "text": "Thus pranayama cannot become absorbing until body and mind are trained to receive the flow of breath; months or years…",
+          "type": "statement",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "breath",
+            "pranayama"
+          ],
+          "relevance": "This statement emphasizes the main idea that pranayama practice is a journey that may require years of sincere and unwavering efforts.",
+          "importance_score": 1.0,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk019_quote008",
+          "text": "The tree of life is said to have its roots above and its branches below, and so it is with man, for his nervous system has its roots in his brain.",
+          "type": "quote",
+          "context": "Chapter 2",
+          "chunk_id": "chunk_019",
+          "themes": [
+            "practice",
+            "pranayama"
+          ],
+          "relevance": "This quote provides a philosophical perspective on the human nervous system, which is relevant to the main idea of asanas strengthening the nervous system.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 2",
+      "chapters": [
+        {
+          "type": "section",
+          "number": "2",
+          "title": "The an of sitting for prliJ:layama is explained in derail in Ch. 1 1 , while",
+          "position": 164880,
+          "line": 4476
+        }
+      ]
+    },
+    {
+      "chunk_id": "chunk_020",
+      "position": 20,
+      "main_ideas": [
+        "The importance and method of mastering mula bandha in yoga practice",
+        "The potential dangers of improper or self-taught practice of bandhas, including physical and spiritual risks",
+        "The power of yoga to increase sexual retentive power and the potential for misuse",
+        "The critical juncture in a yogi's journey, where mastery of bandhas can lead either to worldly pleasures (bhoga) or spiritual union (Yoga) with the Supreme Soul."
+      ],
+      "quotes": [
+        {
+          "id": "chunk020_quote001",
+          "text": "The practice of contracting the anal sphincter muscles (asvini mud r a) helps one to master mula bandha.",
+          "type": "statement",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_020",
+          "themes": [
+            "importance",
+            "practice",
+            "increase",
+            "power",
+            "method"
+          ],
+          "relevance": "This statement provides practical guidance on how to master mula bandha, a key concept in yoga practice.",
+          "importance_score": 0.87,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk020_quote002",
+          "text": "There is a grave danger in attempting to learn the udyana and mula bandhas by oneself.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_020",
+          "themes": [
+            "importance",
+            "increase",
+            "power",
+            "method",
+            "potential"
+          ],
+          "relevance": "This quote emphasizes the potential physical and spiritual risks of self-taught practice of bandhas, relating to the main idea of the importance of proper learning and practice in yoga.",
+          "importance_score": 0.92,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk020_quote003",
+          "text": "Improper performance of the former will cause involuntary discharge of semen and loss of vitality, while that of the latter will seriously weaken the practitioner, who will lack virility.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_020",
+          "themes": [
+            "importance",
+            "increase",
+            "power",
+            "method",
+            "potential"
+          ],
+          "relevance": "This fact underscores the potential dangers of improper practice of bandhas, highlighting the importance of proper practice and mastery.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk020_quote004",
+          "text": "With the mastery of the three bandhas, the yogi is at the crossroads of his destiny, one road leading to bhoga (the enjoyment of worldly pleasures) and the other to Yoga or union with the Supreme Soul.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_020",
+          "themes": [
+            "importance",
+            "increase",
+            "power",
+            "method",
+            "potential"
+          ],
+          "relevance": "This philosophical quote relates to the main idea of the critical juncture in a yogi's journey, where mastery of bandhas can lead either to worldly pleasures or spiritual union with the Supreme Soul.",
+          "importance_score": 0.9400000000000001,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk020_quote005",
+          "text": "Even the correct performance of mula bandha has its own dangers. It increases sexual retentive power, which the practitioner is tempted to abuse.",
+          "type": "fact",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_020",
+          "themes": [
+            "importance",
+            "increase",
+            "power",
+            "method",
+            "potential"
+          ],
+          "relevance": "This fact highlights the power of yoga to increase sexual retentive power and the potential for misuse, a main idea in the text.",
+          "importance_score": 0.8,
+          "approved": false,
+          "notes": ""
+        },
+        {
+          "id": "chunk020_quote006",
+          "text": "If he succumbs to this temptation, all his dormant desires may be aroused and become lethal like a sleeping serpent stirred by a stick.",
+          "type": "quote",
+          "context": "Chapter 1",
+          "chunk_id": "chunk_020",
+          "themes": [
+            "importance",
+            "increase",
+            "power",
+            "method",
+            "potential"
+          ],
+          "relevance": "This memorable quote metaphorically illustrates the potential spiritual risks of improper or self-taught practice of bandhas.",
+          "importance_score": 0.9,
+          "approved": false,
+          "notes": ""
+        }
+      ],
+      "context": "Chapter 1",
+      "chapters": [
+        {
+          "type": "chapter",
+          "number": "1",
+          "title": "4",
+          "position": 183377,
+          "line": 4943
+        }
+      ]
+    }
+  ],
+  "quotes": [
+    {
+      "id": "chunk001_quote005",
+      "text": "It proceeds to postures- asanas, which influence the aspirant beneficially through the neurophysiological system and…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "concept",
+        "science",
+        "power",
+        "pranayama",
+        "transformative"
+      ],
+      "relevance": "This quote emphasizes the importance of asanas in yoga, highlighting their beneficial influence on the neurophysiological system and the endocrine glands.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote002",
+      "text": "Man realised that he should keep his body healthy, strong and clean in order to follow Dharma and to experience the…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "union",
+        "importance",
+        "recognition",
+        "concept",
+        "maintaining"
+      ],
+      "relevance": "This quote emphasizes the importance of maintaining a healthy body and mind to follow Dharma and experience divinity within oneself.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote005",
+      "text": "In nature's heritage to man are the three characteristics or qualities (gunas), namely, illumination (sattva), action…",
+      "type": "fact",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "union",
+        "importance",
+        "recognition",
+        "concept",
+        "maintaining"
+      ],
+      "relevance": "This quote explains the exploration of the three gunas (sattva, rajas, tamas) as nature's heritage to man, which is one of the key concepts in Yoga.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote003",
+      "text": "The stages of Yoga are eight: yama, niyama, asana, pranayama, pratyahara, dharana, dhyana and samadhi.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "systematic",
+        "importance",
+        "significance",
+        "understanding",
+        "moral"
+      ],
+      "relevance": "This quote is directly relevant to the importance of understanding and integrating all eight stages of yoga.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote005",
+      "text": "Yama is a collective name for universal moral commandments. These commandments are eternal, irrespective of class, time…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "systematic",
+        "importance",
+        "significance",
+        "understanding",
+        "moral"
+      ],
+      "relevance": "This quote is directly related to the significance of moral commandments (yama) in yoga.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk005_quote006",
+      "text": "Niyamas are the rules for self-purification, namely, purity (saucha), contentment (santosha), austerity (tapas), study…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_005",
+      "themes": [
+        "systematic",
+        "importance",
+        "significance",
+        "understanding",
+        "moral"
+      ],
+      "relevance": "This quote is directly related to the significance of self-purification rules (niyama) in yoga.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote001",
+      "text": "When the state of dhyana is maintained for a long time without interruption it merges into samadhi, where the sadhaka…",
+      "type": "statement",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "different",
+        "prana,",
+        "principle",
+        "concept",
+        "interplay"
+      ],
+      "relevance": "This quote explains the concept of Samadhi as a state of infinite peace and loss of consciousness of body, mind, and ego.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote002",
+      "text": "Yama, Niyama, Asana and Pranayama are essential parts of the Yoga of action (karma).",
+      "type": "statement",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "different",
+        "prana,",
+        "principle",
+        "concept",
+        "interplay"
+      ],
+      "relevance": "This quote elucidates the interplay of different forms of Yoga, particularly the Yoga of action (karma), and highlights the importance of certain practices in keeping body and mind healthy.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk006_quote005",
+      "text": "Prana and chitta are in constant association. Where there is chitta there prana is focused, and where prana is there…",
+      "type": "statement",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_006",
+      "themes": [
+        "different",
+        "prana,",
+        "principle",
+        "concept",
+        "interplay"
+      ],
+      "relevance": "This quote explains the connection between Prana and Chitta (consciousness), and their mutual influence on mental and physical states.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote001",
+      "text": "Pranayama is not just automatic habitual breathing to keep body and soul together.",
+      "type": "quote",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "disciplined",
+        "practice",
+        "breath",
+        "pranayama,",
+        "pranayama"
+      ],
+      "relevance": "This quote highlights the importance of Pranayama beyond just habitual breathing and its effect on the practitioners body.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote004",
+      "text": "The practice of Asanas removes the obstructions which impede the flow of prana, and the practice of Pranayama regulates…",
+      "type": "fact",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "disciplined",
+        "practice",
+        "pranayama,",
+        "pranayama",
+        "involves"
+      ],
+      "relevance": "This fact explains the complementary relationship between Asanas and Pranayama in the context of energy flow.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk007_quote005",
+      "text": "Pranayama also regulates all the practitioner's thoughts, desires and actions, gives poise and the tremendous…",
+      "type": "statement",
+      "context": "Chapter 4",
+      "chunk_id": "chunk_007",
+      "themes": [
+        "disciplined",
+        "practice",
+        "pranayama,",
+        "pranayama",
+        "involves"
+      ],
+      "relevance": "This statement emphasizes the role of Pranayama in self-regulation, self-mastery and will-power.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote003",
+      "text": "The practice of pranayama increases the sadhaka's lung capacity and allows the lungs to achieve optimum ventilation.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "regulates",
+        "practice",
+        "automatic",
+        "pranayama"
+      ],
+      "relevance": "This quote relates to the idea that pranayama contributes to robust health and longevity by increasing lung capacity and allowing for optimum ventilation.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote004",
+      "text": "The practice of pranayama helps to cleanse the nadis, which are tubular organs of the subtle body through which energy…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "regulates",
+        "practice",
+        "automatic",
+        "pranayama"
+      ],
+      "relevance": "This quote speaks to the idea that pranayama cleanses the energy channels in the body, promoting a change in mental attitude and facilitating concentration and serenity.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote005",
+      "text": "His efforts have ripened, the seeds of his karma are burnt out.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "during",
+        "regulates",
+        "practice",
+        "automatic",
+        "pranayama"
+      ],
+      "relevance": "This quote highlights the ultimate goal of pranayama practice, which is to lead to intimate knowledge of self and ultimately to liberation or moksha during one's lifetime.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk008_quote006",
+      "text": "The purpose of pranayama is to make the respiratory system function at its best.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_008",
+      "themes": [
+        "regulates",
+        "practice",
+        "automatic",
+        "pranayama"
+      ],
+      "relevance": "This quote emphasizes the practical benefits of pranayama, particularly in improving the functioning of the respiratory and circulatory systems.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote002",
+      "text": "Pranayama can help to prevent these disorders and help to check or cure them, so that one can live fully and well.",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "correct",
+        "significance",
+        "importance",
+        "concept",
+        "pranayama"
+      ],
+      "relevance": "This quote outlines the practical benefits of pranayama in preventing and curing health disorders.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk010_quote008",
+      "text": "It is illumination (sattva). It gives delight to the sadhaka when prana enters it and swallows time.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_010",
+      "themes": [
+        "correct",
+        "significance",
+        "importance",
+        "concept",
+        "heart"
+      ],
+      "relevance": "This quote connects the concept of sattva (illumination or purity) with the experience of prana flowing through susumna nadi.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk011_quote001",
+      "text": "The manas and the anahata chakras represent the psychological body (manomaya kosa).",
+      "type": "statement",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_011",
+      "themes": [
+        "chakras",
+        "importance",
+        "their",
+        "(teacher-student)",
+        "pranayama"
+      ],
+      "relevance": "This quote discusses the role of chakras in spiritual and physical development, specifically mentioning the manas and anahata chakras.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk011_quote008",
+      "text": "As Hanuman brought about the reunion of Sita and Rama, pranayama brings about the reunion of the sadhaka with his Atma.",
+      "type": "quote",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_011",
+      "themes": [
+        "chakras",
+        "importance",
+        "their",
+        "(teacher-student)",
+        "pranayama"
+      ],
+      "relevance": "This quote speaks to the importance of pranayama in uniting the individual with their soul, linking the concept to a well-known spiritual story.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk012_quote005",
+      "text": "Rajasic and tamasic food make the consciousness dull and impede spiritual progress.",
+      "type": "fact",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_012",
+      "themes": [
+        "unwavering",
+        "guiding",
+        "importance",
+        "between",
+        "connection"
+      ],
+      "relevance": "This fact highlights the influence of the three types of food (sattvic, rajasic, tamasic) on human consciousness and spiritual progress.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk013_quote005",
+      "text": "According to Taittiriya Upanishad, food is Brahman. It is to be respected, not derided or abused.",
+      "type": "quote",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_013",
+      "themes": [
+        "vessel",
+        "importance",
+        "practice",
+        "'self',",
+        "between"
+      ],
+      "relevance": "This quote illuminates the spiritual concept of food as Brahman, highlighting the need to respect and not abuse food.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk013_quote006",
+      "text": "The sadhaka must be aware of the obstacles which disturb his pranayama practice consciously or unconsciously.",
+      "type": "statement",
+      "context": "Chapter 7",
+      "chunk_id": "chunk_013",
+      "themes": [
+        "vessel",
+        "importance",
+        "practice",
+        "'self',",
+        "between"
+      ],
+      "relevance": "This quote underscores the importance of awareness and discipline in overcoming obstacles to yoga practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk014_quote002",
+      "text": "Stop pranayama for the day the moment heaviness and tightness are felt in the lungs or when the sound of your breathing…",
+      "type": "fact",
+      "context": "Chapter r",
+      "chunk_id": "chunk_014",
+      "themes": [
+        "practice",
+        "pranayama,",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote provides practical guidance on when to stop pranayama practice, aligning with the theme of safety in yoga practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk014_quote003",
+      "text": "When pranayama is performed properly diseases disappear and a radiant state of well-being, enlightenment and serenity…",
+      "type": "quote",
+      "context": "Chapter r",
+      "chunk_id": "chunk_014",
+      "themes": [
+        "practice",
+        "pranayama,",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote illustrates the potential rewards of correct pranayama practice, including health and wellbeing, enlightenment, and serenity.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk014_quote005",
+      "text": "During pregnancy, women can do all pranayama except kapala-bhati, bha5trika, v isama.",
+      "type": "fact",
+      "context": "Chapter r",
+      "chunk_id": "chunk_014",
+      "themes": [
+        "during",
+        "practice",
+        "pranayama,",
+        "pranayama",
+        "breath"
+      ],
+      "relevance": "This quote provides practical guidance for women's pranayama practice during pregnancy, highlighting that it is generally safe with some exceptions.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk014_quote006",
+      "text": "The practice of pranayama is safe during the menstrual period. But u��ryana must be avoided.",
+      "type": "fact",
+      "context": "Chapter r",
+      "chunk_id": "chunk_014",
+      "themes": [
+        "during",
+        "practice",
+        "pranayama,",
+        "pranayama",
+        "breath"
+      ],
+      "relevance": "This quote provides practical guidance for women's pranayama practice during menstruation, reinforcing the theme of safety in yoga practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk014_quote007",
+      "text": "When heat is generated in the body due to practicing asanas and pranayama, stop for the day.",
+      "type": "fact",
+      "context": "Chapter r",
+      "chunk_id": "chunk_014",
+      "themes": [
+        "practice",
+        "pranayama,",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote provides practical guidance on monitoring heat generation in the body during pranayama and asanas, highlighting the importance of safety in yoga practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk015_quote001",
+      "text": "Pranayama is the bridge between the body and the Self.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_015",
+      "themes": [
+        "bridge",
+        "importance",
+        "proper",
+        "between",
+        "field"
+      ],
+      "relevance": "This quote underscores the importance of pranayama as a tool for connecting the physical and spiritual selves, a key theme in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk015_quote002",
+      "text": "Keep the body firm as a mountain peak, and the mind still and steady as an ocean, for meditation (dhyana).",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_015",
+      "themes": [
+        "bridge",
+        "importance",
+        "proper",
+        "field",
+        "pranayama"
+      ],
+      "relevance": "This quote encapsulates the importance of physical firmness and mental stillness for effective meditation, two main ideas in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk015_quote004",
+      "text": "Without giving anatomical details, the above quotation describes the traditional method of sitting for meditation…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_015",
+      "themes": [
+        "bridge",
+        "importance",
+        "proper",
+        "field",
+        "pranayama"
+      ],
+      "relevance": "This quote highlights the importance of proper alignment and posture during pranayama and meditation, a main idea in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk015_quote006",
+      "text": "Just as an interior decorator arranges a room to make it spacious, so does the sadhaka create maximum space in his…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_015",
+      "themes": [
+        "bridge",
+        "importance",
+        "proper",
+        "field",
+        "pranayama"
+      ],
+      "relevance": "This quote offers practical advice on the physical practice of pranayama, relating to the main idea of the body as a field cultivated through pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk015_quote007",
+      "text": "The body is called the field (ksetra) or abode of the Self (Atma) and the Self is the Knower of the Field (ksetrajna),…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_015",
+      "themes": [
+        "bridge",
+        "importance",
+        "proper",
+        "field",
+        "pranayama"
+      ],
+      "relevance": "This quote illuminates the concept of the body as a field observed by the Self, a key theme in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk015_quote010",
+      "text": "In the art of sitting for meditation (dhyana) the aim is to sit straight, with the spine upright and the back ribs and…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_015",
+      "themes": [
+        "bridge",
+        "importance",
+        "proper",
+        "field",
+        "pranayama"
+      ],
+      "relevance": "This quote emphasizes the importance of proper alignment and posture during pranayama and meditation, which is a main idea in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk017_quote002",
+      "text": "Normal deep breathing techniques differ from that of pranayama techniques.",
+      "type": "fact",
+      "context": "Chapter 28",
+      "chunk_id": "chunk_017",
+      "themes": [
+        "importance",
+        "proper",
+        "between",
+        "connection",
+        "intercostal"
+      ],
+      "relevance": "This quote explains the role of intercostal muscles in pranayama and the difference between normal deep breathing and pranayama techniques.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk017_quote004",
+      "text": "Learn to distinguish between the right and the wrong types of pain.",
+      "type": "quote",
+      "context": "Chapter 28",
+      "chunk_id": "chunk_017",
+      "themes": [
+        "importance",
+        "proper",
+        "practice",
+        "between",
+        "connection"
+      ],
+      "relevance": "This quote provides guidance on understanding the right and wrong types of pain during pranayama practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk017_quote010",
+      "text": "Sitting in any posture for pranayama causes numbness in the feet, for sitting in one position restricts the flow of…",
+      "type": "fact",
+      "context": "Chapter 28",
+      "chunk_id": "chunk_017",
+      "themes": [
+        "importance",
+        "proper",
+        "between",
+        "connection",
+        "intercostal"
+      ],
+      "relevance": "This quote provides practical information about potential challenges during pranayama practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk018_quote002",
+      "text": "In Pranayama, it is the inducer, not the actor but a witness. The lungs are the actors, the brain is the director.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_018",
+      "themes": [
+        "humility",
+        "importance",
+        "proper",
+        "concept",
+        "brain"
+      ],
+      "relevance": "This quote gives practical guidance on pranayama practice by emphasizing the roles of the brain and lungs, tying into the main idea of the brain directing the body and its functions.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk018_quote005",
+      "text": "Intellectuals tend to be arrogant. Intelligence, like money, is a good servant but a bad master.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_018",
+      "themes": [
+        "humility",
+        "importance",
+        "proper",
+        "concept",
+        "brain"
+      ],
+      "relevance": "This quote captures the concept of humility in yoga, particularly in pranayama practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk019_quote003",
+      "text": "The practice of asanas strengthens the nervous system, and the practice of savasana soothes ruffled nerves.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_019",
+      "themes": [
+        "practice",
+        "pranayama"
+      ],
+      "relevance": "This statement is relevant to the main idea of the interconnectedness of asanas and pranayama, where asanas prepare the body for pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk019_quote004",
+      "text": "Breath is like a turbulent river which, when harnessed by dams and canals, will provide abundant energy.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_019",
+      "themes": [
+        "practice",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote is a metaphorical representation of the practice of pranayama, likening it to harnessing the energy of a turbulent river. This is directly relevant to the main idea of pranayama providing vitality and vigor.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk019_quote005",
+      "text": "The practice of pranayama should not be mechanical. The brain and the mind should be kept alert, to correct and adjust…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_019",
+      "themes": [
+        "practice",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This statement reflects the main idea that pranayama is not just a mechanical exercise, but requires alertness and adjustment.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk019_quote006",
+      "text": "In pranayama the relationship between chitta (mind, intellect and ego) and breath is like that between a mother and her…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_019",
+      "themes": [
+        "practice",
+        "between",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote uses a metaphor to explain the relationship between chitta and prana, core concepts in yoga philosophy.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk019_quote007",
+      "text": "Thus pranayama cannot become absorbing until body and mind are trained to receive the flow of breath; months or years…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_019",
+      "themes": [
+        "practice",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This statement emphasizes the main idea that pranayama practice is a journey that may require years of sincere and unwavering efforts.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk022_quote010",
+      "text": "Throughout the practice of Pranayama, pivot the head and the cervical spine forwards and downwards and the erect dorsal…",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_022",
+      "themes": [
+        "practice",
+        "kumbhaka,",
+        "concept",
+        "kumbhaka",
+        "pranayama"
+      ],
+      "relevance": "This quote outlines the correct alignment during pranayama practice and explains how it contributes to energy flow and relaxation.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk023_quote002",
+      "text": "The body is the kingdom. The skin is its frontier. Its ruler is the Atman, whose all seeing eye (jñana chaksu) watches…",
+      "type": "quote",
+      "context": "Chapter 30",
+      "chunk_id": "chunk_023",
+      "themes": [
+        "during",
+        "importance",
+        "practice",
+        "integration",
+        "pranayama"
+      ],
+      "relevance": "This quote emphasizes the importance of consciousness and alertness during pranayama practice. It also brings in the concept of Atman, a key concept in yoga philosophy.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk023_quote004",
+      "text": "Consciousness (chitta) wavers with the breath while kumbhaka stills and frees it from desires.",
+      "type": "quote",
+      "context": "Chapter 30",
+      "chunk_id": "chunk_023",
+      "themes": [
+        "importance",
+        "practice",
+        "integration",
+        "pranayama",
+        "practitioners"
+      ],
+      "relevance": "This quote discusses the effects of pranayama and kumbhaka on consciousness (chitta), linking these practices to the attainment of a state of clarity and freedom from desires.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk023_quote005",
+      "text": "Very often, understanding and practice do not go together. One sadhaka may be better able to understand, while another…",
+      "type": "quote",
+      "context": "Chapter 30",
+      "chunk_id": "chunk_023",
+      "themes": [
+        "importance",
+        "practice",
+        "integration",
+        "pranayama",
+        "practitioners"
+      ],
+      "relevance": "This quote emphasizes the importance of both understanding and skill in practice, and the necessity of integrating these two aspects for effective pranayama practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk024_quote001",
+      "text": "The intake of breath (puraka) is the absorption of cosmic energy; inhalation- retention (antara kumbhaka) is the union…",
+      "type": "quote",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_024",
+      "themes": [
+        "practice",
+        "concept",
+        "mantra",
+        "power",
+        "pranayama"
+      ],
+      "relevance": "This quote brilliantly encapsulates the concept of pranayama and its role in achieving unity with the Universal Self, a central theme of the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk024_quote005",
+      "text": "The practice of pranayama is of two kinds: sabija (with seed) and nirbija (without seed).",
+      "type": "fact",
+      "context": "Chapter 3",
+      "chunk_id": "chunk_024",
+      "themes": [
+        "practice",
+        "concept",
+        "mantra",
+        "power",
+        "pranayama"
+      ],
+      "relevance": "This fact introduces the distinction between sabija pranayama and nirbija pranayama, which have different effects on the practitioner.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk025_quote004",
+      "text": "Since the word AUM is one of supreme and majestic power, its force has to be diffused by adding it to the name of a…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_025",
+      "themes": [
+        "three",
+        "sacred",
+        "significance",
+        "practice",
+        "concept"
+      ],
+      "relevance": "This statement explains the practice of using mantras in conjunction with Pranayama, aligning with the main idea of using mantras for spiritual practices.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk025_quote008",
+      "text": "If he follows the path of action (karma-marga), he will undergo austere penance (tapas) to attain his goal in life,…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_025",
+      "themes": [
+        "three",
+        "sacred",
+        "significance",
+        "practice",
+        "concept"
+      ],
+      "relevance": "This statement explains the path of action, one of the three paths to truth discussed in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk025_quote009",
+      "text": "If he follows the path of devotion (bhakti-marga), he will be immersed in hearing the Lord's name ( Sravana),…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_025",
+      "themes": [
+        "three",
+        "sacred",
+        "significance",
+        "practice",
+        "concept"
+      ],
+      "relevance": "This statement explains the path of devotion, another of the three paths to truth discussed in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk026_quote002",
+      "text": "The length of time can be varied in visamavrtti pranayama in different ratios, as for instance, 1 : 2 : 4 : ½; 2 : 4 :…",
+      "type": "fact",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_026",
+      "themes": [
+        "practice",
+        "requires",
+        "pranayama"
+      ],
+      "relevance": "This underlines the concept that pranayama practice can be varied and individualized, highlighting its flexibility.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk026_quote003",
+      "text": "The path of visamavrtti pranayama is fraught with danger. So do not practise it on your own without the personal…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_026",
+      "themes": [
+        "practice",
+        "requires",
+        "pranayama"
+      ],
+      "relevance": "This quote emphasizes the potential risks of practicing pranayama without proper guidance, reinforcing the need for a knowledgeable guide.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk027_quote003",
+      "text": "All stages of all pranayamas begin with exhalation (rechaka) and end with inhalation (puraka).",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_027",
+      "themes": [
+        "gradual",
+        "importance",
+        "concept",
+        "awareness",
+        "pranayama"
+      ],
+      "relevance": "This fact highlights the importance of awareness and control during inhalation and exhalation, a crucial aspect of pranayama practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk027_quote004",
+      "text": "The practice of this pranayama brings amazing relief to patients with enlarged ventricles and congenital heart defects.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_027",
+      "themes": [
+        "gradual",
+        "importance",
+        "practice",
+        "concept",
+        "awareness"
+      ],
+      "relevance": "This fact points out the therapeutic application of pranayama for heart patients, a significant theme discussed in the literature.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk027_quote005",
+      "text": "When sitting for pranayama in the initial stages, use a support as explained.",
+      "type": "advice",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_027",
+      "themes": [
+        "gradual",
+        "importance",
+        "concept",
+        "awareness",
+        "pranayama"
+      ],
+      "relevance": "This advice underlines the importance of proper postures and relaxation during pranayama practice, a key idea in the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk029_quote004",
+      "text": "In viloma pranayama inhalation or exhalation is not a continuous process, but one that is interrupted by several pauses.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_029",
+      "themes": [
+        "different",
+        "importance",
+        "concept",
+        "retention",
+        "pranayama"
+      ],
+      "relevance": "This statement illuminates the concept of interrupted inhalation and exhalation in pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk029_quote005",
+      "text": "This pranayama may be compared to climbing up or down a tall ladder, with a pause at each step.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_029",
+      "themes": [
+        "different",
+        "importance",
+        "concept",
+        "retention",
+        "pranayama"
+      ],
+      "relevance": "This quote provides a vivid metaphor for the practice of pranayama, making it memorable and suitable for sharing.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk030_quote003",
+      "text": "Repeat for fifteen to twenty minutes, or for as long as you do not feel fatigue.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_030",
+      "themes": [
+        "different",
+        "practice",
+        "positions,",
+        "specific",
+        "pranayama,"
+      ],
+      "relevance": "This advice provides practical guidance on how to practice Pranayama and highlights the importance of listening to one's body during the practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk030_quote005",
+      "text": "Bhramara means a large black bumble-bee and this pranayama is so called because during exhalation a soft humming sound…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_030",
+      "themes": [
+        "during",
+        "different",
+        "practice",
+        "positions,",
+        "specific"
+      ],
+      "relevance": "This quote provides insight into the naming of the Bhramara Pranayama and the nature of the breath used in the practice.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk030_quote006",
+      "text": "Here deep inhalations are done as in Ujjayi Pranayama and deep exhalations with a humming or murmuring sound.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_030",
+      "themes": [
+        "different",
+        "practice",
+        "positions,",
+        "specific",
+        "pranayama,"
+      ],
+      "relevance": "This quote provides practical guidance on the technique of Bhramara Pranayama, linking it to the Ujjayi Pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk031_quote001",
+      "text": "The practice of Bhramari Pranayama involves deep inhalations and exhalations with a humming sound, but without holding…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_031",
+      "themes": [
+        "practice",
+        "murchha",
+        "plavini",
+        "bhramari",
+        "pranayama"
+      ],
+      "relevance": "This describes the process of Bhramari Pranayama, one of the practices discussed in the main ideas.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk031_quote002",
+      "text": "The practice of Murchha Pranayama leads to a state of swoon, making the mind inactive and bringing sensual tranquility",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_031",
+      "themes": [
+        "practice",
+        "murchha",
+        "plavini",
+        "bhramari",
+        "pranayama"
+      ],
+      "relevance": "This is about Murchha Pranayama and its effects, which aligns with the main ideas.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk031_quote003",
+      "text": "The manipulation of nasal passages through pressure from the thumb and two fingers during Pranayama helps control the…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_031",
+      "themes": [
+        "during",
+        "practice",
+        "murchha",
+        "plavini",
+        "bhramari"
+      ],
+      "relevance": "This quote provides practical guidance on how to perform Pranayama, a key aspect of the main ideas.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk031_quote004",
+      "text": "The nose is considered as the location of the five basic elements of earth, water, light, air, and ether, and the flow…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_031",
+      "themes": [
+        "during",
+        "practice",
+        "murchha",
+        "plavini",
+        "bhramari"
+      ],
+      "relevance": "This statement shares philosophical wisdom about the connection between the nose, the elements, and Pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk031_quote006",
+      "text": "Murchha means a state of swoon. This pranayama is done as in ujjayi and the internal retention is held till faintness…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_031",
+      "themes": [
+        "practice",
+        "murchha",
+        "plavini",
+        "bhramari",
+        "pranayama"
+      ],
+      "relevance": "This quote further explains the practice and effects of Murchha Pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk031_quote007",
+      "text": "Plava means swimming or floating. Very little is known of this pranayama.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_031",
+      "themes": [
+        "practice",
+        "murchha",
+        "plavini",
+        "bhramari",
+        "pranayama"
+      ],
+      "relevance": "This relates to the main idea discussing the less known Plavini Pranayama and its purported benefits.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk031_quote008",
+      "text": "According to Siva Svarodaya, a Yoga text, the five basic elements of earth, water, light, air, and ether are located in…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_031",
+      "themes": [
+        "practice",
+        "murchha",
+        "plavini",
+        "bhramari",
+        "pranayama"
+      ],
+      "relevance": "This quote shares philosophical wisdom from a Yoga text about the connection between Pranayama, the elements, and the nose.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk032_quote007",
+      "text": "Never practise digital pranayama during headache, or when worried, anxious or restless, nor when the nose is blocked or…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_032",
+      "themes": [
+        "during",
+        "significance",
+        "concept",
+        "between",
+        "relationship"
+      ],
+      "relevance": "This advice emphasizes the importance of individual physical conditions in the practice of yoga, one of the main ideas.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk033_quote003",
+      "text": "Some call kapalabhati a pranayama, while others call it a kriya. This is similar to bhastrika but milder.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_033",
+      "themes": [
+        "benefits",
+        "significance",
+        "importance",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote introduces the concept of 'kapalabhati pranayama', a milder form of 'bhastrika', providing practical guidance.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk034_quote005",
+      "text": "Many people misconceive that bhastrika pranayama awakens the kundalini sakti.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_034",
+      "themes": [
+        "misconception",
+        "detailed",
+        "practice",
+        "bhastrika",
+        "techniques"
+      ],
+      "relevance": "Addresses the misconception of Bhastrika pranayama awakening the Kundalini and the potential dangers of this belief",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk034_quote006",
+      "text": "This pranayama cools the system, hence the name.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_034",
+      "themes": [
+        "misconception",
+        "detailed",
+        "practice",
+        "bhastrika",
+        "techniques"
+      ],
+      "relevance": "Explains the effects of Sitkari and Sitali pranayama, which are said to cool the system",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk035_quote001",
+      "text": "These two pranayamas are exhilarating. They cool the system and soothe the eyes and ears.",
+      "type": "fact",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_035",
+      "themes": [
+        "importance",
+        "practice",
+        "proper",
+        "mental",
+        "pranayama"
+      ],
+      "relevance": "This quote describes the physical and mental benefits of pranayama, which aligns with one of the main themes.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk035_quote002",
+      "text": "This pranayama cleanses the nasal passages.",
+      "type": "fact",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_035",
+      "themes": [
+        "importance",
+        "practice",
+        "proper",
+        "mental",
+        "pranayama"
+      ],
+      "relevance": "This quote emphasizes the importance of proper technique in pranayama, including the positioning of the nostrils and the control of breath.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk036_quote001",
+      "text": "This creates endurance, makes the mind reflective and prepares the sadhaka for dhyana.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_036",
+      "themes": [
+        "different",
+        "practice",
+        "bandhas",
+        "asanas",
+        "pranayama"
+      ],
+      "relevance": "This quote speaks to the main idea of pranayama developing endurance and preparing the mind for meditation (dhyana).",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk037_quote001",
+      "text": "These stages are more intense than the preceding Pranayamas and their effects are correspondingly intense and…",
+      "type": "statement",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_037",
+      "themes": [
+        "importance",
+        "practice",
+        "concept",
+        "pranayama",
+        "persistence,"
+      ],
+      "relevance": "This quote speaks to the importance of persistence, endurance, and determination in advancing in pranayama practice, reinforcing the main ideas of the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk037_quote002",
+      "text": "Anuloma and pratiloma pranayama are the foundations for vishma vritti pranayama and a stepping stone to advance in this…",
+      "type": "fact",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_037",
+      "themes": [
+        "importance",
+        "practice",
+        "concept",
+        "pranayama",
+        "persistence,"
+      ],
+      "relevance": "This quote provides practical guidance on the role of viloma and anuloma pranayama in refining breath control, which is one of the main ideas of the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk037_quote004",
+      "text": "In this pranayama the in-breath lasts longer than the out-breath, the emphasis being on the slow, delicate prolongation…",
+      "type": "statement",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_037",
+      "themes": [
+        "importance",
+        "practice",
+        "concept",
+        "pranayama",
+        "persistence,"
+      ],
+      "relevance": "This quote provides practical guidance on the practice of pranayama using various techniques involving controlled inhalation and exhalation, which is one of the main ideas of the text.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk038_quote004",
+      "text": "After completing the last cycle, inhale through open nostrils and lie in savasana.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_038",
+      "themes": [
+        "bandha",
+        "importance",
+        "practice",
+        "careful",
+        "uddiyana"
+      ],
+      "relevance": "This quote provides practical advice on how to conclude a pranayama session and emphasizes the importance of avoiding strain.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk039_quote006",
+      "text": "If any strain is felt, stop pranayama practice for the day.",
+      "type": "statement",
+      "context": "Chapter 5",
+      "chunk_id": "chunk_039",
+      "themes": [
+        "internal",
+        "importance",
+        "precise",
+        "practice",
+        "concept"
+      ],
+      "relevance": "This quote emphasizes the importance of listening to one's body in the practice of pranayama, a key aspect of yoga philosophy.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk040_quote003",
+      "text": "The effects are similar to those of surya bhedana, except that this pranayama cools the system.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_040",
+      "themes": [
+        "emphasizes",
+        "practice",
+        "importance",
+        "pranayama",
+        "practices"
+      ],
+      "relevance": "This quote explains the physical benefits of Chandra Bhedana Pranayama, another key Pranayama practice. It contrasts with Surya Bhedana, showing the diverse effects of different practices.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk040_quote004",
+      "text": "Never perform surya bhedana and chandra bhedana pra�ayama on the same day.",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_040",
+      "themes": [
+        "emphasizes",
+        "practice",
+        "importance",
+        "pranayama",
+        "practices"
+      ],
+      "relevance": "This quote provides practical guidance for yoga practitioners, emphasizing the need for balance and caution in Pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk040_quote006",
+      "text": "Na�i Sodhana pranayama combines both these into one cycle.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_040",
+      "themes": [
+        "emphasizes",
+        "practice",
+        "importance",
+        "pranayama",
+        "practices"
+      ],
+      "relevance": "This quote highlights the nuanced and integrative nature of Pranayama practices, specifically Nadi Sodhana.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk041_quote003",
+      "text": "This sensitivity should be developed, as without it the practice of Pranayama is mechanical and ineffective.",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_041",
+      "themes": [
+        "importance",
+        "practice",
+        "postures",
+        "self-observation",
+        "pranayama"
+      ],
+      "relevance": "This quote underscores the crucial role of sensitivity in the practice of pranayama, reinforcing the theme of using pranayama as a tool for self-observation and control.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk041_quote004",
+      "text": "Nadi sodhana pranayama, therefore, is the most difficult, complex and refined of all pranayamas.",
+      "type": "fact",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_041",
+      "themes": [
+        "importance",
+        "postures",
+        "self-observation",
+        "pranayama",
+        "sensitivity"
+      ],
+      "relevance": "This quote speaks to the significance of pranayama in self-observation and control. It also highlights the complexity and refinement required in practicing Nadi Sodhana pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk041_quote006",
+      "text": "This exhilarating pranayama trains the fingers and nasal membranes to become more and more sensitive for finer…",
+      "type": "statement",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_041",
+      "themes": [
+        "importance",
+        "postures",
+        "self-observation",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote connects the practice of pranayama with the development of a contemplative and one-pointed mind.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk042_quote001",
+      "text": "The practice of mula and uddiyana bandhas during retentions cleanses and strengthens the sadhaka's nerves to withstand…",
+      "type": "statement",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_042",
+      "themes": [
+        "during",
+        "preparing",
+        "importance",
+        "practice",
+        "uddiyana"
+      ],
+      "relevance": "This quote explains the importance of practicing mula and uddiyana bandhas in strengthening the practitioner's nerves and preparing them for dhyana, which aligns with the main ideas of the importance of Pranayama and the role of Pranayama in preparing the practitioner for Dhyana.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk042_quote002",
+      "text": "In nadi sodhana pranayama, due to the deep penetration of prana, the blood receives a larger supply of oxygen than in…",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_042",
+      "themes": [
+        "preparing",
+        "importance",
+        "practice",
+        "uddiyana",
+        "pranayama"
+      ],
+      "relevance": "This quote highlights the benefits of Pranayama as it increases the oxygen supply, calms and purifies the nerves, and helps in achieving a still and lucid mind. This is in line with the main ideas of the benefits of Pranayama.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk043_quote002",
+      "text": "Dhyana means absorption. It is the art of self-study, reflection, keen observation, or the search for the Infinite…",
+      "type": "statement",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_043",
+      "themes": [
+        "dhyana",
+        "practice",
+        "brings",
+        "mental",
+        "pranayama,"
+      ],
+      "relevance": "This quote succinctly explains the concept of Dhyana or meditation in yoga, linking it to the theme of self-study and inner observation.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk043_quote004",
+      "text": "Dhyana is the full integration of the contemplator, the act of contemplation and the object contemplated upon becoming…",
+      "type": "statement",
+      "context": "Chapter 6",
+      "chunk_id": "chunk_043",
+      "themes": [
+        "dhyana",
+        "practice",
+        "brings",
+        "pranayama,",
+        "meditation"
+      ],
+      "relevance": "This quote encapsulates the concept of meditation in yoga, emphasizing the integration of contemplator, contemplation, and the object of contemplation.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk045_quote003",
+      "text": "He experiences a new dimension wherein his senses and his chitta become crystal clear.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_045",
+      "themes": [
+        "leads",
+        "process",
+        "successful",
+        "spiritual",
+        "meditation"
+      ],
+      "relevance": "This quote underscores the clarity and heightened awareness that come from successful meditation. It also mentions 'chitta', a fundamental yoga concept.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk045_quote007",
+      "text": "A perfect savasana needs perfect discipline. It is easy to relax for a few minutes, but to do so without physical…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_045",
+      "themes": [
+        "leads",
+        "process",
+        "successful",
+        "spiritual",
+        "physical"
+      ],
+      "relevance": "This quote emphasizes the discipline required in the practice of savasana, leading to deep relaxation and equanimity. It provides practical guidance on the posture.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk045_quote008",
+      "text": "When savasana is well performed the breath moves like a string holding the pearls of a necklace together.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_045",
+      "themes": [
+        "leads",
+        "process",
+        "successful",
+        "spiritual",
+        "breath"
+      ],
+      "relevance": "This quote uses a beautiful metaphor to explain the importance of controlled breath in savasana, and how it leads to a state of deep relaxation and equanimity.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk045_quote009",
+      "text": "For correct savasana there must be unity of the body, the breath, the mind and the intellect where the Self holds the…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_045",
+      "themes": [
+        "leads",
+        "process",
+        "successful",
+        "spiritual",
+        "breath"
+      ],
+      "relevance": "This quote provides practical guidance for achieving a successful savasana practice, emphasizing the unity of body, breath, mind, and intellect.",
+      "importance_score": 1.0,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk001_quote007",
+      "text": "I salute Lord Hanuman, Lord of Breath, Son of the Wind God who bears five faces and dwells within us in the form of…",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_001",
+      "themes": [
+        "concept",
+        "science",
+        "power",
+        "breath",
+        "pranayama"
+      ],
+      "relevance": "This quote highlights the fundamental role of pranayama, the movement of air, in yoga.",
+      "importance_score": 0.98,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk003_quote007",
+      "text": "When all the eight disciplines of Yoga are combined and practised, the yogi experiences oneness with the Creator and…",
+      "type": "quote",
+      "context": "Chapter 1",
+      "chunk_id": "chunk_003",
+      "themes": [
+        "union",
+        "importance",
+        "recognition",
+        "concept",
+        "maintaining"
+      ],
+      "relevance": "This quote provides insight into the ultimate goal of practicing Yoga.",
+      "importance_score": 0.98,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk004_quote002",
+      "text": "First, Yoga deals with health, strength and conquest of the body.",
+      "type": "quote",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_004",
+      "themes": [
+        "journey",
+        "systematic",
+        "practice",
+        "self-discovery,",
+        "between"
+      ],
+      "relevance": "This quote provides a clear, progressive outline of the journey of Yoga, starting from physical health to achieving inner peace and purity. It aligns with the main idea of yoga as a progressive practice that bridges the gap between body and mind.",
+      "importance_score": 0.98,
+      "approved": false,
+      "notes": ""
+    },
+    {
+      "id": "chunk036_quote002",
+      "text": "Sit in any asana, following the techniques given in Paras 1 to 7 of ujjayi, Stage V. Exhale.",
+      "type": "fact",
+      "context": "Chapter 2",
+      "chunk_id": "chunk_036",
+      "themes": [
+        "different",
+        "practice",
+        "bandhas",
+        "asanas",
+        "pranayama"
+      ],
+      "relevance": "This quote provides practical guidance on the usage of different asanas and breathing techniques in stages of pranayama.",
+      "importance_score": 0.9700000000000001,
+      "approved": false,
+      "notes": ""
+    }
+  ]
+}
