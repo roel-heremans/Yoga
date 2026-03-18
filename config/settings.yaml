@@ -42,6 +42,10 @@ literature_groups:
   display_name: Love Letters to Life
   author: Osho
   source_path: assets/10_knowledge/Osho-LoveLettersToLife
+# Display length for quote text on cards/videos (longer quotes are shortened at sentence or word boundary)
+quote_cards:
+  max_display_length: 120  # characters; use shorter quotes on generated cards
+
 quote_extraction:
   method: intelligent  # 'simple' or 'intelligent'
   chunk_size: 5000  # Characters per chunk

@@ -140,8 +140,8 @@ class VideoProcessor:
         # Use the longer of the two calculations to ensure readability
         calculated_duration = max(word_based_duration, char_based_duration)
         
-        # Add extra time for multi-line text (more lines = more reading time)
-        num_lines = len(textwrap.wrap(text, width=30))
+        # Add extra time for multi-line text (more lines = more reading time; match wrap width)
+        num_lines = len(textwrap.wrap(text, width=60))
         if num_lines > 1:
             calculated_duration += (num_lines - 1) * 0.5
         
@@ -150,11 +150,17 @@ class VideoProcessor:
         
         return duration
     
-    # Canva-style quote overlay: dark fill + soft light stroke + semi-transparent backdrop
+    # Quote overlay: dark fill + light stroke + transparent backdrop (aligned with Palheiro / luxury serif)
     QUOTE_OVERLAY_FILL = '#1a1a1a'
     QUOTE_OVERLAY_STROKE = '#e8e8e8'
     QUOTE_OVERLAY_STROKE_WIDTH = 4
-    QUOTE_BACKDROP_ALPHA = 200  # 0-255, semi-transparent dark bar behind text
+    QUOTE_BACKDROP_ALPHA = 160  # 0-255, transparent dark bar behind full text area
+    # Font in line with Casa Velha do Palheiro logo (elegant serif); try in order
+    # First: often preinstalled on Linux (Liberation, DejaVu). Then optional: Playfair, Lora, Georgia.
+    QUOTE_OVERLAY_FONT_CANDIDATES = (
+        'Liberation Serif', 'DejaVu Serif', 'Playfair Display', 'Lora',
+        'Cormorant Garamond', 'Georgia', 'Arial'
+    )
     # Flyer: crisp dark text with subtle stroke on white
     FLYER_FILL = '#1a1a1a'
     FLYER_STROKE = '#b0b0b0'
@@ -172,7 +178,8 @@ class VideoProcessor:
         override_y_center: Optional[float] = None,
         preserve_newlines: bool = False,
         quote_overlay_style: bool = False,
-        flyer_style: bool = False
+        flyer_style: bool = False,
+        skip_position: bool = False
     ) -> TextClip:
         """
         Create a text overlay clip.
@@ -197,8 +204,12 @@ class VideoProcessor:
             duration = self.calculate_text_duration(text, min_duration=3.0, max_duration=10.0)
         elif duration is None:
             duration = 5.0  # Default fallback
-        # Wrap text (wider lines for quote overlay style)
-        max_chars_per_line = 36 if quote_overlay_style else 30
+        # Wrap text: derive line length from font size and reel width (smaller font = more chars per line)
+        usable_width = self.reel_width - 240  # horizontal padding
+        char_width_ratio = 0.55  # typical proportional font: char width ~ 0.55 * font_size
+        max_chars_per_line = int(usable_width / (font_size * char_width_ratio))
+        max_chars_per_line = int(max_chars_per_line * 1.2)  # 1/5th longer lines
+        max_chars_per_line = max(20, min(max_chars_per_line, 145))  # clamp for sanity
         if preserve_newlines:
             # Split by newline, wrap each line (or keep blank lines), rejoin so structure is preserved
             display_lines = []
@@ -233,7 +244,7 @@ class VideoProcessor:
             y_pos = max(100, min(y_pos, self.reel_height - estimated_text_height - 100))
         else:  # bottom
             # Leave more space from bottom to ensure text isn't cut off
-            y_pos = self.reel_height - estimated_text_height - 200
+            y_pos = int(self.reel_height - estimated_text_height - 200)
             # Ensure it doesn't go off screen
             y_pos = max(100, y_pos)
         
@@ -255,14 +266,14 @@ class VideoProcessor:
             stroke_color = '#ffffff'
             stroke_width = 3
         
-        # Canva-style semi-transparent backdrop for quote overlay (sits behind text)
+        # Transparent backdrop over full text area for quote overlay
         backdrop_clip = None
         if quote_overlay_style and y_pos is not None:
-            bar_h = int(estimated_text_height) + 56
-            bar_y = max(0, y_pos - 28)
-            margin_x = 80
-            x1, x2 = margin_x, self.reel_width - margin_x
-            y1, y2 = bar_y, min(bar_y + bar_h, self.reel_height)
+            bar_h = int(estimated_text_height) + 120  # full coverage of quote text
+            bar_y = max(0, int(y_pos) - 55)
+            margin_x = 50  # side margin
+            x1, x2 = int(margin_x), int(self.reel_width - margin_x)
+            y1, y2 = int(bar_y), int(min(bar_y + bar_h, self.reel_height))
             arr = np.zeros((self.reel_height, self.reel_width, 4), dtype=np.uint8)
             arr[:, :, 3] = 0
             arr[y1:y2, x1:x2, 0] = 0
@@ -286,79 +297,65 @@ class VideoProcessor:
             else:
                 backdrop_clip = backdrop_clip.set_position((0, 0))
         
-        # Get font with fallback
-        font_name = self.brand_fonts.get('heading', 'Arial')
-        # Validate font name - use Arial if font contains invalid characters or is too long
-        if (not font_name or 
-            len(font_name) > 50 or 
-            '{' in font_name or 
-            '}' in font_name or 
-            font_name.startswith('rgb') or
-            'placeholder' in font_name.lower() or
-            'var(' in font_name.lower()):
-            font_name = 'Arial'
+        # Get font: for quote overlay use Palheiro-style serif (elegant); otherwise brand heading
+        if quote_overlay_style:
+            font_name = self.QUOTE_OVERLAY_FONT_CANDIDATES[0]
+        else:
+            font_name = self.brand_fonts.get('heading', 'Arial')
+            if (not font_name or len(font_name) > 50 or '{' in font_name or '}' in font_name or
+                font_name.startswith('rgb') or 'placeholder' in font_name.lower() or 'var(' in font_name.lower()):
+                font_name = 'Arial'
         
         # Create text clip - moviepy 2.x uses font_size instead of fontsize
-        # Use larger size parameter to ensure text fits properly
-        # Try with the font, but fallback to Arial if font doesn't exist
-        try:
-            # Try moviepy 2.x style first
-            txt_clip = TextClip(
-                text=display_text,
-                font_size=font_size,
-                color=text_fill_color,
-                font=font_name,
-                stroke_color=stroke_color,
-                stroke_width=stroke_width,
-                size=(self.reel_width - 120, None),  # More padding
-                margin=(20, 20)  # Add margin to prevent clipping
-            )
-        except (TypeError, OSError, Exception) as e:
-            # If font doesn't exist or other error, try with Arial
-            if 'font' in str(e).lower() or 'cannot open resource' in str(e).lower():
-                font_name = 'Arial'
+        # For quote overlay or flyer try serif font candidates in order
+        candidates = (self.QUOTE_OVERLAY_FONT_CANDIDATES if (quote_overlay_style or flyer_style) else (font_name,)) + ('Arial',)
+        txt_clip = None
+        for fn in candidates:
+            if fn == 'Arial' and quote_overlay_style and font_name == 'Arial':
+                continue
             try:
-                # Try moviepy 2.x style with Arial fallback
                 txt_clip = TextClip(
                     text=display_text,
                     font_size=font_size,
                     color=text_fill_color,
-                    font=font_name,
+                    font=fn,
                     stroke_color=stroke_color,
                     stroke_width=stroke_width,
                     size=(self.reel_width - 120, None),
                     margin=(20, 20)
                 )
+                break
+            except (TypeError, OSError, Exception):
+                continue
+        if txt_clip is None:
+            try:
+                txt_clip = TextClip(
+                    display_text,
+                    fontsize=font_size,
+                    color=text_fill_color,
+                    font='Arial',
+                    stroke_color=stroke_color,
+                    stroke_width=stroke_width,
+                    method='caption',
+                    size=(self.reel_width - 120, None),
+                    align='center'
+                )
             except TypeError:
-                try:
-                    # Try without font parameter
-                    txt_clip = TextClip(
-                        text=display_text,
-                        font_size=font_size,
-                        color=text_fill_color,
-                        stroke_color=stroke_color,
-                        stroke_width=stroke_width,
-                        size=(self.reel_width - 120, None),
-                        margin=(20, 20)
-                    )
-                except TypeError:
-                    # Fallback to moviepy 1.x style
-                    txt_clip = TextClip(
-                        display_text,
-                        fontsize=font_size,
-                        color=text_fill_color,
-                        font=font_name,
-                        stroke_color=stroke_color,
-                        stroke_width=stroke_width,
-                        method='caption',
-                        size=(self.reel_width - 120, None),
-                        align='center'
-                    )
-        # Set position, duration, and start time
-        if hasattr(txt_clip, 'with_position'):
-            txt_clip = txt_clip.with_position(('center', y_pos))
-        else:
-            txt_clip = txt_clip.set_position(('center', y_pos))
+                txt_clip = TextClip(
+                    text=display_text,
+                    font_size=font_size,
+                    color=text_fill_color,
+                    stroke_color=stroke_color,
+                    stroke_width=stroke_width,
+                    size=(self.reel_width - 120, None),
+                    margin=(20, 20)
+                )
+        # Set position (unless caller will set it), duration, and start time
+        if not skip_position:
+            if hasattr(txt_clip, 'with_position'):
+                txt_clip = txt_clip.with_position(('center', y_pos))
+            else:
+                txt_clip = txt_clip.set_position(('center', y_pos))
         
         if hasattr(txt_clip, 'with_duration'):
             txt_clip = txt_clip.with_duration(duration)
@@ -539,16 +536,17 @@ class VideoProcessor:
         duration: float = 15.0,
         music_path: Optional[Path] = None,
         audio_fade_duration: float = 3.0,
-        video_fade_duration: float = 2.0,
+        video_fade_duration: float = 0.8,
         text_position: str = 'bottom',
-        font_size: int = 60,
+        font_size: int = 64,
         flyer_lines: Optional[List[str]] = None,
         flyer_duration: float = 15.0,
-        flyer_font_size: int = 52
+        flyer_font_size: int = 40,
+        flyer_logo_path: Optional[Path] = None
     ) -> Path:
         """
         Create a video from one or more images with quote overlay, optional music,
-        optional yoga flyer segment (white + text), and fades to white.
+        optional yoga flyer segment (white + text, optional logo), and fades to white.
         When multiple images are given, duration is split equally across them.
         
         Args:
@@ -558,12 +556,13 @@ class VideoProcessor:
             duration: Total quote segment duration in seconds (default 15); split across images.
             music_path: Optional path to background music (.mp3, .wav, etc.).
             audio_fade_duration: Seconds over which music fades to silence at end (default 3).
-            video_fade_duration: Seconds over which video fades to white at segment ends (default 2).
+            video_fade_duration: Seconds over which video fades to white at segment ends (default 0.8).
             text_position: Position of text ('top', 'center', 'bottom').
-            font_size: Font size for quote overlay.
+            font_size: Font size for quote overlay (default 32).
             flyer_lines: Optional list of lines for yoga flyer (white BG + text); adds second segment.
             flyer_duration: Duration of flyer segment in seconds (default 15).
-            flyer_font_size: Font size for flyer text (default 52).
+            flyer_font_size: Font size for flyer body text (default 40); title line is larger.
+            flyer_logo_path: Optional path to logo image (e.g. Palheiro) shown above flyer text.
         
         Returns:
             Path to saved video.
@@ -598,19 +597,16 @@ class VideoProcessor:
         scale = min(self.reel_width / w, self.reel_height / h)
         new_h = int(h * scale)
         top_black = (self.reel_height - new_h) // 2
-        # Fit quote font in the top black band; leave small padding
-        quote_font_size = min(font_size, max(24, (top_black - 40) // 4))
-        # Place quote 2 sentence heights lower for margin from top of letterbox
-        line_height = quote_font_size * 1.5
-        margin_2_sentences = 2 * line_height
-        quote_y_center = (top_black / 2.0) + margin_2_sentences if top_black > 0 else None
+        # Quote font: bigger for readability on photos
+        quote_font_size = min(font_size, max(40, (top_black - 20) // 3))
+        # Place quote at bottom of frame so transparent box has room and covers text fully
         text_clip = self.create_text_clip(
             text=text_overlay,
             duration=duration,
-            position=text_position,
+            position='bottom',
             font_size=quote_font_size,
             start_time=0,
-            override_y_center=quote_y_center,
+            override_y_center=None,
             quote_overlay_style=True
         )
         segment_1 = CompositeVideoClip([image_clip, text_clip])
@@ -623,7 +619,7 @@ class VideoProcessor:
         if not use_flyer:
             final_clip = segment_1
         else:
-            # ---- Segment 2: white background + flyer text ----
+            # ---- Segment 2: white background + optional logo + flyer text ----
             w, h = self.reel_width, self.reel_height
             try:
                 white_bg = ColorClip(size=(w, h), color=(255, 255, 255), duration=flyer_duration)
@@ -634,22 +630,110 @@ class VideoProcessor:
                 white_bg = white_bg.with_fps(fps)
             elif hasattr(white_bg, 'set_fps'):
                 white_bg = white_bg.set_fps(fps)
-            flyer_text = '\n'.join(flyer_lines)
-            flyer_text_clip = self.create_text_clip(
-                text=flyer_text,
-                duration=flyer_duration,
-                position='center',
-                font_size=flyer_font_size,
-                start_time=0,
-                auto_duration=False,
-                flyer_style=True,
-                preserve_newlines=True
-            )
-            if hasattr(flyer_text_clip, 'with_fps'):
-                flyer_text_clip = flyer_text_clip.with_fps(fps)
-            elif hasattr(flyer_text_clip, 'set_fps'):
-                flyer_text_clip = flyer_text_clip.set_fps(fps)
-            segment_2 = CompositeVideoClip([white_bg, flyer_text_clip])
+            flyer_layers = [white_bg]
+            logo_top_margin = 80
+            logo_max_width_ratio = 0.55
+            text_y_center_override = None
+            if flyer_logo_path and Path(flyer_logo_path).exists():
+                try:
+                    logo_img = Image.open(flyer_logo_path)
+                    logo_img = ImageOps.exif_transpose(logo_img)
+                    if logo_img.mode in ('RGBA', 'LA') or (logo_img.mode == 'P' and logo_img.info.get('transparency') is not None):
+                        if logo_img.mode != 'RGBA':
+                            logo_img = logo_img.convert('RGBA')
+                        bg = Image.new('RGBA', logo_img.size, (255, 255, 255, 255))
+                        logo_img = Image.alpha_composite(bg, logo_img)
+                    logo_img = logo_img.convert('RGB')
+                    lw, lh = logo_img.size
+                    max_logo_w = int(w * logo_max_width_ratio)
+                    scale = min(1.0, max_logo_w / lw)
+                    new_lw, new_lh = int(lw * scale), int(lh * scale)
+                    try:
+                        resample = Image.Resampling.LANCZOS
+                    except AttributeError:
+                        resample = Image.LANCZOS
+                    logo_img = logo_img.resize((new_lw, new_lh), resample)
+                    with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp:
+                        logo_img.save(tmp.name, 'JPEG', quality=95)
+                        logo_tmp = tmp.name
+                    logo_clip = ImageClip(logo_tmp)
+                    logo_clip = logo_clip.with_duration(flyer_duration) if hasattr(logo_clip, 'with_duration') else logo_clip.set_duration(flyer_duration)
+                    if hasattr(logo_clip, 'with_fps'):
+                        logo_clip = logo_clip.with_fps(fps)
+                    elif hasattr(logo_clip, 'set_fps'):
+                        logo_clip = logo_clip.set_fps(fps)
+                    logo_x = (w - new_lw) // 2
+                    logo_y = logo_top_margin
+                    logo_clip = logo_clip.with_position((logo_x, logo_y)) if hasattr(logo_clip, 'with_position') else logo_clip.set_position((logo_x, logo_y))
+                    flyer_layers.append(logo_clip)
+                    text_region_top = logo_y + new_lh + 40
+                    text_region_height = h - text_region_top - 80
+                    text_y_center_override = text_region_top + text_region_height // 2
+                except Exception as e:
+                    print(f"Warning: Could not load flyer logo {flyer_logo_path}: {e}")
+            flyer_title_font_size = 72
+            flyer_body_font_size = max(flyer_font_size, 40)
+            if len(flyer_lines) >= 2:
+                title_line = flyer_lines[0]
+                body_text = '\n'.join(flyer_lines[1:])
+                title_clip = self.create_text_clip(
+                    text=title_line,
+                    duration=flyer_duration,
+                    position='center',
+                    font_size=flyer_title_font_size,
+                    start_time=0,
+                    auto_duration=False,
+                    flyer_style=True,
+                    preserve_newlines=False,
+                    skip_position=True
+                )
+                body_clip = self.create_text_clip(
+                    text=body_text,
+                    duration=flyer_duration,
+                    position='center',
+                    font_size=flyer_body_font_size,
+                    start_time=0,
+                    auto_duration=False,
+                    flyer_style=True,
+                    preserve_newlines=True,
+                    skip_position=True
+                )
+                if hasattr(title_clip, 'with_fps'):
+                    title_clip = title_clip.with_fps(fps)
+                elif hasattr(title_clip, 'set_fps'):
+                    title_clip = title_clip.set_fps(fps)
+                if hasattr(body_clip, 'with_fps'):
+                    body_clip = body_clip.with_fps(fps)
+                elif hasattr(body_clip, 'set_fps'):
+                    body_clip = body_clip.set_fps(fps)
+                title_h = int(getattr(title_clip, 'h', 80))
+                body_h = int(getattr(body_clip, 'h', 200))
+                gap = 28
+                center_y = text_y_center_override if text_y_center_override is not None else h // 2
+                block_top = center_y - (title_h + gap + body_h) // 2
+                title_clip = title_clip.with_position(('center', block_top)) if hasattr(title_clip, 'with_position') else title_clip.set_position(('center', block_top))
+                body_clip = body_clip.with_position(('center', block_top + title_h + gap)) if hasattr(body_clip, 'with_position') else body_clip.set_position(('center', block_top + title_h + gap))
+                flyer_layers.append(title_clip)
+                flyer_layers.append(body_clip)
+            else:
+                flyer_text = '\n'.join(flyer_lines)
+                flyer_text_clip = self.create_text_clip(
+                    text=flyer_text,
+                    duration=flyer_duration,
+                    position='center',
+                    font_size=flyer_body_font_size,
+                    start_time=0,
+                    auto_duration=False,
+                    flyer_style=True,
+                    preserve_newlines=True,
+                    override_y_center=text_y_center_override
+                )
+                if hasattr(flyer_text_clip, 'with_fps'):
+                    flyer_text_clip = flyer_text_clip.with_fps(fps)
+                elif hasattr(flyer_text_clip, 'set_fps'):
+                    flyer_text_clip = flyer_text_clip.set_fps(fps)
+                flyer_layers.append(flyer_text_clip)
+            segment_2 = CompositeVideoClip(flyer_layers)
             if hasattr(segment_2, 'with_fps'):
                 segment_2 = segment_2.with_fps(fps)
             segment_2 = self._add_white_fade_overlay(segment_2, video_fade_duration, fps)
@@ -1050,8 +1134,14 @@ class VideoProcessor:
         except Exception:
             pass
         
-        # Convert to RGB if necessary (required for moviepy)
+        # Convert to RGB if necessary (required for moviepy).
+        # RGBA/transparent PNGs: composite onto white first so transparent areas aren't black.
         if img.mode != 'RGB':
+            if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and img.info.get('transparency') is not None):
+                if img.mode != 'RGBA':
+                    img = img.convert('RGBA')
+                background = Image.new('RGBA', img.size, (255, 255, 255, 255))
+                img = Image.alpha_composite(background, img)
             img = img.convert('RGB')
         
         # Save to temporary file with correct orientation

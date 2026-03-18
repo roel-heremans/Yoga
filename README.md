@@ -436,14 +436,14 @@ python3 main.py stats
    ```
 
 2. **Review & Approve** (One-time per year):
-   - Use the web UI: `python3 quote_reviewer.py` → http://localhost:5000  
+   - Use the web UI: `PORT=5001 python3 quote_reviewer.py` → http://localhost:5000  
    - Or edit JSON in `assets/10_knowledge/[group]/quotes.json`: set `"approved": true` or `"status": "accepted"` for quotes to use
 
 3. **Generate** (As needed):
    ```bash
    # Full options: white background, photo overlay, video overlay
    python3 main.py generate-quote-cards --white-background
-
+   
    # Or quick single card
    python3 generate_quote_card.py
    ```

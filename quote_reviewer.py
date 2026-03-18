@@ -284,6 +284,19 @@ def api_stats(group_name):
     return jsonify(stats)
 
 
+@app.route('/output/<path:filepath>')
+def serve_output(filepath):
+    """Serve generated quote card files (output/quote_cards/...) for review."""
+    output_dir = BASE_DIR / 'output'
+    path = Path(filepath)
+    if path.is_absolute() or '..' in filepath:
+        return '', 404
+    full = output_dir / filepath
+    if not full.exists() or not full.is_file():
+        return '', 404
+    return send_from_directory(output_dir, filepath, as_attachment=False)
+
+
 @app.route('/favicon.ico')
 def favicon():
     """Handle favicon requests to prevent 404 errors."""
@@ -303,10 +316,11 @@ if __name__ == '__main__':
         # response.headers['Content-Security-Policy'] = "default-src 'self' 'unsafe-inline' 'unsafe-eval';"
         return response
     
+    port = int(os.environ.get('PORT', 5000))
     print("\n" + "="*60)
     print("Quote Reviewer Web UI")
     print("="*60)
-    print(f"\nStarting server at http://localhost:5000")
+    print(f"\nStarting server at http://localhost:{port}")
     print(f"Press Ctrl+C to stop\n")
     
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=port)

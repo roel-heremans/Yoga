@@ -18,7 +18,7 @@ try:
     from .video_processor import VideoProcessor
 except ImportError:
     VideoProcessor = None
-from .utils import load_config
+from .utils import load_config, shorten_quote_for_display
 
 
 class QuoteCardGenerator:
@@ -52,7 +52,15 @@ class QuoteCardGenerator:
         
         # Ensure output directories exist
         (self.output_base_path / 'quote_cards').mkdir(parents=True, exist_ok=True)
+        
+        # Max characters for quote text on cards (longer quotes are shortened)
+        quote_cards_config = self.config.get('quote_cards') or {}
+        self.max_quote_display_length = quote_cards_config.get('max_display_length', 120)
     
+    def _shorten_quote_for_display(self, text: str) -> str:
+        """Shorten quote text for display on cards, breaking at sentence or word boundary."""
+        return shorten_quote_for_display(text, self.max_quote_display_length)
+
     def get_quote_status(self, quote: Dict) -> str:
         """Get quote status: pending, accepted, or rejected."""
         if 'status' in quote:
@@ -106,6 +114,51 @@ class QuoteCardGenerator:
         
         return accepted_quotes
     
+    def _append_generated_cards_to_quote(
+        self,
+        quote: Dict,
+        results: Dict[str, List[Path]],
+        created_at: Optional[str] = None,
+    ) -> None:
+        """
+        Append generated card paths to this quote in the group's quotes.json
+        so the review process can show and use them.
+        """
+        group = quote.get('group')
+        qid = quote.get('id')
+        if not group or not qid:
+            return
+        quotes_file = self.knowledge_dir / group / 'quotes.json'
+        if not quotes_file.exists():
+            return
+        created_at = created_at or datetime.now().isoformat()
+        repo_root = self.assets_base_path.parent
+        new_entries = []
+        for card_type, paths in results.items():
+            if not paths:
+                continue
+            for p in paths:
+                path_obj = Path(p)
+                try:
+                    rel = path_obj.relative_to(repo_root)
+                except ValueError:
+                    rel = path_obj
+                new_entries.append({
+                    'type': card_type,
+                    'path': str(rel).replace('\\', '/'),
+                    'created_at': created_at,
+                })
+        if not new_entries:
+            return
+        with open(quotes_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        for q in data.get('quotes', []):
+            if q.get('id') == qid:
+                q.setdefault('generated_cards', []).extend(new_entries)
+                break
+        with open(quotes_file, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+
     def get_random_accepted_quote(self, group_name: Optional[str] = None) -> Optional[Dict]:
         """
         Get a random accepted quote.
@@ -157,7 +210,7 @@ class QuoteCardGenerator:
         Returns:
             Path to generated image.
         """
-        quote_text = quote.get('text', '')
+        quote_text = self._shorten_quote_for_display(quote.get('text', ''))
         author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
         
         if output_path is None:
@@ -187,7 +240,7 @@ class QuoteCardGenerator:
         Returns:
             List of paths to generated images.
         """
-        quote_text = quote.get('text', '')
+        quote_text = self._shorten_quote_for_display(quote.get('text', ''))
         author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
         overlay_text = f"{quote_text}\n\n— {author}"
         
@@ -284,12 +337,11 @@ class QuoteCardGenerator:
 
     # Flyer text: Casa Velha do Palheiro
     FLYER_LINES_PALHEIRO = [
-        "Hatha Yoga @ Casa Velha do Palheiro",
-        "Wednesdays 18h00 - 19h00",
-        "Contact: Roel Heremans",
+        "HATHA YOGA",
+        "Wednesdays from 18h00 till 19h00",
+        "Reserve your spot",
+        "Roel Heremans",
         "(+351) 913 00 00 48",
-        "",
-        "Hope to welcome you!",
     ]
 
     def generate_image_video_quote_card(
@@ -300,14 +352,15 @@ class QuoteCardGenerator:
         duration: float = 15.0,
         music_path: Optional[Path] = None,
         audio_fade_duration: float = 3.0,
-        video_fade_duration: float = 2.0,
+        video_fade_duration: float = 0.8,
         flyer_lines: Optional[list] = None,
         flyer_duration: float = 15.0,
-        flyer_font_size: int = 46
+        flyer_font_size: int = 40,
+        flyer_logo_path: Optional[Path] = None
     ) -> Path:
         """
         Generate a video quote card from one or more background images: quote overlay,
-        optional music, optional yoga flyer segment (white + text), fades to white.
+        optional music, optional yoga flyer segment (white + text, optional logo), fades to white.
         When multiple images are given, --duration is split equally across them.
         
         Args:
@@ -317,10 +370,11 @@ class QuoteCardGenerator:
             duration: Total quote segment duration in seconds (default 15); split across images.
             music_path: Optional background music file.
             audio_fade_duration: Seconds for music to fade to silence at end (default 3).
-            video_fade_duration: Seconds for video to fade to white at segment ends (default 2).
+            video_fade_duration: Seconds for video to fade to white at segment ends (default 0.8).
             flyer_lines: Optional list of lines for yoga flyer (adds second segment); use default if True.
             flyer_duration: Duration of flyer segment in seconds (default 15).
-            flyer_font_size: Font size for flyer text (default 46).
+            flyer_font_size: Font size for flyer body text (default 40); title line is larger.
+            flyer_logo_path: Optional path to logo image shown above flyer text (e.g. Palheiro).
         
         Returns:
             Path to the generated video file.
@@ -333,7 +387,7 @@ class QuoteCardGenerator:
             if not Path(p).exists():
                 raise FileNotFoundError(f"Image not found: {p}")
         
-        quote_text = quote.get('text', '')
+        quote_text = self._shorten_quote_for_display(quote.get('text', ''))
         author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
         overlay_text = f"{quote_text}\n\n— {author}"
         
@@ -357,10 +411,11 @@ class QuoteCardGenerator:
             audio_fade_duration=audio_fade_duration,
             video_fade_duration=video_fade_duration,
             text_position='bottom',
-            font_size=60,
+            font_size=64,
             flyer_lines=flyer_lines if flyer_lines else None,
             flyer_duration=flyer_duration,
-            flyer_font_size=flyer_font_size
+            flyer_font_size=flyer_font_size,
+            flyer_logo_path=flyer_logo_path
         )
     
     def generate_quote_cards(
@@ -377,11 +432,12 @@ class QuoteCardGenerator:
         image_paths: Optional[List[Path]] = None,
         image_video_duration: float = 15.0,
         image_audio_fade_duration: float = 3.0,
-        image_video_fade_duration: float = 2.0,
+        image_video_fade_duration: float = 0.8,
         use_flyer: bool = False,
         flyer_lines: Optional[list] = None,
         flyer_duration: float = 15.0,
-        flyer_font_size: int = 52
+        flyer_font_size: int = 40,
+        flyer_logo_path: Optional[Path] = None
     ) -> Dict[str, List[Path]]:
         """
         Generate quote cards based on options.
@@ -391,7 +447,7 @@ class QuoteCardGenerator:
             use_flyer: If True, add yoga flyer segment (white + text) after quote segment.
             flyer_lines: Optional list of lines for flyer; if use_flyer and None, use default Ajuda text.
             flyer_duration: Duration of flyer segment in seconds (default 15).
-            flyer_font_size: Font size for flyer text (default 46).
+            flyer_font_size: Font size for flyer text (default 28).
         
         Returns:
             Dictionary with 'white_background', 'photos', 'videos', 'image_videos' keys containing lists of paths.
@@ -451,7 +507,8 @@ class QuoteCardGenerator:
                     video_fade_duration=image_video_fade_duration,
                     flyer_lines=flyer_lines_arg,
                     flyer_duration=flyer_duration,
-                    flyer_font_size=flyer_font_size
+                    flyer_font_size=flyer_font_size,
+                    flyer_logo_path=flyer_logo_path
                 )
                 results['image_videos'].append(card_path)
                 print(f"✓ Generated image video quote card: {card_path}")
@@ -513,5 +570,13 @@ class QuoteCardGenerator:
                         )
                         results['videos'].extend(video_paths)
                         print(f"✓ Generated video overlay card: {video_paths[0]}")
+        
+        # Persist generated card paths into the quote's JSON for review and later use
+        if quote.get('group') and quote.get('id'):
+            self._append_generated_cards_to_quote(
+                quote,
+                results,
+                created_at=datetime.now().isoformat(),
+            )
         
         return results

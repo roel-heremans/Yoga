@@ -8,6 +8,28 @@ from typing import Dict, Any, Optional
 import os
 from dotenv import load_dotenv
 
+
+def shorten_quote_for_display(text: str, max_length: int = 120) -> str:
+    """
+    Shorten quote text for display, breaking at sentence or word boundary.
+    Used for quote cards and for storing shorter quotes in the review pipeline.
+    """
+    if not text or len(text.strip()) <= max_length:
+        return (text or '').strip()
+    text = text.strip()
+    if len(text) <= max_length:
+        return text
+    truncated = text[:max_length]
+    last_sentence = max(
+        truncated.rfind('.'), truncated.rfind('!'), truncated.rfind('?')
+    )
+    if last_sentence > max_length // 2:
+        return text[: last_sentence + 1].strip()
+    last_space = truncated.rfind(' ')
+    if last_space > max_length // 2:
+        return text[: last_space].strip() + '…'
+    return truncated.strip() + '…'
+
 # Load environment variables
 load_dotenv()
 

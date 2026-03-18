@@ -1,19 +1,66 @@
 #!/usr/bin/env python3
 """
 Quick script to generate a quote card from the yoga quotes collection.
+Supports --shorten-quotes to shorten all quote texts in the review pipeline (quotes.json).
 """
 
+import argparse
+import json
 import sys
 from pathlib import Path
 from src.quote_generator import QuoteGenerator
 from src.image_processor import ImageProcessor
+from src.utils import load_config, shorten_quote_for_display
 from datetime import datetime
 
+
+def shorten_all_quotes_in_review():
+    """Shorten quote text in all assets/10_knowledge/*/quotes.json so the review UI shows shorter quotes."""
+    base = Path(__file__).parent
+    knowledge_dir = base / 'assets' / '10_knowledge'
+    config = load_config()
+    max_len = (config.get('quote_cards') or {}).get('max_display_length', 120)
+    if not knowledge_dir.exists():
+        print("No assets/10_knowledge directory found.")
+        return
+    updated = 0
+    for group_dir in knowledge_dir.iterdir():
+        if not group_dir.is_dir():
+            continue
+        quotes_file = group_dir / 'quotes.json'
+        if not quotes_file.exists():
+            continue
+        with open(quotes_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        quotes = data.get('quotes', [])
+        for quote in quotes:
+            if quote.get('text'):
+                shortened = shorten_quote_for_display(quote['text'], max_len)
+                if shortened != quote['text']:
+                    quote['text'] = shortened
+                    updated += 1
+        with open(quotes_file, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        print(f"  {group_dir.name}: {len(quotes)} quotes (max display length {max_len})")
+    print(f"Shortened {updated} quote(s) across all groups. Review UI will show shorter text.")
+
+
 def main():
-    """Generate a quote card."""
-    if len(sys.argv) > 1:
+    """Generate a quote card or shorten existing quotes (--shorten-quotes)."""
+    parser = argparse.ArgumentParser(description='Generate quote cards or shorten quotes for review.')
+    parser.add_argument('--shorten-quotes', action='store_true',
+                        help='Shorten all quote texts in assets/10_knowledge/*/quotes.json (for review UI)')
+    parser.add_argument('quote_words', nargs='*', help='Quote text when generating a card (optional)')
+    args = parser.parse_args()
+
+    if args.shorten_quotes:
+        print("Shortening quote texts for the review process...")
+        shorten_all_quotes_in_review()
+        return
+
+    if len(args.quote_words) > 0:
         # Use provided quote
-        quote_text = " ".join(sys.argv[1:])
+        quote_text = " ".join(args.quote_words)
         author = "Yoga Wisdom"
     else:
         # Use random quote

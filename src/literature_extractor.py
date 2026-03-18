@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import List, Dict, Optional
 from datetime import datetime
 from .ai_caption_generator import AICaptionGenerator
-from .utils import load_config
+from .utils import load_config, shorten_quote_for_display
 from .document_analyzer import DocumentAnalyzer
 from .chunk_processor import ChunkProcessor
 from .quote_refiner import QuoteRefiner
@@ -529,13 +529,13 @@ Text to extract from:
     def save_extracted_quotes(self, quotes_data: Dict, output_path: Path):
         """
         Save extracted quotes to JSON file.
-        
-        Args:
-            quotes_data: Dictionary with quotes and metadata.
-            output_path: Path to save JSON file.
+        Quote text is shortened for display (see quote_cards.max_display_length in config).
         """
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        
+        max_len = (self.config.get('quote_cards') or {}).get('max_display_length', 120)
+        for quote in quotes_data.get('quotes', []):
+            if quote.get('text'):
+                quote['text'] = shorten_quote_for_display(quote['text'], max_len)
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(quotes_data, f, indent=2, ensure_ascii=False)
     

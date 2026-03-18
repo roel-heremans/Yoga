@@ -337,13 +337,13 @@ def extract_quotes(group, all, force, intelligent, simple, chunk_size, max_quote
 @click.option('--image', '-i', type=click.Path(exists=True), multiple=True, help='Image(s) for video quote card; can be repeated. Total --duration is split across all images.')
 @click.option('--duration', default=15, type=int, help='Duration in seconds for image-video quote card (default: 15)')
 @click.option('--audio-fade', default=3, type=float, help='Seconds for music to fade to silence at end (default: 3)')
-@click.option('--video-fade', default=2, type=float, help='Seconds for video to fade to white at end (default: 2)')
+@click.option('--video-fade', default=0.8, type=float, help='Seconds for video to fade to white at segment end (default: 0.8)')
 @click.option('--flyer-ajuda', is_flag=True, help='Add Ajuda flyer segment: white slide with Ajuda Public Garden class info (15s), then fade out')
 @click.option('--flyer-palheiro', is_flag=True, help='Add Palheiro flyer segment: white slide with Casa Velha do Palheiro class info (15s), then fade out')
 @click.option('--flyer-line1', default=None, help='Flyer first line (overrides preset when used with custom flyer)')
 @click.option('--flyer-line2', default=None, help='Flyer second line (overrides preset when used with custom flyer)')
 @click.option('--flyer-duration', default=15, type=int, help='Flyer segment duration in seconds (default: 15)')
-@click.option('--flyer-font-size', default=46, type=int, help='Flyer text font size (default: 46)')
+@click.option('--flyer-font-size', default=40, type=int, help='Flyer body text font size (default: 40); title is larger')
 def generate_quote_cards(group, quote_id, photo_dir, video_dir, num_photos, num_videos, white_background, output_dir, music, image, duration, audio_fade, video_fade, flyer_ajuda, flyer_palheiro, flyer_line1, flyer_line2, flyer_duration, flyer_font_size):
     """Generate quote cards from accepted quotes.
     
@@ -439,7 +439,8 @@ def generate_quote_cards(group, quote_id, photo_dir, video_dir, num_photos, num_
             use_flyer=use_flyer,
             flyer_lines=flyer_lines,
             flyer_duration=float(flyer_duration),
-            flyer_font_size=flyer_font_size
+            flyer_font_size=flyer_font_size,
+            flyer_logo_path=Path(__file__).resolve().parent / 'assets' / '01_images' / 'Palheiro' / 'Casa-Velha-do-Palheiro-Logo.png' if flyer_palheiro else None
         )
         
         # Summary
