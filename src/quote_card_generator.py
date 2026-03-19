@@ -356,7 +356,8 @@ class QuoteCardGenerator:
         flyer_lines: Optional[list] = None,
         flyer_duration: float = 15.0,
         flyer_font_size: int = 40,
-        flyer_logo_path: Optional[Path] = None
+        flyer_logo_path: Optional[Path] = None,
+        quote_style: str = 'cinematic',
     ) -> Path:
         """
         Generate a video quote card from one or more background images: quote overlay,
@@ -389,33 +390,33 @@ class QuoteCardGenerator:
         
         quote_text = self._shorten_quote_for_display(quote.get('text', ''))
         author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
-        overlay_text = f"{quote_text}\n\n— {author}"
-        
+
         if output_path is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             output_path = self.output_base_path / 'quote_cards' / f'quote_image_video_{timestamp}.mp4'
         output_path = Path(output_path)
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        
+
         if flyer_lines is True:
             flyer_lines = self.DEFAULT_FLYER_LINES
         elif flyer_lines is None:
             flyer_lines = []
-        
+
         return self.video_processor.create_image_quote_video(
             image_paths=image_paths,
-            text_overlay=overlay_text,
+            text=quote_text,
+            author=author,
             output_path=output_path,
             duration=duration,
             music_path=music_path,
             audio_fade_duration=audio_fade_duration,
             video_fade_duration=video_fade_duration,
-            text_position='bottom',
             font_size=64,
             flyer_lines=flyer_lines if flyer_lines else None,
             flyer_duration=flyer_duration,
             flyer_font_size=flyer_font_size,
-            flyer_logo_path=flyer_logo_path
+            flyer_logo_path=flyer_logo_path,
+            quote_style=quote_style,
         )
     
     def generate_quote_cards(
@@ -437,11 +438,12 @@ class QuoteCardGenerator:
         flyer_lines: Optional[list] = None,
         flyer_duration: float = 15.0,
         flyer_font_size: int = 40,
-        flyer_logo_path: Optional[Path] = None
+        flyer_logo_path: Optional[Path] = None,
+        quote_style: str = 'cinematic',
     ) -> Dict[str, List[Path]]:
         """
         Generate quote cards based on options.
-        
+
         Args:
             ...
             use_flyer: If True, add yoga flyer segment (white + text) after quote segment.
@@ -508,7 +510,8 @@ class QuoteCardGenerator:
                     flyer_lines=flyer_lines_arg,
                     flyer_duration=flyer_duration,
                     flyer_font_size=flyer_font_size,
-                    flyer_logo_path=flyer_logo_path
+                    flyer_logo_path=flyer_logo_path,
+                    quote_style=quote_style,
                 )
                 results['image_videos'].append(card_path)
                 print(f"✓ Generated image video quote card: {card_path}")
