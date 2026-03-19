@@ -166,6 +166,19 @@ class VideoProcessor:
     FLYER_STROKE = '#b0b0b0'
     FLYER_STROKE_WIDTH = 2
 
+    # Cinematic / reveal quote style constants
+    CINEMATIC_QUOTE_COLOR = '#f0ece4'    # cream
+    CINEMATIC_AUTHOR_COLOR = '#c9a96e'   # warm gold
+    CINEMATIC_DIVIDER_COLOR = '#c9a96e'  # warm gold
+    CINEMATIC_VIGNETTE_ALPHA = 120       # 0-255, max darkness at frame edges
+
+    # Shared layout constants for cinematic and reveal
+    LINE_HEIGHT_MULT = 1.6   # line_height = font_size * LINE_HEIGHT_MULT
+    DIVIDER_GAP = 20         # pixels between last quote line and divider
+    AUTHOR_GAP = 12          # pixels between divider and author text
+    DIVIDER_WIDTH = 30       # pixels wide
+    DIVIDER_HEIGHT = 2       # pixels tall
+
     def create_text_clip(
         self,
         text: str,
