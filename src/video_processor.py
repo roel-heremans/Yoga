@@ -569,6 +569,112 @@ class VideoProcessor:
                      else composite.set_duration(duration))
         return composite
 
+    def create_line_reveal_clips(
+        self,
+        text: str,
+        author: str,
+        duration: float,
+        font_size: int = 64,
+    ) -> list:
+        """
+        Create a list of pre-positioned, pre-timed clips for line-by-line quote reveal.
+        Lines fade in one by one, accumulating. Author block appears last.
+        All clips are transparent overlays; caller composites them on the background.
+        """
+        import textwrap
+
+        w, h = self.reel_width, self.reel_height
+        usable_width = w - 120
+        char_width_ratio = 0.55
+        max_chars = max(20, int(usable_width / (font_size * char_width_ratio) * 1.2))
+        wrapped_lines = textwrap.wrap(text, width=max_chars)
+        n_lines = len(wrapped_lines)
+
+        # ---- Timing ----
+        interval = max(1.0, duration / (n_lines + 1))
+
+        # ---- Layout pre-computation ----
+        line_height = font_size * self.LINE_HEIGHT_MULT
+        author_font_size = max(28, font_size // 2)
+
+        estimated_author_h = int(author_font_size * 1.5)
+        total_h = (n_lines * line_height) + self.DIVIDER_GAP + self.DIVIDER_HEIGHT + self.AUTHOR_GAP + estimated_author_h
+        block_top = max(80, (h - total_h) // 2)
+
+        serif_candidates = self.QUOTE_OVERLAY_FONT_CANDIDATES + ('Arial',)
+
+        def _make_text_clip(t, size, color):
+            for fn in serif_candidates:
+                try:
+                    c = TextClip(
+                        text=t,
+                        font_size=size,
+                        color=color,
+                        font=fn,
+                        size=(usable_width, None),
+                        margin=(10, 10),
+                    )
+                    return c
+                except Exception:
+                    try:
+                        c = TextClip(
+                            t,
+                            fontsize=size,
+                            color=color,
+                            font=fn,
+                            method='caption',
+                            size=(usable_width, None),
+                            align='center',
+                        )
+                        return c
+                    except Exception:
+                        continue
+            return TextClip(text=t, font_size=size, color=color, size=(usable_width, None), margin=(10, 10))
+
+        def _apply(clip, start_time, y_pos):
+            if hasattr(clip, 'crossfadein'):
+                clip = clip.crossfadein(0.5)
+            clip = (clip.with_duration(duration - start_time)
+                    if hasattr(clip, 'with_duration')
+                    else clip.set_duration(duration - start_time))
+            clip = (clip.with_start(start_time)
+                    if hasattr(clip, 'with_start')
+                    else clip.set_start(start_time))
+            clip = (clip.with_position(('center', int(y_pos)))
+                    if hasattr(clip, 'with_position')
+                    else clip.set_position(('center', int(y_pos))))
+            return clip
+
+        clips = []
+
+        # ---- Line clips ----
+        for i, line in enumerate(wrapped_lines):
+            y = block_top + i * line_height
+            clip = _make_text_clip(line, font_size, self.CINEMATIC_QUOTE_COLOR)
+            clips.append(_apply(clip, i * interval, y))
+
+        # ---- Divider clip ----
+        div_y = block_top + n_lines * line_height + self.DIVIDER_GAP
+        div_arr = np.zeros((self.DIVIDER_HEIGHT, self.DIVIDER_WIDTH, 4), dtype=np.uint8)
+        r, g, b = self.hex_to_rgb(self.CINEMATIC_DIVIDER_COLOR)
+        div_arr[:, :, 0] = r
+        div_arr[:, :, 1] = g
+        div_arr[:, :, 2] = b
+        div_arr[:, :, 3] = 255
+        try:
+            div_clip = ImageClip(div_arr, transparent=True)
+        except TypeError:
+            div_clip = ImageClip(div_arr)
+        author_start = n_lines * interval
+        clips.append(_apply(div_clip, author_start, div_y))
+
+        # ---- Author clip ----
+        author_y = div_y + self.DIVIDER_HEIGHT + self.AUTHOR_GAP
+        author_clip = _make_text_clip(author.upper(), author_font_size, self.CINEMATIC_AUTHOR_COLOR)
+        clips.append(_apply(author_clip, author_start, author_y))
+
+        return clips
+
     def create_video_with_text_overlay(
         self,
         video_path: Path,

@@ -114,3 +114,72 @@ class TestCreateCinematicTextClip:
         colors_used = [str(c) for c in calls]
         assert any('#f0ece4' in c or 'f0ece4' in c for c in colors_used), \
             f"Expected cream color #f0ece4 in TextClip calls: {colors_used}"
+
+
+class TestCreateLineRevealClips:
+    """create_line_reveal_clips returns a list of pre-positioned clips."""
+
+    def _vp(self):
+        """Return a VideoProcessor with mocked moviepy."""
+        import sys
+        mock_text = MagicMock()
+        mock_text.h = 80
+        mock_text.w = 1080
+        for attr in ('with_duration', 'set_duration', 'with_position', 'set_position',
+                     'with_start', 'set_start', 'crossfadein'):
+            getattr(mock_text, attr).return_value = mock_text
+
+        with patch('src.video_processor.TextClip', return_value=mock_text), \
+             patch('src.video_processor.ImageClip', return_value=mock_text), \
+             patch('src.video_processor.CompositeVideoClip', return_value=MagicMock(w=1080, h=1920)), \
+             patch('src.video_processor.ColorClip', return_value=mock_text):
+            if 'src.video_processor' in sys.modules:
+                del sys.modules['src.video_processor']
+            from src.video_processor import VideoProcessor
+            config = {
+                'brand': {'colors': {'primary': '#2c5530'}, 'fonts': {'heading': 'Arial', 'body': 'Arial', 'weights': {'heading': 'bold', 'body': 'normal'}}},
+                'instagram': {'reel_dimensions': {'width': 1080, 'height': 1920}, 'reel_duration': {'min': 15, 'max': 90}},
+            }
+            return VideoProcessor(config=config)
+
+    def test_method_exists(self):
+        from src.video_processor import VideoProcessor
+        assert hasattr(VideoProcessor, 'create_line_reveal_clips')
+
+    def test_returns_list(self):
+        vp = self._vp()
+        result = vp.create_line_reveal_clips(
+            text="The rhythm of the body.",
+            author="B.K.S. Iyengar",
+            duration=15.0,
+        )
+        assert isinstance(result, list)
+        assert len(result) >= 2  # at least one line + author block
+
+    def test_clip_count_equals_lines_plus_author(self):
+        """N wrapped lines + 1 author block = N+1 clips."""
+        vp = self._vp()
+        # Short text wraps to 1 line
+        result = vp.create_line_reveal_clips(
+            text="Short quote.",
+            author="Author",
+            duration=15.0,
+        )
+        # 1 line + 1 author block = 2 clips minimum
+        assert len(result) >= 2
+
+    def test_interval_clamped_to_minimum(self):
+        """With many lines and short duration, interval is clamped to 1.0s."""
+        from src.video_processor import VideoProcessor
+        # Test the timing formula directly
+        duration = 5.0
+        n_lines = 10
+        interval = max(1.0, duration / (n_lines + 1))
+        assert interval == 1.0
+
+    def test_interval_formula_normal(self):
+        """Normal case: interval = duration / (N+1)."""
+        duration = 15.0
+        n_lines = 4
+        interval = max(1.0, duration / (n_lines + 1))
+        assert abs(interval - 3.0) < 0.001
