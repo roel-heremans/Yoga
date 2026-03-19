@@ -1,8 +1,9 @@
 """Tests for VideoProcessor new cinematic/reveal quote styles."""
-import pytest
 from unittest.mock import patch, MagicMock
 
 
+# Shared factory used by TestCreateCinematicTextClip, TestCreateLineRevealClips,
+# and TestCreateImageQuoteVideoSignature (added in Tasks 2-4).
 def make_processor():
     """Return a VideoProcessor with all moviepy/PIL calls mocked."""
     with patch('src.video_processor.VideoFileClip'), \
