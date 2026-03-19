@@ -50,3 +50,88 @@ class TestCinematicConstants:
         assert VideoProcessor.AUTHOR_GAP > 0
         assert VideoProcessor.DIVIDER_WIDTH > 0
         assert VideoProcessor.DIVIDER_HEIGHT > 0
+
+
+class TestCreateCinematicTextClip:
+    """create_cinematic_text_clip returns a CompositeVideoClip overlay."""
+
+    def _make_mock_text_clip(self, height=100):
+        m = MagicMock()
+        m.h = height
+        m.w = 1080
+        # Support both moviepy 1.x and 2.x chaining
+        m.with_duration.return_value = m
+        m.set_duration.return_value = m
+        m.with_position.return_value = m
+        m.set_position.return_value = m
+        m.with_start.return_value = m
+        m.set_start.return_value = m
+        return m
+
+    def test_method_exists(self):
+        from src.video_processor import VideoProcessor
+        assert hasattr(VideoProcessor, 'create_cinematic_text_clip')
+
+    def test_returns_composite_video_clip(self):
+        import importlib
+        import sys
+        # Patch at module level so VideoProcessor sees mocked classes
+        mock_cvclip = MagicMock()
+        mock_cvclip_instance = MagicMock()
+        mock_cvclip_instance.w = 1080
+        mock_cvclip_instance.h = 1920
+        mock_cvclip_instance.duration = 15.0
+        mock_cvclip.return_value = mock_cvclip_instance
+
+        mock_text = self._make_mock_text_clip(80)
+        mock_TextClip = MagicMock(return_value=mock_text)
+        mock_ImageClip = MagicMock(return_value=self._make_mock_text_clip(2))
+        mock_ColorClip = MagicMock(return_value=self._make_mock_text_clip(2))
+
+        with patch('src.video_processor.CompositeVideoClip', mock_cvclip), \
+             patch('src.video_processor.TextClip', mock_TextClip), \
+             patch('src.video_processor.ImageClip', mock_ImageClip), \
+             patch('src.video_processor.ColorClip', mock_ColorClip):
+            if 'src.video_processor' in sys.modules:
+                del sys.modules['src.video_processor']
+            from src.video_processor import VideoProcessor
+            config = {
+                'brand': {'colors': {'primary': '#2c5530'}, 'fonts': {'heading': 'Arial', 'body': 'Arial', 'weights': {'heading': 'bold', 'body': 'normal'}}},
+                'instagram': {'reel_dimensions': {'width': 1080, 'height': 1920}, 'reel_duration': {'min': 15, 'max': 90}},
+            }
+            vp = VideoProcessor(config=config)
+            result = vp.create_cinematic_text_clip(
+                text="The rhythm of the body.",
+                author="B.K.S. Iyengar",
+                duration=15.0,
+            )
+        # CompositeVideoClip was called — result is the composite
+        assert mock_cvclip.called
+
+    def test_uses_cinematic_colors(self):
+        """TextClip is called with cream color for quote and gold for author."""
+        mock_text = self._make_mock_text_clip(80)
+        mock_TextClip = MagicMock(return_value=mock_text)
+        mock_ImageClip = MagicMock(return_value=self._make_mock_text_clip(2))
+        mock_cvclip = MagicMock(return_value=MagicMock(w=1080, h=1920))
+
+        import sys
+        with patch('src.video_processor.TextClip', mock_TextClip), \
+             patch('src.video_processor.ImageClip', mock_ImageClip), \
+             patch('src.video_processor.CompositeVideoClip', mock_cvclip), \
+             patch('src.video_processor.ColorClip', MagicMock(return_value=self._make_mock_text_clip(2))):
+            if 'src.video_processor' in sys.modules:
+                del sys.modules['src.video_processor']
+            from src.video_processor import VideoProcessor
+            config = {
+                'brand': {'colors': {'primary': '#2c5530'}, 'fonts': {'heading': 'Arial', 'body': 'Arial', 'weights': {'heading': 'bold', 'body': 'normal'}}},
+                'instagram': {'reel_dimensions': {'width': 1080, 'height': 1920}, 'reel_duration': {'min': 15, 'max': 90}},
+            }
+            vp = VideoProcessor(config=config)
+            vp.create_cinematic_text_clip("The rhythm.", "B.K.S. Iyengar", 15.0)
+
+        # At least one TextClip call used cream color
+        calls = mock_TextClip.call_args_list
+        colors_used = [str(c) for c in calls]
+        assert any('#f0ece4' in c or 'f0ece4' in c for c in colors_used), \
+            f"Expected cream color #f0ece4 in TextClip calls: {colors_used}"

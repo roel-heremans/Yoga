@@ -388,7 +388,187 @@ class VideoProcessor:
                 composite = composite.with_start(start_time)
             return composite
         return txt_clip
-    
+
+    def create_cinematic_text_clip(
+        self,
+        text: str,
+        author: str,
+        duration: float,
+        font_size: int = 64,
+    ):
+        """
+        Create a centered, cinematic quote overlay (cream italic text, gold author, radial vignette).
+        Returns a CompositeVideoClip of size (reel_width, reel_height) with transparent background
+        that the caller composites on top of the background image clip.
+        """
+        import textwrap as _textwrap
+        w, h = self.reel_width, self.reel_height
+
+        # ---- Vignette layer: radial gradient, dark at edges ----
+        arr = np.zeros((h, w, 4), dtype=np.uint8)
+        cx, cy = w / 2, h / 2
+        Y, X = np.mgrid[0:h, 0:w]
+        dist = np.hypot((X - cx) / cx, (Y - cy) / cy)
+        alpha = np.clip(dist * self.CINEMATIC_VIGNETTE_ALPHA, 0, self.CINEMATIC_VIGNETTE_ALPHA).astype(np.uint8)
+        arr[:, :, 3] = alpha  # RGB stays 0 (black) — dark vignette
+        try:
+            vignette_clip = ImageClip(arr, transparent=True)
+        except TypeError:
+            vignette_clip = ImageClip(arr)
+        vignette_clip = (vignette_clip.with_duration(duration)
+                         if hasattr(vignette_clip, 'with_duration')
+                         else vignette_clip.set_duration(duration))
+        vignette_clip = (vignette_clip.with_position((0, 0))
+                         if hasattr(vignette_clip, 'with_position')
+                         else vignette_clip.set_position((0, 0)))
+
+        # ---- Text wrapping ----
+        usable_width = w - 120
+        char_width_ratio = 0.55
+        max_chars = max(20, int(usable_width / (font_size * char_width_ratio) * 1.2))
+        wrapped_lines = _textwrap.wrap(text, width=max_chars)
+        display_text = '\n'.join(wrapped_lines)
+        n_lines = len(wrapped_lines) if wrapped_lines else 1
+
+        # ---- Quote TextClip (italic) ----
+        serif_candidates = self.QUOTE_OVERLAY_FONT_CANDIDATES + ('Arial',)
+        quote_clip = None
+        for fn in serif_candidates:
+            try:
+                quote_clip = TextClip(
+                    text=display_text,
+                    font_size=font_size,
+                    color=self.CINEMATIC_QUOTE_COLOR,
+                    font=fn,
+                    italic=True,
+                    size=(usable_width, None),
+                    margin=(20, 20),
+                )
+                break
+            except Exception:
+                try:
+                    quote_clip = TextClip(
+                        display_text,
+                        fontsize=font_size,
+                        color=self.CINEMATIC_QUOTE_COLOR,
+                        font=fn,
+                        method='caption',
+                        size=(usable_width, None),
+                        align='center',
+                    )
+                    break
+                except Exception:
+                    continue
+        if quote_clip is None:
+            try:
+                quote_clip = TextClip(
+                    text=display_text,
+                    font_size=font_size,
+                    color=self.CINEMATIC_QUOTE_COLOR,
+                    italic=True,
+                    size=(usable_width, None),
+                    margin=(20, 20),
+                )
+            except Exception:
+                quote_clip = TextClip(
+                    text=display_text,
+                    font_size=font_size,
+                    color=self.CINEMATIC_QUOTE_COLOR,
+                    size=(usable_width, None),
+                    margin=(20, 20),
+                )
+
+        # ---- Author TextClip (uppercase, gold) ----
+        author_upper = author.upper()
+        author_font_size = max(28, font_size // 2)
+        author_clip = None
+        for fn in serif_candidates:
+            try:
+                author_clip = TextClip(
+                    text=author_upper,
+                    font_size=author_font_size,
+                    color=self.CINEMATIC_AUTHOR_COLOR,
+                    font=fn,
+                    size=(usable_width, None),
+                    margin=(10, 10),
+                )
+                break
+            except Exception:
+                try:
+                    author_clip = TextClip(
+                        author_upper,
+                        fontsize=author_font_size,
+                        color=self.CINEMATIC_AUTHOR_COLOR,
+                        font=fn,
+                        method='caption',
+                        size=(usable_width, None),
+                        align='center',
+                    )
+                    break
+                except Exception:
+                    continue
+        if author_clip is None:
+            try:
+                author_clip = TextClip(
+                    text=author_upper,
+                    font_size=author_font_size,
+                    color=self.CINEMATIC_AUTHOR_COLOR,
+                    size=(usable_width, None),
+                    margin=(10, 10),
+                )
+            except Exception:
+                author_clip = TextClip(
+                    author_upper,
+                    fontsize=author_font_size,
+                    color=self.CINEMATIC_AUTHOR_COLOR,
+                    method='caption',
+                    size=(usable_width, None),
+                    align='center',
+                )
+
+        # ---- Divider ImageClip (thin gold line) ----
+        div_arr = np.zeros((self.DIVIDER_HEIGHT, self.DIVIDER_WIDTH, 4), dtype=np.uint8)
+        r, g, b = self.hex_to_rgb(self.CINEMATIC_DIVIDER_COLOR)
+        div_arr[:, :, 0] = r
+        div_arr[:, :, 1] = g
+        div_arr[:, :, 2] = b
+        div_arr[:, :, 3] = 255
+        try:
+            divider_clip = ImageClip(div_arr, transparent=True)
+        except TypeError:
+            divider_clip = ImageClip(div_arr)
+
+        # ---- Vertical centering ----
+        line_height = font_size * self.LINE_HEIGHT_MULT
+        quote_h = int(getattr(quote_clip, 'h', n_lines * line_height))
+        author_h = int(getattr(author_clip, 'h', author_font_size * 1.5))
+        total_h = quote_h + self.DIVIDER_GAP + self.DIVIDER_HEIGHT + self.AUTHOR_GAP + author_h
+        block_top = max(80, (h - total_h) // 2)
+
+        div_y = block_top + quote_h + self.DIVIDER_GAP
+        author_y = div_y + self.DIVIDER_HEIGHT + self.AUTHOR_GAP
+        div_x = (w - self.DIVIDER_WIDTH) // 2
+
+        def _set_pos_dur(clip, pos, dur):
+            clip = (clip.with_duration(dur) if hasattr(clip, 'with_duration')
+                    else clip.set_duration(dur))
+            clip = (clip.with_position(pos) if hasattr(clip, 'with_position')
+                    else clip.set_position(pos))
+            return clip
+
+        quote_clip = _set_pos_dur(quote_clip, ('center', block_top), duration)
+        divider_clip = _set_pos_dur(divider_clip, (div_x, div_y), duration)
+        author_clip = _set_pos_dur(author_clip, ('center', author_y), duration)
+
+        composite = CompositeVideoClip(
+            [vignette_clip, quote_clip, divider_clip, author_clip],
+            size=(w, h),
+        )
+        composite = (composite.with_duration(duration)
+                     if hasattr(composite, 'with_duration')
+                     else composite.set_duration(duration))
+        return composite
+
     def create_video_with_text_overlay(
         self,
         video_path: Path,
