@@ -830,7 +830,8 @@ class VideoProcessor:
     def create_image_quote_video(
         self,
         image_paths: List[Path],
-        text_overlay: str,
+        text: str,
+        author: str,
         output_path: Path,
         duration: float = 15.0,
         music_path: Optional[Path] = None,
@@ -841,16 +842,19 @@ class VideoProcessor:
         flyer_lines: Optional[List[str]] = None,
         flyer_duration: float = 15.0,
         flyer_font_size: int = 40,
-        flyer_logo_path: Optional[Path] = None
+        flyer_logo_path: Optional[Path] = None,
+        quote_style: str = 'cinematic',
     ) -> Path:
         """
         Create a video from one or more images with quote overlay, optional music,
         optional yoga flyer segment (white + text, optional logo), and fades to white.
         When multiple images are given, duration is split equally across them.
-        
+
         Args:
             image_paths: Path(s) to background image file(s).
-            text_overlay: Quote text (and optional author) to overlay.
+            text: Quote body text.
+            author: Attribution line (author name).
+            quote_style: 'cinematic' (default) or 'reveal'.
             output_path: Path to save the output video.
             duration: Total quote segment duration in seconds (default 15); split across images.
             music_path: Optional path to background music (.mp3, .wav, etc.).
@@ -898,17 +902,24 @@ class VideoProcessor:
         top_black = (self.reel_height - new_h) // 2
         # Quote font: bigger for readability on photos
         quote_font_size = min(font_size, max(40, (top_black - 20) // 3))
-        # Place quote at bottom of frame so transparent box has room and covers text fully
-        text_clip = self.create_text_clip(
-            text=text_overlay,
-            duration=duration,
-            position='bottom',
-            font_size=quote_font_size,
-            start_time=0,
-            override_y_center=None,
-            quote_overlay_style=True
-        )
-        segment_1 = CompositeVideoClip([image_clip, text_clip])
+        # Place quote overlay using selected style
+        if quote_style == 'reveal':
+            reveal_clips = self.create_line_reveal_clips(
+                text=text,
+                author=author,
+                duration=duration,
+                font_size=quote_font_size,
+            )
+            segment_1 = CompositeVideoClip([image_clip] + reveal_clips)
+        else:
+            # 'cinematic' (default)
+            text_clip = self.create_cinematic_text_clip(
+                text=text,
+                author=author,
+                duration=duration,
+                font_size=quote_font_size,
+            )
+            segment_1 = CompositeVideoClip([image_clip, text_clip])
         if hasattr(segment_1, 'with_fps'):
             segment_1 = segment_1.with_fps(fps)
         elif hasattr(segment_1, 'set_fps'):
@@ -1106,7 +1117,8 @@ class VideoProcessor:
         
         tmp_path = getattr(image_clip, 'tmp_path', None)
         image_clip.close()
-        text_clip.close()
+        if quote_style != 'reveal' and 'text_clip' in dir():
+            text_clip.close()
         final_clip.close()
         if tmp_path and os.path.exists(tmp_path):
             try:

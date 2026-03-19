@@ -183,3 +183,124 @@ class TestCreateLineRevealClips:
         n_lines = 4
         interval = max(1.0, duration / (n_lines + 1))
         assert abs(interval - 3.0) < 0.001
+
+
+class TestCreateImageQuoteVideoSignature:
+    """create_image_quote_video accepts text, author, quote_style params."""
+
+    def test_accepts_text_and_author_separately(self):
+        """Method signature no longer has text_overlay, has text and author."""
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_image_quote_video)
+        params = list(sig.parameters.keys())
+        assert 'text' in params, "Expected 'text' param"
+        assert 'author' in params, "Expected 'author' param"
+        assert 'text_overlay' not in params, "'text_overlay' should be removed"
+
+    def test_accepts_quote_style_param(self):
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_image_quote_video)
+        assert 'quote_style' in sig.parameters
+        assert sig.parameters['quote_style'].default == 'cinematic'
+
+    def test_cinematic_style_calls_cinematic_method(self):
+        """When quote_style='cinematic', create_cinematic_text_clip is called."""
+        import tempfile, os
+        from pathlib import Path
+        from PIL import Image as PILImage
+        from src.video_processor import VideoProcessor
+
+        tmp = tempfile.NamedTemporaryFile(suffix='.jpg', delete=False)
+        PILImage.new('RGB', (100, 100), color=(50, 80, 50)).save(tmp.name)
+        tmp_path = Path(tmp.name)
+        out_path = Path(tempfile.mktemp(suffix='.mp4'))
+
+        config = {
+            'brand': {'colors': {'primary': '#2c5530'}, 'fonts': {'heading': 'Arial', 'body': 'Arial', 'weights': {'heading': 'bold', 'body': 'normal'}}},
+            'instagram': {'reel_dimensions': {'width': 1080, 'height': 1920}, 'reel_duration': {'min': 15, 'max': 90}},
+        }
+        vp = VideoProcessor(config=config)
+
+        mock_clip = MagicMock()
+        mock_clip.duration = 15.0
+        mock_clip.w = 1080
+        mock_clip.h = 1920
+        mock_clip.fps = 30
+        mock_clip.with_fps = MagicMock(return_value=mock_clip)
+        mock_clip.set_fps = MagicMock(return_value=mock_clip)
+        mock_clip.write_videofile = MagicMock()
+        mock_clip.close = MagicMock()
+
+        with patch.object(vp, 'image_to_clip', return_value=mock_clip) as mock_img, \
+             patch.object(vp, 'create_cinematic_text_clip', return_value=mock_clip) as mock_cin, \
+             patch.object(vp, '_add_white_fade_overlay', return_value=mock_clip), \
+             patch('src.video_processor.CompositeVideoClip', return_value=mock_clip):
+            try:
+                vp.create_image_quote_video(
+                    image_paths=[tmp_path],
+                    text="The rhythm of the body.",
+                    author="B.K.S. Iyengar",
+                    output_path=out_path,
+                    duration=15.0,
+                    quote_style='cinematic',
+                )
+            except Exception:
+                pass  # We only care that cinematic method was called
+            assert mock_cin.called, "create_cinematic_text_clip should have been called"
+
+        try:
+            os.unlink(tmp.name)
+        except Exception:
+            pass
+
+    def test_reveal_style_calls_reveal_method(self):
+        """When quote_style='reveal', create_line_reveal_clips is called."""
+        import tempfile, os
+        from pathlib import Path
+        from PIL import Image as PILImage
+        from src.video_processor import VideoProcessor
+
+        tmp = tempfile.NamedTemporaryFile(suffix='.jpg', delete=False)
+        PILImage.new('RGB', (100, 100), color=(50, 80, 50)).save(tmp.name)
+        tmp_path = Path(tmp.name)
+        out_path = Path(tempfile.mktemp(suffix='.mp4'))
+
+        config = {
+            'brand': {'colors': {'primary': '#2c5530'}, 'fonts': {'heading': 'Arial', 'body': 'Arial', 'weights': {'heading': 'bold', 'body': 'normal'}}},
+            'instagram': {'reel_dimensions': {'width': 1080, 'height': 1920}, 'reel_duration': {'min': 15, 'max': 90}},
+        }
+        vp = VideoProcessor(config=config)
+
+        mock_clip = MagicMock()
+        mock_clip.duration = 15.0
+        mock_clip.w = 1080
+        mock_clip.h = 1920
+        mock_clip.fps = 30
+        mock_clip.with_fps = MagicMock(return_value=mock_clip)
+        mock_clip.set_fps = MagicMock(return_value=mock_clip)
+        mock_clip.write_videofile = MagicMock()
+        mock_clip.close = MagicMock()
+
+        with patch.object(vp, 'image_to_clip', return_value=mock_clip), \
+             patch.object(vp, 'create_line_reveal_clips', return_value=[mock_clip]) as mock_rev, \
+             patch.object(vp, '_add_white_fade_overlay', return_value=mock_clip), \
+             patch('src.video_processor.CompositeVideoClip', return_value=mock_clip):
+            try:
+                vp.create_image_quote_video(
+                    image_paths=[tmp_path],
+                    text="The rhythm of the body.",
+                    author="B.K.S. Iyengar",
+                    output_path=out_path,
+                    duration=15.0,
+                    quote_style='reveal',
+                )
+            except Exception:
+                pass
+            assert mock_rev.called, "create_line_reveal_clips should have been called"
+
+        try:
+            os.unlink(tmp.name)
+        except Exception:
+            pass
