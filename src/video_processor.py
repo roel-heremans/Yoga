@@ -389,19 +389,88 @@ class VideoProcessor:
             return composite
         return txt_clip
 
+    def _smart_wrap(self, text: str, max_chars: int) -> list:
+        """
+        Wrap text at natural phrase boundaries with balanced line lengths.
+        Prefers breaking after commas/semicolons or before conjunctions.
+        """
+        words = text.split()
+        if not words:
+            return ['']
+        total_len = sum(len(w) for w in words) + len(words) - 1
+        if total_len <= max_chars:
+            return [text]
+
+        CONJUNCTIONS = {
+            'and', 'but', 'or', 'nor', 'yet', 'so',
+            'that', 'which', 'when', 'as', 'if', 'because',
+            'though', 'although', 'while', 'where',
+        }
+        # natural[i] = True means "breaking after word i is natural"
+        natural = set()
+        for i, w in enumerate(words[:-1]):
+            if w.endswith((',', ';', ':', '—', '...')):
+                natural.add(i)
+            if words[i + 1].lower() in CONJUNCTIONS:
+                natural.add(i)
+
+        n_lines = max(2, (total_len + max_chars - 1) // max_chars)
+        target = total_len / n_lines
+
+        lines = []
+        start = 0
+        while start < len(words):
+            remaining_words = len(words) - start
+            remaining_lines = max(1, n_lines - len(lines))
+            if remaining_lines == 1 or remaining_words <= 1:
+                lines.append(' '.join(words[start:]))
+                break
+            best_i, best_score = None, float('inf')
+            cumlen = 0
+            for i in range(start, len(words) - 1):
+                cumlen += len(words[i]) + (0 if i == start else 1)
+                if cumlen < target * 0.5:
+                    continue
+                score = abs(cumlen - target) + (0 if i in natural else target * 0.4)
+                if score < best_score:
+                    best_score, best_i = score, i
+                if cumlen > target * 1.5:
+                    break
+            if best_i is None:
+                best_i = start + max(1, remaining_words // remaining_lines) - 1
+            lines.append(' '.join(words[start:best_i + 1]))
+            start = best_i + 1
+        return lines if lines else [text]
+
+    def _make_scrim_clip(self, w: int, h: int, duration: float):
+        """Top-scrim: black→transparent linear gradient over top 45% of frame."""
+        scrim_arr = np.zeros((h, w, 4), dtype=np.uint8)
+        scrim_h = int(h * 0.45)
+        y_idx = np.arange(scrim_h)
+        alphas = (180 * (1 - y_idx / scrim_h)).astype(np.uint8)
+        scrim_arr[:scrim_h, :, 3] = alphas[:, np.newaxis]
+        try:
+            clip = ImageClip(scrim_arr, transparent=True)
+        except TypeError:
+            clip = ImageClip(scrim_arr)
+        clip = (clip.with_duration(duration) if hasattr(clip, 'with_duration')
+                else clip.set_duration(duration))
+        clip = (clip.with_position((0, 0)) if hasattr(clip, 'with_position')
+                else clip.set_position((0, 0)))
+        return clip
+
     def create_cinematic_text_clip(
         self,
         text: str,
         author: str,
         duration: float,
-        font_size: int = 64,
+        font_size: int = 72,
     ):
         """
-        Create a centered, cinematic quote overlay (cream italic text, gold author, radial vignette).
-        Returns a CompositeVideoClip of size (reel_width, reel_height) with transparent background
-        that the caller composites on top of the background image clip.
+        Create a cinematic quote overlay positioned in the top third of the frame.
+        Includes a top scrim for readability on bright images.
+        Returns a CompositeVideoClip of size (reel_width, reel_height).
         """
-        import textwrap as _textwrap
         w, h = self.reel_width, self.reel_height
 
         # ---- Vignette layer: radial gradient, dark at edges ----
@@ -422,11 +491,14 @@ class VideoProcessor:
                          if hasattr(vignette_clip, 'with_position')
                          else vignette_clip.set_position((0, 0)))
 
+        # ---- Top scrim: ensures text readability on bright images ----
+        scrim_clip = self._make_scrim_clip(w, h, duration)
+
         # ---- Text wrapping ----
         usable_width = w - 120
         char_width_ratio = 0.55
         max_chars = max(20, int(usable_width / (font_size * char_width_ratio) * 1.2))
-        wrapped_lines = _textwrap.wrap(text, width=max_chars)
+        wrapped_lines = self._smart_wrap(text, max_chars)
         display_text = '\n'.join(wrapped_lines)
         n_lines = len(wrapped_lines) if wrapped_lines else 1
 
@@ -538,12 +610,11 @@ class VideoProcessor:
         except TypeError:
             divider_clip = ImageClip(div_arr)
 
-        # ---- Vertical centering ----
+        # ---- Position: top third of frame ----
         line_height = font_size * self.LINE_HEIGHT_MULT
         quote_h = int(getattr(quote_clip, 'h', n_lines * line_height))
         author_h = int(getattr(author_clip, 'h', author_font_size * 1.5))
-        total_h = quote_h + self.DIVIDER_GAP + self.DIVIDER_HEIGHT + self.AUTHOR_GAP + author_h
-        block_top = max(80, (h - total_h) // 2)
+        block_top = max(80, h // 6)
 
         div_y = block_top + quote_h + self.DIVIDER_GAP
         author_y = div_y + self.DIVIDER_HEIGHT + self.AUTHOR_GAP
@@ -561,7 +632,7 @@ class VideoProcessor:
         author_clip = _set_pos_dur(author_clip, ('center', author_y), duration)
 
         composite = CompositeVideoClip(
-            [vignette_clip, quote_clip, divider_clip, author_clip],
+            [vignette_clip, scrim_clip, quote_clip, divider_clip, author_clip],
             size=(w, h),
         )
         composite = (composite.with_duration(duration)
@@ -574,32 +645,28 @@ class VideoProcessor:
         text: str,
         author: str,
         duration: float,
-        font_size: int = 64,
+        font_size: int = 72,
     ) -> list:
         """
         Create a list of pre-positioned, pre-timed clips for line-by-line quote reveal.
         Lines fade in one by one, accumulating. Author block appears last.
+        Includes a top scrim for readability on bright images.
         All clips are transparent overlays; caller composites them on the background.
         """
-        import textwrap
-
         w, h = self.reel_width, self.reel_height
         usable_width = w - 120
         char_width_ratio = 0.55
         max_chars = max(20, int(usable_width / (font_size * char_width_ratio) * 1.2))
-        wrapped_lines = textwrap.wrap(text, width=max_chars)
+        wrapped_lines = self._smart_wrap(text, max_chars)
         n_lines = len(wrapped_lines)
 
         # ---- Timing ----
         interval = max(1.0, duration / (n_lines + 1))
 
-        # ---- Layout pre-computation ----
+        # ---- Layout: top third of frame ----
         line_height = font_size * self.LINE_HEIGHT_MULT
         author_font_size = max(28, font_size // 2)
-
-        estimated_author_h = int(author_font_size * 1.5)
-        total_h = (n_lines * line_height) + self.DIVIDER_GAP + self.DIVIDER_HEIGHT + self.AUTHOR_GAP + estimated_author_h
-        block_top = max(80, (h - total_h) // 2)
+        block_top = max(80, h // 6)
 
         serif_candidates = self.QUOTE_OVERLAY_FONT_CANDIDATES + ('Arial',)
 
@@ -645,7 +712,7 @@ class VideoProcessor:
                     else clip.set_position(('center', int(y_pos))))
             return clip
 
-        clips = []
+        clips = [self._make_scrim_clip(w, h, duration)]
 
         # ---- Line clips ----
         for i, line in enumerate(wrapped_lines):
