@@ -49,6 +49,40 @@ class TestQuoteStyleCLI:
         assert result.exit_code != 0
 
 
+def test_generate_warns_for_published_image(tmp_path):
+    """generate-quote-cards warns when a specified image was already used in a published post."""
+    import json
+    from click.testing import CliRunner
+    from unittest.mock import patch, MagicMock
+    import main as main_module
+
+    # Create a real image file so Click's exists=True check passes
+    img = tmp_path / "Yoga_Funchal21.jpg"
+    img.write_bytes(b"fake")
+
+    # Build a fake log that marks this exact image path as used
+    log_data = {
+        "some_video.mp4": {
+            "quote_id": "q001",
+            "quote_group": "TestGroup",
+            "images_used": [str(img)],
+            "marked_at": "2026-01-01",
+        }
+    }
+
+    mock_gen = MagicMock()
+    mock_gen.generate_quote_cards.return_value = {
+        'white_background': [], 'photos': [], 'videos': [], 'image_videos': []
+    }
+
+    with patch('main.QuoteCardGenerator', return_value=mock_gen), \
+         patch('src.published_tracker.load_published_log', return_value=log_data):
+        runner = CliRunner()
+        result = runner.invoke(main_module.cli, ['generate-quote-cards', '-i', str(img)])
+
+    assert 'already used in a published post' in result.output
+
+
 def test_mark_published_no_folder():
     """mark-published prints a clear message when published folder doesn't exist."""
     runner = CliRunner()

@@ -391,7 +391,24 @@ def generate_quote_cards(group, quote_id, photo_dir, video_dir, num_photos, num_
         output_dir_path = Path(output_dir) if output_dir else None
         music_path = Path(music) if music else None
         image_paths = [Path(p) for p in image] if image else None
-        
+
+        # Warn if any specified image was already used in a published post
+        if image_paths:
+            from src.published_tracker import load_published_log, get_all_published_images
+            _pub_log_path = Path(__file__).parent / 'output' / 'published' / '.published_log.json'
+            pub_log = load_published_log(_pub_log_path)
+            published_images = get_all_published_images(pub_log)
+            repo_root = Path(__file__).parent
+            for img_path in image_paths:
+                try:
+                    rel = str(img_path.relative_to(repo_root)).replace('\\', '/')
+                except ValueError:
+                    rel = str(img_path)
+                if rel in published_images or str(img_path) in published_images:
+                    click.echo(
+                        f"{Fore.YELLOW}⚠ Warning: '{rel}' was already used in a published post.{Style.RESET_ALL}"
+                    )
+
         # When generating image-video quote card without --music, pick a random track from assets/00_music
         if image_paths and not music_path:
             music_dir = Path(__file__).parent / 'assets' / '00_music'
