@@ -147,3 +147,47 @@ def test_get_quote_status_published():
     from src.quote_card_generator import QuoteCardGenerator
     generator = QuoteCardGenerator.__new__(QuoteCardGenerator)
     assert generator.get_quote_status({"status": "published"}) == "published"
+
+
+def test_generate_quote_cards_has_exclude_images_parameter():
+    """generate_quote_cards must accept an exclude_images parameter."""
+    import inspect
+    from src.quote_card_generator import QuoteCardGenerator
+    sig = inspect.signature(QuoteCardGenerator.generate_quote_cards)
+    assert 'exclude_images' in sig.parameters
+
+
+def test_generate_quote_cards_excludes_published_photo(tmp_path):
+    """Photos in exclude_images are not passed to generate_photo_overlay_card."""
+    from unittest.mock import MagicMock, patch
+    from src.quote_card_generator import QuoteCardGenerator
+
+    photo_dir = tmp_path / "photos"
+    photo_dir.mkdir()
+    img1 = photo_dir / "photo1.jpg"
+    img2 = photo_dir / "photo2.jpg"
+    img1.write_bytes(b"fake")
+    img2.write_bytes(b"fake")
+
+    generator = QuoteCardGenerator.__new__(QuoteCardGenerator)
+    generator.knowledge_dir = tmp_path / "knowledge"
+    generator.knowledge_dir.mkdir()
+    generator.max_quote_display_length = 200
+    generator.output_base_path = tmp_path / "output"
+    generator.output_base_path.mkdir()
+
+    fake_quote = {'id': 'q1', 'text': 'Test', 'group': 'G',
+                  '_file_author': 'A', '_file_source': 'S'}
+
+    with patch.object(generator, 'get_random_accepted_quote', return_value=fake_quote), \
+         patch.object(generator, 'generate_photo_overlay_card', return_value=[tmp_path / 'out.jpg']) as mock_gen, \
+         patch.object(generator, '_append_generated_cards_to_quote'):
+        generator.generate_quote_cards(
+            photo_dir=photo_dir,
+            num_photos=1,
+            exclude_images={str(img1)},
+        )
+
+    assert mock_gen.called
+    used_photos = mock_gen.call_args[0][1]  # second positional arg is photos list
+    assert all(str(p) != str(img1) for p in used_photos), "Published image should be excluded"

@@ -409,6 +409,14 @@ def generate_quote_cards(group, quote_id, photo_dir, video_dir, num_photos, num_
                         f"{Fore.YELLOW}⚠ Warning: '{rel}' was already used in a published post.{Style.RESET_ALL}"
                     )
 
+        # Build set of published images to exclude from photo-dir selection
+        exclude_images = set()
+        published_log_path = Path(__file__).parent / 'output' / 'published' / '.published_log.json'
+        if published_log_path.exists():
+            from src.published_tracker import load_published_log, get_all_published_images
+            pub_log = load_published_log(published_log_path)
+            exclude_images = get_all_published_images(pub_log)
+
         # When generating image-video quote card without --music, pick a random track from assets/00_music
         if image_paths and not music_path:
             music_dir = Path(__file__).parent / 'assets' / '00_music'
@@ -463,6 +471,7 @@ def generate_quote_cards(group, quote_id, photo_dir, video_dir, num_photos, num_
             flyer_font_size=flyer_font_size,
             flyer_logo_path=Path(__file__).resolve().parent / 'assets' / '01_images' / 'Palheiro' / 'Casa-Velha-do-Palheiro-Logo.png' if flyer_palheiro else None,
             quote_style=quote_style,
+            exclude_images=exclude_images or None,
         )
         
         # Summary

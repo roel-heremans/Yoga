@@ -460,6 +460,7 @@ class QuoteCardGenerator:
         flyer_font_size: int = 40,
         flyer_logo_path: Optional[Path] = None,
         quote_style: str = 'cinematic',
+        exclude_images: Optional[set] = None,
     ) -> Dict[str, List[Path]]:
         """
         Generate quote cards based on options.
@@ -544,6 +545,11 @@ class QuoteCardGenerator:
                 ['.jpg', '.jpeg', '.png', '.JPG', '.JPEG', '.PNG']
             )
             
+            if exclude_images:
+                available_photos = [p for p in available_photos
+                                    if str(p) not in exclude_images
+                                    and str(p.resolve()) not in exclude_images]
+
             if not available_photos:
                 print(f"Warning: No photos found in {photo_dir}")
             else:
