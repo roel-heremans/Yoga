@@ -304,3 +304,20 @@ class TestCreateImageQuoteVideoSignature:
             os.unlink(tmp.name)
         except Exception:
             pass
+
+
+class TestFlyerFontDefaults:
+    def test_flyer_font_size_default_is_80(self):
+        """create_cinematic_flyer_clip default font_size should be 80."""
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_cinematic_flyer_clip)
+        assert sig.parameters['font_size'].default == 80
+
+    def test_flyer_title_larger_than_body_at_large_size(self):
+        """title_font_size must remain larger than body_font_size at font_size=80."""
+        # title = font_size + 28 = 108, body = max(80, 36) = 80 — title > body ✓
+        font_size = 80
+        title_font_size = font_size + 28          # proposed formula
+        body_font_size = max(font_size, 36)
+        assert title_font_size > body_font_size

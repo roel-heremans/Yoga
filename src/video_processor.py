@@ -746,7 +746,7 @@ class VideoProcessor:
         self,
         flyer_lines: list,
         duration: float,
-        font_size: int = 40,
+        font_size: int = 80,
         logo_path=None,
     ):
         """
@@ -829,7 +829,7 @@ class VideoProcessor:
         title = non_empty[0] if non_empty else ''
         body_lines = non_empty[1:] if len(non_empty) > 1 else []
 
-        title_font_size = min(72, font_size + 28)
+        title_font_size = font_size + 28
         body_font_size = max(font_size, 36)
 
         title_clip = _text(title.upper(), title_font_size, self.CINEMATIC_QUOTE_COLOR)
@@ -1041,7 +1041,7 @@ class VideoProcessor:
         font_size: int = 64,
         flyer_lines: Optional[List[str]] = None,
         flyer_duration: float = 15.0,
-        flyer_font_size: int = 40,
+        flyer_font_size: int = 80,
         flyer_logo_path: Optional[Path] = None,
         quote_style: str = 'cinematic',
     ) -> Path:
