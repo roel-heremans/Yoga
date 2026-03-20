@@ -56,10 +56,9 @@ def load_config(config_path: Optional[Path] = None) -> Dict[str, Any]:
     
     # Load API keys from environment
     if 'ai' in config:
-        if 'openai' in config['ai'].get('provider', '').lower():
-            api_key = os.getenv('OPENAI_API_KEY')
-            if api_key:
-                config['ai']['api_key'] = api_key
+        api_key = os.getenv('ANTHROPIC_API_KEY')
+        if api_key:
+            config['ai']['api_key'] = api_key
     
     return config
 
@@ -107,8 +106,8 @@ def create_default_config(config_path: Path):
             }
         ],
         'ai': {
-            'provider': 'openai',
-            'model': 'gpt-4',
+            'provider': 'anthropic',
+            'model': 'claude-sonnet-4-6',
             'language': 'pt',
             'api_key': None
         },

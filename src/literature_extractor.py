@@ -80,6 +80,8 @@ Extract quotes that are:
 
 **IMPORTANT**: If the text discusses fundamental yoga concepts (especially sattva, rajas, tamas, gunas), prioritize extracting quotes that explain or illuminate these concepts. These are highly valuable for yoga content.
 
+**CRITICAL — Self-contained quotes only**: Every quote must be fully understandable on its own without any surrounding context. Do NOT extract sentences that begin with a pronoun whose referent is outside the quote (e.g. "It is...", "They are...", "This is...", "That is...", "These are..." where the noun being referred to is not mentioned within the quote itself). If a sentence starts with "It", "They", "This", "That", "These", or "Those" followed directly by a verb, skip it unless the quote itself makes clear what "it/they/this/that" refers to.
+
 For each quote, provide:
 1. The exact quote text (preserve original wording)
 2. The type: "quote", "statement", "slogan", or "fact"
@@ -97,24 +99,13 @@ Text to extract from:
 """
         
         try:
-            response = self.ai_generator.client.chat.completions.create(
-                model=self.ai_generator.model,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': 'You are an expert at identifying meaningful quotes and wisdom from spiritual and philosophical texts. Extract quotes that are inspiring, memorable, and suitable for sharing on social media.'
-                    },
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+            result_text = self.ai_generator.complete(
+                system='You are an expert at identifying meaningful quotes and wisdom from spiritual and philosophical texts. Extract quotes that are inspiring, memorable, and suitable for sharing on social media.',
+                user=prompt,
                 temperature=0.7,
                 max_tokens=2000
             )
-            
-            result_text = response.choices[0].message.content.strip()
-            
+
             # Try to parse JSON response
             # Remove markdown code blocks if present
             if result_text.startswith('```'):
@@ -529,13 +520,9 @@ Text to extract from:
     def save_extracted_quotes(self, quotes_data: Dict, output_path: Path):
         """
         Save extracted quotes to JSON file.
-        Quote text is shortened for display (see quote_cards.max_display_length in config).
+        Full quote text is preserved; truncation happens at render time in the card generator.
         """
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        max_len = (self.config.get('quote_cards') or {}).get('max_display_length', 120)
-        for quote in quotes_data.get('quotes', []):
-            if quote.get('text'):
-                quote['text'] = shorten_quote_for_display(quote['text'], max_len)
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(quotes_data, f, indent=2, ensure_ascii=False)
     

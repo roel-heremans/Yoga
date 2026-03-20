@@ -78,8 +78,8 @@ quote_extraction:
     - dharana
     - pratyahara
 ai:
-  provider: openai
-  model: gpt-4
+  provider: anthropic
+  model: claude-sonnet-4-6
   language: en
 instagram:
   feed_dimensions:

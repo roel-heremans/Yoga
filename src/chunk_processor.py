@@ -69,8 +69,11 @@ class ChunkProcessor:
             author,
             chunk.get('context', '')
         )
-        
-        # Step 3: Extract contextual quotes
+
+        # Step 3: Resolve dangling pronouns using chunk context
+        quote_candidates = self.resolve_dangling_pronouns(quote_candidates, chunk_text)
+
+        # Step 4: Extract contextual quotes
         quotes = self.extract_contextual_quotes(
             quote_candidates,
             main_ideas,
@@ -133,33 +136,22 @@ Example: ["The importance of proper alignment in asana practice", "Breath contro
 Return ONLY a valid JSON array, no other text."""
 
         try:
-            response = self.ai_generator.client.chat.completions.create(
-                model=self.ai_generator.model,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': 'You are an expert at analyzing yoga and spiritual literature. You identify key themes and main ideas concisely.'
-                    },
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+            result_text = self.ai_generator.complete(
+                system='You are an expert at analyzing yoga and spiritual literature. You identify key themes and main ideas concisely.',
+                user=prompt,
                 temperature=0.5,
                 max_tokens=500
             )
-            
-            result_text = response.choices[0].message.content.strip()
-            
+
             # Parse JSON response
             if result_text.startswith('```'):
                 result_text = re.sub(r'^```(?:json)?\s*', '', result_text)
                 result_text = re.sub(r'\s*```$', '', result_text)
-            
+
             main_ideas = json.loads(result_text)
             if isinstance(main_ideas, list):
                 return [idea.strip() for idea in main_ideas if idea.strip()][:5]
-            
+
         except Exception as e:
             print(f"Warning: Error summarizing main ideas: {e}")
         
@@ -213,6 +205,8 @@ Identify quotes that:
 
 **IMPORTANT**: If the text discusses fundamental yoga concepts (especially sattva, rajas, tamas, gunas), prioritize extracting quotes that explain or illuminate these concepts. These are highly valuable for yoga content.
 
+**CRITICAL — Self-contained quotes only**: Every quote must be fully understandable on its own without any surrounding context. Do NOT extract sentences that begin with a pronoun whose referent is outside the quote (e.g. "It is...", "They are...", "This is...", "That is...", "These are..." where the noun being referred to is not mentioned within the quote itself). If a sentence starts with "It", "They", "This", "That", "These", or "Those" followed directly by a verb, skip it unless the quote itself makes clear what "it/they/this/that" refers to.
+
 For each quote, provide:
 1. The exact quote text (preserve original wording)
 2. The type: "quote", "statement", "slogan", or "fact"
@@ -226,38 +220,107 @@ Format your response as a JSON array, where each item has:
 Return ONLY a valid JSON array, no other text. Maximum {self.max_quotes_per_chunk} quotes."""
 
         try:
-            response = self.ai_generator.client.chat.completions.create(
-                model=self.ai_generator.model,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': 'You are an expert at identifying meaningful quotes from yoga and spiritual literature. You select quotes that are inspiring, clear, and relevant to the main themes.'
-                    },
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+            result_text = self.ai_generator.complete(
+                system='You are an expert at identifying meaningful quotes from yoga and spiritual literature. You select quotes that are inspiring, clear, and relevant to the main themes.',
+                user=prompt,
                 temperature=0.7,
                 max_tokens=1500
             )
-            
-            result_text = response.choices[0].message.content.strip()
-            
+
             # Parse JSON response
             if result_text.startswith('```'):
                 result_text = re.sub(r'^```(?:json)?\s*', '', result_text)
                 result_text = re.sub(r'\s*```$', '', result_text)
-            
+
             candidates = json.loads(result_text)
             if isinstance(candidates, list):
                 return candidates[:self.max_quotes_per_chunk]
-            
+
         except Exception as e:
             print(f"Warning: Error identifying quote candidates: {e}")
         
         return []
     
+    _DANGLING_PRONOUN_RE = re.compile(
+        r'^(it|they|this|that|these|those)\s+(is|are|was|were|has|have|had|can|could|will|would|does|do|did|may|might|shall|should)\b',
+        re.IGNORECASE
+    )
+
+    def resolve_dangling_pronouns(
+        self,
+        candidates: List[Dict],
+        chunk_text: str
+    ) -> List[Dict]:
+        """
+        For any candidate whose text opens with a dangling pronoun, ask the AI to
+        substitute the pronoun with the actual concept it refers to, using the chunk
+        text as context.  All dangling quotes are resolved in a single batched AI call.
+
+        Args:
+            candidates: Quote candidate dicts (each has a 'text' key).
+            chunk_text: The full chunk text from which the quotes were drawn.
+
+        Returns:
+            Updated candidate list with pronouns resolved where possible.
+        """
+        if not self.ai_generator.client:
+            return candidates
+
+        # Identify which candidates need resolution
+        to_resolve = [
+            (i, c) for i, c in enumerate(candidates)
+            if self._DANGLING_PRONOUN_RE.match(c.get('text', '').strip())
+        ]
+        if not to_resolve:
+            return candidates
+
+        quotes_block = "\n".join(
+            f'{n+1}. {c["text"]}' for n, (_, c) in enumerate(to_resolve)
+        )
+
+        prompt = f"""The quotes below were extracted from a yoga text but each opens with a pronoun
+("It", "This", "That", "They", "These", "Those") whose referent is in the surrounding passage,
+not inside the quote itself.
+
+Using the passage as context, rewrite each quote by replacing the opening pronoun with the
+specific concept, noun, or phrase it refers to.  Keep every other word exactly as written.
+If you genuinely cannot determine the referent, leave the quote unchanged.
+
+Source passage:
+{chunk_text[:4000]}
+
+Quotes to resolve:
+{quotes_block}
+
+Return a JSON array with one object per quote, in the same order:
+- "original": the original quote text
+- "resolved": the rewritten quote
+
+Return ONLY valid JSON, no other text."""
+
+        try:
+            result_text = self.ai_generator.complete(
+                system='You are an expert editor. You resolve ambiguous pronoun references in quotes by substituting the pronoun with the noun or concept it refers to, based on surrounding context.',
+                user=prompt,
+                temperature=0.3,
+                max_tokens=1000
+            )
+            if result_text.startswith('```'):
+                result_text = re.sub(r'^```(?:json)?\s*', '', result_text)
+                result_text = re.sub(r'\s*```$', '', result_text)
+
+            resolutions = json.loads(result_text)
+            if isinstance(resolutions, list):
+                for n, (orig_idx, _) in enumerate(to_resolve):
+                    if n < len(resolutions):
+                        resolved_text = resolutions[n].get('resolved', '').strip()
+                        if resolved_text:
+                            candidates[orig_idx]['text'] = resolved_text
+        except Exception as e:
+            print(f"Warning: Pronoun resolution failed: {e}")
+
+        return candidates
+
     def extract_contextual_quotes(
         self,
         quote_candidates: List[Dict],

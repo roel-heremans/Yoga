@@ -6,37 +6,58 @@ Generates engaging Instagram captions, hashtags, and CTAs using AI from PDF cont
 
 import os
 from typing import Dict, List, Optional
-from openai import OpenAI
+import anthropic
 from .utils import load_config, get_theme_config
 
 
 class AICaptionGenerator:
     """Generate Instagram captions using AI."""
-    
+
     def __init__(self, config: Optional[Dict] = None):
         """
         Initialize AI caption generator.
-        
+
         Args:
             config: Configuration dictionary. If None, loads from file.
         """
         if config is None:
             config = load_config()
-        
+
         self.config = config
         ai_config = config.get('ai', {})
-        self.provider = ai_config.get('provider', 'openai').lower()
-        self.model = ai_config.get('model', 'gpt-4')
+        self.provider = ai_config.get('provider', 'anthropic').lower()
+        self.model = ai_config.get('model', 'claude-sonnet-4-6')
         self.language = ai_config.get('language', 'pt')
-        
-        # Initialize OpenAI client if using OpenAI
+
+        # Initialize Anthropic client
         self.client = None
-        if self.provider == 'openai':
-            api_key = ai_config.get('api_key') or os.getenv('OPENAI_API_KEY')
-            if api_key:
-                self.client = OpenAI(api_key=api_key)
-            else:
-                print("Warning: OPENAI_API_KEY not found. AI caption generation will not work.")
+        api_key = ai_config.get('api_key') or os.getenv('ANTHROPIC_API_KEY')
+        if api_key:
+            self.client = anthropic.Anthropic(api_key=api_key)
+        else:
+            print("Warning: ANTHROPIC_API_KEY not found. AI caption generation will not work.")
+
+    def complete(self, system: str, user: str, temperature: float = 0.7, max_tokens: int = 1000) -> str:
+        """
+        Make an Anthropic API call and return the text response.
+
+        Args:
+            system: System prompt.
+            user: User message.
+            temperature: Sampling temperature.
+            max_tokens: Maximum tokens in response.
+
+        Returns:
+            Response text string.
+        """
+        response = self.client.messages.create(
+            model=self.model,
+            system=system,
+            messages=[{'role': 'user', 'content': user}],
+            temperature=temperature,
+            max_tokens=max_tokens
+        )
+        return response.content[0].text.strip()
     
     def generate_caption(
         self,
@@ -78,25 +99,14 @@ class AICaptionGenerator:
         )
         
         try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': 'You are an expert social media content creator specializing in health and wellness content for Instagram.'
-                    },
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+            result_text = self.complete(
+                system='You are an expert social media content creator specializing in health and wellness content for Instagram.',
+                user=prompt,
                 temperature=0.7,
                 max_tokens=500
             )
-            
-            result_text = response.choices[0].message.content.strip()
             return self._parse_ai_response(result_text, hashtags_base, hashtags_custom)
-        
+
         except Exception as e:
             print(f"Error generating caption with AI: {e}")
             return self._fallback_caption(content_text, theme_name)
@@ -244,28 +254,17 @@ ENGLISH: [refined text in English, 100-200 characters]
 Focus on making the information digestible while highlighting something interesting that most people don't know about kombucha's health benefits."""
         
         try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': 'You are an expert in translating scientific research into accessible health information. You specialize in making complex scientific findings clear, engaging, and interesting for general audiences.'
-                    },
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+            result_text = self.complete(
+                system='You are an expert in translating scientific research into accessible health information. You specialize in making complex scientific findings clear, engaging, and interesting for general audiences.',
+                user=prompt,
                 temperature=0.7,
                 max_tokens=300
             )
-            
-            result_text = response.choices[0].message.content.strip()
-            
+
             # Parse the response to extract Portuguese and English versions
             refined = self._parse_refined_benefit(result_text, raw_text, max_length)
             return refined
-        
+
         except Exception as e:
             print(f"Warning: Could not refine health benefit with LLM: {e}")
             # Fallback: return original text truncated to max_length

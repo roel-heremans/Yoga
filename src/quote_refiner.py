@@ -37,6 +37,16 @@ class QuoteRefiner:
             'asana', 'yama', 'niyama', 'chitta', 'vrittis'
         ])
     
+    # Patterns that indicate a quote starts with a dangling pronoun reference
+    _DANGLING_PRONOUN_RE = re.compile(
+        r'^(it|they|this|that|these|those)\s+(is|are|was|were|has|have|had|can|could|will|would|does|do|did|may|might|shall|should)\b',
+        re.IGNORECASE
+    )
+
+    def _has_dangling_pronoun(self, text: str) -> bool:
+        """Return True if the quote opens with a pronoun whose antecedent is outside the quote."""
+        return bool(self._DANGLING_PRONOUN_RE.match(text.strip()))
+
     def evaluate_quotes(
         self,
         quotes: List[Dict],
@@ -44,27 +54,31 @@ class QuoteRefiner:
     ) -> List[Dict]:
         """
         Evaluate quote quality and add scores.
-        
+
         Args:
             quotes: List of quote dictionaries.
             chunk_summaries: List of chunk summary strings.
-        
+
         Returns:
             List of quotes with importance scores.
         """
         if not quotes:
             return []
-        
+
         # Combine chunk summaries for context
         combined_summary = " ".join(chunk_summaries[:5])  # Use top 5 summaries
-        
+
         # Evaluate each quote
         evaluated_quotes = []
         for quote in quotes:
             score = self._calculate_importance_score(quote, combined_summary)
+            # Safety net: heavily penalise any dangling-pronoun quote that slipped
+            # through without being resolved (e.g. via the simple extraction path)
+            if self._has_dangling_pronoun(quote.get('text', '')):
+                score = max(0.0, score - 0.5)
             quote['importance_score'] = score
             evaluated_quotes.append(quote)
-        
+
         return evaluated_quotes
     
     def _calculate_importance_score(self, quote: Dict, context: str) -> float:
@@ -270,29 +284,18 @@ Example: [3, 1, 5, 2, 4]
 Return ONLY the JSON array, no other text."""
 
         try:
-            response = self.ai_generator.client.chat.completions.create(
-                model=self.ai_generator.model,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': 'You are an expert at evaluating quotes for quality, uniqueness, and inspirational value.'
-                    },
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+            result_text = self.ai_generator.complete(
+                system='You are an expert at evaluating quotes for quality, uniqueness, and inspirational value.',
+                user=prompt,
                 temperature=0.3,
                 max_tokens=500
             )
-            
-            result_text = response.choices[0].message.content.strip()
-            
+
             # Parse JSON response
             if result_text.startswith('```'):
                 result_text = re.sub(r'^```(?:json)?\s*', '', result_text)
                 result_text = re.sub(r'\s*```$', '', result_text)
-            
+
             ranked_indices = json.loads(result_text)
             if isinstance(ranked_indices, list):
                 # Reorder quotes based on AI ranking

@@ -184,7 +184,7 @@ class PDFPreprocessor:
             List of refined, accessible key points.
         """
         if not self.ai_generator.client:
-            print("Warning: OpenAI client not available. Using raw key points without LLM refinement.")
+            print("Warning: Anthropic client not available. Using raw key points without LLM refinement.")
             return raw_key_points[:max_points]
         
         # Combine key points into a single text block (limit input size)
@@ -215,23 +215,12 @@ Format your response as a numbered list, one takeaway per line:
 ..."""
 
         try:
-            response = self.ai_generator.client.chat.completions.create(
-                model=self.ai_generator.model,
-                messages=[
-                    {
-                        'role': 'system',
-                        'content': 'You are an expert at translating scientific research into clear, engaging, and accessible information for the general public. You make complex health information easy to understand.'
-                    },
-                    {
-                        'role': 'user',
-                        'content': prompt
-                    }
-                ],
+            result_text = self.ai_generator.complete(
+                system='You are an expert at translating scientific research into clear, engaging, and accessible information for the general public. You make complex health information easy to understand.',
+                user=prompt,
                 temperature=0.7,
                 max_tokens=1000
             )
-            
-            result_text = response.choices[0].message.content.strip()
             
             # Parse the numbered list
             refined_points = []

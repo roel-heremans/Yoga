@@ -770,11 +770,11 @@ class VideoProcessor:
         serif_candidates = self.QUOTE_OVERLAY_FONT_CANDIDATES + ('Arial',)
         usable_width = w - 160
 
-        def _text(t, size, color):
+        def _text(t, size, color, margin=(10, 20)):
             for fn in serif_candidates:
                 try:
                     return TextClip(text=t, font_size=size, color=color, font=fn,
-                                    size=(usable_width, None), margin=(10, 10))
+                                    size=(usable_width, None), margin=margin)
                 except Exception:
                     try:
                         return TextClip(t, fontsize=size, color=color, font=fn,
@@ -782,7 +782,7 @@ class VideoProcessor:
                     except Exception:
                         continue
             return TextClip(text=t, font_size=size, color=color,
-                            size=(usable_width, None), margin=(10, 10))
+                            size=(usable_width, None), margin=margin)
 
         def _dur_pos(clip, pos):
             clip = (clip.with_duration(duration) if hasattr(clip, 'with_duration')
@@ -994,17 +994,19 @@ class VideoProcessor:
         
         return output_path
     
-    def _add_white_fade_overlay(self, clip, video_fade_duration: float, fps: float = 30):
-        """Add a white overlay that fades in over the last video_fade_duration seconds.
+    def _add_white_fade_overlay(self, clip, video_fade_duration: float, fps: float = 30,
+                                color=(255, 255, 255)):
+        """Add a solid-color overlay that fades in over the last video_fade_duration seconds.
+        Defaults to white; pass color=(r,g,b) to fade to a different color.
         Caller is responsible for closing the original clip when done."""
         if clip.duration <= video_fade_duration:
             return clip
         fade_start = clip.duration - video_fade_duration
         w, h = int(clip.w), int(clip.h)
         try:
-            white_clip = ColorClip(size=(w, h), color=(255, 255, 255), duration=video_fade_duration)
+            white_clip = ColorClip(size=(w, h), color=color, duration=video_fade_duration)
         except TypeError:
-            white_clip = ColorClip(size=(w, h), color=(255, 255, 255))
+            white_clip = ColorClip(size=(w, h), color=color)
             white_clip = white_clip.with_duration(video_fade_duration) if hasattr(white_clip, 'with_duration') else white_clip.set_duration(video_fade_duration)
         if hasattr(white_clip, 'with_fps'):
             white_clip = white_clip.with_fps(fps)
@@ -1122,8 +1124,14 @@ class VideoProcessor:
             segment_1 = segment_1.with_fps(fps)
         elif hasattr(segment_1, 'set_fps'):
             segment_1 = segment_1.set_fps(fps)
-        segment_1 = self._add_white_fade_overlay(segment_1, video_fade_duration, fps)
-        
+        if use_flyer:
+            _gr, _gg, _gb = self.hex_to_rgb(
+                self.config.get('brand', {}).get('colors', {}).get('primary', '#2c5530'))
+            segment_1 = self._add_white_fade_overlay(segment_1, video_fade_duration, fps,
+                                                     color=(_gr, _gg, _gb))
+        else:
+            segment_1 = self._add_white_fade_overlay(segment_1, video_fade_duration, fps)
+
         if not use_flyer:
             final_clip = segment_1
         else:
