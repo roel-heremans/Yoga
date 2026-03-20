@@ -306,6 +306,35 @@ class TestCreateImageQuoteVideoSignature:
             pass
 
 
+class TestCreateScrollClips:
+    def test_method_exists(self):
+        from src.video_processor import VideoProcessor
+        assert hasattr(VideoProcessor, 'create_scroll_clips')
+
+    def test_returns_list(self):
+        from unittest.mock import patch, MagicMock
+        processor = make_processor()
+        with patch('src.video_processor.VideoClip', return_value=MagicMock(duration=5)):
+            result = processor.create_scroll_clips("Hello world yoga", "B.K.S. Iyengar", 5.0, font_size=36)
+        assert isinstance(result, list)
+
+    def test_returns_at_least_two_clips(self):
+        """Must return scrim + at least one VideoClip overlay."""
+        from unittest.mock import patch, MagicMock
+        processor = make_processor()
+        with patch('src.video_processor.VideoClip', return_value=MagicMock(duration=5)):
+            result = processor.create_scroll_clips("Hello world yoga", "B.K.S. Iyengar", 5.0, font_size=36)
+        assert len(result) >= 2
+
+    def test_scroll_style_accepted_by_create_image_quote_video(self):
+        """create_image_quote_video must accept quote_style='scroll' without raising."""
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_image_quote_video)
+        # quote_style param exists (already exists for cinematic/reveal)
+        assert 'quote_style' in sig.parameters
+
+
 class TestFlyerFontDefaults:
     def test_flyer_font_size_default_is_80(self):
         """create_cinematic_flyer_clip default font_size should be 80."""

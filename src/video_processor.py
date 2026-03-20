@@ -5,11 +5,11 @@ Creates Instagram Reels with clips, music, text overlays, and transitions.
 """
 
 try:
-    from moviepy import VideoFileClip, CompositeVideoClip, TextClip, concatenate_videoclips, ImageClip, AudioFileClip, concatenate_audioclips, ColorClip
+    from moviepy import VideoFileClip, CompositeVideoClip, TextClip, concatenate_videoclips, ImageClip, AudioFileClip, concatenate_audioclips, ColorClip, VideoClip
 except ImportError:
     # Fallback for older moviepy versions
     try:
-        from moviepy.editor import VideoFileClip, CompositeVideoClip, TextClip, concatenate_videoclips, ImageClip, AudioFileClip, concatenate_audioclips, ColorClip
+        from moviepy.editor import VideoFileClip, CompositeVideoClip, TextClip, concatenate_videoclips, ImageClip, AudioFileClip, concatenate_audioclips, ColorClip, VideoClip
     except ImportError:
         raise ImportError("moviepy is not installed. Please install it with: pip install moviepy")
 from pathlib import Path
@@ -458,6 +458,164 @@ class VideoProcessor:
         clip = (clip.with_position((0, 0)) if hasattr(clip, 'with_position')
                 else clip.set_position((0, 0)))
         return clip
+
+    def _load_pil_font(self, size: int):
+        """Load a PIL TrueType font at the given pixel size.
+
+        Tries common system paths; falls back to PIL's built-in bitmap font
+        (which ignores size but always works).
+        """
+        from PIL import ImageFont
+        candidates = [
+            # macOS
+            '/Library/Fonts/Georgia.ttf',
+            '/System/Library/Fonts/Supplemental/Georgia.ttf',
+            '/System/Library/Fonts/Times.ttc',
+            # Linux
+            '/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf',
+            '/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf',
+            '/usr/share/fonts/truetype/fonts-dejavu/DejaVuSerif.ttf',
+        ]
+        for path in candidates:
+            try:
+                return ImageFont.truetype(path, size)
+            except (IOError, OSError):
+                continue
+        return ImageFont.load_default()
+
+    def create_scroll_clips(
+        self,
+        text: str,
+        author: str,
+        duration: float,
+        font_size: int = 72,
+    ) -> list:
+        """
+        Teleprompter-style 3-line scroll overlay.
+
+        At any moment the display shows:
+          - Top row:    previous line, all words dim (past)
+          - Middle row: current line, read words bright/cream, active word gold, unread words dim
+          - Bottom row: next line, all words dim (future)
+
+        Lines outside the 3-line window are hidden. After all words are shown, the
+        author name appears centered in gold for the last ~2.5 s of the clip.
+
+        Returns a list of transparent overlay clips to composite over the background.
+        """
+        import numpy as np
+
+        w, h = self.reel_width, self.reel_height
+
+        # ---- Text wrapping ----
+        char_width_ratio = 0.55
+        usable_width = w - 120
+        max_chars = max(20, int(usable_width / (font_size * char_width_ratio) * 1.2))
+        wrapped_lines = self._smart_wrap(text, max_chars)
+        words_per_line = [line.split() for line in wrapped_lines if line.strip()]
+
+        # Flat word list: each entry is (line_idx, word_idx_within_line)
+        flat_words = [
+            (li, wi)
+            for li, words in enumerate(words_per_line)
+            for wi in range(len(words))
+        ]
+        n_words = max(1, len(flat_words))
+
+        # ---- Timing ----
+        # Reserve the last ~2.5 s (or 15% of duration) for the author name.
+        author_display_start = duration - min(2.5, duration * 0.15)
+        # Each word gets equal time; floor at 0.3 s to avoid imperceptibly fast flashes.
+        word_dt = max(0.3, author_display_start / n_words)
+
+        # ---- Layout ----
+        line_height = int(font_size * self.LINE_HEIGHT_MULT)
+        block_top = max(80, h // 6)
+        # Row offsets: past=-1 (top), current=0 (middle), future=+1 (bottom)
+        # Visible rows are at block_top, block_top+line_height, block_top+2*line_height
+
+        # ---- Colours ----
+        cream_rgb = self.hex_to_rgb(self.CINEMATIC_QUOTE_COLOR)    # (#f0ece4)
+        gold_rgb  = self.hex_to_rgb(self.CINEMATIC_AUTHOR_COLOR)   # (#c9a96e)
+        BRIGHT = 255
+        DIM    = 80
+
+        # ---- Pre-load fonts ----
+        pil_font   = self._load_pil_font(font_size)
+        author_font = self._load_pil_font(max(28, font_size // 2))
+
+        # ---- Measure helper (handles Pillow API differences) ----
+        def _measure(fnt, txt: str) -> int:
+            from PIL import ImageDraw, Image
+            d = ImageDraw.Draw(Image.new('RGBA', (1, 1)))
+            try:
+                return int(d.textlength(txt, font=fnt))
+            except AttributeError:
+                try:
+                    return int(fnt.getlength(txt))
+                except AttributeError:
+                    return int(fnt.getsize(txt)[0])
+
+        # ---- Per-frame renderer ----
+        def make_frame(t):
+            from PIL import Image, ImageDraw
+            img  = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+            draw = ImageDraw.Draw(img)
+
+            if t >= author_display_start:
+                # Show author centred in gold
+                if author:
+                    author_text = author.upper()
+                    tw = _measure(author_font, author_text)
+                    x  = (w - tw) // 2
+                    y  = h // 2
+                    draw.text((x, y), author_text, font=author_font,
+                              fill=(*gold_rgb, BRIGHT))
+                return np.array(img)
+
+            # Which word is active at time t?
+            word_idx = min(int(t / word_dt), n_words - 1)
+            cur_line, cur_word = flat_words[word_idx]
+
+            # Render past / current / future rows
+            for offset in (-1, 0, 1):
+                li = cur_line + offset
+                if li < 0 or li >= len(words_per_line):
+                    continue
+                words = words_per_line[li]
+                y = block_top + (offset + 1) * line_height  # offset -1→top, 0→mid, 1→bottom
+
+                if offset == 0:
+                    # Current line: word-by-word colouring
+                    total_w = sum(_measure(pil_font, wd + ' ') for wd in words)
+                    x = (w - total_w) // 2
+                    for wi, wd in enumerate(words):
+                        if wi < cur_word:
+                            rgba = (*cream_rgb, BRIGHT)   # already read
+                        elif wi == cur_word:
+                            rgba = (*gold_rgb,  BRIGHT)   # active word
+                        else:
+                            rgba = (*cream_rgb, DIM)      # not yet read
+                        draw.text((x, y), wd, font=pil_font, fill=rgba)
+                        x += _measure(pil_font, wd + ' ')
+                else:
+                    # Past or future: render the full line dimmed
+                    line_text = ' '.join(words)
+                    tw = _measure(pil_font, line_text)
+                    x  = (w - tw) // 2
+                    draw.text((x, y), line_text, font=pil_font,
+                              fill=(*cream_rgb, DIM))
+
+            return np.array(img)
+
+        # ---- Build the VideoClip overlay ----
+        scroll_clip = VideoClip(make_frame, duration=duration)
+        scroll_clip = (scroll_clip.with_fps(30) if hasattr(scroll_clip, 'with_fps')
+                       else scroll_clip.set_fps(30))
+        scroll_clip = (scroll_clip.with_position((0, 0)) if hasattr(scroll_clip, 'with_position')
+                       else scroll_clip.set_position((0, 0)))
+
+        return [self._make_scrim_clip(w, h, duration), scroll_clip]
 
     def create_cinematic_text_clip(
         self,
@@ -1111,6 +1269,14 @@ class VideoProcessor:
                 font_size=quote_font_size,
             )
             segment_1 = CompositeVideoClip([image_clip] + reveal_clips)
+        elif quote_style == 'scroll':
+            scroll_clips = self.create_scroll_clips(
+                text=text,
+                author=author,
+                duration=duration,
+                font_size=quote_font_size,
+            )
+            segment_1 = CompositeVideoClip([image_clip] + scroll_clips)
         else:
             # 'cinematic' (default)
             text_clip = self.create_cinematic_text_clip(

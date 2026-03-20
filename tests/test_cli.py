@@ -19,7 +19,7 @@ class TestQuoteStyleCLI:
     def test_quote_style_choices(self):
         from main import generate_quote_cards
         param = next(p for p in generate_quote_cards.params if p.name == 'quote_style')
-        assert set(param.type.choices) == {'cinematic', 'reveal'}
+        assert set(param.type.choices) == {'cinematic', 'reveal', 'scroll'}
 
     def test_reveal_style_passed_to_generator(self):
         """--quote-style reveal reaches generate_quote_cards() call."""

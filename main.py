@@ -345,9 +345,9 @@ def extract_quotes(group, all, force, intelligent, simple, chunk_size, max_quote
 @click.option('--flyer-line2', default=None, help='Flyer second line (overrides preset when used with custom flyer)')
 @click.option('--flyer-duration', default=15, type=int, help='Flyer segment duration in seconds (default: 15)')
 @click.option('--flyer-font-size', default=80, type=int, help='Flyer body text font size (default: 80); title is larger')
-@click.option('--quote-style', type=click.Choice(['cinematic', 'reveal'], case_sensitive=False),
+@click.option('--quote-style', type=click.Choice(['cinematic', 'reveal', 'scroll'], case_sensitive=False),
               default='cinematic', show_default=True,
-              help='Quote overlay style: cinematic (centered, gold/cream) or reveal (line-by-line fade-in)')
+              help='Quote overlay style: cinematic (centered gold/cream), reveal (line-by-line fade-in), or scroll (teleprompter 3-line word-by-word) [default: cinematic]')
 def generate_quote_cards(group, quote_id, photo_dir, video_dir, num_photos, num_videos, white_background, output_dir, music, image, duration, audio_fade, video_fade, flyer_ajuda, flyer_palheiro, flyer_line1, flyer_line2, flyer_duration, flyer_font_size, quote_style):
     """Generate quote cards from accepted quotes.
     
