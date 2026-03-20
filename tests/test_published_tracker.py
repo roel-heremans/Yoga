@@ -8,6 +8,7 @@ from src.published_tracker import (
     find_quote_for_file,
     mark_quote_as_published,
     get_all_published_images,
+    process_published_folder,
 )
 
 
@@ -145,8 +146,6 @@ def test_get_all_published_images(tmp_path):
 
 
 # ── process_published_folder ──────────────────────────────────────────────────
-
-from src.published_tracker import process_published_folder
 
 def test_process_published_folder_happy_path(tmp_path):
     """Full flow: video in published folder gets matched, quote marked, log saved."""

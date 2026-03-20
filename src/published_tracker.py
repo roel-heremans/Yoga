@@ -70,7 +70,7 @@ def find_quote_for_file(
         for quote in data.get('quotes', []):
             for card in quote.get('generated_cards', []):
                 card_path = card.get('path', '')
-                if Path(card_path).name == filename:
+                if Path(card_path).name == filename and quote.get('id'):
                     return (
                         quote['id'],
                         group_dir.name,
