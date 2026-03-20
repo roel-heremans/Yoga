@@ -135,6 +135,7 @@ class QuoteCardGenerator:
         quote: Dict,
         results: Dict[str, List[Path]],
         created_at: Optional[str] = None,
+        images_used: Optional[List[str]] = None,
     ) -> None:
         """
         Append generated card paths to this quote in the group's quotes.json
@@ -159,11 +160,14 @@ class QuoteCardGenerator:
                     rel = path_obj.relative_to(repo_root)
                 except ValueError:
                     rel = path_obj
-                new_entries.append({
+                entry = {
                     'type': card_type,
                     'path': str(rel).replace('\\', '/'),
                     'created_at': created_at,
-                })
+                }
+                if images_used:
+                    entry['images_used'] = images_used
+                new_entries.append(entry)
         if not new_entries:
             return
         with open(quotes_file, 'r', encoding='utf-8') as f:
@@ -592,10 +596,20 @@ class QuoteCardGenerator:
         
         # Persist generated card paths into the quote's JSON for review and later use
         if quote.get('group') and quote.get('id'):
+            images_used_rel = None
+            if image_paths:
+                repo_root = self.assets_base_path.parent
+                images_used_rel = []
+                for p in image_paths:
+                    try:
+                        images_used_rel.append(str(Path(p).relative_to(repo_root)).replace('\\', '/'))
+                    except ValueError:
+                        images_used_rel.append(str(p))
             self._append_generated_cards_to_quote(
                 quote,
                 results,
                 created_at=datetime.now().isoformat(),
+                images_used=images_used_rel,
             )
         
         return results

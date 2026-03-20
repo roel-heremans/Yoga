@@ -1,4 +1,5 @@
 """Tests for QuoteCardGenerator quote_style passthrough."""
+import json
 import pytest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
@@ -85,3 +86,32 @@ class TestQuoteStylePassthrough:
         assert 'text_overlay' not in str(call_kwargs)
 
         os.unlink(tmp.name)
+
+
+def test_append_generated_cards_records_images_used(tmp_path):
+    """images_used list is stored in generated_cards entry when provided."""
+    # Set up a minimal quotes.json
+    knowledge_dir = tmp_path / "assets" / "10_knowledge"
+    group_dir = knowledge_dir / "TestGroup"
+    group_dir.mkdir(parents=True)
+    quotes_file = group_dir / "quotes.json"
+    quotes_file.write_text(json.dumps({
+        "source": "Test",
+        "author": "Tester",
+        "quotes": [{"id": "q001", "text": "Test quote", "status": "accepted"}]
+    }))
+
+    from src.quote_card_generator import QuoteCardGenerator
+    generator = QuoteCardGenerator.__new__(QuoteCardGenerator)
+    generator.knowledge_dir = knowledge_dir
+    generator.assets_base_path = tmp_path / "assets"
+
+    quote = {"id": "q001", "group": "TestGroup"}
+    results = {"image_videos": [tmp_path / "out.mp4"]}
+    images_used = ["assets/01-ajuda/Yoga_Funchal21.jpg", "assets/01-ajuda/Yoga_Funchal10.jpg"]
+
+    generator._append_generated_cards_to_quote(quote, results, images_used=images_used)
+
+    data = json.loads(quotes_file.read_text())
+    card = data["quotes"][0]["generated_cards"][0]
+    assert card["images_used"] == images_used
