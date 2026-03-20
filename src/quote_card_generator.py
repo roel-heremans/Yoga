@@ -70,10 +70,10 @@ class QuoteCardGenerator:
         return author or source or quote.get('group', 'Yoga Wisdom')
 
     def get_quote_status(self, quote: Dict) -> str:
-        """Get quote status: pending, accepted, or rejected."""
+        """Get quote status: pending, accepted, rejected, or published."""
         if 'status' in quote:
             status = quote['status'].lower()
-            if status in ['pending', 'accepted', 'rejected']:
+            if status in ['pending', 'accepted', 'rejected', 'published']:
                 return status
         # Legacy support: convert approved boolean to status
         if quote.get('approved', False):

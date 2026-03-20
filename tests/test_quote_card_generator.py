@@ -115,3 +115,35 @@ def test_append_generated_cards_records_images_used(tmp_path):
     data = json.loads(quotes_file.read_text())
     card = data["quotes"][0]["generated_cards"][0]
     assert card["images_used"] == images_used
+
+
+def test_published_quote_excluded_from_accepted(tmp_path):
+    """Quotes with status 'published' are not returned by load_accepted_quotes."""
+    knowledge_dir = tmp_path / "assets" / "10_knowledge"
+    group_dir = knowledge_dir / "TestGroup"
+    group_dir.mkdir(parents=True)
+    (group_dir / "quotes.json").write_text(json.dumps({
+        "source": "Test", "author": "Tester",
+        "quotes": [
+            {"id": "q001", "text": "Accepted quote", "status": "accepted"},
+            {"id": "q002", "text": "Published quote", "status": "published"},
+            {"id": "q003", "text": "Pending quote", "status": "pending"},
+        ]
+    }))
+
+    from src.quote_card_generator import QuoteCardGenerator
+    generator = QuoteCardGenerator.__new__(QuoteCardGenerator)
+    generator.knowledge_dir = knowledge_dir
+
+    quotes = generator.load_accepted_quotes()
+    ids = [q["id"] for q in quotes]
+    assert "q001" in ids
+    assert "q002" not in ids   # published must be excluded
+    assert "q003" not in ids
+
+
+def test_get_quote_status_published():
+    """get_quote_status returns 'published' for quotes with status='published'."""
+    from src.quote_card_generator import QuoteCardGenerator
+    generator = QuoteCardGenerator.__new__(QuoteCardGenerator)
+    assert generator.get_quote_status({"status": "published"}) == "published"
