@@ -47,3 +47,15 @@ class TestQuoteStyleCLI:
             ['generate-quote-cards', '--white-background', '--quote-style', 'invalid'],
         )
         assert result.exit_code != 0
+
+
+def test_mark_published_no_folder():
+    """mark-published prints a clear message when published folder doesn't exist."""
+    runner = CliRunner()
+    # Pass a path that is guaranteed not to exist — no mocking needed
+    result = runner.invoke(
+        __import__('main').cli,
+        ['mark-published', '--published-dir', '/tmp/yoga_test_nonexistent_published_dir'],
+    )
+    assert result.exit_code == 0
+    assert 'does not exist' in result.output.lower()
