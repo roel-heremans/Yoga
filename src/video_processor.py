@@ -742,6 +742,137 @@ class VideoProcessor:
 
         return clips
 
+    def create_cinematic_flyer_clip(
+        self,
+        flyer_lines: list,
+        duration: float,
+        font_size: int = 40,
+        logo_path=None,
+    ):
+        """
+        Create a cinematic flyer segment: deep-green background, cream title,
+        gold divider, gold body lines. Used as segment 2 after the quote card.
+        """
+        w, h = self.reel_width, self.reel_height
+
+        # ---- Dark green background ----
+        brand_r, brand_g, brand_b = self.hex_to_rgb(
+            self.config.get('brand', {}).get('colors', {}).get('primary', '#2c5530')
+        )
+        try:
+            bg = ColorClip(size=(w, h), color=(brand_r, brand_g, brand_b), duration=duration)
+        except TypeError:
+            bg = ColorClip(size=(w, h), color=(brand_r, brand_g, brand_b))
+            bg = (bg.with_duration(duration) if hasattr(bg, 'with_duration')
+                  else bg.set_duration(duration))
+        layers = [bg]
+
+        serif_candidates = self.QUOTE_OVERLAY_FONT_CANDIDATES + ('Arial',)
+        usable_width = w - 160
+
+        def _text(t, size, color):
+            for fn in serif_candidates:
+                try:
+                    return TextClip(text=t, font_size=size, color=color, font=fn,
+                                    size=(usable_width, None), margin=(10, 10))
+                except Exception:
+                    try:
+                        return TextClip(t, fontsize=size, color=color, font=fn,
+                                        method='caption', size=(usable_width, None), align='center')
+                    except Exception:
+                        continue
+            return TextClip(text=t, font_size=size, color=color,
+                            size=(usable_width, None), margin=(10, 10))
+
+        def _dur_pos(clip, pos):
+            clip = (clip.with_duration(duration) if hasattr(clip, 'with_duration')
+                    else clip.set_duration(duration))
+            clip = (clip.with_position(pos) if hasattr(clip, 'with_position')
+                    else clip.set_position(pos))
+            return clip
+
+        # ---- Optional logo ----
+        logo_bottom = 0
+        logo_top_margin = 80
+        if logo_path and Path(logo_path).exists():
+            try:
+                logo_img = Image.open(logo_path)
+                logo_img = ImageOps.exif_transpose(logo_img)
+                logo_img = logo_img.convert('RGBA')
+                max_logo_w = int(w * 0.55)
+                lw, lh = logo_img.size
+                scale = min(1.0, max_logo_w / lw)
+                new_lw, new_lh = int(lw * scale), int(lh * scale)
+                try:
+                    resample = Image.Resampling.LANCZOS
+                except AttributeError:
+                    resample = Image.LANCZOS
+                logo_img = logo_img.resize((new_lw, new_lh), resample)
+                logo_arr = np.array(logo_img)
+                try:
+                    logo_clip = ImageClip(logo_arr, transparent=True)
+                except TypeError:
+                    logo_clip = ImageClip(logo_arr)
+                logo_x = (w - new_lw) // 2
+                layers.append(_dur_pos(logo_clip, (logo_x, logo_top_margin)))
+                logo_bottom = logo_top_margin + new_lh
+            except Exception as e:
+                print(f"Warning: Could not load flyer logo: {e}")
+
+        if not flyer_lines:
+            composite = CompositeVideoClip(layers, size=(w, h))
+            return (composite.with_duration(duration) if hasattr(composite, 'with_duration')
+                    else composite.set_duration(duration))
+
+        # ---- Title (first non-empty line) ----
+        non_empty = [l for l in flyer_lines if l.strip()]
+        title = non_empty[0] if non_empty else ''
+        body_lines = non_empty[1:] if len(non_empty) > 1 else []
+
+        title_font_size = min(72, font_size + 28)
+        body_font_size = max(font_size, 36)
+
+        title_clip = _text(title.upper(), title_font_size, self.CINEMATIC_QUOTE_COLOR)
+        title_h = int(getattr(title_clip, 'h', title_font_size * 1.5))
+
+        # ---- Gold divider ----
+        div_arr = np.zeros((self.DIVIDER_HEIGHT, self.DIVIDER_WIDTH, 4), dtype=np.uint8)
+        r, g, b = self.hex_to_rgb(self.CINEMATIC_DIVIDER_COLOR)
+        div_arr[:, :, 0] = r
+        div_arr[:, :, 1] = g
+        div_arr[:, :, 2] = b
+        div_arr[:, :, 3] = 255
+        try:
+            divider = ImageClip(div_arr, transparent=True)
+        except TypeError:
+            divider = ImageClip(div_arr)
+
+        # ---- Body lines ----
+        body_clips = [_text(line, body_font_size, self.CINEMATIC_AUTHOR_COLOR)
+                      for line in body_lines]
+        body_line_h = body_font_size * self.LINE_HEIGHT_MULT
+        total_body_h = len(body_clips) * body_line_h
+
+        # ---- Vertical layout: center below logo ----
+        total_block_h = (title_h + self.DIVIDER_GAP + self.DIVIDER_HEIGHT
+                         + self.AUTHOR_GAP + total_body_h)
+        text_area_top = logo_bottom + 60 if logo_bottom else 0
+        block_top = max(text_area_top, (h - total_block_h) // 2)
+
+        div_y = block_top + title_h + self.DIVIDER_GAP
+        div_x = (w - self.DIVIDER_WIDTH) // 2
+        body_y = div_y + self.DIVIDER_HEIGHT + self.AUTHOR_GAP
+
+        layers.append(_dur_pos(title_clip, ('center', block_top)))
+        layers.append(_dur_pos(divider, (div_x, div_y)))
+        for c in body_clips:
+            layers.append(_dur_pos(c, ('center', int(body_y))))
+            body_y += body_line_h
+
+        composite = CompositeVideoClip(layers, size=(w, h))
+        return (composite.with_duration(duration) if hasattr(composite, 'with_duration')
+                else composite.set_duration(duration))
+
     def create_video_with_text_overlay(
         self,
         video_path: Path,
@@ -996,121 +1127,13 @@ class VideoProcessor:
         if not use_flyer:
             final_clip = segment_1
         else:
-            # ---- Segment 2: white background + optional logo + flyer text ----
-            w, h = self.reel_width, self.reel_height
-            try:
-                white_bg = ColorClip(size=(w, h), color=(255, 255, 255), duration=flyer_duration)
-            except TypeError:
-                white_bg = ColorClip(size=(w, h), color=(255, 255, 255))
-                white_bg = white_bg.with_duration(flyer_duration) if hasattr(white_bg, 'with_duration') else white_bg.set_duration(flyer_duration)
-            if hasattr(white_bg, 'with_fps'):
-                white_bg = white_bg.with_fps(fps)
-            elif hasattr(white_bg, 'set_fps'):
-                white_bg = white_bg.set_fps(fps)
-            flyer_layers = [white_bg]
-            logo_top_margin = 80
-            logo_max_width_ratio = 0.55
-            text_y_center_override = None
-            if flyer_logo_path and Path(flyer_logo_path).exists():
-                try:
-                    logo_img = Image.open(flyer_logo_path)
-                    logo_img = ImageOps.exif_transpose(logo_img)
-                    if logo_img.mode in ('RGBA', 'LA') or (logo_img.mode == 'P' and logo_img.info.get('transparency') is not None):
-                        if logo_img.mode != 'RGBA':
-                            logo_img = logo_img.convert('RGBA')
-                        bg = Image.new('RGBA', logo_img.size, (255, 255, 255, 255))
-                        logo_img = Image.alpha_composite(bg, logo_img)
-                    logo_img = logo_img.convert('RGB')
-                    lw, lh = logo_img.size
-                    max_logo_w = int(w * logo_max_width_ratio)
-                    scale = min(1.0, max_logo_w / lw)
-                    new_lw, new_lh = int(lw * scale), int(lh * scale)
-                    try:
-                        resample = Image.Resampling.LANCZOS
-                    except AttributeError:
-                        resample = Image.LANCZOS
-                    logo_img = logo_img.resize((new_lw, new_lh), resample)
-                    with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp:
-                        logo_img.save(tmp.name, 'JPEG', quality=95)
-                        logo_tmp = tmp.name
-                    logo_clip = ImageClip(logo_tmp)
-                    logo_clip = logo_clip.with_duration(flyer_duration) if hasattr(logo_clip, 'with_duration') else logo_clip.set_duration(flyer_duration)
-                    if hasattr(logo_clip, 'with_fps'):
-                        logo_clip = logo_clip.with_fps(fps)
-                    elif hasattr(logo_clip, 'set_fps'):
-                        logo_clip = logo_clip.set_fps(fps)
-                    logo_x = (w - new_lw) // 2
-                    logo_y = logo_top_margin
-                    logo_clip = logo_clip.with_position((logo_x, logo_y)) if hasattr(logo_clip, 'with_position') else logo_clip.set_position((logo_x, logo_y))
-                    flyer_layers.append(logo_clip)
-                    text_region_top = logo_y + new_lh + 40
-                    text_region_height = h - text_region_top - 80
-                    text_y_center_override = text_region_top + text_region_height // 2
-                except Exception as e:
-                    print(f"Warning: Could not load flyer logo {flyer_logo_path}: {e}")
-            flyer_title_font_size = 72
-            flyer_body_font_size = max(flyer_font_size, 40)
-            if len(flyer_lines) >= 2:
-                title_line = flyer_lines[0]
-                body_text = '\n'.join(flyer_lines[1:])
-                title_clip = self.create_text_clip(
-                    text=title_line,
-                    duration=flyer_duration,
-                    position='center',
-                    font_size=flyer_title_font_size,
-                    start_time=0,
-                    auto_duration=False,
-                    flyer_style=True,
-                    preserve_newlines=False,
-                    skip_position=True
-                )
-                body_clip = self.create_text_clip(
-                    text=body_text,
-                    duration=flyer_duration,
-                    position='center',
-                    font_size=flyer_body_font_size,
-                    start_time=0,
-                    auto_duration=False,
-                    flyer_style=True,
-                    preserve_newlines=True,
-                    skip_position=True
-                )
-                if hasattr(title_clip, 'with_fps'):
-                    title_clip = title_clip.with_fps(fps)
-                elif hasattr(title_clip, 'set_fps'):
-                    title_clip = title_clip.set_fps(fps)
-                if hasattr(body_clip, 'with_fps'):
-                    body_clip = body_clip.with_fps(fps)
-                elif hasattr(body_clip, 'set_fps'):
-                    body_clip = body_clip.set_fps(fps)
-                title_h = int(getattr(title_clip, 'h', 80))
-                body_h = int(getattr(body_clip, 'h', 200))
-                gap = 28
-                center_y = text_y_center_override if text_y_center_override is not None else h // 2
-                block_top = center_y - (title_h + gap + body_h) // 2
-                title_clip = title_clip.with_position(('center', block_top)) if hasattr(title_clip, 'with_position') else title_clip.set_position(('center', block_top))
-                body_clip = body_clip.with_position(('center', block_top + title_h + gap)) if hasattr(body_clip, 'with_position') else body_clip.set_position(('center', block_top + title_h + gap))
-                flyer_layers.append(title_clip)
-                flyer_layers.append(body_clip)
-            else:
-                flyer_text = '\n'.join(flyer_lines)
-                flyer_text_clip = self.create_text_clip(
-                    text=flyer_text,
-                    duration=flyer_duration,
-                    position='center',
-                    font_size=flyer_body_font_size,
-                    start_time=0,
-                    auto_duration=False,
-                    flyer_style=True,
-                    preserve_newlines=True,
-                    override_y_center=text_y_center_override
-                )
-                if hasattr(flyer_text_clip, 'with_fps'):
-                    flyer_text_clip = flyer_text_clip.with_fps(fps)
-                elif hasattr(flyer_text_clip, 'set_fps'):
-                    flyer_text_clip = flyer_text_clip.set_fps(fps)
-                flyer_layers.append(flyer_text_clip)
-            segment_2 = CompositeVideoClip(flyer_layers)
+            # ---- Segment 2: cinematic dark-background flyer ----
+            segment_2 = self.create_cinematic_flyer_clip(
+                flyer_lines=flyer_lines,
+                duration=flyer_duration,
+                font_size=flyer_font_size,
+                logo_path=flyer_logo_path,
+            )
             if hasattr(segment_2, 'with_fps'):
                 segment_2 = segment_2.with_fps(fps)
             segment_2 = self._add_white_fade_overlay(segment_2, video_fade_duration, fps)

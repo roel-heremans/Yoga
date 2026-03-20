@@ -61,6 +61,14 @@ class QuoteCardGenerator:
         """Shorten quote text for display on cards, breaking at sentence or word boundary."""
         return shorten_quote_for_display(text, self.max_quote_display_length)
 
+    def _build_attribution(self, quote: Dict) -> str:
+        """Build attribution line: 'Author — Source' when both are available."""
+        author = quote.get('_file_author') or quote.get('author', '')
+        source = quote.get('_file_source') or quote.get('source', '')
+        if author and source:
+            return f"{author} — {source}"
+        return author or source or quote.get('group', 'Yoga Wisdom')
+
     def get_quote_status(self, quote: Dict) -> str:
         """Get quote status: pending, accepted, or rejected."""
         if 'status' in quote:
@@ -90,26 +98,34 @@ class QuoteCardGenerator:
             if quotes_file.exists():
                 with open(quotes_file, 'r', encoding='utf-8') as f:
                     data = json.load(f)
+                    file_author = data.get('author', '')
+                    file_source = data.get('source', '')
                     quotes = data.get('quotes', [])
                     for quote in quotes:
                         if self.get_quote_status(quote) == 'accepted':
                             quote['group'] = group_name
+                            quote['_file_author'] = file_author
+                            quote['_file_source'] = file_source
                             accepted_quotes.append(quote)
         else:
             # Load from all groups
             if not self.knowledge_dir.exists():
                 return []
-            
+
             for group_dir in self.knowledge_dir.iterdir():
                 if group_dir.is_dir():
                     quotes_file = group_dir / 'quotes.json'
                     if quotes_file.exists():
                         with open(quotes_file, 'r', encoding='utf-8') as f:
                             data = json.load(f)
+                            file_author = data.get('author', '')
+                            file_source = data.get('source', '')
                             quotes = data.get('quotes', [])
                             for quote in quotes:
                                 if self.get_quote_status(quote) == 'accepted':
                                     quote['group'] = group_dir.name
+                                    quote['_file_author'] = file_author
+                                    quote['_file_source'] = file_source
                                     accepted_quotes.append(quote)
         
         return accepted_quotes
@@ -211,7 +227,7 @@ class QuoteCardGenerator:
             Path to generated image.
         """
         quote_text = self._shorten_quote_for_display(quote.get('text', ''))
-        author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
+        author = self._build_attribution(quote)
         
         if output_path is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -241,7 +257,7 @@ class QuoteCardGenerator:
             List of paths to generated images.
         """
         quote_text = self._shorten_quote_for_display(quote.get('text', ''))
-        author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
+        author = self._build_attribution(quote)
         overlay_text = f"{quote_text}\n\n— {author}"
         
         generated_paths = []
@@ -293,7 +309,7 @@ class QuoteCardGenerator:
             raise ValueError("Video processor not available. Install moviepy to use video overlays.")
         
         quote_text = quote.get('text', '')
-        author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
+        author = self._build_attribution(quote)
         overlay_text = f"{quote_text}\n\n— {author}"
         
         generated_paths = []
@@ -389,7 +405,7 @@ class QuoteCardGenerator:
                 raise FileNotFoundError(f"Image not found: {p}")
         
         quote_text = self._shorten_quote_for_display(quote.get('text', ''))
-        author = quote.get('author') or quote.get('source') or quote.get('group', 'Yoga Wisdom')
+        author = self._build_attribution(quote)
 
         if output_path is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
