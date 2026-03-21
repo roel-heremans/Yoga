@@ -574,7 +574,7 @@ class VideoProcessor:
                     author_text = author.upper()
                     tw = _measure(author_font, author_text)
                     x  = (w - tw) // 2
-                    y  = h // 2
+                    y  = block_top + 3 * line_height
                     draw.text((x, y), author_text, font=author_font,
                               fill=(*gold_rgb, BRIGHT))
                 return np.array(img)

@@ -423,3 +423,59 @@ class TestFlyerFontDefaults:
         title_font_size = font_size + 28          # proposed formula
         body_font_size = max(font_size, 36)
         assert title_font_size > body_font_size
+
+
+class TestScrollAuthorPosition:
+    def test_author_rendered_below_scroll_window_not_at_center(self):
+        """
+        Author text must be drawn at y = block_top + 3*line_height (line 4),
+        not at y = h // 2 (screen centre).
+        """
+        from unittest.mock import patch, MagicMock, call
+        import numpy as np
+
+        processor = make_processor()
+        font_size = 36  # test-convenience value; production default is 72
+
+        line_height = int(font_size * processor.LINE_HEIGHT_MULT)
+        block_top = max(80, processor.reel_height // 6)
+        expected_y = block_top + 3 * line_height
+        wrong_y = processor.reel_height // 2  # the old (broken) position
+
+        # Capture the make_frame callable by intercepting VideoClip construction
+        captured_make_frame = {}
+
+        def fake_video_clip(make_frame, duration):
+            captured_make_frame['fn'] = make_frame
+            mock = MagicMock()
+            mock.duration = duration
+            mock.with_fps = lambda fps: mock
+            mock.with_position = lambda pos: mock
+            return mock
+
+        with patch('src.video_processor.VideoClip', side_effect=fake_video_clip):
+            processor.create_scroll_clips(
+                text="Yoga is the mirror to look at ourselves from within.",
+                author="B.K.S. Iyengar",
+                duration=5.0,
+                font_size=font_size,
+            )
+
+        assert 'fn' in captured_make_frame, "VideoClip was not called — make_frame not captured"
+        make_frame = captured_make_frame['fn']
+
+        # author_display_start = duration - min(2.5, duration * 0.15) = 5.0 - 0.75 = 4.25
+        author_t = 4.5  # safely past author_display_start
+
+        with patch('PIL.ImageDraw.ImageDraw.text') as mock_draw_text:
+            make_frame(author_t)
+
+        assert mock_draw_text.called, "draw.text was not called during author display"
+        # Extract xy from the first positional arg of the first call
+        first_xy = mock_draw_text.call_args_list[0].args[0]
+        actual_y = first_xy[1]
+        assert actual_y == expected_y, (
+            f"Author y={actual_y}, expected {expected_y} (block_top={block_top} + 3*line_height={3*line_height}). "
+            f"Wrong value would be h//2={wrong_y}."
+        )
+        assert actual_y != wrong_y, "Author is still at screen centre — fix not applied"
