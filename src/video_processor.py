@@ -506,7 +506,7 @@ class VideoProcessor:
         text: str,
         author: str,
         duration: float,
-        font_size: int = 72,
+        font_size: int = 96,
     ) -> list:
         """
         Teleprompter-style 3-line scroll overlay.
@@ -649,7 +649,7 @@ class VideoProcessor:
         text: str,
         author: str,
         duration: float,
-        font_size: int = 72,
+        font_size: int = 96,
     ):
         """
         Create a cinematic quote overlay positioned in the top third of the frame.
@@ -830,7 +830,7 @@ class VideoProcessor:
         text: str,
         author: str,
         duration: float,
-        font_size: int = 72,
+        font_size: int = 96,
     ) -> list:
         """
         Create a list of pre-positioned, pre-timed clips for line-by-line quote reveal.
@@ -1223,7 +1223,7 @@ class VideoProcessor:
         audio_fade_duration: float = 3.0,
         video_fade_duration: float = 0.8,
         text_position: str = 'bottom',
-        font_size: int = 64,
+        font_size: int = 96,
         flyer_lines: Optional[List[str]] = None,
         flyer_duration: float = 5.0,
         flyer_font_size: int = 80,
@@ -1292,8 +1292,8 @@ class VideoProcessor:
         scale = min(self.reel_width / w, self.reel_height / h)
         new_h = int(h * scale)
         top_black = (self.reel_height - new_h) // 2
-        # Quote font: bigger for readability on photos
-        quote_font_size = min(font_size, max(40, (top_black - 20) // 3))
+        # Quote font: use requested size directly (no cap)
+        quote_font_size = font_size
         # Place quote overlay using selected style
         if quote_style == 'reveal':
             reveal_clips = self.create_line_reveal_clips(

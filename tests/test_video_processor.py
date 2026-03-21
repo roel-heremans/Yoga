@@ -602,3 +602,45 @@ class TestFlyerDurationDefault:
         from src.video_processor import VideoProcessor
         sig = inspect.signature(VideoProcessor.create_image_quote_video)
         assert sig.parameters['flyer_duration'].default == 5.0
+
+
+class TestFontSizeDefaults:
+    def test_create_image_quote_video_font_size_default_is_96(self):
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_image_quote_video)
+        assert sig.parameters['font_size'].default == 96
+
+    def test_create_scroll_clips_font_size_default_is_96(self):
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_scroll_clips)
+        assert sig.parameters['font_size'].default == 96
+
+    def test_create_cinematic_text_clip_font_size_default_is_96(self):
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_cinematic_text_clip)
+        assert sig.parameters['font_size'].default == 96
+
+    def test_create_line_reveal_clips_font_size_default_is_96(self):
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_line_reveal_clips)
+        assert sig.parameters['font_size'].default == 96
+
+    def test_font_size_cap_formula_removed(self):
+        """quote_font_size assigned in create_image_quote_video must not be capped."""
+        # Read the source code and verify that quote_font_size = font_size (no min/max formula)
+        import inspect
+        from src.video_processor import VideoProcessor
+        source = inspect.getsource(VideoProcessor.create_image_quote_video)
+        # The old formula was: quote_font_size = min(font_size, max(40, (top_black - 20) // 3))
+        # After removal, it should be: quote_font_size = font_size
+        assert 'quote_font_size = font_size' in source, (
+            "quote_font_size should be assigned directly from font_size parameter (no cap formula)"
+        )
+        # Verify the old cap formula is gone
+        assert 'quote_font_size = min(font_size' not in source, (
+            "Old cap formula 'min(font_size, ...' must be removed"
+        )
