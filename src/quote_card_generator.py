@@ -407,8 +407,9 @@ class QuoteCardGenerator:
         for p in image_paths:
             if not Path(p).exists():
                 raise FileNotFoundError(f"Image not found: {p}")
-        
-        quote_text = self._shorten_quote_for_display(quote.get('text', ''))
+
+        raw_text = quote.get('text', '')
+        quote_text = raw_text if quote_style == 'scroll' else self._shorten_quote_for_display(raw_text)
         author = self._build_attribution(quote)
 
         if output_path is None:

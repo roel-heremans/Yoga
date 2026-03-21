@@ -157,6 +157,75 @@ def test_generate_quote_cards_has_exclude_images_parameter():
     assert 'exclude_images' in sig.parameters
 
 
+class TestScrollTruncationBypass:
+    LONG_QUOTE = (
+        "A scientist sets out to conquer nature through knowledge—external nature, "
+        "external knowledge. By these means he may split the atom and achieve external "
+        "power. A yogi sets out to explore his own internal nature."
+    )  # 174 chars — well over the 120-char limit
+
+    def test_scroll_receives_full_text(self):
+        """scroll style must bypass max_display_length and pass the full quote text."""
+        from unittest.mock import MagicMock, patch
+        from pathlib import Path
+        from src.quote_card_generator import QuoteCardGenerator
+
+        gen = make_generator()
+        mock_result = {'image_videos': [Path('/tmp/out.mp4')], 'flyer_videos': []}
+        gen.video_processor.create_image_quote_video = MagicMock(return_value=mock_result)
+
+        with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
+            gen.generate_image_video_quote_card(
+                quote={'text': self.LONG_QUOTE, 'author': 'B.K.S. Iyengar', 'id': 'q1', 'group': 'TestGroup'},
+                image_paths=[Path('/tmp/fake.jpg')],
+                output_path=Path('/tmp/out.mp4'),
+                quote_style='scroll',
+            )
+
+        call_kwargs = gen.video_processor.create_image_quote_video.call_args
+        assert call_kwargs is not None
+        all_args = {**call_kwargs.kwargs}
+        if call_kwargs.args:
+            import inspect
+            from src.video_processor import VideoProcessor
+            param_names = list(inspect.signature(VideoProcessor.create_image_quote_video).parameters.keys())[1:]
+            all_args.update(dict(zip(param_names, call_kwargs.args)))
+        assert all_args.get('text') == self.LONG_QUOTE, (
+            f"scroll style should pass full text, got: {all_args.get('text')!r}"
+        )
+
+    def test_cinematic_still_truncates(self):
+        """cinematic style must still truncate via _shorten_quote_for_display (regression guard)."""
+        from unittest.mock import MagicMock, patch
+        from pathlib import Path
+        from src.utils import shorten_quote_for_display
+
+        gen = make_generator()
+        mock_result = {'image_videos': [Path('/tmp/out.mp4')], 'flyer_videos': []}
+        gen.video_processor.create_image_quote_video = MagicMock(return_value=mock_result)
+
+        with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
+            gen.generate_image_video_quote_card(
+                quote={'text': self.LONG_QUOTE, 'author': 'B.K.S. Iyengar', 'id': 'q1', 'group': 'TestGroup'},
+                image_paths=[Path('/tmp/fake.jpg')],
+                output_path=Path('/tmp/out.mp4'),
+                quote_style='cinematic',
+            )
+
+        call_kwargs = gen.video_processor.create_image_quote_video.call_args
+        assert call_kwargs is not None
+        all_args = {**call_kwargs.kwargs}
+        if call_kwargs.args:
+            import inspect
+            from src.video_processor import VideoProcessor
+            param_names = list(inspect.signature(VideoProcessor.create_image_quote_video).parameters.keys())[1:]
+            all_args.update(dict(zip(param_names, call_kwargs.args)))
+        expected = shorten_quote_for_display(self.LONG_QUOTE, 120)
+        assert all_args.get('text') == expected, (
+            f"cinematic style should truncate via shorten_quote_for_display, got: {all_args.get('text')!r}"
+        )
+
+
 def test_generate_quote_cards_excludes_published_photo(tmp_path):
     """Photos in exclude_images are not passed to generate_photo_overlay_card."""
     from unittest.mock import MagicMock, patch
