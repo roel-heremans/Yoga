@@ -147,9 +147,23 @@ class VideoProcessor:
         
         # Ensure duration is within bounds
         duration = max(min_duration, min(calculated_duration, max_duration))
-        
+
         return duration
-    
+
+    def calculate_scroll_duration(self, text: str) -> float:
+        """
+        Compute the total video duration needed to teleprompter `text` at a fixed
+        reading pace of SCROLL_CHARS_PER_SECOND, plus a fixed author-display tail.
+
+        Args:
+            text: Full quote body text (no truncation for scroll style).
+
+        Returns:
+            Total duration in seconds.
+        """
+        reading_time = len(text) / self.SCROLL_CHARS_PER_SECOND
+        return reading_time + self.SCROLL_AUTHOR_DISPLAY_SECONDS
+
     # Quote overlay: dark fill + light stroke + transparent backdrop (aligned with Palheiro / luxury serif)
     QUOTE_OVERLAY_FILL = '#1a1a1a'
     QUOTE_OVERLAY_STROKE = '#e8e8e8'
@@ -165,6 +179,10 @@ class VideoProcessor:
     FLYER_FILL = '#1a1a1a'
     FLYER_STROKE = '#b0b0b0'
     FLYER_STROKE_WIDTH = 2
+
+    # Scroll (teleprompter) timing
+    SCROLL_CHARS_PER_SECOND = 13       # comfortable on-screen reading pace (~130 wpm)
+    SCROLL_AUTHOR_DISPLAY_SECONDS = 2.5
 
     # Cinematic / reveal quote style constants
     CINEMATIC_QUOTE_COLOR = '#f0ece4'    # cream
@@ -523,8 +541,10 @@ class VideoProcessor:
         n_words = max(1, len(flat_words))
 
         # ---- Timing ----
-        # Reserve the last ~2.5 s (or 15% of duration) for the author name.
-        author_display_start = duration - min(2.5, duration * 0.15)
+        # Duration is derived from text length at a fixed chars/sec rate.
+        # Ignore the passed-in duration; compute from text instead so speed never changes.
+        computed_duration = self.calculate_scroll_duration(text)
+        author_display_start = computed_duration - self.SCROLL_AUTHOR_DISPLAY_SECONDS
         # Each word gets equal time; floor at 0.3 s to avoid imperceptibly fast flashes.
         word_dt = max(0.3, author_display_start / n_words)
 
@@ -616,13 +636,13 @@ class VideoProcessor:
             return np.array(img)
 
         # ---- Build the VideoClip overlay ----
-        scroll_clip = VideoClip(make_frame, duration=duration)
+        scroll_clip = VideoClip(make_frame, duration=computed_duration)
         scroll_clip = (scroll_clip.with_fps(30) if hasattr(scroll_clip, 'with_fps')
                        else scroll_clip.set_fps(30))
         scroll_clip = (scroll_clip.with_position((0, 0)) if hasattr(scroll_clip, 'with_position')
                        else scroll_clip.set_position((0, 0)))
 
-        return [self._make_scrim_clip(w, h, duration), scroll_clip]
+        return [self._make_scrim_clip(w, h, computed_duration), scroll_clip]
 
     def create_cinematic_text_clip(
         self,
@@ -1221,7 +1241,9 @@ class VideoProcessor:
             author: Attribution line (author name).
             quote_style: 'cinematic' (default) or 'reveal'.
             output_path: Path to save the output video.
-            duration: Total quote segment duration in seconds (default 15); split across images.
+            duration: Quote segment duration in seconds (default 15); split across images.
+                Ignored when quote_style='scroll' — duration is then computed automatically
+                from text length at SCROLL_CHARS_PER_SECOND characters per second.
             music_path: Optional path to background music (.mp3, .wav, etc.).
             audio_fade_duration: Seconds over which music fades to silence at end (default 3).
             video_fade_duration: Seconds over which video fades to white at segment ends (default 0.8).
@@ -1244,6 +1266,11 @@ class VideoProcessor:
         
         fps = 30
         use_flyer = flyer_lines and len(flyer_lines) > 0
+        # For scroll style, duration is derived from text length at a fixed reading pace
+        # so all photos together fill exactly the time needed to read the full quote.
+        # --duration from the CLI is ignored for scroll.
+        if quote_style == 'scroll':
+            duration = self.calculate_scroll_duration(text)
         total_duration = (duration + flyer_duration) if use_flyer else duration
         
         # ---- Segment 1: image(s) + quote ----

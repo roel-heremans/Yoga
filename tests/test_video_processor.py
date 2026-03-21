@@ -463,8 +463,10 @@ class TestScrollAuthorPosition:
         assert 'fn' in captured_make_frame, "VideoClip was not called — make_frame not captured"
         make_frame = captured_make_frame['fn']
 
-        # safely past author_display_start (formula: duration - min(2.5, duration * 0.15))
-        author_t = 4.5
+        # After fixed-speed timing: author_display_start = calculate_scroll_duration(text) - 2.5
+        # text = "Yoga is the mirror to look at ourselves from within." (52 chars)
+        # → 52/13 + 2.5 = 6.5 s total, author_display_start = 4.0 s
+        author_t = 4.5  # safely past author_display_start (4.0 s)
 
         with patch('PIL.ImageDraw.ImageDraw.text') as mock_draw_text:
             make_frame(author_t)
@@ -520,12 +522,13 @@ class TestScrollPastLineBrightness:
         block_top = max(80, processor.reel_height // 6)
 
         with patch('PIL.ImageDraw.ImageDraw.text', side_effect=capture_text):
-            # text = 84 chars, duration=15.0 (current pre-Task-2 formula):
-            # author_display_start = 15.0 - min(2.5, 15*0.15) = 15.0 - 2.25 = 12.75 s
-            # word_dt = 12.75 / 17 words ≈ 0.75 s
-            # line 0 has 9 words → line 0 is "past" once t ≥ 9*0.75 = 6.75 s
-            # At t=8.0: word_idx = int(8.0/0.75) = 10 → on line 1, so line 0 is "past".
-            make_frame(8.0)
+            # text = 84 chars; fixed-speed timing:
+            # computed_duration = 84/13 + 2.5 ≈ 8.96 s
+            # author_display_start = 8.96 - 2.5 = 6.46 s
+            # word_dt = max(0.3, 6.46/17) ≈ 0.38 s
+            # line 0 has 11 words → line 0 is "past" once t ≥ 11*0.38 ≈ 4.18 s
+            # At t=4.5: word_idx = int(4.5/0.38) = 11 → on line 1, so line 0 is "past".
+            make_frame(4.5)
 
         # Find lines drawn at past-row y (block_top + 0 * line_height = block_top)
         past_y = block_top  # offset=-1 → y = block_top + (−1+1)*line_height = block_top
@@ -533,7 +536,7 @@ class TestScrollPastLineBrightness:
 
         assert past_calls, (
             f"No past-line text drawn at y={past_y}. "
-            "Ensure t=8.0 is past line 0 but before author_display_start."
+            "Ensure t=4.5 is past line 0 but before author_display_start."
         )
         for call in past_calls:
             fill = call['fill']
@@ -541,3 +544,53 @@ class TestScrollPastLineBrightness:
                 f"Past line alpha={fill[3]}, expected 255 (BRIGHT). "
                 f"Past line should be fully visible, not dimmed."
             )
+
+
+class TestScrollFixedSpeed:
+    def test_calculate_scroll_duration_short_text(self):
+        """Short text: duration = len(text)/13 + 2.5."""
+        processor = make_processor()
+        text = "Yoga is peace."  # 14 chars → 14/13 ≈ 1.08 s reading + 2.5 s author = 3.58 s
+        result = processor.calculate_scroll_duration(text)
+        expected = len(text) / processor.SCROLL_CHARS_PER_SECOND + processor.SCROLL_AUTHOR_DISPLAY_SECONDS
+        assert abs(result - expected) < 0.01, f"Expected {expected:.2f}, got {result:.2f}"
+
+    def test_calculate_scroll_duration_long_text(self):
+        """200-char quote: 200/13 + 2.5 ≈ 17.88 s."""
+        processor = make_processor()
+        text = "A" * 200
+        result = processor.calculate_scroll_duration(text)
+        expected = 200 / processor.SCROLL_CHARS_PER_SECOND + processor.SCROLL_AUTHOR_DISPLAY_SECONDS
+        assert abs(result - expected) < 0.01
+
+    def test_scroll_videoclip_duration_derived_from_text_not_argument(self):
+        """
+        VideoClip must be built with calculate_scroll_duration(text), not the passed-in duration.
+        """
+        from unittest.mock import patch, MagicMock
+
+        processor = make_processor()
+        text = "Yoga is the mirror to look at ourselves from within."
+
+        # We'll pass in a different duration to prove it is NOT used
+        wrong_duration = 999.0  # absurd value — should have no effect
+
+        captured_make_frame = {}
+        def fake_video_clip(make_frame, duration):
+            captured_make_frame['fn'] = make_frame
+            captured_make_frame['dur'] = duration
+            m = MagicMock()
+            m.duration = duration
+            m.with_fps = lambda fps: m
+            m.with_position = lambda pos: m
+            return m
+
+        with patch('src.video_processor.VideoClip', side_effect=fake_video_clip):
+            processor.create_scroll_clips(text=text, author="X", duration=wrong_duration, font_size=36)
+
+        # The VideoClip duration should equal calculate_scroll_duration(text), not wrong_duration
+        expected_duration = processor.calculate_scroll_duration(text)
+        assert abs(captured_make_frame['dur'] - expected_duration) < 0.1, (
+            f"VideoClip duration={captured_make_frame['dur']:.2f}, "
+            f"expected {expected_duration:.2f} (derived from text length, not passed-in duration {wrong_duration})"
+        )
