@@ -432,7 +432,6 @@ class TestScrollAuthorPosition:
         not at y = h // 2 (screen centre).
         """
         from unittest.mock import patch, MagicMock
-        import numpy as np
 
         processor = make_processor()
         font_size = 36  # test-convenience value; production default is 72
@@ -464,8 +463,8 @@ class TestScrollAuthorPosition:
         assert 'fn' in captured_make_frame, "VideoClip was not called — make_frame not captured"
         make_frame = captured_make_frame['fn']
 
-        # author_display_start = duration - min(2.5, duration * 0.15) = 5.0 - 0.75 = 4.25
-        author_t = 4.5  # safely past author_display_start
+        # safely past author_display_start (formula: duration - min(2.5, duration * 0.15))
+        author_t = 4.5
 
         with patch('PIL.ImageDraw.ImageDraw.text') as mock_draw_text:
             make_frame(author_t)

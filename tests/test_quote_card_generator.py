@@ -164,21 +164,33 @@ class TestScrollTruncationBypass:
         "power. A yogi sets out to explore his own internal nature."
     )  # 174 chars — well over the 120-char limit
 
-    def test_scroll_receives_full_text(self):
-        """scroll style must bypass max_display_length and pass the full quote text."""
-        import tempfile, os
-        from unittest.mock import MagicMock, patch
-        from pathlib import Path
-        from PIL import Image as PILImage
-        from src.quote_card_generator import QuoteCardGenerator
-
+    def _make_gen_with_tmp_image(self):
+        """Return (gen, tmp_path); caller must delete tmp_path after use."""
         gen = make_generator()
-        mock_result = {'image_videos': [Path('/tmp/out.mp4')], 'flyer_videos': []}
-        gen.video_processor.create_image_quote_video = MagicMock(return_value=mock_result)
-
+        gen.video_processor.create_image_quote_video = MagicMock(
+            return_value={'image_videos': [Path('/tmp/out.mp4')], 'flyer_videos': []}
+        )
         tmp = tempfile.NamedTemporaryFile(suffix='.jpg', delete=False)
         PILImage.new('RGB', (100, 100), color=(50, 80, 50)).save(tmp.name)
-        tmp_path = Path(tmp.name)
+        return gen, Path(tmp.name)
+
+    def _resolve_call_args(self, mock):
+        """Flatten positional + keyword args of the last call into a single dict."""
+        import inspect
+        from src.video_processor import VideoProcessor
+        call_kwargs = mock.call_args
+        assert call_kwargs is not None
+        all_args = {**call_kwargs.kwargs}
+        if call_kwargs.args:
+            param_names = list(
+                inspect.signature(VideoProcessor.create_image_quote_video).parameters.keys()
+            )[1:]
+            all_args.update(dict(zip(param_names, call_kwargs.args)))
+        return all_args
+
+    def test_scroll_receives_full_text(self):
+        """scroll style must bypass max_display_length and pass the full quote text."""
+        gen, tmp_path = self._make_gen_with_tmp_image()
         try:
             with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
                 gen.generate_image_video_quote_card(
@@ -188,35 +200,18 @@ class TestScrollTruncationBypass:
                     quote_style='scroll',
                 )
         finally:
-            os.unlink(tmp.name)
+            os.unlink(tmp_path)
 
-        call_kwargs = gen.video_processor.create_image_quote_video.call_args
-        assert call_kwargs is not None
-        all_args = {**call_kwargs.kwargs}
-        if call_kwargs.args:
-            import inspect
-            from src.video_processor import VideoProcessor
-            param_names = list(inspect.signature(VideoProcessor.create_image_quote_video).parameters.keys())[1:]
-            all_args.update(dict(zip(param_names, call_kwargs.args)))
+        all_args = self._resolve_call_args(gen.video_processor.create_image_quote_video)
         assert all_args.get('text') == self.LONG_QUOTE, (
             f"scroll style should pass full text, got: {all_args.get('text')!r}"
         )
 
     def test_cinematic_still_truncates(self):
         """cinematic style must still truncate via _shorten_quote_for_display (regression guard)."""
-        import tempfile, os
-        from unittest.mock import MagicMock, patch
-        from pathlib import Path
-        from PIL import Image as PILImage
         from src.utils import shorten_quote_for_display
 
-        gen = make_generator()
-        mock_result = {'image_videos': [Path('/tmp/out.mp4')], 'flyer_videos': []}
-        gen.video_processor.create_image_quote_video = MagicMock(return_value=mock_result)
-
-        tmp = tempfile.NamedTemporaryFile(suffix='.jpg', delete=False)
-        PILImage.new('RGB', (100, 100), color=(50, 80, 50)).save(tmp.name)
-        tmp_path = Path(tmp.name)
+        gen, tmp_path = self._make_gen_with_tmp_image()
         try:
             with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
                 gen.generate_image_video_quote_card(
@@ -226,16 +221,9 @@ class TestScrollTruncationBypass:
                     quote_style='cinematic',
                 )
         finally:
-            os.unlink(tmp.name)
+            os.unlink(tmp_path)
 
-        call_kwargs = gen.video_processor.create_image_quote_video.call_args
-        assert call_kwargs is not None
-        all_args = {**call_kwargs.kwargs}
-        if call_kwargs.args:
-            import inspect
-            from src.video_processor import VideoProcessor
-            param_names = list(inspect.signature(VideoProcessor.create_image_quote_video).parameters.keys())[1:]
-            all_args.update(dict(zip(param_names, call_kwargs.args)))
+        all_args = self._resolve_call_args(gen.video_processor.create_image_quote_video)
         expected = shorten_quote_for_display(self.LONG_QUOTE, 120)
         assert all_args.get('text') == expected, (
             f"cinematic style should truncate via shorten_quote_for_display, got: {all_args.get('text')!r}"
