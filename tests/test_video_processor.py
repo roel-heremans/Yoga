@@ -327,12 +327,34 @@ class TestCreateScrollClips:
         assert len(result) >= 2
 
     def test_scroll_style_accepted_by_create_image_quote_video(self):
-        """create_image_quote_video must accept quote_style='scroll' without raising."""
-        import inspect
-        from src.video_processor import VideoProcessor
-        sig = inspect.signature(VideoProcessor.create_image_quote_video)
-        # quote_style param exists (already exists for cinematic/reveal)
-        assert 'quote_style' in sig.parameters
+        """create_image_quote_video with quote_style='scroll' must call create_scroll_clips."""
+        from unittest.mock import patch, MagicMock
+        from pathlib import Path
+
+        processor = make_processor()
+        fake_clip = MagicMock()
+        fake_clip.size = (1080, 1920)
+        fake_clip.duration = 5
+
+        with patch.object(processor, 'create_scroll_clips', return_value=[fake_clip, fake_clip]) as mock_scroll, \
+             patch('src.video_processor.ImageClip', return_value=fake_clip), \
+             patch('src.video_processor.CompositeVideoClip', return_value=fake_clip), \
+             patch('src.video_processor.concatenate_videoclips', return_value=fake_clip), \
+             patch.object(processor, 'image_to_clip', return_value=fake_clip), \
+             patch('pathlib.Path.exists', return_value=True), \
+             patch.object(processor, '_add_white_fade_overlay', return_value=fake_clip):
+            try:
+                processor.create_image_quote_video(
+                    text="Yoga is peace.",
+                    author="Iyengar",
+                    image_paths=[Path('/tmp/fake.jpg')],
+                    output_path=Path('/tmp/out.mp4'),
+                    duration=5.0,
+                    quote_style='scroll',
+                )
+            except Exception:
+                pass
+        assert mock_scroll.called, "create_scroll_clips should have been called for quote_style='scroll'"
 
 
 class TestFlyerFontDefaults:

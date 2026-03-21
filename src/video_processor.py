@@ -556,6 +556,12 @@ class VideoProcessor:
                 except AttributeError:
                     return int(fnt.getsize(txt)[0])
 
+        # Pre-compute word widths to avoid per-frame PIL allocations
+        word_widths = {}
+        all_words_flat = [wd for line in words_per_line for wd in line]
+        for wd in set(all_words_flat):
+            word_widths[wd] = _measure(pil_font, wd + ' ')
+
         # ---- Per-frame renderer ----
         def make_frame(t):
             from PIL import Image, ImageDraw
@@ -587,7 +593,7 @@ class VideoProcessor:
 
                 if offset == 0:
                     # Current line: word-by-word colouring
-                    total_w = sum(_measure(pil_font, wd + ' ') for wd in words)
+                    total_w = sum(word_widths[wd] for wd in words)
                     x = (w - total_w) // 2
                     for wi, wd in enumerate(words):
                         if wi < cur_word:
@@ -597,7 +603,7 @@ class VideoProcessor:
                         else:
                             rgba = (*cream_rgb, DIM)      # not yet read
                         draw.text((x, y), wd, font=pil_font, fill=rgba)
-                        x += _measure(pil_font, wd + ' ')
+                        x += word_widths[wd]
                 else:
                     # Past or future: render the full line dimmed
                     line_text = ' '.join(words)
