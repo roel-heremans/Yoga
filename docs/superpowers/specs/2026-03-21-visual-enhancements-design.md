@@ -50,7 +50,7 @@ The previous default font size of `72px` for scroll and `64px` for cinematic/rev
 - `create_scroll_clips`: default `font_size` parameter `72` → `96`
 - `create_image_quote_video`: default `font_size` parameter `64` → `96`
 - `create_image_quote_video`: remove the cap formula `quote_font_size = min(font_size, max(40, (top_black - 20) // 3))` — replace with `quote_font_size = font_size` (pass through directly)
-- CLI `main.py`: update `--font-size` / `font_size` default to `96` if exposed, or rely on the updated Python defaults
+- `create_cinematic_text_clip` and `create_line_reveal_clips` own `font_size` defaults also updated `72` → `96` so direct callers get the new default too
 
 **Note:** The existing scroll duration calculation (`len(text) / SCROLL_CHARS_PER_SECOND + SCROLL_AUTHOR_DISPLAY_SECONDS`) and the per-photo duration split are **not changed**. Total video duration continues to be derived from text length at the fixed reading speed, split equally across all supplied photos.
 
@@ -79,6 +79,10 @@ The flyer-ajuda card (white background + studio text) currently defaults to 15 s
 5. Below the author: book/source name if present (cream, `CINEMATIC_QUOTE_COLOR`, dimmed alpha ~160) in its own pill.
 
 The vertical spacing between frozen lines, divider, and author uses the same `line_height` as the rest of the scroll rendering.
+
+All pills in the author phase are drawn inline via `draw.rounded_rectangle()` — the same approach used for the rest of `make_frame`, not the `_make_pill_overlay` helper (which is only used by cinematic and reveal).
+
+Frozen lines are rendered as a single `draw.text()` call per line using the joined string (e.g. `' '.join(words)`), not word-by-word. The word-timing state machine is inactive during the author phase.
 
 ---
 
