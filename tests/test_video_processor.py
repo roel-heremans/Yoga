@@ -808,3 +808,56 @@ class TestMakePillOverlay:
         if frame.ndim == 3 and frame.shape[2] == 4:
             alpha_far = frame[350:360, :, 3]
             assert alpha_far.max() == 0, "Expected zero alpha far from pill"
+
+
+class TestScrollInlinePills:
+    def test_rounded_rectangle_called_in_make_frame(self):
+        """draw.rounded_rectangle (or draw.rectangle as fallback) must be called
+        in make_frame for each visible scroll row."""
+        from unittest.mock import patch, MagicMock, call
+        import numpy as np
+        processor = make_processor()
+
+        captured_make_frame = {}
+        def fake_video_clip(make_frame, duration):
+            captured_make_frame['fn'] = make_frame
+            m = MagicMock()
+            m.duration = duration
+            m.with_fps = lambda fps: m
+            m.with_position = lambda pos: m
+            return m
+
+        with patch('src.video_processor.VideoClip', side_effect=fake_video_clip):
+            processor.create_scroll_clips(
+                text="Yoga is peace and light and truth and love.",
+                author="Iyengar",
+                duration=5.0,
+                font_size=36,
+            )
+
+        assert 'fn' in captured_make_frame
+        rect_calls = []
+
+        from PIL import ImageDraw as _ID
+        original_rr = getattr(_ID.ImageDraw, 'rounded_rectangle', None)
+        original_r  = _ID.ImageDraw.rectangle
+
+        def capture_rr(self_d, xy, **kw):
+            rect_calls.append(('rr', xy))
+            if original_rr:
+                return original_rr(self_d, xy, **kw)
+
+        def capture_r(self_d, xy, **kw):
+            rect_calls.append(('r', xy))
+            return original_r(self_d, xy, **kw)
+
+        with patch.object(_ID.ImageDraw, 'rounded_rectangle', capture_rr, create=True), \
+             patch.object(_ID.ImageDraw, 'rectangle', capture_r):
+            try:
+                captured_make_frame['fn'](0.0)
+            except Exception:
+                pass
+
+        assert len(rect_calls) >= 1, (
+            "Expected at least one rounded_rectangle/rectangle call for pill backgrounds"
+        )

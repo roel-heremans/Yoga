@@ -650,6 +650,23 @@ class VideoProcessor:
         for wd in set(all_words_flat):
             word_widths[wd] = _measure(pil_font, wd + ' ')
 
+        # ---- Pill drawing helper ----
+        _PILL_PAD_X = 14
+        _PILL_PAD_Y = 6
+        _PILL_RADIUS = 20
+        _PILL_FILL = (0, 0, 0, 128)  # ~50% opacity black
+
+        def _draw_pill(draw, center_x, text_w, y, fs):
+            """Draw a rounded-rectangle pill behind a text line."""
+            x0 = center_x - text_w // 2 - _PILL_PAD_X
+            y0 = y - _PILL_PAD_Y
+            x1 = center_x + text_w // 2 + _PILL_PAD_X + (text_w % 2)
+            y1 = y + fs + _PILL_PAD_Y
+            try:
+                draw.rounded_rectangle([x0, y0, x1, y1], radius=_PILL_RADIUS, fill=_PILL_FILL)
+            except AttributeError:
+                draw.rectangle([x0, y0, x1, y1], fill=_PILL_FILL)
+
         # ---- Per-frame renderer ----
         def make_frame(t):
             from PIL import Image, ImageDraw
@@ -682,6 +699,7 @@ class VideoProcessor:
                 if offset == 0:
                     # Current line: word-by-word colouring
                     total_w = sum(word_widths[wd] for wd in words)
+                    _draw_pill(draw, w // 2, total_w, y, font_size)   # pill first
                     x = (w - total_w) // 2
                     for wi, wd in enumerate(words):
                         if wi < cur_word:
@@ -696,6 +714,7 @@ class VideoProcessor:
                     # Past line: bright (already read). Future line: dim (not yet reached).
                     line_text = ' '.join(words)
                     tw = _measure(pil_font, line_text)
+                    _draw_pill(draw, w // 2, tw, y, font_size)         # pill first
                     x  = (w - tw) // 2
                     alpha = BRIGHT if offset == -1 else DIM
                     draw.text((x, y), line_text, font=pil_font,
