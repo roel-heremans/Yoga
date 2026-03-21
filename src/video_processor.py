@@ -477,6 +477,74 @@ class VideoProcessor:
                 else clip.set_position((0, 0)))
         return clip
 
+    def _make_pill_overlay(
+        self,
+        lines: list,
+        font_size: int,
+        line_y_positions: list,
+        w: int,
+        h: int,
+        duration: float,
+    ):
+        """
+        Draw a semi-transparent dark rounded-rectangle pill behind each text line.
+
+        Args:
+            lines: Text strings, one per line.
+            font_size: Point size used for the text (determines pill height).
+            line_y_positions: Pixel y-coordinate for the top of each line's text.
+            w, h: Frame dimensions in pixels.
+            duration: Clip duration in seconds.
+
+        Returns:
+            A static ImageClip (RGBA, transparent except for the pills).
+        """
+        from PIL import Image, ImageDraw
+        import numpy as np
+
+        PAD_X = 14      # horizontal padding inside pill
+        PAD_Y = 6       # vertical padding inside pill
+        RADIUS = 20     # corner radius
+        FILL = (0, 0, 0, 128)  # ~50% opacity black
+
+        pil_font = self._load_pil_font(font_size)
+
+        def _measure(txt):
+            d = ImageDraw.Draw(Image.new('RGBA', (1, 1)))
+            try:
+                return int(d.textlength(txt, font=pil_font))
+            except AttributeError:
+                try:
+                    return int(pil_font.getlength(txt))
+                except AttributeError:
+                    return int(pil_font.getsize(txt)[0])
+
+        img = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(img)
+
+        for line, y in zip(lines, line_y_positions):
+            tw = _measure(line)
+            x0 = (w - tw) // 2 - PAD_X
+            y0 = y - PAD_Y
+            x1 = (w + tw) // 2 + PAD_X
+            y1 = y + font_size + PAD_Y
+            try:
+                draw.rounded_rectangle([x0, y0, x1, y1], radius=RADIUS, fill=FILL)
+            except AttributeError:
+                # Pillow < 8.2 does not have rounded_rectangle
+                draw.rectangle([x0, y0, x1, y1], fill=FILL)
+
+        arr = np.array(img)
+        try:
+            clip = ImageClip(arr, transparent=True)
+        except TypeError:
+            clip = ImageClip(arr)
+        clip = (clip.with_duration(duration) if hasattr(clip, 'with_duration')
+                else clip.set_duration(duration))
+        clip = (clip.with_position((0, 0)) if hasattr(clip, 'with_position')
+                else clip.set_position((0, 0)))
+        return clip
+
     def _load_pil_font(self, size: int):
         """Load a PIL TrueType font at the given pixel size.
 
