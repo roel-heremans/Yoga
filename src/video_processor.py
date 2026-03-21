@@ -931,6 +931,16 @@ class VideoProcessor:
         author_font_size = max(28, font_size // 2)
         block_top = max(80, h // 6)
 
+        # ---- Pill background overlay (static, behind all fading text lines) ----
+        line_y_positions = [block_top + i * int(line_height)
+                            for i in range(n_lines)]
+        pill_clip_static = self._make_pill_overlay(
+            lines=wrapped_lines,
+            font_size=font_size,
+            line_y_positions=line_y_positions,
+            w=w, h=h, duration=duration,
+        )
+
         serif_candidates = self.QUOTE_OVERLAY_FONT_CANDIDATES + ('Arial',)
 
         def _make_text_clip(t, size, color):
@@ -975,7 +985,7 @@ class VideoProcessor:
                     else clip.set_position(('center', int(y_pos))))
             return clip
 
-        clips = [self._make_scrim_clip(w, h, duration)]
+        clips = [self._make_scrim_clip(w, h, duration), pill_clip_static]
 
         # ---- Line clips ----
         for i, line in enumerate(wrapped_lines):

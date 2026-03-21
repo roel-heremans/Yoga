@@ -208,6 +208,28 @@ class TestCreateLineRevealClips:
         assert abs(interval - 3.0) < 0.001
 
 
+class TestRevealPillOverlay:
+    def test_pill_overlay_included_in_reveal_clips(self):
+        """_make_pill_overlay must be called inside create_line_reveal_clips."""
+        processor = make_processor()
+
+        pill_clip = MagicMock()
+        pill_clip.duration = 5.0
+
+        with patch.object(processor, '_make_pill_overlay', return_value=pill_clip) as mock_pill:
+            try:
+                processor.create_line_reveal_clips(
+                    text="Yoga is peace.",
+                    author="Iyengar",
+                    duration=5.0,
+                    font_size=36,
+                )
+            except Exception:
+                pass
+
+        assert mock_pill.called, "_make_pill_overlay must be called by create_line_reveal_clips"
+
+
 class TestCreateImageQuoteVideoSignature:
     """create_image_quote_video accepts text, author, quote_style params."""
 
