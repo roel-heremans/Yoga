@@ -166,21 +166,29 @@ class TestScrollTruncationBypass:
 
     def test_scroll_receives_full_text(self):
         """scroll style must bypass max_display_length and pass the full quote text."""
+        import tempfile, os
         from unittest.mock import MagicMock, patch
         from pathlib import Path
+        from PIL import Image as PILImage
         from src.quote_card_generator import QuoteCardGenerator
 
         gen = make_generator()
         mock_result = {'image_videos': [Path('/tmp/out.mp4')], 'flyer_videos': []}
         gen.video_processor.create_image_quote_video = MagicMock(return_value=mock_result)
 
-        with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
-            gen.generate_image_video_quote_card(
-                quote={'text': self.LONG_QUOTE, 'author': 'B.K.S. Iyengar', 'id': 'q1', 'group': 'TestGroup'},
-                image_paths=[Path('/tmp/fake.jpg')],
-                output_path=Path('/tmp/out.mp4'),
-                quote_style='scroll',
-            )
+        tmp = tempfile.NamedTemporaryFile(suffix='.jpg', delete=False)
+        PILImage.new('RGB', (100, 100), color=(50, 80, 50)).save(tmp.name)
+        tmp_path = Path(tmp.name)
+        try:
+            with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
+                gen.generate_image_video_quote_card(
+                    quote={'text': self.LONG_QUOTE, 'author': 'B.K.S. Iyengar', 'id': 'q1', 'group': 'TestGroup'},
+                    image_paths=[tmp_path],
+                    output_path=Path('/tmp/out.mp4'),
+                    quote_style='scroll',
+                )
+        finally:
+            os.unlink(tmp.name)
 
         call_kwargs = gen.video_processor.create_image_quote_video.call_args
         assert call_kwargs is not None
@@ -196,21 +204,29 @@ class TestScrollTruncationBypass:
 
     def test_cinematic_still_truncates(self):
         """cinematic style must still truncate via _shorten_quote_for_display (regression guard)."""
+        import tempfile, os
         from unittest.mock import MagicMock, patch
         from pathlib import Path
+        from PIL import Image as PILImage
         from src.utils import shorten_quote_for_display
 
         gen = make_generator()
         mock_result = {'image_videos': [Path('/tmp/out.mp4')], 'flyer_videos': []}
         gen.video_processor.create_image_quote_video = MagicMock(return_value=mock_result)
 
-        with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
-            gen.generate_image_video_quote_card(
-                quote={'text': self.LONG_QUOTE, 'author': 'B.K.S. Iyengar', 'id': 'q1', 'group': 'TestGroup'},
-                image_paths=[Path('/tmp/fake.jpg')],
-                output_path=Path('/tmp/out.mp4'),
-                quote_style='cinematic',
-            )
+        tmp = tempfile.NamedTemporaryFile(suffix='.jpg', delete=False)
+        PILImage.new('RGB', (100, 100), color=(50, 80, 50)).save(tmp.name)
+        tmp_path = Path(tmp.name)
+        try:
+            with patch.object(gen, '_append_generated_cards_to_quote', return_value=None):
+                gen.generate_image_video_quote_card(
+                    quote={'text': self.LONG_QUOTE, 'author': 'B.K.S. Iyengar', 'id': 'q1', 'group': 'TestGroup'},
+                    image_paths=[tmp_path],
+                    output_path=Path('/tmp/out.mp4'),
+                    quote_style='cinematic',
+                )
+        finally:
+            os.unlink(tmp.name)
 
         call_kwargs = gen.video_processor.create_image_quote_video.call_args
         assert call_kwargs is not None
