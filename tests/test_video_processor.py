@@ -357,6 +357,57 @@ class TestCreateScrollClips:
         assert mock_scroll.called, "create_scroll_clips should have been called for quote_style='scroll'"
 
 
+class TestGreenFadeAtEnd:
+    def test_add_white_fade_overlay_accepts_color_param(self):
+        """_add_white_fade_overlay must accept a color kwarg."""
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor._add_white_fade_overlay)
+        assert 'color' in sig.parameters
+
+    def test_no_flyer_path_passes_brand_color_to_fade(self):
+        """Without a flyer, create_image_quote_video must call _add_white_fade_overlay
+        with the brand primary colour, not the default white."""
+        from unittest.mock import patch, MagicMock, call
+        from pathlib import Path
+
+        processor = make_processor()
+        fake_clip = MagicMock()
+        fake_clip.size = (1080, 1920)
+        fake_clip.duration = 5
+
+        with patch.object(processor, '_add_white_fade_overlay', return_value=fake_clip) as mock_fade, \
+             patch('src.video_processor.ImageClip', return_value=fake_clip), \
+             patch('src.video_processor.CompositeVideoClip', return_value=fake_clip), \
+             patch('src.video_processor.concatenate_videoclips', return_value=fake_clip), \
+             patch.object(processor, 'create_cinematic_text_clip', return_value=fake_clip), \
+             patch.object(processor, 'image_to_clip', return_value=fake_clip), \
+             patch('pathlib.Path.exists', return_value=True):
+            try:
+                processor.create_image_quote_video(
+                    text="Yoga is peace.",
+                    author="Iyengar",
+                    image_paths=[Path('/tmp/fake.jpg')],
+                    output_path=Path('/tmp/out.mp4'),
+                    duration=5.0,
+                    flyer_lines=None,  # no-flyer path
+                )
+            except Exception:
+                pass  # rendering will fail — we only care about the fade call
+
+        # At least one call must have passed a non-white color
+        brand_green = processor.hex_to_rgb(
+            processor.config.get('brand', {}).get('colors', {}).get('primary', '#2c5530'))
+        calls_with_color = [
+            c for c in mock_fade.call_args_list
+            if c.kwargs.get('color') == brand_green
+        ]
+        assert len(calls_with_color) >= 1, (
+            f"Expected _add_white_fade_overlay called with color={brand_green}, "
+            f"got calls: {mock_fade.call_args_list}"
+        )
+
+
 class TestFlyerFontDefaults:
     def test_flyer_font_size_default_is_80(self):
         """create_cinematic_flyer_clip default font_size should be 80."""

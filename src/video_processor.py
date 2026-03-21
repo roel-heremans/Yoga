@@ -1296,13 +1296,11 @@ class VideoProcessor:
             segment_1 = segment_1.with_fps(fps)
         elif hasattr(segment_1, 'set_fps'):
             segment_1 = segment_1.set_fps(fps)
-        if use_flyer:
-            _gr, _gg, _gb = self.hex_to_rgb(
-                self.config.get('brand', {}).get('colors', {}).get('primary', '#2c5530'))
-            segment_1 = self._add_white_fade_overlay(segment_1, video_fade_duration, fps,
-                                                     color=(_gr, _gg, _gb))
-        else:
-            segment_1 = self._add_white_fade_overlay(segment_1, video_fade_duration, fps)
+        _fade_r, _fade_g, _fade_b = self.hex_to_rgb(
+            self.config.get('brand', {}).get('colors', {}).get('primary', '#2c5530'))
+        _fade_color = (_fade_r, _fade_g, _fade_b)
+        segment_1 = self._add_white_fade_overlay(segment_1, video_fade_duration, fps,
+                                                 color=_fade_color)
 
         if not use_flyer:
             final_clip = segment_1
@@ -1316,7 +1314,8 @@ class VideoProcessor:
             )
             if hasattr(segment_2, 'with_fps'):
                 segment_2 = segment_2.with_fps(fps)
-            segment_2 = self._add_white_fade_overlay(segment_2, video_fade_duration, fps)
+            segment_2 = self._add_white_fade_overlay(segment_2, video_fade_duration, fps,
+                                                     color=_fade_color)
             # Use method='chain' to avoid CompositeVideoClip bg=None issues with nested composites
             final_clip = concatenate_videoclips([segment_1, segment_2], method='chain')
             if hasattr(final_clip, 'with_duration'):
