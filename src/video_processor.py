@@ -494,9 +494,9 @@ class VideoProcessor:
         Teleprompter-style 3-line scroll overlay.
 
         At any moment the display shows:
-          - Top row:    previous line, all words dim (past)
+          - Top row:    previous line, all words bright/cream (past — already read)
           - Middle row: current line, read words bright/cream, active word gold, unread words dim
-          - Bottom row: next line, all words dim (future)
+          - Bottom row: next line, all words dim (future — not yet reached)
 
         Lines outside the 3-line window are hidden. After all words are shown, the
         author name appears centered in gold for the last ~2.5 s of the clip.
@@ -605,12 +605,13 @@ class VideoProcessor:
                         draw.text((x, y), wd, font=pil_font, fill=rgba)
                         x += word_widths[wd]
                 else:
-                    # Past or future: render the full line dimmed
+                    # Past line: bright (already read). Future line: dim (not yet reached).
                     line_text = ' '.join(words)
                     tw = _measure(pil_font, line_text)
                     x  = (w - tw) // 2
+                    alpha = BRIGHT if offset == -1 else DIM
                     draw.text((x, y), line_text, font=pil_font,
-                              fill=(*cream_rgb, DIM))
+                              fill=(*cream_rgb, alpha))
 
             return np.array(img)
 

@@ -478,3 +478,66 @@ class TestScrollAuthorPosition:
             f"Wrong value would be h//2={wrong_y}."
         )
         assert actual_y != wrong_y, "Author is still at screen centre — fix not applied"
+
+
+class TestScrollPastLineBrightness:
+    def test_past_line_rendered_bright_not_dim(self):
+        """
+        When the active word is on line 1 (second line), the past line (line 0)
+        must be drawn with alpha=255 (BRIGHT), not alpha=80 (DIM).
+        """
+        from unittest.mock import patch, MagicMock
+        import numpy as np
+
+        processor = make_processor()
+        font_size = 36
+
+        captured_make_frame = {}
+
+        def fake_video_clip(make_frame, duration):
+            captured_make_frame['fn'] = make_frame
+            mock = MagicMock()
+            mock.duration = duration
+            mock.with_fps = lambda fps: mock
+            mock.with_position = lambda pos: mock
+            return mock
+
+        # Multi-line text so line 0 is a "past" line while we're on line 1
+        text = "Yoga is the mirror to look at ourselves from within. It is a practice of deep peace."
+
+        with patch('src.video_processor.VideoClip', side_effect=fake_video_clip):
+            processor.create_scroll_clips(text=text, author="Iyengar", duration=15.0, font_size=font_size)
+
+        assert 'fn' in captured_make_frame
+        make_frame = captured_make_frame['fn']
+
+        drawn_texts = []
+
+        def capture_text(xy, text, font=None, fill=None):
+            drawn_texts.append({'xy': xy, 'text': text, 'fill': fill})
+
+        line_height = int(font_size * processor.LINE_HEIGHT_MULT)
+        block_top = max(80, processor.reel_height // 6)
+
+        with patch('PIL.ImageDraw.ImageDraw.text', side_effect=capture_text):
+            # text = 84 chars, duration=15.0 (current pre-Task-2 formula):
+            # author_display_start = 15.0 - min(2.5, 15*0.15) = 15.0 - 2.25 = 12.75 s
+            # word_dt = 12.75 / 17 words ≈ 0.75 s
+            # line 0 has 9 words → line 0 is "past" once t ≥ 9*0.75 = 6.75 s
+            # At t=8.0: word_idx = int(8.0/0.75) = 10 → on line 1, so line 0 is "past".
+            make_frame(8.0)
+
+        # Find lines drawn at past-row y (block_top + 0 * line_height = block_top)
+        past_y = block_top  # offset=-1 → y = block_top + (−1+1)*line_height = block_top
+        past_calls = [d for d in drawn_texts if d['xy'][1] == past_y]
+
+        assert past_calls, (
+            f"No past-line text drawn at y={past_y}. "
+            "Ensure t=8.0 is past line 0 but before author_display_start."
+        )
+        for call in past_calls:
+            fill = call['fill']
+            assert fill[3] == 255, (
+                f"Past line alpha={fill[3]}, expected 255 (BRIGHT). "
+                f"Past line should be fully visible, not dimmed."
+            )
