@@ -618,7 +618,7 @@ class VideoProcessor:
 
         # ---- Layout ----
         line_height = int(font_size * self.LINE_HEIGHT_MULT)
-        block_top = max(80, h // 6)
+        block_top = h // 8
         # Row offsets: past=-1 (top), current=0 (middle), future=+1 (bottom)
         # Visible rows are at block_top, block_top+line_height, block_top+2*line_height
 

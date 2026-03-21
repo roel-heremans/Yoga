@@ -482,7 +482,7 @@ class TestScrollAuthorPosition:
         font_size = 36  # test-convenience value; production default is 72
 
         line_height = int(font_size * processor.LINE_HEIGHT_MULT)
-        block_top = max(80, processor.reel_height // 6)
+        block_top = processor.reel_height // 8
         expected_y = block_top + 3 * line_height
         wrong_y = processor.reel_height // 2  # the old (broken) position
 
@@ -564,7 +564,7 @@ class TestScrollPastLineBrightness:
             drawn_texts.append({'xy': xy, 'text': text, 'fill': fill})
 
         line_height = int(font_size * processor.LINE_HEIGHT_MULT)
-        block_top = max(80, processor.reel_height // 6)
+        block_top = processor.reel_height // 8
 
         with patch('PIL.ImageDraw.ImageDraw.text', side_effect=capture_text):
             # text = 84 chars; fixed-speed timing:
@@ -589,6 +589,65 @@ class TestScrollPastLineBrightness:
                 f"Past line alpha={fill[3]}, expected 255 (BRIGHT). "
                 f"Past line should be fully visible, not dimmed."
             )
+
+
+class TestScrollBlockTop:
+    def test_block_top_is_h_over_8(self):
+        """block_top used in make_frame must equal h // 8, not max(80, h//6)."""
+        from unittest.mock import patch, MagicMock
+        processor = make_processor()
+
+        captured = {}
+        def fake_video_clip(make_frame, duration):
+            captured['make_frame'] = make_frame
+            m = MagicMock()
+            m.duration = duration
+            m.with_fps = lambda fps: m
+            m.with_position = lambda pos: m
+            return m
+
+        with patch('src.video_processor.VideoClip', side_effect=fake_video_clip):
+            # Use multi-line text to ensure past/current/future rows are rendered
+            processor.create_scroll_clips(
+                text="Yoga is peace and light. The body is a temple.",
+                author="Iyengar",
+                duration=5.0,
+                font_size=36,
+            )
+
+        assert 'make_frame' in captured
+        # Expected block_top = h // 8
+        expected_block_top = processor.reel_height // 8
+        h = processor.reel_height
+
+        # Call make_frame and check the y-coordinates of drawn text
+        drawn_texts = []
+
+        def capture_text(xy, text, font=None, fill=None):
+            drawn_texts.append({'xy': xy, 'text': text, 'fill': fill})
+
+        with patch('PIL.ImageDraw.ImageDraw.text', side_effect=capture_text):
+            captured['make_frame'](0)
+
+        # At t=0, the current line is drawn at y = block_top + line_height.
+        # With block_top = h//8 = 240, and line_height = int(36 * LINE_HEIGHT_MULT),
+        # the current line should be drawn well above where it would be with old code.
+        # Old code: max(80, h//6) = 320, so current line would be at ~377
+        # New code: h//8 = 240, so current line should be at ~297
+        assert drawn_texts, "No text drawn at t=0"
+        drawn_ys = [d['xy'][1] for d in drawn_texts]
+        min_y = min(drawn_ys)
+
+        # The key check: text should be drawn at a y-coordinate that proves
+        # we're using h//8, not max(80, h//6).
+        # With h//8, current line = 240 + 57 = 297
+        # With h//6, current line = 320 + 57 = 377
+        # So if min_y is less than 350, we're using the new formula.
+        assert min_y < 350, (
+            f"Text drawn at y={min_y}, which suggests block_top is not h//8. "
+            f"With h//8, current line should be at ~297. "
+            f"With old max(80, h//6), it would be at ~377."
+        )
 
 
 class TestScrollFixedSpeed:
