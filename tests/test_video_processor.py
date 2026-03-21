@@ -594,3 +594,11 @@ class TestScrollFixedSpeed:
             f"VideoClip duration={captured_make_frame['dur']:.2f}, "
             f"expected {expected_duration:.2f} (derived from text length, not passed-in duration {wrong_duration})"
         )
+
+
+class TestFlyerDurationDefault:
+    def test_flyer_duration_default_is_5(self):
+        import inspect
+        from src.video_processor import VideoProcessor
+        sig = inspect.signature(VideoProcessor.create_image_quote_video)
+        assert sig.parameters['flyer_duration'].default == 5.0

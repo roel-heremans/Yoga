@@ -343,7 +343,7 @@ def extract_quotes(group, all, force, intelligent, simple, chunk_size, max_quote
 @click.option('--flyer-palheiro', is_flag=True, help='Add Palheiro flyer segment: white slide with Casa Velha do Palheiro class info (15s), then fade out')
 @click.option('--flyer-line1', default=None, help='Flyer first line (overrides preset when used with custom flyer)')
 @click.option('--flyer-line2', default=None, help='Flyer second line (overrides preset when used with custom flyer)')
-@click.option('--flyer-duration', default=15, type=int, help='Flyer segment duration in seconds (default: 15)')
+@click.option('--flyer-duration', default=5, type=int, help='Flyer segment duration in seconds (default: 5)')
 @click.option('--flyer-font-size', default=80, type=int, help='Flyer body text font size (default: 80); title is larger')
 @click.option('--quote-style', type=click.Choice(['cinematic', 'reveal', 'scroll'], case_sensitive=False),
               default='cinematic', show_default=True,

@@ -1225,7 +1225,7 @@ class VideoProcessor:
         text_position: str = 'bottom',
         font_size: int = 64,
         flyer_lines: Optional[List[str]] = None,
-        flyer_duration: float = 15.0,
+        flyer_duration: float = 5.0,
         flyer_font_size: int = 80,
         flyer_logo_path: Optional[Path] = None,
         quote_style: str = 'cinematic',
@@ -1250,7 +1250,7 @@ class VideoProcessor:
             text_position: Position of text ('top', 'center', 'bottom').
             font_size: Font size for quote overlay (default 32).
             flyer_lines: Optional list of lines for yoga flyer (white BG + text); adds second segment.
-            flyer_duration: Duration of flyer segment in seconds (default 15).
+            flyer_duration: Duration of flyer segment in seconds (default 5).
             flyer_font_size: Font size for flyer body text (default 40); title line is larger.
             flyer_logo_path: Optional path to logo image (e.g. Palheiro) shown above flyer text.
         
