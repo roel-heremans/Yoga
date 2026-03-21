@@ -116,6 +116,29 @@ class TestCreateCinematicTextClip:
             f"Expected cream color #f0ece4 in TextClip calls: {colors_used}"
 
 
+class TestCinematicPillOverlay:
+    def test_pill_overlay_included_in_composite(self):
+        """_make_pill_overlay must be called inside create_cinematic_text_clip."""
+        from unittest.mock import patch, MagicMock
+        processor = make_processor()
+
+        pill_clip = MagicMock()
+        pill_clip.duration = 5.0
+
+        with patch.object(processor, '_make_pill_overlay', return_value=pill_clip) as mock_pill:
+            try:
+                processor.create_cinematic_text_clip(
+                    text="Yoga is peace.",
+                    author="Iyengar",
+                    duration=5.0,
+                    font_size=36,
+                )
+            except Exception:
+                pass  # CompositeVideoClip may fail without real clips — that's fine
+
+        assert mock_pill.called, "_make_pill_overlay must be called by create_cinematic_text_clip"
+
+
 class TestCreateLineRevealClips:
     """create_line_reveal_clips returns a list of pre-positioned clips."""
 

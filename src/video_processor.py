@@ -873,6 +873,16 @@ class VideoProcessor:
         author_y = div_y + self.DIVIDER_HEIGHT + self.AUTHOR_GAP
         div_x = (w - self.DIVIDER_WIDTH) // 2
 
+        # ---- Pill background overlay ----
+        line_y_positions = [block_top + i * int(font_size * self.LINE_HEIGHT_MULT)
+                            for i in range(n_lines)]
+        pill_clip = self._make_pill_overlay(
+            lines=wrapped_lines,
+            font_size=font_size,
+            line_y_positions=line_y_positions,
+            w=w, h=h, duration=duration,
+        )
+
         def _set_pos_dur(clip, pos, dur):
             clip = (clip.with_duration(dur) if hasattr(clip, 'with_duration')
                     else clip.set_duration(dur))
@@ -885,7 +895,7 @@ class VideoProcessor:
         author_clip = _set_pos_dur(author_clip, ('center', author_y), duration)
 
         composite = CompositeVideoClip(
-            [vignette_clip, scrim_clip, quote_clip, divider_clip, author_clip],
+            [vignette_clip, scrim_clip, pill_clip, quote_clip, divider_clip, author_clip],
             size=(w, h),
         )
         composite = (composite.with_duration(duration)
