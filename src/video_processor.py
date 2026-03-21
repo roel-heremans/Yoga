@@ -569,7 +569,7 @@ class VideoProcessor:
             draw = ImageDraw.Draw(img)
 
             if t >= author_display_start:
-                # Show author centred in gold
+                # Show author name below scroll window, horizontally centred
                 if author:
                     author_text = author.upper()
                     tw = _measure(author_font, author_text)

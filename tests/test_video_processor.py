@@ -431,7 +431,7 @@ class TestScrollAuthorPosition:
         Author text must be drawn at y = block_top + 3*line_height (line 4),
         not at y = h // 2 (screen centre).
         """
-        from unittest.mock import patch, MagicMock, call
+        from unittest.mock import patch, MagicMock
         import numpy as np
 
         processor = make_processor()
