@@ -473,8 +473,8 @@ class TestFlyerFontDefaults:
 class TestScrollAuthorPosition:
     def test_author_rendered_below_scroll_window_not_at_center(self):
         """
-        Author text must be drawn at y = block_top + 3*line_height (line 4),
-        not at y = h // 2 (screen centre).
+        During author phase: frozen quote lines start at block_top, author pill
+        appears below the divider (after n_frozen lines + gap), not at screen centre.
         """
         from unittest.mock import patch, MagicMock
 
@@ -483,8 +483,9 @@ class TestScrollAuthorPosition:
 
         line_height = int(font_size * processor.LINE_HEIGHT_MULT)
         block_top = processor.reel_height // 8
-        expected_y = block_top + 3 * line_height
         wrong_y = processor.reel_height // 2  # the old (broken) position
+        # Author pill appears after frozen lines + divider; must be below block_top
+        # and above screen centre. Exact y depends on how many lines the text wraps to.
 
         # Capture the make_frame callable by intercepting VideoClip construction
         captured_make_frame = {}
@@ -513,18 +514,30 @@ class TestScrollAuthorPosition:
         # → 52/13 + 2.5 = 6.5 s total, author_display_start = 4.0 s
         author_t = 4.5  # safely past author_display_start (4.0 s)
 
-        with patch('PIL.ImageDraw.ImageDraw.text') as mock_draw_text:
+        drawn_calls = []
+        def capture_text(xy, txt, **kw):
+            drawn_calls.append((xy, txt))
+
+        from PIL import ImageDraw as _ID
+        with patch.object(_ID.ImageDraw, 'text', side_effect=capture_text):
             make_frame(author_t)
 
-        assert mock_draw_text.called, "draw.text was not called during author display"
-        # Extract xy from the first positional arg of the first call
-        first_xy = mock_draw_text.call_args_list[0].args[0]
-        actual_y = first_xy[1]
-        assert actual_y == expected_y, (
-            f"Author y={actual_y}, expected {expected_y} (block_top={block_top} + 3*line_height={3*line_height}). "
-            f"Wrong value would be h//2={wrong_y}."
+        assert drawn_calls, "draw.text was not called during author display"
+        # The first calls are frozen quote lines; find the author pill call (uppercase text)
+        author_name = "B.K.S. Iyengar".upper()
+        author_calls = [(xy, txt) for xy, txt in drawn_calls if txt == author_name]
+        assert author_calls, (
+            f"Author text '{author_name}' not found in drawn calls. Got: {[t for _, t in drawn_calls]}"
+        )
+        actual_y = author_calls[0][0][1]
+        # Author must be below the first frozen line (block_top) and above screen centre
+        assert actual_y > block_top, (
+            f"Author y={actual_y} must be below block_top={block_top}"
         )
         assert actual_y != wrong_y, "Author is still at screen centre — fix not applied"
+        assert actual_y < wrong_y, (
+            f"Author y={actual_y} should be above h//2={wrong_y} (not at screen centre)"
+        )
 
 
 class TestScrollPastLineBrightness:
@@ -861,3 +874,138 @@ class TestScrollInlinePills:
         assert len(rect_calls) >= 1, (
             "Expected at least one rounded_rectangle/rectangle call for pill backgrounds"
         )
+
+
+class TestScrollFrozenLinesAuthorPhase:
+    def _get_make_frame(self, processor, text, author="Iyengar", font_size=36):
+        from unittest.mock import patch, MagicMock
+        captured = {}
+        def fake_video_clip(make_frame, duration):
+            captured['fn'] = make_frame
+            captured['duration'] = duration
+            m = MagicMock()
+            m.duration = duration
+            m.with_fps = lambda fps: m
+            m.with_position = lambda pos: m
+            return m
+        with patch('src.video_processor.VideoClip', side_effect=fake_video_clip):
+            processor.create_scroll_clips(
+                text=text, author=author, duration=15.0, font_size=font_size,
+            )
+        return captured['fn'], captured['duration']
+
+    def test_frozen_lines_drawn_during_author_phase(self):
+        """During author phase, the last quote lines must be drawn as text."""
+        from unittest.mock import patch
+        processor = make_processor()
+        text = "Yoga is the journey of the self through the self to the self."
+        make_frame, total_dur = self._get_make_frame(processor, text)
+
+        author_display_start = total_dur - processor.SCROLL_AUTHOR_DISPLAY_SECONDS
+        t_author = author_display_start + 0.1  # just inside author phase
+
+        drawn_texts = []
+        from PIL import ImageDraw as _ID
+        def capture_text(xy, txt, **kw):
+            drawn_texts.append(txt)
+
+        with patch.object(_ID.ImageDraw, 'text', side_effect=capture_text):
+            try:
+                make_frame(t_author)
+            except Exception:
+                pass
+
+        # At least one drawn text must be a word from the quote (not just the author)
+        quote_words = set(text.lower().split())
+        drawn_lower = [t.lower() for t in drawn_texts]
+        drawn_words = set(w for t in drawn_lower for w in t.split())
+        overlap = quote_words & drawn_words
+        assert overlap, (
+            f"Expected quote words drawn during author phase. "
+            f"Drawn: {drawn_texts}, Quote words: {list(quote_words)[:5]}"
+        )
+
+    def test_author_text_drawn_during_author_phase(self):
+        """Author name must be drawn (uppercase) during the author phase."""
+        from unittest.mock import patch
+        processor = make_processor()
+        text = "Yoga is the journey of the self."
+        author = "B.K.S. Iyengar"
+        make_frame, total_dur = self._get_make_frame(processor, text, author=author)
+
+        author_display_start = total_dur - processor.SCROLL_AUTHOR_DISPLAY_SECONDS
+        t_author = author_display_start + 0.1
+
+        drawn_texts = []
+        from PIL import ImageDraw as _ID
+        def capture_text(xy, txt, **kw):
+            drawn_texts.append(txt)
+
+        with patch.object(_ID.ImageDraw, 'text', side_effect=capture_text):
+            try:
+                make_frame(t_author)
+            except Exception:
+                pass
+
+        drawn_upper = [t.upper() for t in drawn_texts]
+        assert author.upper() in drawn_upper, (
+            f"Expected '{author.upper()}' in drawn texts. Got: {drawn_texts}"
+        )
+
+    def test_book_text_drawn_when_author_contains_separator(self):
+        """When author contains ' — ', the book part must be drawn separately."""
+        from unittest.mock import patch
+        processor = make_processor()
+        text = "Yoga is the journey of the self."
+        author = "B.K.S. Iyengar — Light on Life"
+        make_frame, total_dur = self._get_make_frame(processor, text, author=author)
+
+        author_display_start = total_dur - processor.SCROLL_AUTHOR_DISPLAY_SECONDS
+        t_author = author_display_start + 0.1
+
+        drawn_texts = []
+        from PIL import ImageDraw as _ID
+        def capture_text(xy, txt, **kw):
+            drawn_texts.append(txt)
+
+        with patch.object(_ID.ImageDraw, 'text', side_effect=capture_text):
+            try:
+                make_frame(t_author)
+            except Exception:
+                pass
+
+        drawn_combined = ' '.join(drawn_texts)
+        assert 'Light on Life' in drawn_combined, (
+            f"Expected book title 'Light on Life' drawn. Got: {drawn_texts}"
+        )
+
+    def test_short_quote_all_lines_shown_with_author(self):
+        """A 3-line quote: all 3 lines must be visible when author appears."""
+        from unittest.mock import patch
+        processor = make_processor()
+        # Force a short quote that will wrap to exactly 2-3 lines at font_size=36
+        text = "Yoga is peace. Light is truth."
+        make_frame, total_dur = self._get_make_frame(processor, text)
+
+        author_display_start = total_dur - processor.SCROLL_AUTHOR_DISPLAY_SECONDS
+        t_author = author_display_start + 0.1
+
+        drawn_texts = []
+        from PIL import ImageDraw as _ID
+        def capture_text(xy, txt, **kw):
+            drawn_texts.append(txt)
+
+        with patch.object(_ID.ImageDraw, 'text', side_effect=capture_text):
+            try:
+                make_frame(t_author)
+            except Exception:
+                pass
+
+        # All words of the quote should be present in the combined drawn text
+        combined = ' '.join(drawn_texts).lower()
+        for word in text.lower().split():
+            word_clean = word.strip('.,')
+            assert word_clean in combined, (
+                f"Expected word '{word_clean}' in frozen lines during author phase. "
+                f"Drawn: {drawn_texts}"
+            )

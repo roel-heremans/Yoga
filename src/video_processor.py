@@ -584,8 +584,9 @@ class VideoProcessor:
           - Middle row: current line, read words bright/cream, active word gold, unread words dim
           - Bottom row: next line, all words dim (future — not yet reached)
 
-        Lines outside the 3-line window are hidden. After all words are shown, the
-        author name appears centered in gold for the last ~2.5 s of the clip.
+        Lines outside the 3-line window are hidden. After all words are shown,
+        the last 3 quote lines freeze on screen, a thin gold divider appears below,
+        and the author name is shown as a pill on a fourth line.
 
         Returns a list of transparent overlay clips to composite over the background.
         """
@@ -674,14 +675,46 @@ class VideoProcessor:
             draw = ImageDraw.Draw(img)
 
             if t >= author_display_start:
-                # Show author name below scroll window, horizontally centred
+                # ---- Freeze last 3 quote lines ----
+                frozen = words_per_line[-3:] if len(words_per_line) >= 3 else words_per_line
+                for i, fwords in enumerate(frozen):
+                    y = block_top + i * line_height
+                    line_text = ' '.join(fwords)
+                    tw = _measure(pil_font, line_text)
+                    _draw_pill(draw, w // 2, tw, y, font_size)
+                    draw.text(((w - tw) // 2, y), line_text, font=pil_font,
+                              fill=(*cream_rgb, BRIGHT))
+
+                # ---- Thin gold divider ----
+                n_frozen = len(frozen)
+                div_y = block_top + n_frozen * line_height + 8
+                div_w = int(w * 0.55)
+                div_x = (w - div_w) // 2
+                draw.line([(div_x, div_y), (div_x + div_w, div_y)],
+                          fill=(*gold_rgb, 100), width=2)
+
+                # ---- Author + book pills ----
+                # QuoteCardGenerator formats author as "Author — Book" when a source exists.
+                # Split on ' — ' so they render on separate lines.
                 if author:
-                    author_text = author.upper()
-                    tw = _measure(author_font, author_text)
-                    x  = (w - tw) // 2
-                    y  = block_top + 3 * line_height
-                    draw.text((x, y), author_text, font=author_font,
+                    parts = author.split(' — ', 1)
+                    author_part = parts[0].strip()
+                    book_part   = parts[1].strip() if len(parts) > 1 else ''
+
+                    au_y = div_y + line_height // 2
+                    tw = _measure(author_font, author_part.upper())
+                    _draw_pill(draw, w // 2, tw, au_y, max(28, font_size // 2))
+                    draw.text(((w - tw) // 2, au_y), author_part.upper(), font=author_font,
                               fill=(*gold_rgb, BRIGHT))
+
+                    if book_part:
+                        book_font = self._load_pil_font(max(24, font_size // 3))
+                        bk_y = au_y + max(28, font_size // 2) + _PILL_PAD_Y * 2 + 4
+                        tw_b = _measure(book_font, book_part)
+                        _draw_pill(draw, w // 2, tw_b, bk_y, max(24, font_size // 3))
+                        draw.text(((w - tw_b) // 2, bk_y), book_part, font=book_font,
+                                  fill=(*cream_rgb, 160))
+
                 return np.array(img)
 
             # Which word is active at time t?
