@@ -1923,7 +1923,17 @@
       "relevance": "Reflects the culminating goal of yoga — Self-Realization and the recognition of the soul's light in all beings.",
       "importance_score": 1.0,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260321_014228.mp4",
+          "created_at": "2026-03-21T01:45:12.156299",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal21.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk004_quote006",
@@ -2049,7 +2059,17 @@
       "relevance": "Grounds the abstract goal of stilling the mind in practical asana practice, showing the inseparability of yoga philosophy and physical discipline.",
       "importance_score": 1.0,
       "notes": "",
-      "status": "accepted"
+      "status": "published",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260320_221949.mp4",
+          "created_at": "2026-03-20T22:20:33.601462",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal21.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk007_quote003",
@@ -2085,7 +2105,17 @@
       "relevance": "Describes the culminating discovery within the vijnanamaya kosha — the jivatman — connecting intellectual development to spiritual realization.",
       "importance_score": 1.0,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260320_222252.mp4",
+          "created_at": "2026-03-20T22:23:35.961231",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal21.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk009_quote002",
@@ -2103,7 +2133,17 @@
       "relevance": "Defines kaivalya and samadhi as the culmination of yogic practice, directly addressing the theme of Ultimate Freedom and merger with the Infinite.",
       "importance_score": 1.0,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260320_223614.mp4",
+          "created_at": "2026-03-20T22:36:57.840722",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal21.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk009_quote004",
@@ -2121,7 +2161,19 @@
       "relevance": "Illuminates the bliss body as the innermost layer of being where the soul resides and universal oneness is experienced.",
       "importance_score": 1.0,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260321_004736.mp4",
+          "created_at": "2026-03-21T00:50:36.960878",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal10.jpg",
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal13.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk009_quote006",
@@ -2427,7 +2479,19 @@
       "relevance": "Expresses yoga's balanced philosophy rejecting both bodily neglect and bodily fixation, pointing toward the discovery of the immortal Self as yoga's true aim.",
       "importance_score": 0.95,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260321_002010.mp4",
+          "created_at": "2026-03-21T00:22:53.550766",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal17.jpg",
+            "assets/01-ajuda/Yoga_Funchal10.jpg",
+            "assets/01-ajuda/Yoga_Funchal19.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk005_quote009",
@@ -2535,7 +2599,42 @@
       "relevance": "Expresses yoga's holistic understanding of health, recognizing that imbalance in the spiritual dimension ultimately manifests as physical disease.",
       "importance_score": 0.9400000000000001,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260328_212532.mp4",
+          "created_at": "2026-03-28T21:27:21.649724",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal16.jpg",
+            "assets/01-ajuda/Yoga_Funchal17.jpg",
+            "assets/01-ajuda/Yoga_Funchal19.jpg"
+          ]
+        },
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260328_212859.mp4",
+          "created_at": "2026-03-28T21:30:48.317871",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal16.jpg",
+            "assets/01-ajuda/Yoga_Funchal17.jpg",
+            "assets/01-ajuda/Yoga_Funchal19.jpg"
+          ]
+        },
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260328_213929.mp4",
+          "created_at": "2026-03-28T21:42:01.379047",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal16.jpg",
+            "assets/01-ajuda/Yoga_Funchal17.jpg",
+            "assets/01-ajuda/Yoga_Funchal19.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk006_quote008",
@@ -2931,7 +3030,19 @@
       "relevance": "Directly contrasts the external scientific conquest of nature with the yogi's internal journey of involution, illuminating one of the chapter's central philosophical themes.",
       "importance_score": 0.9,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260321_005410.mp4",
+          "created_at": "2026-03-21T00:57:14.837059",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal10.jpg",
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal13.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk007_quote002",
@@ -3111,7 +3222,19 @@
       "relevance": "Illuminates the connection between bodily serenity and spiritual tranquility, and the role of asana as a path to emancipation.",
       "importance_score": 0.89,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260322_000531.mp4",
+          "created_at": "2026-03-22T00:09:20.715336",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal10.jpg",
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal13.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk007_quote009",
@@ -3226,7 +3349,19 @@
       "relevance": "Defines prana as the universal life force manifesting across all dimensions of existence, central to understanding pranayama.",
       "importance_score": 0.87,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260321_022219.mp4",
+          "created_at": "2026-03-21T02:24:53.603982",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal10.jpg",
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal13.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk006_quote006",
@@ -3359,7 +3494,19 @@
       "relevance": "Exposes the ego's false identification with external attributes, directly supporting the inquiry into the true nature of the Self beyond appearances.",
       "importance_score": 0.87,
       "notes": "",
-      "status": "accepted"
+      "status": "accepted",
+      "generated_cards": [
+        {
+          "type": "image_videos",
+          "path": "output/quote_cards/quote_image_video_20260321_014247.mp4",
+          "created_at": "2026-03-21T01:45:53.389738",
+          "images_used": [
+            "assets/01-ajuda/Yoga_Funchal10.jpg",
+            "assets/01-ajuda/Yoga_Funchal11.jpg",
+            "assets/01-ajuda/Yoga_Funchal13.jpg"
+          ]
+        }
+      ]
     },
     {
       "id": "chunk002_quote008",

@@ -181,7 +181,7 @@ class VideoProcessor:
     FLYER_STROKE_WIDTH = 2
 
     # Scroll (teleprompter) timing
-    SCROLL_CHARS_PER_SECOND = 13       # comfortable on-screen reading pace (~130 wpm)
+    SCROLL_CHARS_PER_SECOND = 8        # comfortable on-screen reading pace (~80 wpm)
     SCROLL_AUTHOR_DISPLAY_SECONDS = 2.5
 
     # Cinematic / reveal quote style constants

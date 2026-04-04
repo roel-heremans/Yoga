@@ -72,12 +72,6 @@ The main entry point is **`main.py`**, which provides all CLI commands:
 | `generate-quote-cards` | Generate quote cards (white background, photo overlay, video overlay, or image-video) |
 | `mark-published` | Scan `output/published/`, mark matched quotes as published, log images used |
 | `config` | Show current configuration (brand, AI, literature groups) |
-| `themes` | List available theme directories (for feed/reel content) |
-| `stats` | Show statistics about themes and assets |
-| `generate` | Generate a single feed post or reel (theme-based) |
-| `batch-generate` | Generate multiple feed posts and reels in one run |
-| `preprocess-pdfs` | Preprocess PDFs and save structured content to JSON |
-| `extract-brand` | Extract brand colors and fonts from a website |
 
 ---
 
@@ -318,39 +312,7 @@ python3 main.py mark-published --published-dir /path/to/other/folder
 ```bash
 # Show current configuration (brand, AI provider, literature groups)
 python3 main.py config
-
-# List theme directories
-python3 main.py themes
-
-# Show asset and theme statistics
-python3 main.py stats
 ```
-
----
-
-## Theme-Based Feed Posts and Reels (Optional)
-
-If you use theme directories (e.g. `04_theme_name`, `05_theme_name` in `assets/`) with images, videos, and PDFs:
-
-```bash
-# List available themes
-python3 main.py themes
-
-# Generate a single feed post
-python3 main.py generate -t 05_kombucha_benefits -T feed
-
-# Generate a reel
-python3 main.py generate -t 05_kombucha_benefits -T reel --combined --use-quote
-
-# Batch generate
-python3 main.py batch-generate --feeds 3 --reels 3
-
-# Preprocess PDFs to JSON for use in themes
-python3 main.py preprocess-pdfs --all
-```
-
-- Feed posts: use `-i path/to/image.jpg` to force a specific image; otherwise one is picked from the theme folder.
-- Reels: use `-v video.mp4` for specific videos; `-m track.mp3` for music. Without `-m`, a random track from `assets/00_music/` is used.
 
 ---
 

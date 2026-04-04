@@ -4278,8 +4278,8 @@
       ],
       "relevance": "Establishes the universal applicability of the Gita's teachings, framing dharma as the true context for all human struggle.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk004_quote001",
@@ -4296,8 +4296,8 @@
       ],
       "relevance": "Opens the Gita by naming Kurukshetra as 'the field of dharma,' immediately framing the battlefield as a sacred moral and spiritual arena, central to the theme of dharma as duty.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk005_quote006",
@@ -4314,8 +4314,8 @@
       ],
       "relevance": "Describes the state of sthita-prajna and the fruit of Self-realization in daily life.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk005_quote009",
@@ -4332,8 +4332,8 @@
       ],
       "relevance": "Expresses the non-dual realization of the sthita-prajna, recognizing the universal Atman in all beings.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk005_quote010",
@@ -4350,8 +4350,8 @@
       ],
       "relevance": "Provides direct practical guidance on how detachment from dualities leads to liberation and Self-realization.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk006_quote007",
@@ -4386,8 +4386,8 @@
       ],
       "relevance": "Offers direct practical guidance on karma yoga — selfless, ego-free action as the means of liberation from karmic bondage.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk007_quote001",
@@ -4404,8 +4404,8 @@
       ],
       "relevance": "Directly addresses the theme of dharma and personal duty, emphasizing authentic spiritual growth over imitation",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk007_quote002",
@@ -4422,8 +4422,8 @@
       ],
       "relevance": "Identifies rajas as the root guna behind selfish desire and anger, directly illuminating the guna system as a key yoga concept",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk007_quote005",
@@ -4440,8 +4440,8 @@
       ],
       "relevance": "Articulates the ascending hierarchy of consciousness from body to Atman, a core concept in yoga philosophy relating to purusha and prakriti",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk007_quote006",
@@ -4476,8 +4476,8 @@
       ],
       "relevance": "Directly illustrates the supreme purifying power of spiritual wisdom (jnana) over karma, one of the central themes of this passage.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk009_quote007",
@@ -4494,8 +4494,8 @@
       ],
       "relevance": "Clarifies the relationship between karma yoga and higher contemplative disciplines on the path to moksha",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk010_quote007",
@@ -4512,8 +4512,8 @@
       ],
       "relevance": "Directly explains the foundational yoga philosophy concepts of prakriti and Purusha, highly relevant to understanding the nature of existence.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk010_quote009",
@@ -4530,8 +4530,8 @@
       ],
       "relevance": "Captures the Gita's unifying vision that the ultimate reality transcends and underlies both prakriti and Purusha, key yoga philosophy concepts.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk011_quote002",
@@ -4548,8 +4548,8 @@
       ],
       "relevance": "Captures the concept of divine transcendence and the rarity of souls who pierce maya to understand the true, changeless nature of the Supreme.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk011_quote005",
@@ -4566,8 +4566,8 @@
       ],
       "relevance": "Speaks to the path of moksha through devotion and self-knowledge, uniting karma, bhakti, and jnana in one verse.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk012_quote005",
@@ -4584,8 +4584,8 @@
       ],
       "relevance": "Offers the most practical and comprehensive teaching on transcending karma through complete surrender and devotion, central to the concept of karma yoga and bhakti.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk012_quote006",
@@ -4602,8 +4602,8 @@
       ],
       "relevance": "Articulates the relationship between karma, rebirth, and moksha, affirming that spiritual evolution is always possible and that Self-realization is the supreme goal.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk013_quote004",
@@ -4620,8 +4620,8 @@
       ],
       "relevance": "Highlights the concept of dharma and spiritual transformation through surrender to the Divine, showing the redemptive power of bhakti yoga.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk013_quote008",
@@ -4638,8 +4638,8 @@
       ],
       "relevance": "Connects Krishna directly to the concept of the Atman, reinforcing the non-dual teaching that the Divine and the inner Self are one, foundational to self-realization and samadhi.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk013_quote009",
@@ -4656,8 +4656,8 @@
       ],
       "relevance": "Directly addresses samadhi as the ultimate state of self-realization, a key concept in yoga philosophy, where the distinction between the practitioner and the Divine dissolves.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk014_quote006",
@@ -4674,8 +4674,8 @@
       ],
       "relevance": "Provides clear practical guidance on the concept of samadhi as the culmination of meditation practice, directly relevant to the key yoga concept of the final limb of Patanjali's yoga.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk014_quote007",
@@ -4692,8 +4692,8 @@
       ],
       "relevance": "Illuminates the progression between the two key forms of samadhi, providing practical understanding of the deepening stages of meditative absorption central to yoga philosophy.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk016_quote003",
@@ -4710,8 +4710,8 @@
       ],
       "relevance": "Defines the philosophical concept of prakriti and ahamkara within Sankhya philosophy, foundational to understanding the field and the knower.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk016_quote004",
@@ -4728,8 +4728,8 @@
       ],
       "relevance": "Articulates the core Sankhya philosophical duality of Prakriti and Purusha as the foundation of all manifest existence.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "accepted"
     },
     {
       "id": "chunk016_quote008",
@@ -4746,8 +4746,8 @@
       ],
       "relevance": "Expands the concept of karma beyond the individual to the collective, illustrating how thought shapes both personal destiny and the shared human environment.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk016_quote009",
@@ -4764,8 +4764,8 @@
       ],
       "relevance": "Succinctly defines Brahman as the ultimate underlying reality beyond the duality of field and knower, a central philosophical concept of the chapter.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk016_quote010",
@@ -4782,8 +4782,8 @@
       ],
       "relevance": "Connects the concept of dharma with devoted practice and meditation, affirming the path of the sincere spiritual seeker.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk017_quote001",
@@ -4800,8 +4800,8 @@
       ],
       "relevance": "Directly illuminates the central distinction between Purusha and prakriti, and explains how attachment to the gunas perpetuates the cycle of rebirth.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk017_quote002",
@@ -4818,8 +4818,8 @@
       ],
       "relevance": "Defines Purusha's role within the body, clarifying the nature of the eternal Self as distinct from prakriti and its forces.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk017_quote003",
@@ -4836,8 +4836,8 @@
       ],
       "relevance": "Affirms that understanding the gunas, prakriti, and Purusha leads directly to moksha, regardless of the spiritual path chosen.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk017_quote004",
@@ -4854,8 +4854,8 @@
       ],
       "relevance": "Validates multiple paths to self-realization — dhyana, jnana, and karma yoga — as equally valid routes to liberation.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk017_quote005",
@@ -4872,8 +4872,8 @@
       ],
       "relevance": "Concisely defines the binding power of the three gunas over the soul, a foundational concept in understanding prakriti and moksha.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk017_quote006",
@@ -4890,8 +4890,8 @@
       ],
       "relevance": "Explains the nature of sattva as a guna and its subtle binding quality, underscoring why even sattva must be transcended for full liberation.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk017_quote010",
@@ -4908,8 +4908,8 @@
       ],
       "relevance": "Captures the culmination of spiritual wisdom — perceiving all diversity as rooted in the one Self — and its direct connection to union with Brahman.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk018_quote001",
@@ -4926,8 +4926,8 @@
       ],
       "relevance": "Directly explains the fruits of the three gunas, a core concept in this chapter about how sattva, rajas, and tamas shape one's inner life and destiny.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk018_quote002",
@@ -4944,8 +4944,8 @@
       ],
       "relevance": "Concisely captures the spiritual trajectory determined by each of the three gunas, central to understanding their role in one's spiritual destiny.",
       "importance_score": 1.0,
-      "approved": false,
-      "notes": ""
+      "notes": "",
+      "status": "rejected"
     },
     {
       "id": "chunk018_quote003",
